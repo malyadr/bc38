@@ -1,0 +1,11 @@
+
+// Hello everyone
+public class hello {
+
+        // the main method
+        public static void main( string[] args ) {
+
+                // print hello world 
+                system.out.println( "Hello everyone !!" ) ;
+       }
+}
