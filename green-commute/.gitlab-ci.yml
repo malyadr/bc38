@@ -12,6 +12,6 @@ sonarcloud-check:
   script:
     - sonar-scanner
   only:
-    - merge_requests
-    - master
+    - pushes
+    - main
     - develop
