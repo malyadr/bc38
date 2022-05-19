@@ -14,7 +14,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <MUIThemeProvider theme={theme}>
+    <MUIThemeProvider theme={theme} >
       <ThemeProvider theme={theme}>
         <Story />
       </ThemeProvider>
