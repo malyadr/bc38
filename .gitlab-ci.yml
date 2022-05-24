@@ -10,8 +10,10 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
+    - cd green-commute
+    - npm install
+    - npm test
     - sonar-scanner
   only:
-    - pushes
+    - merge_requests
     - main
-    - develop

@@ -8,6 +8,7 @@ declare module "@mui/material/styles" {
   interface PaletteOptions {
     alpha600: PaletteColorOptions;
     alpha500: PaletteColorOptions;
+    alpha400: PaletteColorOptions;
     alpha300: PaletteColorOptions;
     alpha200: PaletteColorOptions;
     alpha100: PaletteColorOptions;
@@ -28,6 +29,7 @@ declare module "@mui/material/styles" {
   interface Palette {
     alpha600: PaletteColor;
     alpha500: PaletteColor;
+    alpha400: PaletteColor;
     alpha300: PaletteColor;
     alpha200: PaletteColor;
     alpha100: PaletteColor;
@@ -61,6 +63,7 @@ declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
     alpha600: true;
     alpha500: true;
+    alpha400: true;
     alpha300: true;
     alpha200: true;
     alpha100: true;
@@ -96,6 +99,9 @@ const theme = createTheme({
     },
     alpha500: {
       main: "#1B877A",
+    },
+    alpha400: {
+      main: "#30A193",
     },
     alpha300: {
       main: "#4ABAAD",
@@ -177,14 +183,16 @@ const theme = createTheme({
       fontWeight: 500,
     },
     caption1: {
+      fontFamily: ["Montserrat", "sans-serif"].join(","),
       fontSize: 12,
       lineHeight: 16,
       fontWeight: 700,
     },
     caption2: {
-      fontSize: 12,
-      lineHeight: 16,
-      fontWeight: 500,
+      fontFamily: ["Montserrat", "sans-serif"].join(","),
+      fontSize: "12px",
+      lineHeight: "16px",
+      fontWeight: "500",
     },
   },
 });
