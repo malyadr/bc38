@@ -131,7 +131,7 @@ const theme = createTheme({
       main: "#F7F7F7",
     },
     gammaWhite: {
-      main: "#000000",
+      main: "#FFFFFF",
     },
     gammaColor1: {
       main: "#E8FFFC",
@@ -156,45 +156,114 @@ const theme = createTheme({
       fontSize: "32px",
       lineHeight: "48px",
       fontWeight: "600",
+      textTransform: "none",
     },
     h2: {
       fontSize: 20,
       lineHeight: 30,
       fontWeight: 500,
+      textTransform: "none",
     },
     subtitle1: {
       fontSize: 16,
       lineHeight: 24,
       fontWeight: 600,
+      textTransform: "none",
     },
     subtitle2: {
       fontSize: 16,
       lineHeight: 24,
       fontWeight: 500,
+      textTransform: "none",
     },
     body1: {
       fontSize: 14,
       lineHeight: 22,
       fontWeight: 600,
+      textTransform: "none",
     },
     body2: {
       fontSize: 14,
       lineHeight: 22,
       fontWeight: 500,
+      textTransform: "none",
     },
     caption1: {
       fontFamily: ["Montserrat", "sans-serif"].join(","),
       fontSize: 12,
       lineHeight: 16,
       fontWeight: 700,
+      textTransform: "none",
     },
     caption2: {
       fontFamily: ["Montserrat", "sans-serif"].join(","),
       fontSize: "12px",
       lineHeight: "16px",
       fontWeight: "500",
+      textTransform: "none",
     },
   },
 });
+
+export type textVariant =
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "subtitle1"
+  | "subtitle2"
+  | "body1"
+  | "body2"
+  | "caption"
+  | "button"
+  | "overline"
+  | "inherit"
+  | "caption1"
+  | "caption2"
+  | undefined;
+
+export type color =
+  | "alpha600"
+  | "alpha500"
+  | "alpha400"
+  | "alpha300"
+  | "alpha200"
+  | "alpha100"
+  | "betaHigh"
+  | "betaMedium"
+  | "betaLow"
+  | "beta400"
+  | "beta200"
+  | "beta100"
+  | "gammaWhite"
+  | "gammaColor1"
+  | "gammaColor2"
+  | "gammaColor3"
+  | "gammaAccent1"
+  | "gammaAccent2"
+  | undefined;
+
+export type textColor =
+  | "alpha600.main"
+  | "alpha500.main"
+  | "alpha400.main"
+  | "alpha300.main"
+  | "alpha200.main"
+  | "alpha100.main"
+  | "betaHigh..main"
+  | "betaMedium..main"
+  | "betaLow.main"
+  | "beta400.main"
+  | "beta200.main"
+  | "beta100.main"
+  | "gammaWhite.main"
+  | "gammaColor1.main"
+  | "gammaColor2.main"
+  | "gammaColor3.main"
+  | "gammaAccent1.main"
+  | "gammaAccent2.main"
+  | undefined;
 
 export default theme;
