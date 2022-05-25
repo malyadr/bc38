@@ -19,6 +19,13 @@ const config: Configuration = {
   module: {
     rules: [
       {
+        test: /\.(svg|png|jpe?g|gif|jp2|webp)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        },
+      },
+      {
         test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
         use: {
