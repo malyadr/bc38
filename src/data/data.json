@@ -1,0 +1,58 @@
+{
+    "Data": [
+        {
+            "id": 1,
+            "src": "/assets/hp.png",
+            "name": "HP",
+            "role": "User Experience Designer",
+            "location": "Hyderabad, Telangana, India",
+            "time": "1hr 36 mins ago",
+            "status": false
+        },
+        {
+            "id": 2,
+            "src": "/assets/instagram.png",
+            "name": "Instagram",
+            "role": "User Experience Designer",
+            "location": "Hyderabad, Telangana, India",
+            "time": "45 mins ago",
+            "status": false
+        },
+        {
+            "id": 3,
+            "src": "/assets/bmw.png",
+            "name": "BMW",
+            "role": "Product Designer",
+            "location": "Hyderabad, Telangana, India",
+            "time": "3 days ago",
+            "status": false
+        },
+        {
+            "id": 4,
+            "src": "/assets/myntra.png",
+            "name": "Myntra",
+            "role": "User Experience Designer",
+            "location": "Hyderabad, Telangana, India",
+            "time": "4 days ago",
+            "status": false
+        },
+        {
+            "id": 5,
+            "src": "/assets/twitter.png",
+            "name": "Twitter",
+            "role": "User Experience Designer",
+            "location": "Hyderabad, Telangana, India",
+            "time": "1 week ago",
+            "status": false
+        },
+        {
+            "id": 6,
+            "src": "/assets/wipro.png",
+            "name": "Wipro",
+            "role": "User Experience Designer",
+            "location": "Hyderabad, Telangana, India",
+            "time": "10 days ago",
+            "status": false
+        }
+    ]
+}
