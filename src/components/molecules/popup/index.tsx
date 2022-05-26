@@ -3,6 +3,7 @@ import Modal from '@mui/material/Modal'
 
 import { Grid } from '@mui/material'
 import { Button1 } from '../button'
+import { APPLY } from '../../../constants/constants'
 
 const style = {
     position: 'absolute',
@@ -36,7 +37,7 @@ const Popup = ({ children }: Props) => {
                 styles={{ borderRadius: '8px' }}
                 onClick={handleOpen}
             >
-                Apply
+                {APPLY}
             </Button1>
             <Modal
                 open={open}

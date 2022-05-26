@@ -5,8 +5,9 @@ import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Button from '@mui/material/Button'
 import { Typography } from '@mui/material'
+import { NEXT, BACK, STEPS } from '../../../constants/constants'
 
-const steps = ['Your Location', 'Job Location', 'Your Skills']
+const steps = STEPS
 
 const ProgressStepper = () => {
     const [activeStep, setActiveStep] = React.useState(0)
@@ -61,7 +62,7 @@ const ProgressStepper = () => {
                         sx={{ mr: 1 }}
                         color="alpha300"
                     >
-                        <Typography variant="caption1">Back</Typography>
+                        <Typography variant="caption1">{BACK}</Typography>
                     </Button>
                     <Box />
                     <Button
@@ -71,7 +72,7 @@ const ProgressStepper = () => {
                         color="alpha300"
                     >
                         <Typography variant="caption1" color="gammaWhite.main">
-                            Next
+                            {NEXT}
                         </Typography>
                     </Button>
                 </Box>

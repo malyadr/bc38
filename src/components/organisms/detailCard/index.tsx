@@ -10,14 +10,25 @@ import Logo from '../../../../public/assets/images/image 16.jpg'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { Button1 } from '../../molecules/button'
+import {
+    SAVE,
+    DESCRIPTION,
+    JOB_DETAIL,
+    ABOUT_TITLE,
+    ABOUT_COMPANY,
+    SKILL_DETAILS,
+    SEE_MORE,
+    GREEN_COMMUTE_ROUTE,
+} from '../../../constants/constants'
 
 interface Props {
     jobTitle: string
     companyName: string
     companyCity: string
+    time: string
 }
 
-const DetailCard = ({ jobTitle, companyName, companyCity }: Props) => {
+const DetailCard = ({ jobTitle, companyName, companyCity, time }: Props) => {
     return (
         <>
             <Card
@@ -73,7 +84,7 @@ const DetailCard = ({ jobTitle, companyName, companyCity }: Props) => {
                                         variant="caption1"
                                         color="betaMedium.main"
                                     >
-                                        36 min ago
+                                        {time}
                                     </Typography>
                                     <Grid
                                         item
@@ -92,7 +103,7 @@ const DetailCard = ({ jobTitle, companyName, companyCity }: Props) => {
                                                     }}
                                                     onClick={undefined}
                                                 >
-                                                    Save
+                                                    {SAVE}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
@@ -116,20 +127,12 @@ const DetailCard = ({ jobTitle, companyName, companyCity }: Props) => {
                     <Grid container>
                         <Grid item sx={{ marginBottom: '8px' }}>
                             <Typography variant="body1" color="betaHigh.main">
-                                Description
+                                {DESCRIPTION}
                             </Typography>
                         </Grid>
                         <Grid item>
                             <Typography variant="body2" color="betaMedium.main">
-                                Open Text is seeking a talented, personable
-                                interaction designer who can assist the User
-                                Experience Design team by working with other
-                                designers and development teams on a variety of
-                                projects. The OpenText User Experience Design
-                                group is a distributed multi-disciplinary team
-                                of professionals that are responsible for
-                                enhancing the UX of the company’s collective
-                                product suites worldwide.
+                                {JOB_DETAIL}
                             </Typography>
                         </Grid>
                         <Grid
@@ -137,21 +140,17 @@ const DetailCard = ({ jobTitle, companyName, companyCity }: Props) => {
                             sx={{ marginTop: '24px', marginBottom: '8px' }}
                         >
                             <Typography variant="body1" color="betaHigh.main">
-                                About the Company
+                                {ABOUT_TITLE}
                             </Typography>
                         </Grid>
                         <Grid item sx={{ marginBottom: '8px' }}>
                             <Typography variant="body2" color="betaMedium.main">
-                                High level of proficiency with leading UX Design
-                                software packages, such as Axure, Sketch,
-                                InVision, or Experience Design including the
-                                core Adobe Creative Suite products.
+                                {ABOUT_COMPANY}
                             </Typography>
                         </Grid>
                         <Grid item sx={{ marginBottom: '8px' }}>
                             <Typography variant="body2" color="betaMedium.main">
-                                Excellent written and oral communication and
-                                presentation skills
+                                {SKILL_DETAILS}
                                 <Button1
                                     TextColor="alpha400.main"
                                     variant="body1"
@@ -160,7 +159,7 @@ const DetailCard = ({ jobTitle, companyName, companyCity }: Props) => {
                                     styles={null}
                                     onClick={undefined}
                                 >
-                                    SEE MORE
+                                    {SEE_MORE}
                                 </Button1>
                             </Typography>
                         </Grid>
@@ -189,7 +188,7 @@ const DetailCard = ({ jobTitle, companyName, companyCity }: Props) => {
                         >
                             <Grid container>
                                 <Grid item sx={{ marginRight: 1 }}>
-                                    Green Commute Routes
+                                    {GREEN_COMMUTE_ROUTE}
                                 </Grid>
                                 <Grid item>
                                     <ArrowForwardIcon />

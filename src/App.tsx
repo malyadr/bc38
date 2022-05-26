@@ -14,6 +14,7 @@ function App() {
                 jobTitle="User Experince Designer"
                 companyName="Myntra"
                 companyCity="Hitech City Hyderabad-50072"
+                time="36 min ago"
             />
             <ProgressStepper />
             <Popup>

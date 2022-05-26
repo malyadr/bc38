@@ -6,6 +6,22 @@ import { Box, Grid, Typography } from '@mui/material'
 import ControlledCheckbox from '../../molecules/checkBox'
 import RadioButtons from '../../molecules/radioButtons'
 import { Button1 } from '../../molecules/button'
+import {
+    APPLY,
+    CLEAR_ALL,
+    DISTANCE,
+    DISTANCE_VALUES,
+    EXP_LEVEL,
+    EXP_LEVEL_VALUES,
+    GREEN_COMMUTE,
+    GREEN_COMMUTE_VALUES,
+    JOB_DISTANCE,
+    JOB_DISTANCE_VALUES,
+    POSTED_DATE,
+    POSTED_DATE_VALUES,
+    TRANSPORT,
+    TRANSPORT_MODES,
+} from '../../../constants/constants'
 
 const style = {
     position: 'absolute',
@@ -49,116 +65,122 @@ const Filter = () => {
                 <Grid container sx={style}>
                     <Grid item xs={4}>
                         <Typography variant="body1" color="betaHigh">
-                            Distance
+                            {DISTANCE}
                         </Typography>
 
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={true} /> 0-10
-                            Kms
+                            <ControlledCheckbox defaultChecked={true} />
+                            {DISTANCE_VALUES[0]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={false} /> 11-20
-                            Kms
+                            <ControlledCheckbox defaultChecked={false} />
+                            {DISTANCE_VALUES[1]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={false} /> 21-30
-                            Kms
+                            <ControlledCheckbox defaultChecked={false} />
+                            {DISTANCE_VALUES[2]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={false} /> 31-40
-                            Kms
+                            <ControlledCheckbox defaultChecked={false} />
+                            {DISTANCE_VALUES[3]}
                         </Typography>
                     </Grid>
                     <Grid item xs={4}>
                         <Typography variant="body1" color="betaHigh">
-                            Date Posted
+                            {POSTED_DATE}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={true} /> Pasted
-                            24 hours
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={false} /> Past
-                            week
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={false} /> Past
-                            month
+                            <ControlledCheckbox defaultChecked={true} />{' '}
+                            {POSTED_DATE_VALUES[0]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
                             <ControlledCheckbox defaultChecked={false} />{' '}
-                            Anything
+                            {POSTED_DATE_VALUES[1]}
+                        </Typography>
+                        <Typography variant="body2" color="betaMedium">
+                            <ControlledCheckbox defaultChecked={false} />{' '}
+                            {POSTED_DATE_VALUES[2]}
+                        </Typography>
+                        <Typography variant="body2" color="betaMedium">
+                            <ControlledCheckbox defaultChecked={false} />{' '}
+                            {POSTED_DATE_VALUES[3]}
                         </Typography>
                     </Grid>
                     <Grid item xs={4}>
                         <Typography variant="body1" color="betaHigh">
-                            Green Commute
+                            {GREEN_COMMUTE}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <RadioButtons value="yes" /> Yes
+                            <RadioButtons value="yes" />{' '}
+                            {GREEN_COMMUTE_VALUES[0]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <RadioButtons value="no" /> No
+                            <RadioButtons value="no" />{' '}
+                            {GREEN_COMMUTE_VALUES[1]}
                         </Typography>
                     </Grid>
                     <Grid item xs={4}>
                         <Typography variant="body1" color="betaHigh">
-                            Job Distance
+                            {JOB_DISTANCE}
                         </Typography>
 
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={true} /> Full
-                            time
+                            <ControlledCheckbox defaultChecked={true} />{' '}
+                            {JOB_DISTANCE_VALUES[0]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
                             <ControlledCheckbox defaultChecked={false} />{' '}
-                            Internship
+                            {JOB_DISTANCE_VALUES[1]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
                             <ControlledCheckbox defaultChecked={false} />{' '}
-                            Contract
+                            {JOB_DISTANCE_VALUES[2]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={false} /> Remote
+                            <ControlledCheckbox defaultChecked={false} />{' '}
+                            {JOB_DISTANCE_VALUES[3]}
                         </Typography>
                     </Grid>
                     <Grid item xs={4}>
                         <Typography variant="body1" color="betaHigh">
-                            Experience Level
+                            {EXP_LEVEL}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={true} /> Fresher
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={false} />{' '}
-                            Mid-level
+                            <ControlledCheckbox defaultChecked={true} />{' '}
+                            {EXP_LEVEL_VALUES[0]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
                             <ControlledCheckbox defaultChecked={false} />{' '}
-                            Director
+                            {EXP_LEVEL_VALUES[1]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
                             <ControlledCheckbox defaultChecked={false} />{' '}
-                            Executive
+                            {EXP_LEVEL_VALUES[2]}
+                        </Typography>
+                        <Typography variant="body2" color="betaMedium">
+                            <ControlledCheckbox defaultChecked={false} />{' '}
+                            {EXP_LEVEL_VALUES[3]}
                         </Typography>
                     </Grid>
                     <Grid item xs={4}>
                         <Typography variant="body1" color="betaHigh">
-                            Transport
+                            {TRANSPORT}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={true} /> Metro
+                            <ControlledCheckbox defaultChecked={true} />{' '}
+                            {TRANSPORT_MODES[0]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={true} /> Bus
+                            <ControlledCheckbox defaultChecked={true} />{' '}
+                            {TRANSPORT_MODES[1]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={true} /> Car
-                            pooling
+                            <ControlledCheckbox defaultChecked={true} />{' '}
+                            {TRANSPORT_MODES[2]}
                         </Typography>
                         <Typography variant="body2" color="betaMedium">
-                            <ControlledCheckbox defaultChecked={true} /> Motor
-                            Cycle
+                            <ControlledCheckbox defaultChecked={true} />{' '}
+                            {TRANSPORT_MODES[3]}
                         </Typography>
                     </Grid>
 
@@ -171,7 +193,7 @@ const Filter = () => {
                             styles={{ borderRadius: '8px' }}
                             onClick={undefined}
                         >
-                            Clear All
+                            {CLEAR_ALL}
                         </Button1>
                         <Button1
                             TextColor="gammaWhite.main"
@@ -181,7 +203,7 @@ const Filter = () => {
                             styles={{ borderRadius: '8px' }}
                             onClick={undefined}
                         >
-                            Apply
+                            {APPLY}
                         </Button1>
                     </Box>
                 </Grid>

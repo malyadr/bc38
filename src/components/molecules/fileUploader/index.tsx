@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material'
 import React from 'react'
 import { Button1 } from '../button'
+import { FILE_UPLOAD_TEXT } from '../../../constants/constants'
 
 const style = {
     m: 2,
@@ -10,7 +11,7 @@ const style = {
     borderColor: 'alpha400.main',
 }
 
-const FileUploader = () => {
+const FileUploadPopup = () => {
     return (
         <>
             <Grid
@@ -29,11 +30,11 @@ const FileUploader = () => {
                     styles={null}
                     onClick={undefined}
                 >
-                    Click Here to Upload Files
+                    {FILE_UPLOAD_TEXT}
                 </Button1>
             </Grid>
         </>
     )
 }
 
-export default FileUploader
+export default FileUploadPopup
