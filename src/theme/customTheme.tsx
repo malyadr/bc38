@@ -24,6 +24,7 @@ declare module '@mui/material/styles' {
         gammaColor3: PaletteColorOptions
         gammaAccent1: PaletteColorOptions
         gammaAccent2: PaletteColorOptions
+        gammaAccent3: PaletteColorOptions
     }
 
     interface Palette {
@@ -45,6 +46,7 @@ declare module '@mui/material/styles' {
         gammaColor3: PaletteColor
         gammaAccent1: PaletteColor
         gammaAccent2: PaletteColor
+        gammaAccent3: PaletteColor
     }
 
     interface TypographyVariants {
@@ -147,6 +149,9 @@ const theme = createTheme({
         },
         gammaAccent2: {
             main: '#FF725E',
+        },
+        gammaAccent3: {
+            main: '#EFFFFD',
         },
     },
 

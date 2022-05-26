@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
-
+import GroupFilter from '../../../../public/assets/icons/GroupFilter.svg'
 import { Box, Grid, Typography } from '@mui/material'
 import ControlledCheckbox from '../../molecules/checkBox'
 import RadioButtons from '../../molecules/radioButtons'
@@ -28,20 +28,7 @@ const Filter = () => {
     return (
         <>
             <Button
-                startIcon={
-                    <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M2.99999 2H13L7.98999 8.3L2.99999 2ZM0.249995 1.61C2.26999 4.2 5.99999 9 5.99999 9V15C5.99999 15.55 6.44999 16 6.99999 16H9C9.55 16 10 15.55 10 15V9C10 9 13.72 4.2 15.74 1.61C16.25 0.95 15.78 0 14.95 0H1.03999C0.209995 0 -0.260005 0.95 0.249995 1.61Z"
-                            fill="#656E66"
-                        />
-                    </svg>
-                }
+                startIcon={<Box component="img" src={GroupFilter} />}
                 onClick={handleOpen}
                 sx={{
                     borderRadius: 5,

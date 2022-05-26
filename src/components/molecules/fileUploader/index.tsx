@@ -4,12 +4,13 @@ import { Button1 } from '../button'
 
 const style = {
     m: 2,
-    border: '2px dashed #30A193',
+    border: '2px dashed',
     width: '692px',
-    bgcolor: '#EFFFFD',
+    bgcolor: 'gammaAccent3.main',
+    borderColor: 'alpha400.main',
 }
 
-function FileUploader() {
+const FileUploader = () => {
     return (
         <>
             <Grid
