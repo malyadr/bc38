@@ -3,6 +3,11 @@ import { makeStyles } from '@mui/styles'
 import React from 'react'
 import Icon from '../../atoms/icon'
 import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
+import more from '../../../../public/assets/icons/more.svg'
+import bike from '../../../../public//assets/icons/bike.svg'
+import bus from '../../../../public//assets/icons/bus.svg'
+import car from '../../../../public//assets/icons/car.svg'
+import train from '../../../../public//assets/icons/train.svg'
 
 const styles = makeStyles({
     flexRow: {
@@ -21,7 +26,7 @@ const styles = makeStyles({
     },
 })
 
-type props = {
+type JobCardProps = {
     src: string
     role: string
     companyName: string
@@ -29,14 +34,20 @@ type props = {
     time: string
 }
 
-export const JobCard = ({ src, role, companyName, location, time }: props) => {
+export const JobCard = ({
+    src,
+    role,
+    companyName,
+    location,
+    time,
+}: JobCardProps) => {
     const classes = styles()
     return (
         <>
             <Box className={classes.root}>
                 <Box className={classes.flexRow}>
                     <Icon src={src} />
-                    <Icon src="assets/icons/more.svg"></Icon>
+                    <Icon src={more}></Icon>
                 </Box>
                 <Box className={classes.flexColumn}>
                     <Typography
@@ -69,10 +80,10 @@ export const JobCard = ({ src, role, companyName, location, time }: props) => {
                             width: '140px',
                         }}
                     >
-                        <Icon src="/assets/icons/bike.svg" />
-                        <Icon src="/assets/icons/bus.svg" />
-                        <Icon src="/assets/icons/car.svg" />
-                        <Icon src="/assets/icons/train.svg" />
+                        <Icon src={bike} />
+                        <Icon src={bus} />
+                        <Icon src={car} />
+                        <Icon src={train} />
                     </Box>
                     <Typography
                         variant="caption2"
