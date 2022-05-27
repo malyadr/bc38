@@ -57,3 +57,10 @@ export const TRANSPORT_MODES = ['Metro', 'Bus', 'Car pooling', 'Motor Cycle']
 
 export const CLEAR_ALL = 'Clear All'
 export const GREEN_COMMUTE_ROUTE = ' Green Commute Routes'
+
+export const COMMON_ROUTE = 'Common Routes'
+export const CATCH_A_BLUE = 'Catch a blue line metro towards Raidurg'
+export const DISTANCES = '25km'
+export const COST = '100'
+export const DURATION = '1 hr 20 mins'
+export const COMMON_ROUTES_AVAILABLE = 'Commute routes available :'
