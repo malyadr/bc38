@@ -8,10 +8,20 @@ import theme from '../../../theme/customTheme'
 
 
 
-test('test for cab name  ', () => {
+test('test for index and render  ', () => {
     render(
         <ThemeProvider theme={theme}>
-            <AqiIndicator index="100" />
+            <AqiIndicator index="100" size="small"/>
+        </ThemeProvider>
+    )
+    const containedButton = screen.getByText(/100/i)
+    expect(containedButton).toBeInTheDocument()
+})
+
+test('test for index with large size', () => {
+    render (
+        <ThemeProvider theme={theme}>
+            <AqiIndicator index="100" size="large" />
         </ThemeProvider>
     )
     const containedButton = screen.getByText(/100/i)
