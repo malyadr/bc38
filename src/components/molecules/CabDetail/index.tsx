@@ -1,8 +1,8 @@
-import { Button, Typography, SvgIcon, Stack } from '@mui/material'
+import { Typography, SvgIcon } from '@mui/material'
 import Box from '@mui/material/Box'
 import React from 'react'
-import {APPROX} from '../../../constants/constants'
-import Logo from '../../../../public/assets/icons/rupee.svg';
+import { APPROX } from '../../../constants/constants'
+import Logo from '../../../../public/assets/icons/rupee.svg'
 
 interface CabProps {
     cab: string
@@ -14,7 +14,7 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
     return (
         <>
             <Box
-            border="1px solid black"
+                border="1px solid black"
                 sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -25,7 +25,6 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                 <Box component="img" src={src} />
                 <Box
                     component="div"
-                    
                     pt="8px"
                     sx={{
                         display: 'flex',
@@ -46,18 +45,26 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                             display: 'flex',
                             width: '100%',
                             justifyContent: 'space-between',
-                            alignItems:'center'
+                            alignItems: 'center',
                         }}
                     >
                         <Typography variant="caption2" color="betaMedium.main">
                             {APPROX}
                         </Typography>
-                        <Stack direction="row" sx={{width:'30px'}}>
-                            <SvgIcon component={Logo} sx={{width:'fit-content'}}/>
-                            <Typography variant="caption2" color="betaHigh.main" sx={{display:'flex', alignItems:'center', position:'relative', left:'-5px'}}>
-                                {detail}
-                            </Typography>
-                        </Stack>
+
+                        <Typography
+                            variant="caption2"
+                            color="betaHigh.main"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'flex-end',
+                                width: 'fit-content',
+                            }}
+                        >
+                            <SvgIcon component={Logo} />
+                            {detail}
+                        </Typography>
                     </Box>
                 </Box>
                 <Typography

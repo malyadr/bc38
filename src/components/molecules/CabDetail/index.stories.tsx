@@ -15,5 +15,5 @@ export const button = Template.bind({})
 button.args = {
     cab: 'Ola',
     detail: '1200',
-    src: "/assets/icons/ola.svg",
+    src: '/assets/icons/ola.svg',
 }
