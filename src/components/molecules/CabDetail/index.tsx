@@ -14,7 +14,6 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
     return (
         <>
             <Box
-                border="1px solid black"
                 sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
