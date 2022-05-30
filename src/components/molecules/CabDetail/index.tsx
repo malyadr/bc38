@@ -1,6 +1,8 @@
-import { Button, Typography } from '@mui/material'
+import { Button, Typography, SvgIcon } from '@mui/material'
 import Box from '@mui/material/Box'
 import React from 'react'
+import {APPROX} from '../../../constants/constants'
+import Logo from '../../../../public/assets/icons/rupee.svg';
 
 interface CabProps {
     cab: string
@@ -20,7 +22,7 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                     width: '359px',
                 }}
             >
-                <img src={src} />
+                <Box component="img" src={src} />
                 <Box
                     component="div"
                     
@@ -48,10 +50,10 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                         }}
                     >
                         <Typography variant="caption2" color="betaMedium.main">
-                            Approximately
+                            {APPROX}
                         </Typography>
-                        <Typography variant="caption2" color="betaHigh.main" sx={{display:'flex', alignItems:'center', justifyContent:'flex-end'}}>
-                            <img src="/assets/rupee.svg" />
+                        <Typography variant="caption2" color="betaHigh.main" sx={{display:'flex', alignItems:'center', justifyContent:'flex-end', width:'fit-content'}}>
+                           <SvgIcon component={Logo} />
                             {detail}
                         </Typography>
                     </Box>
