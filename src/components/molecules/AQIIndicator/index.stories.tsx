@@ -1,16 +1,17 @@
 import React from 'react'
 import { ComponentStory } from '@storybook/react'
-import AQIIndicator from '.'
+import AqiIndicator from '.'
 export default {
     title: 'molecules / AQI Indicator',
-    component: AQIIndicator,
+    component: AqiIndicator,
 }
-const Template: ComponentStory<typeof AQIIndicator> = (args) => (
-    <AQIIndicator {...args} />
+const Template: ComponentStory<typeof AqiIndicator> = (args) => (
+    <AqiIndicator {...args} />
 )
 
 export const aqi = Template.bind({})
 
 aqi.args = {
     index: '1200',
+    size:"small"
 }
