@@ -9,7 +9,12 @@ type IconProps = {
 
 
 const Icon = (props: IconProps) => {
-    return <ReactSVG data-testid="icon" src={props.src} ></ReactSVG>
+    return (
+        <>        
+        <ReactSVG data-testid="icon" src={props.src}  />
+        </>
+
+    )
 };
 
 export default Icon;

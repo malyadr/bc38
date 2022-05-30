@@ -1,4 +1,4 @@
-import { Button, Typography, SvgIcon } from '@mui/material'
+import { Button, Typography, SvgIcon, Stack } from '@mui/material'
 import Box from '@mui/material/Box'
 import React from 'react'
 import {APPROX} from '../../../constants/constants'
@@ -52,10 +52,12 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                         <Typography variant="caption2" color="betaMedium.main">
                             {APPROX}
                         </Typography>
-                        <Typography variant="caption2" color="betaHigh.main" sx={{display:'flex', alignItems:'center', justifyContent:'flex-end', width:'fit-content'}}>
-                           <SvgIcon component={Logo} />
-                            {detail}
-                        </Typography>
+                        <Stack direction="row" sx={{width:'30px'}}>
+                            <SvgIcon component={Logo} sx={{width:'fit-content'}}/>
+                            <Typography variant="caption2" color="betaHigh.main" sx={{display:'flex', alignItems:'center', position:'relative', left:'-5px'}}>
+                                {detail}
+                            </Typography>
+                        </Stack>
                     </Box>
                 </Box>
                 <Typography
