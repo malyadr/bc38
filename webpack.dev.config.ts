@@ -36,7 +36,7 @@ const config: Configuration = {
                 },
             },
             {
-                test: /\.(png|jp(e*)g|svg|gif)$/,
+                test: /\.(png|jp(e*)g|gif)$/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -45,6 +45,16 @@ const config: Configuration = {
                         },
                     },
                 ],
+            },
+            {
+                test: /\.svg$/i,
+                use: [{
+                    loader: '@svgr/webpack',
+                    options: {
+                        typescript: true,
+                        ext:'tsx'
+                    }
+                }],
             },
         ],
     },

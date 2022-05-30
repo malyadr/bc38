@@ -1,32 +1,36 @@
 import { Box, SvgIcon } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import React from 'react'
-import {default as Location} from '../../../../public/assets/icons/location.svg'
+import { default as Location } from '../../../../public/assets/icons/location.svg'
 
 interface LocationProps {
-    location: string;
+    location: string
 }
 
-
-const LocationBar = ({location}: LocationProps) => {
+const LocationBar = ({ location }: LocationProps) => {
     return (
         <>
             <Box
                 sx={{
-                   bgcolor:'alpha600.main',
+                    bgcolor: 'alpha600.main',
                     display: 'flex',
                     width: '340px',
                     height: '28px',
                     borderBottom: '2px solid white',
                     justifyContent: 'space-between',
-                    alignItems:'center'
+                    alignItems: 'center',
                 }}
             >
-               <SvgIcon component={Location}  fill="yellow" stroke="white" sx={{fill:"transparent"}}/>
+                <SvgIcon
+                    component={Location}
+                    fill="yellow"
+                    stroke="white"
+                    sx={{ fill: 'transparent' }}
+                />
                 <Typography
                     variant="body1"
                     sx={{
-                        width:'303px',
+                        width: '303px',
                         color: 'white',
                     }}
                 >
@@ -38,4 +42,3 @@ const LocationBar = ({location}: LocationProps) => {
 }
 
 export default LocationBar
-
