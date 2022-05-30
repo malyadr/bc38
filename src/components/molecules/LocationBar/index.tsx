@@ -1,7 +1,7 @@
 import { Box, SvgIcon } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import React from 'react'
-import Icon from '../../atoms/icon'
+import {default as Location} from '../../../../public/assets/icons/location.svg'
 
 interface LocationProps {
     location: string;
@@ -13,23 +13,21 @@ const LocationBar = ({location}: LocationProps) => {
         <>
             <Box
                 sx={{
-                    background: 'alpha600.main',
+                   bgcolor:'alpha600.main',
                     display: 'flex',
                     width: '340px',
                     height: '28px',
-                    borderBottom: '2px solid black',
-                    justifyContent: 'flex-start',
+                    borderBottom: '2px solid white',
+                    justifyContent: 'space-between',
+                    alignItems:'center'
                 }}
             >
-                <img src='/assets/location.svg' />
+               <SvgIcon component={Location}  fill="yellow" stroke="white" sx={{fill:"transparent"}}/>
                 <Typography
                     variant="body1"
                     sx={{
-                        background: '#0B6D62',
+                        width:'303px',
                         color: 'white',
-                        width: '233px',
-                        pl: '15px',
-                        pt: '5px',
                     }}
                 >
                     {location}
@@ -41,4 +39,3 @@ const LocationBar = ({location}: LocationProps) => {
 
 export default LocationBar
 
-//
