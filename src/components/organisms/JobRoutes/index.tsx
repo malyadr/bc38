@@ -11,6 +11,8 @@ import {
     DISTANCES,
     COST,
     VIEW,
+    E_MAREDPALLY,
+    HITECH_CITY,
 } from '../../../constants/constants'
 import bike from '../../../../public//assets/icons/bike.svg'
 import bus from '../../../../public/assets/icons/bus.svg'
@@ -18,6 +20,16 @@ import car from '../../../../public/assets/icons/car.svg'
 import train from '../../../../public/assets/icons/train.svg'
 import rupee from '../../../../public/assets/icons/rupee.svg'
 import circle from '../../../../public/assets/icons/Ellipse 7.svg'
+import hoveredBus from '../../../../public/assets/icons/busHovered.svg'
+import map from '../../../../public/assets/images/mapview.png'
+import hoveredCar from '../../../../public/assets/icons/carHover.svg'
+import vector from '../../../../public/assets/images/Vector 7.png'
+import location1 from '../../../../public/assets/icons/location 1.svg'
+import location2 from '../../../../public/assets/icons/location 2.svg'
+import label from '../../../../public/assets/icons/label.svg'
+import label2 from '../../../../public/assets/icons/label 2.svg'
+
+import theme from '../../../theme/customTheme'
 
 const styles = makeStyles({
     flexRow: {
@@ -31,11 +43,8 @@ export const Routes = () => {
 
     const classes = styles()
     return (
-        <Box sx={{ width: '404px' }}>
-            <CommonRoutes
-                from={'E Marredpally, Secunderabad'}
-                to={'Hitech City, Telanagana, Hyderabad.'}
-            ></CommonRoutes>
+        <Box sx={{ width: '404px', height: 'fit-content' }}>
+            <CommonRoutes from={E_MAREDPALLY} to={HITECH_CITY}></CommonRoutes>
             <Box
                 component="div"
                 style={{
@@ -56,14 +65,28 @@ export const Routes = () => {
                     }}
                     data-testid="bike"
                 />
-                {transport == 'buss' ? (
-                    <Box sx={{ marginTop: '-8px', marginRight: '4px' }}>
-                        <img
-                            src="assets/icons/busHovered.svg"
+                {transport === 'bus' ? (
+                    <Box
+                        style={{
+                            height: '39px',
+                            width: '39px',
+                            borderRadius: '50%',
+                            backgroundColor: theme.palette.alpha400.main,
+                            marginTop: '-8px',
+                        }}
+                    >
+                        <SvgIcon
+                            component={hoveredBus}
                             onClick={() => {
-                                setTransport('buss')
+                                setTransport('bus')
                             }}
                             data-testid="busHovered"
+                            sx={{
+                                height: '70%',
+                                width: '70%',
+                                marginTop: '5px',
+                                marginLeft: '5px',
+                            }}
                         />
                     </Box>
                 ) : (
@@ -71,19 +94,33 @@ export const Routes = () => {
                         sx={{ marginRight: '4px' }}
                         component={bus}
                         onClick={() => {
-                            setTransport('buss')
+                            setTransport('bus')
                         }}
-                        data-testid="busss"
+                        data-testid="test-bus"
                     />
                 )}
-                {transport == 'car' ? (
-                    <Box sx={{ marginTop: '-8px', marginRight: '4px' }}>
-                        <img
-                            src="/assets/icons/carHover.svg"
+                {transport === 'car' ? (
+                    <Box
+                        style={{
+                            height: '39px',
+                            width: '39px',
+                            borderRadius: '50%',
+                            backgroundColor: theme.palette.alpha400.main,
+                            marginTop: '-8px',
+                        }}
+                    >
+                        <SvgIcon
+                            component={hoveredCar}
                             onClick={() => {
                                 setTransport('car')
                             }}
                             data-testid="carHovered"
+                            sx={{
+                                height: '70%',
+                                width: '70%',
+                                marginTop: '5px',
+                                marginLeft: '5px',
+                            }}
                         />
                     </Box>
                 ) : (
@@ -160,7 +197,7 @@ export const Routes = () => {
                     </Box>
                 </Box>
             </Box>
-            {transport == 'buss' ? (
+            {transport === 'bus' && (
                 <>
                     <Box
                         component="div"
@@ -172,8 +209,63 @@ export const Routes = () => {
                             width: '',
                         }}
                     >
-                        <Box component="div" style={{ marginBottom: '1.19%' }}>
-                            <img src="assets/images/mapview.svg" />
+                        <Box
+                            component="div"
+                            sx={{
+                                position: 'relative',
+                                marginBottom: '1.19%',
+                            }}
+                        >
+                            <Box
+                                component="img"
+                                src={map}
+                                sx={{ height: '143px', width: '361px' }}
+                            />
+                            <Box
+                                component="img"
+                                src={vector}
+                                sx={{
+                                    position: 'absolute',
+                                    top: '44px',
+                                    left: '75px',
+                                    fill: 'white',
+                                }}
+                            />
+                            <SvgIcon
+                                component={location1}
+                                sx={{
+                                    position: 'absolute',
+                                    top: '31px',
+                                    left: '54px',
+                                }}
+                            />
+                            <SvgIcon
+                                component={location2}
+                                sx={{
+                                    position: 'absolute',
+                                    top: '80px',
+                                    left: '287px',
+                                    fill: 'transparent',
+                                }}
+                            />
+                            <Box
+                                component={label}
+                                sx={{
+                                    position: 'absolute',
+                                    top: '51px',
+                                    left: '16px',
+                                    fill: 'transparent',
+                                }}
+                            ></Box>
+                            <Box
+                                component={label2}
+                                sx={{
+                                    position: 'absolute',
+                                    top: '53px',
+                                    left: '256px',
+                                    fill: 'transparent',
+                                }}
+                            ></Box>
                         </Box>
                         <Button1
                             variant="caption1"
@@ -186,10 +278,8 @@ export const Routes = () => {
                         </Button1>
                     </Box>
                 </>
-            ) : (
-                <></>
             )}
-            {transport == 'car' ? (
+            {transport === 'car' && (
                 <>
                     <Box component="div" style={{ marginTop: '1.19%' }}>
                         <CabDetail
@@ -209,8 +299,6 @@ export const Routes = () => {
                         />
                     </Box>
                 </>
-            ) : (
-                <></>
             )}
         </Box>
     )

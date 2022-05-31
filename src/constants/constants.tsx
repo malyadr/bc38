@@ -67,3 +67,5 @@ export const COMMON_ROUTES_AVAILABLE = 'Commute routes available :'
 export const APPROX = 'Approximately'
 
 export const VIEW = 'View in Google Maps'
+export const E_MAREDPALLY = 'E Marredpally, Secunderabad'
+export const HITECH_CITY = 'Hitech City, Telanagana, Hyderabad.'
