@@ -92,3 +92,5 @@ export const PLACEHOLDER = [
     'Enter your job location',
     'Enter your skills',
 ]
+
+export const AQI_TITLE = 'Real Time Air Quality Index(AQI) in this location'
