@@ -78,6 +78,45 @@ export const ProgressStepper = ({ additional, setAdditional }: any) => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1)
     }
 
+    const inputChip = (activeStep: number) => {
+        let placeholder = ''
+        let options: string[] = []
+        let updateData: any
+        let uniqueKey = 0
+        let backTextValue: string[] = []
+
+        if (activeStep == 0) {
+            placeholder = PLACEHOLDER[0]
+            options = STEPPER_ONE_OPTIONS
+            updateData = updateLocation
+            uniqueKey = 0
+            backTextValue = location
+        }
+        if (activeStep == 1) {
+            placeholder = PLACEHOLDER[1]
+            options = STEPPER_TWO_OPTIONS
+            updateData = updateJobLocation
+            uniqueKey = 1
+            backTextValue = jobLocation
+        }
+        if (activeStep == 2) {
+            placeholder = PLACEHOLDER[2]
+            options = STEPPER_THREE_OPTIONS
+            updateData = updateSkills
+            uniqueKey = 2
+            backTextValue = mySkills
+        }
+        return (
+            <InputChip
+                placeholder={placeholder}
+                options={options}
+                updateData={updateData}
+                uniqueKey={uniqueKey}
+                backTextValue={backTextValue}
+            />
+        )
+    }
+
     return (
         <Box sx={{ width: '100%' }}>
             <Stepper activeStep={activeStep} connector={null}>
@@ -136,29 +175,11 @@ export const ProgressStepper = ({ additional, setAdditional }: any) => {
                         </Typography>
                         <Box sx={{ marginTop: '24px', marginBottom: '52px' }}>
                             {activeStep == 0 ? (
-                                <InputChip
-                                    placeholder={PLACEHOLDER[0]}
-                                    options={STEPPER_ONE_OPTIONS}
-                                    updateData={updateLocation}
-                                    uniqueKey={0}
-                                    backTextValue={location}
-                                />
+                                inputChip(0)
                             ) : activeStep == 1 ? (
-                                <InputChip
-                                    placeholder={PLACEHOLDER[1]}
-                                    options={STEPPER_TWO_OPTIONS}
-                                    updateData={updateJobLocation}
-                                    uniqueKey={1}
-                                    backTextValue={jobLocation}
-                                />
+                                inputChip(1)
                             ) : activeStep == 2 ? (
-                                <InputChip
-                                    placeholder={PLACEHOLDER[2]}
-                                    options={STEPPER_THREE_OPTIONS}
-                                    updateData={updateSkills}
-                                    uniqueKey={2}
-                                    backTextValue={mySkills}
-                                />
+                                inputChip(2)
                             ) : (
                                 <></>
                             )}

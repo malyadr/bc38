@@ -14,19 +14,20 @@ const style = {
     },
 }
 
+interface Props {
+    placeholder: string
+    options: string[]
+    updateData: (arg: string[]) => void
+    uniqueKey: number
+    backTextValue: string[]
+}
 export const InputChip = ({
     placeholder,
     updateData,
     options,
     uniqueKey,
     backTextValue,
-}: {
-    placeholder: string
-    options: string[]
-    updateData: (arg: string[]) => void
-    uniqueKey: number
-    backTextValue: string[]
-}) => {
+}: Props) => {
     return (
         <>
             <Autocomplete
