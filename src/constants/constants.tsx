@@ -64,4 +64,8 @@ export const DISTANCES = '25km'
 export const COST = '100'
 export const DURATION = '1 hr 20 mins'
 export const COMMON_ROUTES_AVAILABLE = 'Commute routes available :'
-export const APPROX = "Approximately"
+export const APPROX = 'Approximately'
+
+export const VIEW = 'View in Google Maps'
+export const E_MAREDPALLY = 'E Marredpally, Secunderabad'
+export const HITECH_CITY = 'Hitech City, Telanagana, Hyderabad.'
