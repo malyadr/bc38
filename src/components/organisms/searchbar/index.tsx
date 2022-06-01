@@ -1,125 +1,79 @@
-import { Grid, Box, TextField, SvgIcon } from "@mui/material";
-import {default as work} from "../../../../public/assets/icons/work.svg";
-import {default as locationval} from "../../../../public/assets/icons/map-pin.svg";
-import {default as search} from "../../../../public/assets/icons/search.svg";
-import Icon from "../../atoms/icon";
-import theme from "../../../theme/customTheme";
-import React from "react";
+import { TextField, Autocomplete, Stack, Button, SvgIcon } from "@mui/material";
+import React, { useState } from "react";
+// import WorkIcon from '@mui/icons-material/Work';
+// import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import SearchIcon from '@mui/icons-material/Search';
+import Work from '../../../../public/assets/icons/work.svg'
+import Location from '../../../../public/assets/icons/location.svg';
 
-export default function SearchBar() {
-    return (
-        <div className="jobsearchcontainer">
-            <Grid
-                container
-                sx={{
-                    maxWidth: "843px",
-                    zIndex: 2,
-                    borderRadius: "32px",
-                    backgroundColor: "#ffff",
-                    padding: "0px 28px",
-                    height: "56px",
-                    alignItems: "center"
-                }}
-                data-testid="jobsearch"
-            >
-                <TextField
-                    
-                    variant="standard"
-                    inputProps={{
-                        "data-testid": "skills"
-                    }}
-                    InputProps={{
-                        startAdornment: (
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    marginTop: "4px",
-                                    marginRight: "20px"
-                                }}
-                            >
-                                <SvgIcon
-                                   component={work}
-                                   fill="yellow"
-                                   stroke="white"
-                                   sx={{ fill: 'transparent' }}
-                />
-                            </Box>
-                        ),
-                        disableUnderline: true,
-                        sx: {
-                            fontFamily: "Montserrat",
-                            color: `${theme.palette.betaHigh.main}`,
-                            fontWeight: 500,
-                            fontSize: "14px",
-                            lineHeight: "22px"
-                        }
-                    }}
-                    sx={{
-                        width: "45%",
-                        borderRight: `1px solid ${theme.palette.beta400.main}`
-                    }}
-                    placeholder="Enter your Skills"
-                ></TextField>
+const options = [
+  {skill:"ux", location:"Hyderabad"},
+ {skill:"ui", location:"Hyderabad"},
+  {skill:"frontend", location:"Mumbai"},
+  {skill:"ux", location:"Mumbai"},
+  {skill:"backend", location:"Mumbai"},
 
-                <TextField
-                
-                    variant="standard"
-                    inputProps={{
-                        "data-testid": "location"
-                    }}
-                    InputProps={{
-                        startAdornment: (
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    marginTop: "4px",
-                                    marginRight: "20px"
-                                }}
-                            >
-                                <SvgIcon
-                                     component={locationval}
-                                     fill="yellow"
-                                     stroke="white"
-                                     sx={{ fill: 'transparent' }}
-                />
-                            </Box>
-                        ),
-                        disableUnderline: true,
-                        sx: {
-                            fontFamily: "Montserrat",
-                            color: `${theme.palette.betaHigh.main}`,
-                            fontWeight: 500,
-                            fontSize: "14px",
-                            lineHeight: "22px"
-                        }
-                    }}
-                    sx={{ marginLeft: "27px", width: "45.8%" }}
-                    placeholder={"Enter your location"}
-                ></TextField>
-
-                <Box
-                    sx={{
-                        height: "44px",
-                        width: "44px",
-                        backgroundColor: `${theme.palette.alpha400.main}`,
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        position: "relative",
-                        left: "3%"
-                    }}
-                >
-                   <SvgIcon
-                    component={search}
-                    fill="yellow"
-                    stroke="white"
-                    sx={{ fill: 'transparent' }}
-                />
-                </Box>
-            </Grid>
-        </div>
-    );
+]
+interface OptionType {
+  skill:string;
+  location:string;
 }
+const skillsList=["ux", "ui", "backend", "frontend"]
+
+const locationList=["Hyderabad", "Mumbai"]
+
+const SearchBar = () => {
+  const [skills, setSkills] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [filteredList, setOptions] = useState<OptionType[]>(options);
+
+  const handleClick = () => {
+    let a = options;
+    if (skills !== "") {
+       a = a.filter(a => a.skill === skills);
+    }
+    if (location !== "") {
+      a = a.filter(a => a.location === location);
+    }
+    setOptions(a);
+  }
+  return (
+    <>
+        <Stack direction="row" sx={{border:'1px solid black', borderRadius:'32px', width:'843px', height:'56px', display:'flex', alignItems:'center'}}>
+          <SvgIcon component={Work} />
+        <Autocomplete
+          autoHighlight
+          autoSelect
+          filterSelectedOptions
+          freeSolo
+          clearOnBlur
+          onChange={(event, value) => setSkills(value ? value : "")}
+          id="combo-box-demo2"
+          options={skillsList}
+          sx={{ width: 408 }}
+          renderInput={(params) => <TextField {...params} placeholder="Search Skills" sx={{'.MuiOutlinedInput-root': {'& fieldset': {border:'none'}, '&:hover fieldset': {border:'none'}}}} />}
+          value={skills}
+        />
+        <SvgIcon component={Location} sx={{stroke:'grey', fill:'transparent'}}/>
+         <Autocomplete
+        autoHighlight
+        autoSelect
+        filterSelectedOptions
+          onChange={(event, value) => setLocation(value ? value : "")}
+          freeSolo
+          id="combo-box-demo1"
+          options={locationList}
+          sx={{ width: 408 }}
+          
+          renderInput={(params) => 
+          <TextField {...params} id="standard-search" placeholder="Location" sx={{'.MuiOutlinedInput-root': {'& fieldset': {border:'none'}, '&:hover fieldset': {border:'none'}}}} />}
+          value={location} 
+        />
+        <Button  onClick={() => handleClick()} startIcon={<SearchIcon />}> </Button>
+        </Stack>
+        
+    </>
+  );
+};
+
+export default SearchBar;

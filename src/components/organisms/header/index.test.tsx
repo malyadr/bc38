@@ -10,7 +10,7 @@ it("renders navbar", () => {
 });
 
 it("renders navbar", () => {
-  render(<TopNavbar height={"76px"}/>);
+  render(<TopNavbar height={"80px"}/>);
   const testIcon = screen.getByTestId("topnavbar");
   expect(testIcon).toBeInTheDocument();
 });
