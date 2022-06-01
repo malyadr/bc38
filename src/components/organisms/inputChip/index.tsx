@@ -14,7 +14,7 @@ const style = {
     },
 }
 
-interface Props {
+interface InputChipProps {
     placeholder: string
     options: string[]
     updateData: (arg: string[]) => void
@@ -27,7 +27,7 @@ export const InputChip = ({
     options,
     uniqueKey,
     backTextValue,
-}: Props) => {
+}: InputChipProps) => {
     return (
         <>
             <Autocomplete

@@ -42,7 +42,7 @@ export const ProgressStepper = ({ additional, setAdditional }: any) => {
         setAdditional((prev: any) => {
             return { ...prev, skills: mySkills }
         })
-    }, [])
+    }, [location, jobLocation, mySkills, setAdditional])
 
     const updateLocation = (currLoc: string[]): void => {
         setLocation(currLoc)
@@ -60,10 +60,6 @@ export const ProgressStepper = ({ additional, setAdditional }: any) => {
         } else {
             setTitle(STEPPER[2])
         }
-
-        console.log(location)
-        console.log(jobLocation)
-        console.log(mySkills)
     }
 
     const handleBackTitle = () => {
