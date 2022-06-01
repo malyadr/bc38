@@ -97,6 +97,7 @@ const SavedJobCard = ({
                 height: "24px",
                 display: "flex",
                 justifyContent: "space-between",
+                pt:'-20px'
               }}
             >
               <Icon src="/assets/icons/bus.svg" />
@@ -112,12 +113,13 @@ const SavedJobCard = ({
             // left: "129px",
             // right: "20px",
             // pt: "16px",
-            height: "117px",
+            height: "80%",
             // width: "70px",
+            top:'10px',
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-end",
-            justifyContent: "space-between",
+            justifyContent: "space-between"
           }}
         >
           <MoreHoriz sx={{ color: "betaMedium" }} />
