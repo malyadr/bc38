@@ -67,10 +67,10 @@ export const COST = '100'
 export const DURATION = '1 hr 20 mins'
 export const COMMON_ROUTES_AVAILABLE = 'Commute routes available :'
 export const APPROX = 'Approximately'
-export const GREET = 'Hi abc! '
-export const SUCCESS_MESSAGE = 'Your Resume got Uploaded Successfully !'
 
-export const OKAY = 'OKAY'
+export const VIEW = 'View in Google Maps'
+export const E_MAREDPALLY = 'E Marredpally, Secunderabad'
+export const HITECH_CITY = 'Hitech City, Telanagana, Hyderabad.'
 export const STEPPER = [
     'Where do you stay ?',
     'Where do you want to work?',
