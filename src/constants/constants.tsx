@@ -27,6 +27,7 @@ export const DISTANCE_VALUES = [
     '21-30 Kms',
     '31-40 Kms',
 ]
+export const East_MAREDPALLY = 'East Marredpally, Secunderabad'
 
 export const POSTED_DATE = 'Date Posted'
 export const POSTED_DATE_VALUES = [

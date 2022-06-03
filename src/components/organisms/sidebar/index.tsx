@@ -56,7 +56,6 @@ export default function SideNav() {
     } ,  }}
     >
       <Tabs
-    //   centered
         orientation="vertical"
         value={value}
         textColor="inherit"
