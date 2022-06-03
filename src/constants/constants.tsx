@@ -1,6 +1,5 @@
-
-import React from "react"
 import {createSvgIcon} from "@mui/material/utils"
+import React from "react"
 export const FILE_UPLOAD_TEXT = 'Click Here to Upload Files'
 export const NEXT = 'Next'
 export const BACK = 'Back'
@@ -57,6 +56,7 @@ export const EXP_LEVEL_VALUES = [
     'Director',
     'Executive',
 ]
+
 
 export const TRANSPORT = 'Transport'
 export const TRANSPORT_MODES = ['Metro', 'Bus', 'Car pooling', 'Motor Cycle']

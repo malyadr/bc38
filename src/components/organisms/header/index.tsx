@@ -6,7 +6,7 @@ import React from "react";
 import theme from "../../../theme/customTheme";
 import LocationBar from "../../molecules/LocationBar";
 import { default as message } from '../../../../public/assets/icons/message.svg'
-import { East_MAREDPALLY, GREENCOMMUTE } from "../../../constants/constants";
+import { GREENCOMMUTE ,East_MAREDPALLY} from "../../../constants/constants";
 
 export interface HeaderPropsType extends GridProps {
   height?: number | string;
