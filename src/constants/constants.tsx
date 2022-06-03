@@ -7,6 +7,8 @@ export const BACK = 'Back'
 export const SAVE = 'Save'
 export const APPLY = 'Apply'
 export const DESCRIPTION = 'Description'
+export const SKIP = 'Skip'
+
 export const JOB_DETAIL =
     'Open Text is seeking a talented, personable interaction designer who can assist the User Experience Design team by working with other designers and development teams on a variety of projects. The OpenText User Experience Design group is a distributed multi-disciplinary team of professionals that are responsible for enhancing the UX of the company’s collective product suites worldwide.'
 export const ABOUT_TITLE = 'About the Company'
@@ -241,3 +243,31 @@ interface IconsType {
       'Settings'
   ];
   
+
+
+export const VIEW = 'View in Google Maps'
+export const E_MAREDPALLY = 'E Marredpally, Secunderabad'
+export const HITECH_CITY = 'Hitech City, Telanagana, Hyderabad.'
+export const STEPPER = [
+    'Where do you stay ?',
+    'Where do you want to work?',
+    'What do you want to do?',
+]
+
+export const LANDING_TITLE = 'More than 2000 people are using Green Commute'
+
+export const STEPPER_ONE_OPTIONS = [
+    'E Marredpally, Secunderabad, Hyderabad',
+    'Delhi',
+    'Mumbai',
+]
+export const STEPPER_TWO_OPTIONS = ['Hyderabad', 'Delhi', 'Mumbai']
+
+export const STEPPER_THREE_OPTIONS = ['UI/UX Designer', 'Graphic Designer']
+export const PLACEHOLDER = [
+    'Enter your Location',
+    'Enter your job location',
+    'Enter your skills',
+]
+
+export const AQI_TITLE = 'Real Time Air Quality Index(AQI) in this location'

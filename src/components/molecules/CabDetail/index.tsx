@@ -14,7 +14,6 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
     return (
         <>
             <Box
-                border="1px solid black"
                 sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -51,6 +50,7 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                         <Typography variant="caption2" color="betaMedium.main">
                             {APPROX}
                         </Typography>
+
                         <Typography
                             variant="caption2"
                             color="betaHigh.main"

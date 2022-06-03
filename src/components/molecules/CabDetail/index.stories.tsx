@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory } from '@storybook/react'
 import CabDetail from '.'
-import Image from './ola.svg'
+
 export default {
     title: 'molecules / Cab Detail',
     component: CabDetail,
