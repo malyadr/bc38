@@ -1,15 +1,13 @@
 import * as React from 'react'
-import { Typography } from '@mui/material'
+import { SvgIcon, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { Current } from '../../atoms/CurrentIcon'
 import { COMMON_ROUTE } from '../../../constants/constants'
 import Icon from '../../atoms/icon'
-import Img from '../../atoms/image'
 import { Box } from '@mui/system'
 import back from '../../../../public/assets/icons/back.svg'
 import circle from '../../../../public/assets/icons/Ellipse 7.svg'
 import swap from '../../../../public//assets/icons/swap.svg'
-import location from '../../../../public//assets/icons/location 3.svg'
 
 const styles = makeStyles({
     flexRow: {
@@ -27,8 +25,8 @@ export const CommonRoutes = ({ from, to }: CommonRoutesProps) => {
     const classes = styles()
     return (
         <>
-            <Box className={classes.flexRow} style={{ marginLeft: '1.46%' }}>
-                <Icon src={back} />
+            <Box className={classes.flexRow}>
+                <SvgIcon component={back} />
                 <Typography
                     variant="body1"
                     sx={{ marginLeft: '1.68%' }}
@@ -40,13 +38,13 @@ export const CommonRoutes = ({ from, to }: CommonRoutesProps) => {
 
             <Box style={{ height: '9.19%' }}>
                 <Box
-                    style={{ marginTop: '2.75%', marginLeft: '3.14%' }}
+                    style={{ marginTop: '30px', marginLeft: '16px' }}
                     className={classes.flexRow}
                 >
                     <Current></Current>
                     <Typography
                         variant="caption2"
-                        sx={{ marginLeft: '1%' }}
+                        sx={{ marginLeft: '8px' }}
                         color="betaHigh.main"
                     >
                         {from}
@@ -57,24 +55,52 @@ export const CommonRoutes = ({ from, to }: CommonRoutesProps) => {
                         style={{
                             display: 'flex',
                             flexDirection: 'column',
-                            marginLeft: '3.44%',
+                            marginLeft: '22px',
                             justifyContent: 'space-evenly',
+                            paddingTop: '4px',
                         }}
                     >
-                        <Img src={circle} />
-                        <Img src={circle} />
-                        <Img src={circle} />
+                        <Box
+                            sx={{
+                                height: '4px',
+                                width: '4px',
+                                marginBottom: '4px',
+                            }}
+                        >
+                            <SvgIcon component={circle} />
+                        </Box>
+                        <Box
+                            sx={{
+                                height: '4px',
+                                width: '4px',
+                                marginBottom: '4px',
+                            }}
+                        >
+                            <SvgIcon component={circle} />
+                        </Box>
+                        <Box
+                            sx={{
+                                height: '4px',
+                                width: '4px',
+                                marginBottom: '4px',
+                            }}
+                        >
+                            <SvgIcon component={circle} />
+                        </Box>
                     </Box>
-                    <Box style={{ marginLeft: '24.68%' }}>
-                        <Icon src={swap} />
+                    <Box style={{ marginLeft: '300px' }}>
+                        <SvgIcon
+                            component={swap}
+                            sx={{ color: 'betaMedium.main' }}
+                        />
                     </Box>
                 </Box>
                 <Box
                     className={classes.flexRow}
-                    style={{ marginLeft: '2.94%', marginBottom: '0.18%' }}
+                    style={{ marginBottom: '0.18%', marginLeft: '16px' }}
                 >
                     <Box>
-                        <Icon src={location} />
+                        <Icon src="assets/icons/location 3.svg" />
                     </Box>
                     <Typography
                         variant="caption2"

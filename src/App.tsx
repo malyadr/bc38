@@ -7,6 +7,8 @@ import ProgressStepper from './components/molecules/stepper'
 import DetailCard from './components/organisms/detailCard'
 import Filter from './components/organisms/filter'
 function App() {
+    // const [additional, setAdditional] = React.useState<additional>()
+
     return (
         <>
             {/* <DetailCard

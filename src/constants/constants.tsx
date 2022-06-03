@@ -7,6 +7,8 @@ export const BACK = 'Back'
 export const SAVE = 'Save'
 export const APPLY = 'Apply'
 export const DESCRIPTION = 'Description'
+export const SKIP = 'Skip'
+
 export const JOB_DETAIL =
     'Open Text is seeking a talented, personable interaction designer who can assist the User Experience Design team by working with other designers and development teams on a variety of projects. The OpenText User Experience Design group is a distributed multi-disciplinary team of professionals that are responsible for enhancing the UX of the company’s collective product suites worldwide.'
 export const ABOUT_TITLE = 'About the Company'
@@ -69,6 +71,7 @@ export const DISTANCES = '25km'
 export const COST = '100'
 export const DURATION = '1 hr 20 mins'
 export const COMMON_ROUTES_AVAILABLE = 'Commute routes available :'
+<<<<<<< HEAD
 export const APPROX = "Approximately"
 export const SaveIcon = createSvgIcon(<path d="M14.5 0C12.76 0 11.09 0.81 10 2.09C8.91 0.81 7.24 0 5.5 0C2.42 0 0 2.42 0 5.5C0 9.28 3.4 12.36 8.55 17.04L10 18.35L11.45 17.03C16.6 12.36 20 9.28 20 5.5C20 2.42 17.58 0 14.5 0ZM10.1 15.55L10 15.65L9.9 15.55C5.14 11.24 2 8.39 2 5.5C2 3.5 3.5 2 5.5 2C7.04 2 8.54 2.99 9.07 4.36H10.94C11.46 2.99 12.96 2 14.5 2C16.5 2 18 3.5 18 5.5C18 8.39 14.86 11.24 10.1 15.55Z"/>,
 "Save")
@@ -241,3 +244,33 @@ interface IconsType {
       'Settings'
   ];
   
+=======
+export const APPROX = 'Approximately'
+
+export const VIEW = 'View in Google Maps'
+export const E_MAREDPALLY = 'E Marredpally, Secunderabad'
+export const HITECH_CITY = 'Hitech City, Telanagana, Hyderabad.'
+export const STEPPER = [
+    'Where do you stay ?',
+    'Where do you want to work?',
+    'What do you want to do?',
+]
+
+export const LANDING_TITLE = 'More than 2000 people are using Green Commute'
+
+export const STEPPER_ONE_OPTIONS = [
+    'E Marredpally, Secunderabad, Hyderabad',
+    'Delhi',
+    'Mumbai',
+]
+export const STEPPER_TWO_OPTIONS = ['Hyderabad', 'Delhi', 'Mumbai']
+
+export const STEPPER_THREE_OPTIONS = ['UI/UX Designer', 'Graphic Designer']
+export const PLACEHOLDER = [
+    'Enter your Location',
+    'Enter your job location',
+    'Enter your skills',
+]
+
+export const AQI_TITLE = 'Real Time Air Quality Index(AQI) in this location'
+>>>>>>> ab5695c572bd3abfd9afb06d714bf7209b168320
