@@ -13,6 +13,8 @@ import SearchBar from './components/organisms/filterOptions'
 // import
 
 function App() {
+    // const [additional, setAdditional] = React.useState<additional>()
+
     return (
         <>
             {/* <DetailCard
