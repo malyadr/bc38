@@ -1,6 +1,5 @@
 import {createSvgIcon} from "@mui/material/utils"
 import React from "react"
-
 export const FILE_UPLOAD_TEXT = 'Click Here to Upload Files'
 export const NEXT = 'Next'
 export const BACK = 'Back'
@@ -29,6 +28,7 @@ export const DISTANCE_VALUES = [
     '21-30 Kms',
     '31-40 Kms',
 ]
+export const East_MAREDPALLY = 'East Marredpally, Secunderabad'
 
 export const POSTED_DATE = 'Date Posted'
 export const POSTED_DATE_VALUES = [
@@ -56,7 +56,7 @@ export const EXP_LEVEL_VALUES = [
     'Director',
     'Executive',
 ]
-export const East_MAREDPALLY = 'East Marredpally, Secunderabad'
+
 
 export const TRANSPORT = 'Transport'
 export const TRANSPORT_MODES = ['Metro', 'Bus', 'Car pooling', 'Motor Cycle']

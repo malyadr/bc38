@@ -1,7 +1,5 @@
 import { TextField, Autocomplete, Stack, Button, SvgIcon } from "@mui/material";
 import React, { useState } from "react";
-// import WorkIcon from '@mui/icons-material/Work';
-// import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import SearchIcon from '@mui/icons-material/Search';
 import Work from '../../../../public/assets/icons/work.svg'
 import Location from '../../../../public/assets/icons/location.svg';
