@@ -8,6 +8,7 @@ import {
   Typography,
   CardMedia,
   Stack,
+  SvgIcon,
 } from "@mui/material";
 import Bus from "../../../../public/assets/icons/bus.svg";
 import Bike from "../../../../public/assets/icons/bike.svg";
@@ -100,21 +101,17 @@ const SavedJobCard = ({
                 pt:'-20px'
               }}
             >
-              <Icon src="/assets/icons/bus.svg" />
-              <Icon src="/assets/icons/bike.svg" />
-              <Icon src="/assets/icons/car.svg" />
-              <Icon src="/assets/icons/train.svg" />
+              <SvgIcon component={Bus} />
+              <SvgIcon component={Train} />
+              <SvgIcon component={Car} />
+              <SvgIcon component={Bike} />
             </Stack>
           </CardContent>
         </Box>
         <CardActions
           sx={{
             position: "relative",
-            // left: "129px",
-            // right: "20px",
-            // pt: "16px",
             height: "80%",
-            // width: "70px",
             top:'10px',
             display: "flex",
             flexDirection: "column",
