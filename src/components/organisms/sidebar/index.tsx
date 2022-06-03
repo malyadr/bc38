@@ -79,12 +79,12 @@ export default function SideNav() {
         }}}
       >
         <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography variant='body2' >{SIDESTEPS[0]}</Typography>} icon={<DashboardIcon/>} iconPosition='start' {...a11yProps(0)} />
-        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography>{SIDESTEPS[1]}</Typography>}  icon={<JobsIcon/>} iconPosition='start' {...a11yProps(1)} />
-        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography>{SIDESTEPS[2]}</Typography>}  icon={<TestIcon/>} iconPosition='start' {...a11yProps(2)} />
-        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography>{SIDESTEPS[3]}</Typography>} icon={<SettingsIcon/>} iconPosition='start' {...a11yProps(3)} />
-        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography>{SIDESTEPS[4]}</Typography>} icon={<NewsIcon/>} iconPosition='start' {...a11yProps(4)} />
-        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography>{SIDESTEPS[5]}</Typography>} icon={<HelpIcon/>} iconPosition='start' {...a11yProps(5)} />
-        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography>{SIDESTEPS[6]}</Typography>} icon={<ContactIcon/>} iconPosition='start' {...a11yProps(6)} />
+        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography  variant='body2'>{SIDESTEPS[1]}</Typography>}  icon={<JobsIcon/>} iconPosition='start' {...a11yProps(1)} />
+        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography variant='body2'>{SIDESTEPS[2]}</Typography>}  icon={<TestIcon/>} iconPosition='start' {...a11yProps(2)} />
+        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography variant='body2'>{SIDESTEPS[3]}</Typography>} icon={<SettingsIcon/>} iconPosition='start' {...a11yProps(3)} />
+        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography variant='body2'>{SIDESTEPS[4]}</Typography>} icon={<NewsIcon/>} iconPosition='start' {...a11yProps(4)} />
+        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography variant='body2'>{SIDESTEPS[5]}</Typography>} icon={<HelpIcon/>} iconPosition='start' {...a11yProps(5)} />
+        <Tab sx={{justifyContent:'flex-start', textTransform:"none"}}   label={<Typography variant='body2'>{SIDESTEPS[6]}</Typography>} icon={<ContactIcon/>} iconPosition='start' {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
         
