@@ -1,4 +1,4 @@
-import createSvgIcon from "@mui/material/utils/createSvgIcon"
+import {createSvgIcon} from "@mui/material/utils"
 import React from "react"
 
 export const FILE_UPLOAD_TEXT = 'Click Here to Upload Files'
