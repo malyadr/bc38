@@ -17,7 +17,14 @@ export const AQI = ({ details, step }: any) => {
         >
             {details.length != 0 && step != 2 ? (
                 details.map((d: any) => (
-                    <Box key={d.id} sx={{ display: 'flex' }}>
+                    <Box
+                        key={d.id}
+                        sx={{
+                            display: 'flex',
+                            marginBottom: '15px',
+                            marginTop: '15px',
+                        }}
+                    >
                         <AqiIndicator
                             index={Math.floor(Math.random() * 1000).toString()}
                             size={step == 0 ? 'large' : 'small'}

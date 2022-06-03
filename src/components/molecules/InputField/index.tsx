@@ -3,7 +3,7 @@ import React from 'react'
 
 interface input {
     text: string
-    variant: 'standard' | 'outlined' | 'filled' | undefined
+    variant: 'standard' | 'outlined' | 'filled'
     styles: React.CSSProperties | null
 }
 

@@ -38,13 +38,21 @@ const styles = makeStyles({
     },
 })
 
-export const Routes = () => {
-    const [transport, setTransport] = useState('')
+type RoutesProps = {
+    onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
+}
+
+export const Routes = ({ onClick }: RoutesProps) => {
+    const [transport, setTransport] = useState('bus')
 
     const classes = styles()
     return (
         <Box sx={{ width: '404px', height: 'fit-content' }}>
-            <CommonRoutes from={E_MAREDPALLY} to={HITECH_CITY}></CommonRoutes>
+            <CommonRoutes
+                from={E_MAREDPALLY}
+                to={HITECH_CITY}
+                onClick={onClick}
+            ></CommonRoutes>
             <Box
                 component="div"
                 style={{
@@ -57,7 +65,7 @@ export const Routes = () => {
                     sx={{
                         width: '24px',
                         height: '24px',
-                        marginRight: '4px',
+                        marginRight: '20px',
                     }}
                     component={bike}
                     onClick={() => {
@@ -68,11 +76,12 @@ export const Routes = () => {
                 {transport === 'bus' ? (
                     <Box
                         style={{
-                            height: '39px',
-                            width: '39px',
+                            height: '38px',
+                            width: '38px',
                             borderRadius: '50%',
                             backgroundColor: theme.palette.alpha400.main,
                             marginTop: '-8px',
+                            marginRight: '20px',
                         }}
                     >
                         <SvgIcon
@@ -82,31 +91,33 @@ export const Routes = () => {
                             }}
                             data-testid="busHovered"
                             sx={{
-                                height: '70%',
-                                width: '70%',
-                                marginTop: '5px',
-                                marginLeft: '5px',
+                                height: '60%',
+                                width: '60%',
+                                marginTop: '7px',
+                                marginLeft: '7px',
+                                marginRight: '20px',
                             }}
                         />
                     </Box>
                 ) : (
                     <SvgIcon
-                        sx={{ marginRight: '4px' }}
+                        sx={{ marginRight: '20px' }}
                         component={bus}
                         onClick={() => {
                             setTransport('bus')
                         }}
-                        data-testid="test-bus"
+                        data-testid="buss"
                     />
                 )}
                 {transport === 'car' ? (
                     <Box
                         style={{
-                            height: '39px',
-                            width: '39px',
+                            height: '38px',
+                            width: '38px',
                             borderRadius: '50%',
                             backgroundColor: theme.palette.alpha400.main,
                             marginTop: '-8px',
+                            marginRight: '20px',
                         }}
                     >
                         <SvgIcon
@@ -116,16 +127,17 @@ export const Routes = () => {
                             }}
                             data-testid="carHovered"
                             sx={{
-                                height: '70%',
-                                width: '70%',
-                                marginTop: '5px',
-                                marginLeft: '5px',
+                                height: '60%',
+                                width: '60%',
+                                marginTop: '7px',
+                                marginLeft: '7px',
+                                marginRight: '20px',
                             }}
                         />
                     </Box>
                 ) : (
                     <SvgIcon
-                        sx={{ marginRight: '4px' }}
+                        sx={{ marginRight: '20px' }}
                         component={car}
                         onClick={() => {
                             setTransport('car')
@@ -154,10 +166,9 @@ export const Routes = () => {
                 <Box
                     component="div"
                     style={{
-                        marginLeft: '-0.366%',
                         display: 'flex',
-                        justifyContent: 'space-evenly',
-                        width: '215px',
+                        justifyContent: 'flex-start',
+                        width: '250px',
                         marginTop: '9px',
                     }}
                 >
@@ -180,7 +191,10 @@ export const Routes = () => {
                         </Box>
                     </Box>
                     <Box component="div">
-                        <SvgIcon component={circle} />
+                        <SvgIcon
+                            component={circle}
+                            sx={{ marginLeft: '10px', marginTop: '9px' }}
+                        />
                     </Box>
                     <Box component="div">
                         <Typography variant="caption2" color="betaMedium.main">
@@ -188,7 +202,10 @@ export const Routes = () => {
                         </Typography>
                     </Box>
                     <Box component="div">
-                        <SvgIcon component={circle} />
+                        <SvgIcon
+                            component={circle}
+                            sx={{ marginLeft: '10px', marginTop: '9px' }}
+                        />
                     </Box>
                     <Box component="div">
                         <Typography variant="caption2" color="betaMedium.main">
@@ -207,6 +224,7 @@ export const Routes = () => {
                             alignItems: 'flex-start',
                             marginTop: '13px',
                             width: '',
+                            marginLeft: '16px',
                         }}
                     >
                         <Box
@@ -219,7 +237,10 @@ export const Routes = () => {
                             <Box
                                 component="img"
                                 src={map}
-                                sx={{ height: '143px', width: '361px' }}
+                                sx={{
+                                    height: '143px',
+                                    width: '361px',
+                                }}
                             />
                             <Box
                                 component="img"
@@ -272,7 +293,11 @@ export const Routes = () => {
                             TextColor="alpha400.main"
                             buttonVariant="text"
                             buttonColor="alpha400"
-                            styles={{ width: '150px', height: '16px' }}
+                            styles={{
+                                width: '150px',
+                                height: '16px',
+                                marginTop: '16px',
+                            }}
                         >
                             {VIEW}
                         </Button1>

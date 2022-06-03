@@ -54,13 +54,20 @@ const ProgressStepper = () => {
             </Stepper>
 
             <React.Fragment>
-                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        pt: 2,
+                        marginTop: '356px',
+                    }}
+                >
                     <Button
                         variant="outlined"
                         disabled={activeStep === 0}
                         onClick={handleBack}
-                        sx={{ mr: 1 }}
                         color="alpha300"
+                        sx={{ mr: 1, width: '140px', height: '46px' }}
                     >
                         <Typography variant="caption1">{BACK}</Typography>
                     </Button>
@@ -70,6 +77,7 @@ const ProgressStepper = () => {
                         disabled={activeStep === 3}
                         onClick={handleNext}
                         color="alpha300"
+                        sx={{ width: '140px', height: '46px' }}
                     >
                         <Typography variant="caption1" color="gammaWhite.main">
                             {NEXT}

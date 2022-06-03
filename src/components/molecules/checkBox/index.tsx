@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Checkbox from '@mui/material/Checkbox'
 
 interface Props {
@@ -7,6 +7,10 @@ interface Props {
 
 const ControlledCheckbox = ({ defaultChecked }: Props) => {
     const [checked, setChecked] = React.useState(defaultChecked)
+
+    useEffect(() => {
+        setChecked(defaultChecked)
+    }, [defaultChecked])
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setChecked(event.target.checked)

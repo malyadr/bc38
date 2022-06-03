@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, SvgIcon, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import React from 'react'
 import Icon from '../../atoms/icon'
@@ -8,6 +8,7 @@ import bike from '../../../../public//assets/icons/bike.svg'
 import bus from '../../../../public//assets/icons/bus.svg'
 import car from '../../../../public//assets/icons/car.svg'
 import train from '../../../../public//assets/icons/train.svg'
+import theme from '../../../theme/customTheme'
 
 const styles = makeStyles({
     flexRow: {
@@ -23,6 +24,8 @@ const styles = makeStyles({
         width: '21.1%',
         height: '23.29%',
         padding: '17.5px',
+        backgroundColor: theme.palette.gammaWhite.main,
+        borderRadius: '12px',
     },
 })
 
@@ -47,13 +50,13 @@ export const JobCard = ({
             <Box className={classes.root}>
                 <Box className={classes.flexRow}>
                     <Icon src={src} />
-                    <Icon src={more}></Icon>
+                    <SvgIcon component={more} />
                 </Box>
                 <Box className={classes.flexColumn}>
                     <Typography
                         variant="subtitle1"
                         color="betaHigh.main"
-                        sx={{ marginTop: '3.76%', marginBottom: '0.36%' }}
+                        sx={{ marginTop: '41px', marginBottom: '4px' }}
                     >
                         {role}
                     </Typography>
@@ -63,7 +66,7 @@ export const JobCard = ({
                     <Typography
                         variant="caption2"
                         color="betaMedium.main"
-                        sx={{ marginTop: '0.36%', marginBottom: '2.94%' }}
+                        sx={{ marginTop: '4px', marginBottom: '32px' }}
                     >
                         {location}
                     </Typography>
@@ -75,20 +78,23 @@ export const JobCard = ({
                     <Box
                         sx={{
                             display: 'flex',
-                            justifyContent: 'space-evenly',
-                            marginTop: '5.5%',
+                            justifyContent: 'flex-start',
+                            marginTop: '11px',
                             width: '140px',
                         }}
                     >
-                        <Icon src={bike} />
-                        <Icon src={bus} />
-                        <Icon src={car} />
-                        <Icon src={train} />
+                        <SvgIcon
+                            component={bike}
+                            sx={{ marginRight: '16px' }}
+                        />
+                        <SvgIcon component={bus} sx={{ marginRight: '16px' }} />
+                        <SvgIcon component={car} sx={{ marginRight: '16px' }} />
+                        <SvgIcon component={train} />
                     </Box>
                     <Typography
                         variant="caption2"
                         color="betaHigh.main"
-                        sx={{ marginTop: '5.5%' }}
+                        sx={{ marginTop: '18px' }}
                     >
                         {time}
                     </Typography>

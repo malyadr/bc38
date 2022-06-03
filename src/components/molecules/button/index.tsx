@@ -5,8 +5,8 @@ import { textVariant, color, textColor } from '../../../theme/customTheme'
 
 interface ButtonProps {
     variant: textVariant
-    TextColor: textColor
-    buttonVariant: 'text' | 'contained' | 'outlined' | undefined
+    TextColor?: textColor
+    buttonVariant: 'text' | 'contained' | 'outlined'
     buttonColor: color
     children: React.ReactNode
     styles: React.CSSProperties | null
@@ -31,7 +31,14 @@ export const Button1 = ({
                 onClick={onClick}
                 style={{ borderRadius: '8px' }}
             >
-                <Typography variant={variant} color={TextColor}>
+                <Typography
+                    variant={variant}
+                    color={
+                        buttonVariant === 'contained'
+                            ? 'gammaWhite.main'
+                            : 'alpha400.main'
+                    }
+                >
                     {children}
                 </Typography>
             </Button>

@@ -13,6 +13,5 @@ button.args = {
     buttonVariant: 'contained',
     buttonColor: 'alpha400',
     children: 'Save',
-    TextColor: 'gammaWhite.main',
     styles: { width: '140px', height: '40px' },
 }

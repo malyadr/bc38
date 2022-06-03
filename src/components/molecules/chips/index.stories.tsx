@@ -12,8 +12,8 @@ chips.args = {
     text: 'Hyderabad',
     variant: 'caption2',
     styles: {
-        width: '140px',
-        height: '16px',
+        width: '146px',
+        height: '32px',
         backgroundColor: 'gammaColor1.main',
         borderRadius: '8px',
     },

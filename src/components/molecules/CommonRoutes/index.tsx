@@ -3,11 +3,11 @@ import { SvgIcon, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { Current } from '../../atoms/CurrentIcon'
 import { COMMON_ROUTE } from '../../../constants/constants'
-import Icon from '../../atoms/icon'
 import { Box } from '@mui/system'
 import back from '../../../../public/assets/icons/back.svg'
 import circle from '../../../../public/assets/icons/Ellipse 7.svg'
 import swap from '../../../../public//assets/icons/swap.svg'
+import location from '../../../../public/assets/icons/location 3.svg'
 
 const styles = makeStyles({
     flexRow: {
@@ -19,17 +19,22 @@ const styles = makeStyles({
 type CommonRoutesProps = {
     from: string
     to: string
+    onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-export const CommonRoutes = ({ from, to }: CommonRoutesProps) => {
+export const CommonRoutes = ({ from, to, onClick }: CommonRoutesProps) => {
     const classes = styles()
     return (
         <>
             <Box className={classes.flexRow}>
-                <SvgIcon component={back} />
+                <SvgIcon
+                    component={back}
+                    sx={{ fill: 'transparent', color: 'betaHigh.main' }}
+                    onClick={onClick}
+                />
                 <Typography
                     variant="body1"
-                    sx={{ marginLeft: '1.68%' }}
+                    sx={{ marginLeft: '8px' }}
                     color="betaHigh.main"
                 >
                     {COMMON_ROUTE}
@@ -97,14 +102,20 @@ export const CommonRoutes = ({ from, to }: CommonRoutesProps) => {
                 </Box>
                 <Box
                     className={classes.flexRow}
-                    style={{ marginBottom: '0.18%', marginLeft: '16px' }}
+                    style={{ marginBottom: '0.18%', marginLeft: '12px' }}
                 >
                     <Box>
-                        <Icon src="assets/icons/location 3.svg" />
+                        <SvgIcon
+                            component={location}
+                            sx={{
+                                fill: 'transparent',
+                                marginTop: '-3px',
+                            }}
+                        />
                     </Box>
                     <Typography
                         variant="caption2"
-                        sx={{ marginLeft: '0.67%', marginBottom: '1.68%' }}
+                        sx={{ marginLeft: '5px', marginBottom: '1.68%' }}
                         color="betaHigh.main"
                     >
                         {to}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
@@ -6,10 +6,10 @@ import { Grid, Box } from '@mui/material'
 import Popup from '../../molecules/popup'
 import FileUploader from '../../molecules/fileUploader'
 import Divider from '@mui/material/Divider'
-import Logo from '../../../../public/assets/images/image 16.jpg'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { Button1 } from '../../molecules/button'
+import { Routes } from '../JobRoutes'
 import {
     SAVE,
     DESCRIPTION,
@@ -22,13 +22,28 @@ import {
 } from '../../../constants/constants'
 
 interface Props {
+    src: string
     jobTitle: string
     companyName: string
     companyCity: string
     time: string
 }
 
-const DetailCard = ({ jobTitle, companyName, companyCity, time }: Props) => {
+const DetailCard = ({
+    src,
+    jobTitle,
+    companyName,
+    companyCity,
+    time,
+}: Props) => {
+    const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
+    const [saveClickStatus, setSaveClickStatus] = useState<boolean>(false)
+    const handleSaved = () => {
+        setSaveClickStatus(true)
+    }
+    const goBack = () => {
+        setCommuteClickStatus(false)
+    }
     return (
         <>
             <Card
@@ -51,7 +66,7 @@ const DetailCard = ({ jobTitle, companyName, companyCity, time }: Props) => {
                 >
                     <Grid container>
                         <Grid item sx={{ marginRight: '20px' }}>
-                            <Box component="img" src={Logo} />
+                            <Box component="img" src={src} />
                         </Grid>
                         <Grid item sx={{ width: '212px', marginRight: '20px' }}>
                             <Grid>
@@ -101,9 +116,12 @@ const DetailCard = ({ jobTitle, companyName, companyCity, time }: Props) => {
                                                     styles={{
                                                         borderRadius: '8px',
                                                     }}
-                                                    onClick={undefined}
+                                                    onClick={handleSaved}
                                                 >
-                                                    {SAVE}
+                                                    {saveClickStatus
+                                                        ? 'unsave'
+                                                        : SAVE}
+                                                    {/* {SAVE} */}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
@@ -124,80 +142,103 @@ const DetailCard = ({ jobTitle, companyName, companyCity, time }: Props) => {
                         variant="middle"
                         sx={{ marginTop: '24px', marginBottom: '24px' }}
                     />
-                    <Grid container>
-                        <Grid item sx={{ marginBottom: '8px' }}>
-                            <Typography variant="body1" color="betaHigh.main">
-                                {DESCRIPTION}
-                            </Typography>
-                        </Grid>
-                        <Grid item>
-                            <Typography variant="body2" color="betaMedium.main">
-                                {JOB_DETAIL}
-                            </Typography>
-                        </Grid>
-                        <Grid
-                            item
-                            sx={{ marginTop: '24px', marginBottom: '8px' }}
-                        >
-                            <Typography variant="body1" color="betaHigh.main">
-                                {ABOUT_TITLE}
-                            </Typography>
-                        </Grid>
-                        <Grid item sx={{ marginBottom: '8px' }}>
-                            <Typography variant="body2" color="betaMedium.main">
-                                {ABOUT_COMPANY}
-                            </Typography>
-                        </Grid>
-                        <Grid item sx={{ marginBottom: '8px' }}>
-                            <Typography variant="body2" color="betaMedium.main">
-                                {SKILL_DETAILS}
-                                <Button1
-                                    TextColor="alpha400.main"
+                    {commuteClickStatus == false ? (
+                        <Grid container>
+                            <Grid item sx={{ marginBottom: '8px' }}>
+                                <Typography
                                     variant="body1"
-                                    buttonVariant="text"
-                                    buttonColor="alpha400"
-                                    styles={null}
-                                    onClick={undefined}
+                                    color="betaHigh.main"
                                 >
-                                    {SEE_MORE}
-                                </Button1>
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                </CardContent>
-            </Card>
-            <Card
-                variant="outlined"
-                sx={{
-                    width: '404px',
-                    height: '64px',
-                    borderRadius: '12px',
-                    borderTopLeftRadius: 0,
-                    borderTopRightRadius: 0,
-                }}
-            >
-                <CardContent>
-                    <Grid container justifyContent="center">
-                        <Button1
-                            TextColor="alpha400.main"
-                            variant="subtitle1"
-                            buttonVariant="text"
-                            buttonColor="gammaWhite"
-                            styles={null}
-                            onClick={undefined}
-                        >
-                            <Grid container>
-                                <Grid item sx={{ marginRight: 1 }}>
-                                    {GREEN_COMMUTE_ROUTE}
-                                </Grid>
-                                <Grid item>
-                                    <ArrowForwardIcon />
-                                </Grid>
+                                    {DESCRIPTION}
+                                </Typography>
                             </Grid>
-                        </Button1>
-                    </Grid>
+                            <Grid item>
+                                <Typography
+                                    variant="body2"
+                                    color="betaMedium.main"
+                                >
+                                    {JOB_DETAIL}
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                sx={{ marginTop: '24px', marginBottom: '8px' }}
+                            >
+                                <Typography
+                                    variant="body1"
+                                    color="betaHigh.main"
+                                >
+                                    {ABOUT_TITLE}
+                                </Typography>
+                            </Grid>
+                            <Grid item sx={{ marginBottom: '8px' }}>
+                                <Typography
+                                    variant="body2"
+                                    color="betaMedium.main"
+                                >
+                                    {ABOUT_COMPANY}
+                                </Typography>
+                            </Grid>
+                            <Grid item sx={{ marginBottom: '8px' }}>
+                                <Typography
+                                    variant="body2"
+                                    color="betaMedium.main"
+                                >
+                                    {SKILL_DETAILS}
+                                    <Button1
+                                        TextColor="alpha400.main"
+                                        variant="body1"
+                                        buttonVariant="text"
+                                        buttonColor="alpha400"
+                                        styles={null}
+                                        onClick={undefined}
+                                    >
+                                        {SEE_MORE}
+                                    </Button1>
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    ) : (
+                        <Routes onClick={goBack}></Routes>
+                    )}
                 </CardContent>
             </Card>
+            {commuteClickStatus == false && (
+                <Card
+                    variant="outlined"
+                    sx={{
+                        width: '404px',
+                        height: '64px',
+                        borderRadius: '12px',
+                        borderTopLeftRadius: 0,
+                        borderTopRightRadius: 0,
+                    }}
+                >
+                    <CardContent>
+                        <Grid container justifyContent="center">
+                            <Button1
+                                TextColor="alpha400.main"
+                                variant="subtitle1"
+                                buttonVariant="text"
+                                buttonColor="gammaWhite"
+                                styles={null}
+                                onClick={() => {
+                                    setCommuteClickStatus(true)
+                                }}
+                            >
+                                <Grid container>
+                                    <Grid item sx={{ marginRight: 1 }}>
+                                        {GREEN_COMMUTE_ROUTE}
+                                    </Grid>
+                                    <Grid item>
+                                        <ArrowForwardIcon />
+                                    </Grid>
+                                </Grid>
+                            </Button1>
+                        </Grid>
+                    </CardContent>
+                </Card>
+            )}
         </>
     )
 }

@@ -7,7 +7,7 @@ test('test to check whether chip Component is present ', () => {
     render(
         <InputField
             text="some sample input field"
-            variant={undefined}
+            variant={'standard'}
             styles={{ width: '400px', height: '48px' }}
         />
     )
