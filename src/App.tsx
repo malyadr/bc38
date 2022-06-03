@@ -6,11 +6,10 @@ import RadioButtons from './components/molecules/radioButtons'
 import ProgressStepper from './components/molecules/stepper'
 import DetailCard from './components/organisms/detailCard'
 import Filter from './components/organisms/filter'
-
 function App() {
     return (
         <>
-            <DetailCard
+            {/* <DetailCard
                 jobTitle="User Experince Designer"
                 companyName="Myntra"
                 companyCity="Hitech City Hyderabad-50072"
@@ -22,7 +21,7 @@ function App() {
             </Popup>
             <Filter />
             <ControlledCheckbox defaultChecked={true} />
-            <RadioButtons value="no" />
+    }*/}
         </>
     )
 }
