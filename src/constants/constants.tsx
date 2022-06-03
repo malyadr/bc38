@@ -54,6 +54,7 @@ export const EXP_LEVEL_VALUES = [
     'Director',
     'Executive',
 ]
+export const East_MAREDPALLY = 'East Marredpally, Secunderabad'
 
 export const TRANSPORT = 'Transport'
 export const TRANSPORT_MODES = ['Metro', 'Bus', 'Car pooling', 'Motor Cycle']

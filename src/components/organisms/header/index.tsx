@@ -6,7 +6,7 @@ import React from "react";
 import theme from "../../../theme/customTheme";
 import LocationBar from "../../molecules/LocationBar";
 import { default as message } from '../../../../public/assets/icons/message.svg'
-import { GREENCOMMUTE } from "../../../constants/constants";
+import { GREENCOMMUTE ,East_MAREDPALLY} from "../../../constants/constants";
 
 export interface HeaderPropsType extends GridProps {
   height?: number | string;
@@ -54,7 +54,7 @@ export default function TopNavbar({
           <Box
             sx={{
               fontFamily: "Neucha",
-              color: `#ffff`,
+              color: theme.palette.gammaWhite.main,
               fontSize: "24px",
               lineHeight: "32px",
               marginLeft: "4px"
@@ -63,7 +63,7 @@ export default function TopNavbar({
             {GREENCOMMUTE}
           </Box>
         </Box>
-       <LocationBar location="East Marredpally, Secunderabad"/>
+       <LocationBar location={East_MAREDPALLY}/>
       </Box>
       <Box
         sx={{
