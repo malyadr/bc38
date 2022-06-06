@@ -7,8 +7,5 @@ export default {
 };
 const Template: ComponentStory<typeof Routes> = () => <Routes />;
 
-export const routes = Template.bind({});
-routes.args = {
-  text: "Enter your location",
-  variant: "outlined",
-};
+export const jobRoutes = Template.bind({});
+

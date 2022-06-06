@@ -3,12 +3,8 @@ import { makeStyles } from '@mui/styles'
 import React from 'react'
 import Icon from '../../atoms/icon'
 import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
-import more from '../../../../public/assets/icons/more.svg'
-import bike from '../../../../public//assets/icons/bike.svg'
-import bus from '../../../../public//assets/icons/bus.svg'
-import car from '../../../../public//assets/icons/car.svg'
-import train from '../../../../public//assets/icons/train.svg'
-import theme from '../../../theme/customTheme'
+import theme, {iconType, imageTypes } from '../../../theme/customTheme'
+import Img from '../../atoms/image'
 
 const styles = makeStyles({
     flexRow: {
@@ -21,7 +17,7 @@ const styles = makeStyles({
         flexDirection: 'column',
     },
     root: {
-        width: '21.1%',
+        width: '320px',
         height: '23.29%',
         padding: '17.5px',
         backgroundColor: theme.palette.gammaWhite.main,
@@ -30,7 +26,7 @@ const styles = makeStyles({
 })
 
 type JobCardProps = {
-    src: string
+    src: imageTypes
     role: string
     companyName: string
     location: string
@@ -49,8 +45,8 @@ export const JobCard = ({
         <>
             <Box className={classes.root}>
                 <Box className={classes.flexRow}>
-                    <Icon src={src} />
-                    <SvgIcon component={more} />
+                    <Img src={src} />
+                    <Icon src="more" />
                 </Box>
                 <Box className={classes.flexColumn}>
                     <Typography
@@ -83,13 +79,13 @@ export const JobCard = ({
                             width: '140px',
                         }}
                     >
-                        <SvgIcon
-                            component={bike}
+                        <Icon
+                            src="bike"
                             sx={{ marginRight: '16px' }}
                         />
-                        <SvgIcon component={bus} sx={{ marginRight: '16px' }} />
-                        <SvgIcon component={car} sx={{ marginRight: '16px' }} />
-                        <SvgIcon component={train} />
+                        <Icon src="bus" sx={{ marginRight: '16px' }} />
+                        <Icon src="car" sx={{ marginRight: '16px' }} />
+                        <Icon src="train" />
                     </Box>
                     <Typography
                         variant="caption2"

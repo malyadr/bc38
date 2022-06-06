@@ -11,7 +11,7 @@ const Template: ComponentStory<typeof SavedJobCard> = (args) => (
 
 export const jobCard = Template.bind({});
 jobCard.args = {
-  src: "assets/icons/hp.svg",
+  src: "hp",
   role: "User Experience Designer",
   companyName: "HP",
   location: "Hyderabad, Telangana, India",

@@ -1,18 +1,19 @@
+import { Box, SxProps, Theme } from "@mui/material";
 import React from "react";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
-
+import {Logos} from '../../../constants/constants'
+import { imageTypes } from "../../../theme/customTheme";
 
 interface imgProps {
     
-    src: any,
+    src: imageTypes,
+    sx?: SxProps<Theme> | undefined
    
 }
 
-const Img = ({src}:imgProps) => {
-   
+const Img = ({src, sx}:imgProps) => {
     return (
     <>
-     <img src={src}  data-testid="img" alt="no image"/>
+     <Box component="img" src={Logos[src].type} sx={sx} data-testid="img" alt="no image"/>
     </>
 
     )

@@ -28,13 +28,15 @@ const ProgressStepper = () => {
                         <Step key={label} sx={{}}>
                             <StepLabel
                                 sx={{
+                                    color:'alpha300.main',
                                     '& .MuiSvgIcon-root': {
                                         color: 'alpha300.main',
                                         width: '40px',
                                         height: '40px',
+                                        
                                     },
                                     '& .MuiStepIcon-root.Mui-completed': {
-                                        color: 'alpha300.main',
+                                        color: 'alpha300.main'
                                     },
                                     '& .MuiStepIcon-root.Mui-active': {
                                         color: 'alpha300.main',
@@ -62,7 +64,7 @@ const ProgressStepper = () => {
                         marginTop: '356px',
                     }}
                 >
-                    <Button
+                   {activeStep !== 0 &&  <Button
                         variant="outlined"
                         disabled={activeStep === 0}
                         onClick={handleBack}
@@ -71,10 +73,10 @@ const ProgressStepper = () => {
                     >
                         <Typography variant="caption1">{BACK}</Typography>
                     </Button>
+                    }
                     <Box />
                     <Button
                         variant="contained"
-                        disabled={activeStep === 3}
                         onClick={handleNext}
                         color="alpha300"
                         sx={{ width: '140px', height: '46px' }}

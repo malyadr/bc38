@@ -6,6 +6,7 @@ import RadioButtons from './components/molecules/radioButtons'
 import ProgressStepper from './components/molecules/stepper'
 import DetailCard from './components/organisms/detailCard'
 import Filter from './components/organisms/filter'
+import LandingPageTemplate from './components/templates/LandingPageTemplate'
 function App() {
     // const [additional, setAdditional] = React.useState<additional>()
 
@@ -23,7 +24,9 @@ function App() {
             </Popup>
             <Filter />
             <ControlledCheckbox defaultChecked={true} />
+            
     }*/}
+    <LandingPageTemplate left={<ProgressStepper />}/>
         </>
     )
 }

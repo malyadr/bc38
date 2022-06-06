@@ -3,7 +3,7 @@ import { ComponentStory } from "@storybook/react";
 import theme from "../../../theme/customTheme";
 import React from "react";
 export default {
-  title: "organism/TopNavbar",
+  title: "organisms/TopNavbar",
   component: TopNavbar,
 };
 

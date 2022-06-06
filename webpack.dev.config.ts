@@ -52,7 +52,7 @@ const config: Configuration = {
                     loader: '@svgr/webpack',
                     options: {
                         typescript: true,
-                        ext:'tsx'
+                        ext: 'tsx'
                     }
                 }],
             },

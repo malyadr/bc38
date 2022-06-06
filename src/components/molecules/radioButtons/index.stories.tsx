@@ -15,5 +15,5 @@ const Template: ComponentStory<typeof RadioButtons> = (args) => (
 export const RadioButton = Template.bind({});
 
 RadioButton.args = {
-  value: "yes",
+  value: true,
 };

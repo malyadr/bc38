@@ -1,10 +1,9 @@
 import React from 'react'
 import { ComponentStory } from '@storybook/react'
 import { AQI } from '.'
-import theme from '../../../theme/customTheme'
 
 export default {
-    title: 'Organism/AQI',
+    title: 'Organisms/AQI',
     component: AQI,
 }
 
@@ -16,13 +15,6 @@ export const AQIViewer = Template.bind({})
 
 AQIViewer.args = {
     details: ['Hyderabad', 'Delhi'],
-    steps: 0,
+    step: 1,
 }
 
-AQIViewer.decorators = [
-    (Story) => (
-        <div style={{ backgroundColor: theme.palette.gammaColor1.main }}>
-            <Story />
-        </div>
-    ),
-]

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
-import GroupFilter from '../../../../public/assets/icons/GroupFilter.svg'
+// import GroupFilter from '../../../../public/assets/icons/GroupFilter.svg'
 import { Box, Grid, SvgIcon, Typography } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox'
 import Radio from '@mui/material/Radio'
@@ -25,6 +25,7 @@ import {
 } from '../../../constants/constants'
 import { Chips } from '../../molecules/chips'
 import theme from '../../../theme/customTheme'
+import Icon from '../../atoms/icon'
 
 const style = {
     position: 'absolute',
@@ -129,15 +130,19 @@ const Filter = () => {
     return (
         <>
             <Button
-                startIcon={<SvgIcon component={GroupFilter} />}
+                startIcon={<Icon src="filter" sx={{width:'24px', height:'24px'}} />}
                 onClick={handleOpen}
                 sx={{
-                    borderRadius: 5,
+                    display: 'flex',
+                    alignItems:'center',
+                    borderRadius: 4,
                     textTransform: 'capitalize',
                     width: '137px',
                     height: '57px',
+                    bgcolor:'gammaWhite.main'
                 }}
                 color="betaHigh"
+                variant="text"
             >
                 Filter
             </Button>

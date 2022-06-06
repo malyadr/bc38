@@ -2,22 +2,21 @@ import * as React from 'react'
 import Radio from '@mui/material/Radio'
 
 interface Props {
-    value: string
+    value: boolean
 }
 
 const RadioButtons = ({ value }: Props) => {
-    const [selectedValue, setSelectedValue] = React.useState('yes')
+    const [selectedValue, setSelectedValue] = React.useState<boolean>(value)
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedValue(event.target.value)
+    const handleChange = () => {
+       setSelectedValue(!selectedValue);
     }
 
     return (
         <>
             <Radio
                 checked={selectedValue === value}
-                onChange={handleChange}
-                value={value}
+                onClick={handleChange}
                 name="radio-buttons"
                 sx={{
                     color: 'beta400.main',

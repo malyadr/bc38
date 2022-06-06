@@ -1,4 +1,4 @@
-import { Grid, GridProps, Box, TextField, SvgIcon } from "@mui/material";
+import { Grid, GridProps, Box, Typography, SvgIcon } from "@mui/material";
 import {default as logo} from "../../../../public/assets/icons/Logo 2.svg";
 import notifications from "../../../../public/assets/icons/notifications.svg";
 import AvatarComp from "../../atoms/avatar";
@@ -7,7 +7,9 @@ import theme from "../../../theme/customTheme";
 import LocationBar from "../../molecules/LocationBar";
 import { default as message } from '../../../../public/assets/icons/message.svg'
 import { GREENCOMMUTE ,East_MAREDPALLY} from "../../../constants/constants";
-
+import Logo from '../../../../public/assets/icons/logo.png'
+import Img from "../../atoms/image";
+import Icon from "../../atoms/icon";
 export interface HeaderPropsType extends GridProps {
   height?: number | string;
   width?: number | string;
@@ -25,15 +27,15 @@ export default function TopNavbar({
       container
       data-testid="topnavbar"
       sx={{
-        position: "absolute",
-        height: height,
-        width: width,
+        position: "fixed",
+        height: {height},
+        width: '100%',
         top: 0,
         right: 0,
         backgroundColor: { backgroundColor },
         justifyContent: "space-between",
         alignItems: "center",
-        padding: padding
+        padding: padding,
       }}
     >
       <Box sx={{ marginLeft: "40px", display: "flex", alignItems: "center" }}>
@@ -45,23 +47,7 @@ export default function TopNavbar({
             marginRight: "152px"
           }}
         >
-          <SvgIcon
-                    component={logo}
-                    fill="yellow"
-                    stroke="white"
-                    sx={{ fill: 'transparent' }}
-                />
-          <Box
-            sx={{
-              fontFamily: "Neucha",
-              color: theme.palette.gammaWhite.main,
-              fontSize: "24px",
-              lineHeight: "32px",
-              marginLeft: "4px"
-            }}
-          >
-            {GREENCOMMUTE}
-          </Box>
+        <Img src="logo1"  />
         </Box>
        <LocationBar location={East_MAREDPALLY}/>
       </Box>
@@ -74,18 +60,8 @@ export default function TopNavbar({
           width: "12%"
         }}
       >
-        <SvgIcon
-                    component={message}
-                    fill="yellow"
-                    stroke="white"
-                    sx={{ fill: 'transparent' }}
-                />
-        <SvgIcon
-                    component={notifications}
-                    fill="yellow"
-                    stroke="white"
-                    sx={{ fill: 'transparent' }}
-                />
+        <Icon src="message" sx={{ fill: 'transparent', stroke:"white" }} />
+        <Icon src="notifications" sx={{ fill: 'transparent', stroke:"white" }} />
         <AvatarComp />
       </Box>
     </Grid>

@@ -2,8 +2,9 @@
 import { Container, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import React, { useEffect, useState } from 'react'
-import Logo from '../../../../public/assets/images/AQI.png'
 import { makeStyles } from '@mui/styles'
+import Icon from '../../atoms/icon'
+import Img from '../../atoms/image'
 
 const useStyles = makeStyles({
     index: {
@@ -47,11 +48,7 @@ const AqiIndicator = ({ index, size }: Props) => {
                     position: 'relative',
                 }}
             >
-                <Box
-                    component="img"
-                    src={Logo}
-                    sx={{ width: '100%', height: { height } }}
-                />
+                <Img src="aqi" sx={{ width: { width }, height: { height }, '& svg': { stroke: 'white !important'} }} />
                 <Typography
                     color="alpha600.main"
                     sx={{ fontSize: '48px' }}

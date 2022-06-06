@@ -3,8 +3,13 @@ import DetailCard from '.'
 import { ComponentStory } from '@storybook/react'
 
 export default {
-    title: 'Organism/JobDetailCard',
+    title: 'Organisms/JobDetailCard',
     component: DetailCard,
+    argTypes: {
+        src: {
+            control: {type:'select', options:["bmw", "hp", "instagram", "myntra", "ola", "rapido", "twitter", "uber", "wipro", "avatar", "work", "jobs", "hitech", "logo1", "logo2", "stay"]},
+        }
+    }
 }
 
 const Template: ComponentStory<typeof DetailCard> = (args) => (
@@ -14,7 +19,7 @@ const Template: ComponentStory<typeof DetailCard> = (args) => (
 export const DetailJobCard = Template.bind({})
 
 DetailJobCard.args = {
-    src: 'assets/images/image 11.jpg',
+    src: 'hp',
     jobTitle: 'Software Engineer',
     companyCity: 'Hitech City Hyderabad-50072',
     companyName: 'Zemoso',

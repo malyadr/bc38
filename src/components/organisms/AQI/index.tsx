@@ -1,18 +1,20 @@
 import { Box } from '@mui/system'
 import React from 'react'
 import AqiIndicator from '../../molecules/AQIIndicator'
-import currentLocation from '../../../../public/assets/images/Group 10.jpg'
-import jobLocation from '../../../../public/assets/images/Group 105.jpg'
-import skills from '../../../../public/assets/images/Group 72.jpg'
 import { Typography } from '@mui/material'
 import theme from '../../../theme/customTheme'
 import { AQI_TITLE } from '../../../constants/constants'
+import Img from '../../atoms/image'
 
 export const AQI = ({ details, step }: any) => {
+
     return (
         <Box
-            style={{
-                marginLeft: '181px',
+            sx={{
+                display:'flex',
+                alignItems:'center',
+                flexDirection:'column',
+                gap:'32px',
             }}
         >
             {details.length != 0 && step != 2 ? (
@@ -21,8 +23,10 @@ export const AQI = ({ details, step }: any) => {
                         key={d.id}
                         sx={{
                             display: 'flex',
-                            marginBottom: '15px',
-                            marginTop: '15px',
+                            alignItems:'center',
+                            height:'100%',
+                            gap:'32px',
+                            width:'320px'
                         }}
                     >
                         <AqiIndicator
@@ -33,7 +37,6 @@ export const AQI = ({ details, step }: any) => {
                             <Typography
                                 variant="h2"
                                 color={theme.palette.gammaAccent2.main}
-                                sx={{ marginTop: '50px', marginLeft: '20px' }}
                             >
                                 {d}
                             </Typography>
@@ -46,13 +49,13 @@ export const AQI = ({ details, step }: any) => {
                     size={step == 0 ? 'large' : 'small'}
                 ></AqiIndicator>
             ) : (
-                <img
+                <Img
                     src={
                         step == 0
-                            ? currentLocation
+                            ? "stay"
                             : step == 1
-                            ? jobLocation
-                            : skills
+                            ? "work"
+                            : "jobs"
                     }
                 />
             )}
@@ -60,12 +63,26 @@ export const AQI = ({ details, step }: any) => {
                 <Typography
                     variant="h2"
                     sx={{
-                        marginTop: '40px',
-                        width: '369px',
+                        textAlign:'center',
+                        marginTop: '60px',
+                        width: '325px',
                         color: theme.palette.betaHigh.main,
                     }}
                 >
                     {step == 2 ? 'Jobs found in Hyderabad & Mumbai' : AQI_TITLE}
+                </Typography>
+            )}
+            {details.length == 0 && (
+                <Typography
+                    variant="h2"
+                    color="betaHigh"
+                    sx={{
+                        textAlign:'center',
+                        marginTop: '60px',
+                        width: (step != 2) ? '281px': "363px",
+                    }}
+                >
+                    {step != 2 ? 'Enter Location to know Time Air Quality Index (AQI)' : 'Enter your Skills to know how many jobs are in this Location'}
                 </Typography>
             )}
         </Box>

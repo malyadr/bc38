@@ -2,7 +2,7 @@ import React from "react";
 import Popup from ".";
 
 export default {
-  title: "Organism/Filter",
+  title: "Organisms/Filter",
   component: Popup,
 };
 

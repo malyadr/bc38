@@ -2,12 +2,14 @@ import { Typography, SvgIcon } from '@mui/material'
 import Box from '@mui/material/Box'
 import React from 'react'
 import { APPROX } from '../../../constants/constants'
-import Logo from '../../../../public/assets/icons/rupee.svg'
+import { imageTypes } from '../../../theme/customTheme'
+import Icon from '../../atoms/icon'
+import Img from '../../atoms/image'
 
 interface CabProps {
     cab: string
     detail: string
-    src: string
+    src: imageTypes
 }
 
 const CabDetail = ({ cab, detail, src }: CabProps) => {
@@ -19,9 +21,11 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                     justifyContent: 'space-between',
                     height: '60px',
                     width: '359px',
+                    bgcolor:'gammaWhite.main',
+                    boxShadow: '0px 2px 8px rgba(125, 125, 125, 0.12)'
                 }}
             >
-                <Box component="img" src={src} />
+                <Img src={src} />
                 <Box
                     component="div"
                     pt="8px"
@@ -61,7 +65,7 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                                 width: 'fit-content',
                             }}
                         >
-                            <SvgIcon component={Logo} />
+                            <Icon src="rupee" sx={{position:'relative', left:'5px'}} />
                             {detail}
                         </Typography>
                     </Box>
@@ -74,6 +78,7 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                         display: 'flex',
                         alignItems: 'center',
                         justifySelf: 'flex-end',
+                        pr:'5px'
                     }}
                 >
                     Book Now

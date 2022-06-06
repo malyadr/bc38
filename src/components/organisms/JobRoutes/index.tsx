@@ -5,6 +5,13 @@ import { useState } from 'react'
 import { Button1 } from '../../molecules/button'
 import CabDetail from '../../molecules/CabDetail'
 import { CommonRoutes } from '../../molecules/CommonRoutes'
+
+import Line from '../../../../public/assets/images/vector.png'
+
+import From from '../../../../public/assets/icons/label.svg'
+import To from '../../../../public/assets/icons/label 2.svg'
+
+
 import {
     CATCH_A_BLUE,
     DURATION,
@@ -14,32 +21,22 @@ import {
     E_MAREDPALLY,
     HITECH_CITY,
 } from '../../../constants/constants'
-import bike from '../../../../public//assets/icons/bike.svg'
-import bus from '../../../../public/assets/icons/bus.svg'
-import car from '../../../../public/assets/icons/car.svg'
-import train from '../../../../public/assets/icons/train.svg'
-import rupee from '../../../../public/assets/icons/rupee.svg'
-import circle from '../../../../public/assets/icons/Ellipse 7.svg'
-import hoveredBus from '../../../../public/assets/icons/busHovered.svg'
-import map from '../../../../public/assets/images/mapview.png'
-import hoveredCar from '../../../../public/assets/icons/carHover.svg'
-import vector from '../../../../public/assets/images/Vector 7.png'
-import location1 from '../../../../public/assets/icons/location 1.svg'
-import location2 from '../../../../public/assets/icons/location 2.svg'
-import label from '../../../../public/assets/icons/label.svg'
-import label2 from '../../../../public/assets/icons/label 2.svg'
 
 import theme from '../../../theme/customTheme'
+import Icon from '../../atoms/icon'
+import Img from '../../atoms/image'
 
 const styles = makeStyles({
     flexRow: {
+        height:'16px',
         display: 'flex',
         flexDirection: 'row',
+        alignItems:'center'
     },
 })
 
 type RoutesProps = {
-    onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
+    onClick?: React.MouseEventHandler<SVGSVGElement> | undefined
 }
 
 export const Routes = ({ onClick }: RoutesProps) => {
@@ -47,7 +44,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
 
     const classes = styles()
     return (
-        <Box sx={{ width: '404px', height: 'fit-content' }}>
+        <Box sx={{ bgcolor:'gammaWhite.main', maxWidth: '404px', height: 'fit-content' }}>
             <CommonRoutes
                 from={E_MAREDPALLY}
                 to={HITECH_CITY}
@@ -61,17 +58,17 @@ export const Routes = ({ onClick }: RoutesProps) => {
                     display: 'flex',
                 }}
             >
-                <SvgIcon
+                <Icon
                     sx={{
                         width: '24px',
                         height: '24px',
                         marginRight: '20px',
                     }}
-                    component={bike}
+                    src="bike"
                     onClick={() => {
                         setTransport('')
                     }}
-                    data-testid="bike"
+                    alt="bike"
                 />
                 {transport === 'bus' ? (
                     <Box
@@ -84,12 +81,12 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             marginRight: '20px',
                         }}
                     >
-                        <SvgIcon
-                            component={hoveredBus}
+                        <Icon
+                            src="hoveredBus"
                             onClick={() => {
                                 setTransport('bus')
                             }}
-                            data-testid="busHovered"
+                            alt="busHovered"
                             sx={{
                                 height: '60%',
                                 width: '60%',
@@ -100,13 +97,13 @@ export const Routes = ({ onClick }: RoutesProps) => {
                         />
                     </Box>
                 ) : (
-                    <SvgIcon
+                    <Icon
                         sx={{ marginRight: '20px' }}
-                        component={bus}
+                        src="bus"
                         onClick={() => {
                             setTransport('bus')
                         }}
-                        data-testid="buss"
+                        alt="buss"
                     />
                 )}
                 {transport === 'car' ? (
@@ -120,12 +117,12 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             marginRight: '20px',
                         }}
                     >
-                        <SvgIcon
-                            component={hoveredCar}
+                        <Icon
+                            src="hoveredCar"
                             onClick={() => {
                                 setTransport('car')
                             }}
-                            data-testid="carHovered"
+                            alt="carHovered"
                             sx={{
                                 height: '60%',
                                 width: '60%',
@@ -136,22 +133,22 @@ export const Routes = ({ onClick }: RoutesProps) => {
                         />
                     </Box>
                 ) : (
-                    <SvgIcon
-                        sx={{ marginRight: '20px' }}
-                        component={car}
+                    <Icon
+                        sx={{ marginRight: '20px', color:"betaLow.main" }}
+                        src="car"
                         onClick={() => {
                             setTransport('car')
                         }}
-                        data-testid="car"
+                        alt="car"
                     />
                 )}
-                <SvgIcon
+                <Icon
                     sx={{ marginRight: '4px' }}
-                    component={train}
+                    src="train"
                     onClick={() => {
                         setTransport('')
                     }}
-                    data-testid="train"
+                    alt="train"
                 />
             </Box>
             <Box
@@ -177,9 +174,12 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             component="div"
                             style={{
                                 marginRight: '7px',
+                                height:'16px',
+                                display:'flex',
+                                alignItems: 'center'
                             }}
                         >
-                            <SvgIcon component={rupee} />
+                            <Icon src="rupee" />
                         </Box>
                         <Box component="div">
                             <Typography
@@ -191,8 +191,8 @@ export const Routes = ({ onClick }: RoutesProps) => {
                         </Box>
                     </Box>
                     <Box component="div">
-                        <SvgIcon
-                            component={circle}
+                        <Icon
+                            src="circle"
                             sx={{ marginLeft: '10px', marginTop: '9px' }}
                         />
                     </Box>
@@ -202,8 +202,8 @@ export const Routes = ({ onClick }: RoutesProps) => {
                         </Typography>
                     </Box>
                     <Box component="div">
-                        <SvgIcon
-                            component={circle}
+                        <Icon
+                            src="circle"
                             sx={{ marginLeft: '10px', marginTop: '9px' }}
                         />
                     </Box>
@@ -223,7 +223,6 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             flexDirection: 'column',
                             alignItems: 'flex-start',
                             marginTop: '13px',
-                            width: '',
                             marginLeft: '16px',
                         }}
                     >
@@ -232,11 +231,13 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             sx={{
                                 position: 'relative',
                                 marginBottom: '1.19%',
+                                display:'flex',
+                                justifyContent:'center',
+                                right:'15px'
                             }}
                         >
-                            <Box
-                                component="img"
-                                src={map}
+                            <Img
+                                src="mapView"
                                 sx={{
                                     height: '143px',
                                     width: '361px',
@@ -244,7 +245,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             />
                             <Box
                                 component="img"
-                                src={vector}
+                                src={Line}
                                 sx={{
                                     position: 'absolute',
                                     top: '44px',
@@ -252,41 +253,42 @@ export const Routes = ({ onClick }: RoutesProps) => {
                                     fill: 'white',
                                 }}
                             />
-                            <SvgIcon
-                                component={location1}
+                            <Icon
+                                src="location"
                                 sx={{
                                     position: 'absolute',
                                     top: '31px',
                                     left: '54px',
                                 }}
                             />
-                            <SvgIcon
-                                component={location2}
+                            <Icon
+                                src="location1"
                                 sx={{
                                     position: 'absolute',
                                     top: '80px',
                                     left: '287px',
-                                    fill: 'transparent',
+                                    stroke: "white",
                                 }}
                             />
                             <Box
-                                component={label}
+                                component={From}
                                 sx={{
                                     position: 'absolute',
                                     top: '51px',
                                     left: '16px',
                                     fill: 'transparent',
                                 }}
-                            ></Box>
+                            />
+
                             <Box
-                                component={label2}
+                                component={To}
                                 sx={{
                                     position: 'absolute',
                                     top: '53px',
                                     left: '256px',
                                     fill: 'transparent',
                                 }}
-                            ></Box>
+                            />
                         </Box>
                         <Button1
                             variant="caption1"
@@ -297,6 +299,8 @@ export const Routes = ({ onClick }: RoutesProps) => {
                                 width: '150px',
                                 height: '16px',
                                 marginTop: '16px',
+                                position:'relative',
+                                right:'20px'
                             }}
                         >
                             {VIEW}
@@ -306,20 +310,20 @@ export const Routes = ({ onClick }: RoutesProps) => {
             )}
             {transport === 'car' && (
                 <>
-                    <Box component="div" style={{ marginTop: '1.19%' }}>
+                    <Box component="div" style={{ marginTop: '1.19%', display:'flex', flexDirection:'column', gap:'8px' }}>
                         <CabDetail
-                            src="assets/icons/ola.svg"
+                            src="ola"
                             cab="Ola"
                             detail="45"
                         />
                         <CabDetail
-                            src="/assets/icons/uber.svg"
-                            cab="Ola"
+                            src="uber"
+                            cab="Uber"
                             detail="45"
                         />
                         <CabDetail
-                            src="/assets/icons/rapido.svg"
-                            cab="Ola"
+                            src="rapido"
+                            cab="Rapido"
                             detail="45"
                         />
                     </Box>

@@ -20,9 +20,11 @@ import {
     SEE_MORE,
     GREEN_COMMUTE_ROUTE,
 } from '../../../constants/constants'
+import { imageTypes } from '../../../theme/customTheme'
+import Img from '../../atoms/image'
 
 interface Props {
-    src: string
+    src: imageTypes;
     jobTitle: string
     companyName: string
     companyCity: string
@@ -39,7 +41,7 @@ const DetailCard = ({
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
     const [saveClickStatus, setSaveClickStatus] = useState<boolean>(false)
     const handleSaved = () => {
-        setSaveClickStatus(true)
+        setSaveClickStatus(!saveClickStatus)
     }
     const goBack = () => {
         setCommuteClickStatus(false)
@@ -54,6 +56,8 @@ const DetailCard = ({
                     borderRadius: '12px',
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,
+                    bgcolor: 'gammaWhite.main',
+                    display:'flex',
                 }}
             >
                 <CardContent
@@ -62,11 +66,12 @@ const DetailCard = ({
                         marginRight: '24px',
                         padding: 0,
                         marginTop: '24px',
+                        width:'361px'
                     }}
                 >
                     <Grid container>
                         <Grid item sx={{ marginRight: '20px' }}>
-                            <Box component="img" src={src} />
+                            <Img src={src} />
                         </Grid>
                         <Grid item sx={{ width: '212px', marginRight: '20px' }}>
                             <Grid>
@@ -134,7 +139,7 @@ const DetailCard = ({
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item>
+                        <Grid item sx={{position:'relative', left:'20px'}}>
                             <MoreHorizIcon />
                         </Grid>
                     </Grid>
@@ -212,6 +217,7 @@ const DetailCard = ({
                         borderRadius: '12px',
                         borderTopLeftRadius: 0,
                         borderTopRightRadius: 0,
+                        bgcolor:'gammaWhite.main'
                     }}
                 >
                     <CardContent>
@@ -226,7 +232,7 @@ const DetailCard = ({
                                     setCommuteClickStatus(true)
                                 }}
                             >
-                                <Grid container>
+                                <Grid container >
                                     <Grid item sx={{ marginRight: 1 }}>
                                         {GREEN_COMMUTE_ROUTE}
                                     </Grid>

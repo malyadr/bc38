@@ -23,7 +23,7 @@ import { AQI } from '../AQI'
 import logo from '../../../../public/assets/images/logo.png'
 // import { useNavigate } from 'react-router-dom'
 
-export const ProgressStepper = ({ additional, setAdditional }: any) => {
+export const ProgressStepper = ({ setAdditional }: any) => {
     // const navigate = useNavigate()
     const [activeStep, setActiveStep] = React.useState(0)
     const [title, setTitle] = React.useState(STEPPER[0])
@@ -124,7 +124,6 @@ export const ProgressStepper = ({ additional, setAdditional }: any) => {
     return (
         <Box sx={{ display: 'flex' }}>
             <Box sx={{ width: '55%', marginLeft: '200px', marginTop: '100px' }}>
-                <Box component="img" src={logo} sx={{ marginBottom: '64px' }} />
                 <Stepper activeStep={activeStep} connector={null}>
                     {STEPS.map((label) => {
                         return (

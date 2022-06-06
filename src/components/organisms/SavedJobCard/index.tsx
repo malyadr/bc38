@@ -10,16 +10,12 @@ import {
   Stack,
   SvgIcon,
 } from "@mui/material";
-import Bus from "../../../../public/assets/icons/bus.svg";
-import Bike from "../../../../public/assets/icons/bike.svg";
-import Car from "../../../../public/assets/icons/car.svg";
-import Train from "../../../../public/assets/icons/train.svg";
-import { MoreHoriz } from "@mui/icons-material";
 import Icon from "../../atoms/icon";
-import theme from "../../../theme/customTheme";
+import theme, { imageTypes } from "../../../theme/customTheme";
+import Img from "../../atoms/image";
 
-type props = {
-  src: string;
+interface props  {
+  src: imageTypes;
   role: string;
   companyName: string;
   location: string;
@@ -38,8 +34,9 @@ const SavedJobCard = ({
   return (
     <>
       <Card
+        
         sx={{
-          width: "571px",
+          maxWidth: "571px",
           height: "159px",
           display: "flex",
           justifyContent: "space-between",
@@ -47,8 +44,12 @@ const SavedJobCard = ({
           paddingBottom: "15px",
           paddingRight: "20px",
           paddingLeft: "20px",
+          background:'gammaWhite.main',
           "&:hover": {
-            border: "2px solid " + theme.palette.alpha200.main,
+            borderColor:'gammaAccent1.main',
+            borderWidth:'2px',
+            borderStyle:'solid'
+
           },
         }}
       >
@@ -59,7 +60,7 @@ const SavedJobCard = ({
               position: "relative",
             }}
           >
-            <Box component="img" src={src} sx={{ fontSize: "45px", marginTop: "20px" }} />
+            <Img src={src} sx={{ fontSize: "45px", marginTop: "20px" }} />
           </div>
           <CardContent
             sx={{
@@ -101,10 +102,10 @@ const SavedJobCard = ({
                 pt:'-20px'
               }}
             >
-              <SvgIcon component={Bus} />
-              <SvgIcon component={Train} />
-              <SvgIcon component={Car} />
-              <SvgIcon component={Bike} />
+              <Icon src="bus" />
+              <Icon src="train" />
+              <Icon src="car" />
+              <Icon src="bike" />
             </Stack>
           </CardContent>
         </Box>
@@ -119,7 +120,7 @@ const SavedJobCard = ({
             justifyContent: "space-between"
           }}
         >
-          <MoreHoriz sx={{ color: "betaMedium" }} />
+          <Icon src="more" sx={{ color: "betaMedium" }} />
           <Typography
             variant="caption1"
             color="betaMedium.main"

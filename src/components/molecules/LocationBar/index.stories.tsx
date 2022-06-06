@@ -11,5 +11,5 @@ const Template: ComponentStory<typeof LocationBar> = (args) => (
 
 export const Location = Template.bind({})
 Location.args = {
-    location: 'Hyderabad',
+    location: 'East Marredpally, Secunderabad',
 }

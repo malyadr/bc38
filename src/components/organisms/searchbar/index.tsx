@@ -1,8 +1,9 @@
-import { TextField, Autocomplete, Stack, Button, SvgIcon } from "@mui/material";
+import { TextField, Autocomplete, Stack, Button, SvgIcon, Box, Divider } from "@mui/material";
 import React, { useState } from "react";
-import SearchIcon from '@mui/icons-material/Search';
 import Work from '../../../../public/assets/icons/work.svg'
 import Location from '../../../../public/assets/icons/location.svg';
+import SearchIcon from '../../../../public/assets/icons/search.svg';
+import Icon from "../../atoms/icon";
 
 const options = [
   {skill:"ux", location:"Hyderabad"},
@@ -37,8 +38,8 @@ const SearchBar = () => {
   }
   return (
     <>
-        <Stack direction="row" sx={{border:'1px solid black', borderRadius:'32px', width:'843px', height:'56px', display:'flex', alignItems:'center'}}>
-          <SvgIcon component={Work} />
+        <Stack direction="row" sx={{border:'1px solid black', bgcolor:'gammaWhite.main', borderRadius:'32px', width:'843px', height:'56px', display:'flex', alignItems:'center'}}>
+          <Icon src="work" sx={{pl:'28px'}}/>
         <Autocomplete
           autoHighlight
           autoSelect
@@ -52,7 +53,8 @@ const SearchBar = () => {
           renderInput={(params) => <TextField {...params} placeholder="Search Skills" sx={{'.MuiOutlinedInput-root': {'& fieldset': {border:'none'}, '&:hover fieldset': {border:'none'}}}} />}
           value={skills}
         />
-        <SvgIcon component={Location} sx={{stroke:'grey', fill:'transparent'}}/>
+        <Divider orientation="vertical" variant="middle" sx={{height:'80%'}}/>
+        <Icon src="location1" sx={{pl:'28px', stroke:'grey', fill:'transparent', alignSelf:'center'}}/>
          <Autocomplete
         autoHighlight
         autoSelect
@@ -67,10 +69,11 @@ const SearchBar = () => {
           <TextField {...params} id="standard-search" placeholder="Location" sx={{'.MuiOutlinedInput-root': {'& fieldset': {border:'none'}, '&:hover fieldset': {border:'none'}}}} />}
           value={location} 
         />
-        <Button  onClick={() => handleClick()} startIcon={<SearchIcon />}> </Button>
+        <Button variant="contained" color="alpha300" onClick={() => handleClick()}  sx={{ minWidth:'44px', maxWidth:'44px', height:'44px', borderRadius:'50%', position:'relative', right:'6px'}}>
+          <SvgIcon component={SearchIcon} sx={{fill:'transparent'}}/>
+        </Button>
         </Stack>
-        
-    </>
+         </>
   );
 };
 

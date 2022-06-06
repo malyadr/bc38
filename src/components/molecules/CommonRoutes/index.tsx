@@ -4,31 +4,30 @@ import { makeStyles } from '@mui/styles'
 import { Current } from '../../atoms/CurrentIcon'
 import { COMMON_ROUTE } from '../../../constants/constants'
 import { Box } from '@mui/system'
-import back from '../../../../public/assets/icons/back.svg'
-import circle from '../../../../public/assets/icons/Ellipse 7.svg'
-import swap from '../../../../public//assets/icons/swap.svg'
-import location from '../../../../public/assets/icons/location 3.svg'
+import Icon from '../../atoms/icon'
+import theme from '../../../theme/customTheme'
 
 const styles = makeStyles({
     flexRow: {
         display: 'flex',
         flexDirection: 'row',
+        width:'359px'
     },
 })
 
 type CommonRoutesProps = {
     from: string
     to: string
-    onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
+    onClick?: React.MouseEventHandler<SVGSVGElement> | undefined
 }
 
 export const CommonRoutes = ({ from, to, onClick }: CommonRoutesProps) => {
     const classes = styles()
     return (
         <>
-            <Box className={classes.flexRow}>
-                <SvgIcon
-                    component={back}
+            <Box className={classes.flexRow} sx={{bgcolor:'gammaWhite.main'}}>
+                <Icon
+                    src="back"
                     sx={{ fill: 'transparent', color: 'betaHigh.main' }}
                     onClick={onClick}
                 />
@@ -41,7 +40,7 @@ export const CommonRoutes = ({ from, to, onClick }: CommonRoutesProps) => {
                 </Typography>
             </Box>
 
-            <Box style={{ height: '9.19%' }}>
+            <Box sx={{ height: '9.19%',  width:'359px', bgcolor:'gammaWhite.main' }}>
                 <Box
                     style={{ marginTop: '30px', marginLeft: '16px' }}
                     className={classes.flexRow}
@@ -72,7 +71,7 @@ export const CommonRoutes = ({ from, to, onClick }: CommonRoutesProps) => {
                                 marginBottom: '4px',
                             }}
                         >
-                            <SvgIcon component={circle} />
+                            <Icon src="circle" />
                         </Box>
                         <Box
                             sx={{
@@ -81,7 +80,7 @@ export const CommonRoutes = ({ from, to, onClick }: CommonRoutesProps) => {
                                 marginBottom: '4px',
                             }}
                         >
-                            <SvgIcon component={circle} />
+                            <Icon src="circle" />
                         </Box>
                         <Box
                             sx={{
@@ -90,12 +89,12 @@ export const CommonRoutes = ({ from, to, onClick }: CommonRoutesProps) => {
                                 marginBottom: '4px',
                             }}
                         >
-                            <SvgIcon component={circle} />
+                            <Icon src="circle" />
                         </Box>
                     </Box>
                     <Box style={{ marginLeft: '300px' }}>
-                        <SvgIcon
-                            component={swap}
+                        <Icon
+                            src="swap"
                             sx={{ color: 'betaMedium.main' }}
                         />
                     </Box>
@@ -105,10 +104,10 @@ export const CommonRoutes = ({ from, to, onClick }: CommonRoutesProps) => {
                     style={{ marginBottom: '0.18%', marginLeft: '12px' }}
                 >
                     <Box>
-                        <SvgIcon
-                            component={location}
+                        <Icon
+                            src="location1"
                             sx={{
-                                fill: 'transparent',
+                                stroke:theme.palette.gammaAccent1.main,
                                 marginTop: '-3px',
                             }}
                         />

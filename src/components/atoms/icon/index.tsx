@@ -1,17 +1,21 @@
+import { SvgIcon, SxProps, Theme } from "@mui/material";
 import React from "react";
-import { ReactSVG } from "react-svg";
+import {Icons} from '../../../constants/constants'
+import { iconType } from '../../../theme/customTheme'
 
-type IconProps = {
-    src: string,
-    sx?: any,
-    onClick?: any
+interface IconProps  {
+    src:  iconType;
+    sx?: SxProps<Theme> | undefined;
+    onClick?: React.MouseEventHandler<SVGSVGElement> | undefined;
+    alt?: string | undefined
+
 };
 
 
-const Icon = (props: IconProps) => {
+const Icon = ({src, sx, onClick, alt}: IconProps) => {
     return (
         <>        
-        <ReactSVG data-testid="icon" src={props.src}  />
+            <SvgIcon color="alpha500" sx={sx} htmlColor="red" onClick={onClick} data-testid={alt}>{Icons[src]}</SvgIcon>
         </>
 
     )
