@@ -15,7 +15,6 @@ const LandingPageTemplate = ({left}: TemplateProps) => {
            
         </Paper>  
         <Paper variant="elevation" sx={{width:"40%", display: 'flex', alignItems:'center'}}>
-           {/* {left}  */}
         </Paper>
      </Stack>
     </>
