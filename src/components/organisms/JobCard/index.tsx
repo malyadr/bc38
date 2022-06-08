@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles'
 import React from 'react'
 import Icon from '../../atoms/icon'
 import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
-import theme, {iconType, imageTypes } from '../../../theme/customTheme'
+import theme, { iconType, imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/image'
 
 const styles = makeStyles({
@@ -79,12 +79,15 @@ export const JobCard = ({
                             width: '140px',
                         }}
                     >
-                        <Icon
-                            src="bike"
-                            sx={{ marginRight: '16px' }}
-                        />
+                        <Icon src="bike" sx={{ marginRight: '16px' }} />
                         <Icon src="bus" sx={{ marginRight: '16px' }} />
-                        <Icon src="car" sx={{ marginRight: '16px' }} />
+                        <Icon
+                            src="car"
+                            sx={{
+                                marginRight: '16px',
+                                color: theme.palette.betaLow.main,
+                            }}
+                        />
                         <Icon src="train" />
                     </Box>
                     <Typography

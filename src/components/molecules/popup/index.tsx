@@ -46,7 +46,9 @@ const Popup = ({ children }: Props) => {
                 aria-describedby="modal-modal-description"
             >
                 <Grid container sx={style}>
-                    {children}
+                    {React.cloneElement(children, {
+                        setOpen: setOpen,
+                    })}
                 </Grid>
             </Modal>
         </>

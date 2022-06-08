@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import Back from '../../public/assets/icons/back.svg'
 import Bike from '../../public/assets/icons/bike.svg'
 import Bus from '../../public/assets/icons/bus.svg'
@@ -43,8 +43,8 @@ import Uber from '../../public/assets/images/uber.png'
 import Wipro from '../../public/assets/images/wipro.png'
 import WorkLogo from '../../public/assets/images/work.png'
 import Avatar from '../../public/assets/images/avatar.png'
-import GreenCommute1 from '../../public/assets/images/logo1.png';
-import GreenCommute2 from '../../public/assets/images/logo2.png';
+import GreenCommute1 from '../../public/assets/images/logo1.png'
+import GreenCommute2 from '../../public/assets/images/logo2.png'
 import BusHovered from '../../public/assets/icons/busHovered.svg'
 import CarHovered from '../../public/assets/icons/carHover.svg'
 import From from '../../public/assets/icons/label.svg'
@@ -52,12 +52,7 @@ import To from '../../public/assets/icons/label 2.svg'
 import SelectedBus from '../../public/assets/icons/SelectedBus.svg'
 import SelectedCar from '../../public/assets/icons/selectedCar.svg'
 import Line from '../../public/assets/icons/vector7.svg'
-import MapView from '../../public/assets/images/mapView.png';
-
-
-
-
-
+import MapView from '../../public/assets/images/mapView.png'
 
 export const FILE_UPLOAD_TEXT = 'Click Here to Upload Files'
 export const NEXT = 'Next'
@@ -68,12 +63,12 @@ export const DESCRIPTION = 'Description'
 export const SKIP = 'Skip'
 
 interface IconsType {
-    [key: string]: any;
-  }
-  
-  export const Icons: IconsType = {
+    [key: string]: any
+}
+
+export const Icons: IconsType = {
     save: <Save />,
-    dashboard: <Dashboard/>,
+    dashboard: <Dashboard />,
     work: <Work />,
     test: <Test />,
     settings: <Settings />,
@@ -100,17 +95,16 @@ interface IconsType {
     close: <Close />,
     upload: <Upload />,
     jobs: <Jobs />,
-      circle: <Circle />,
+    circle: <Circle />,
     hoveredBus: <BusHovered />,
-      hoveredCar: <CarHovered />,
-      from: <From />,
-      to: <To />,
-      selectedBus: <SelectedBus />,
-      selectedCar: <SelectedCar />,
-      line: <Line />
-    
-  };
-  interface LogosType extends IconsType {}
+    hoveredCar: <CarHovered />,
+    from: <From />,
+    to: <To />,
+    selectedBus: <SelectedBus />,
+    selectedCar: <SelectedCar />,
+    line: <Line />,
+}
+type LogosType = IconsType
 
 export const Logos: LogosType = {
     aqi: <Aqi />,
@@ -126,12 +120,12 @@ export const Logos: LogosType = {
     avatar: <Avatar />,
     work: <WorkLogo />,
     jobs: <JobsLogo />,
-    hitech: <Hitech/>,
+    hitech: <Hitech />,
     logo1: <GreenCommute1 />,
     logo2: <GreenCommute2 />,
     stay: <Stay />,
-    mapView: <MapView />
-  };
+    mapView: <MapView />,
+}
 export const JOB_DETAIL =
     'Open Text is seeking a talented, personable interaction designer who can assist the User Experience Design team by working with other designers and development teams on a variety of projects. The OpenText User Experience Design group is a distributed multi-disciplinary team of professionals that are responsible for enhancing the UX of the company’s collective product suites worldwide.'
 export const ABOUT_TITLE = 'About the Company'
@@ -181,7 +175,6 @@ export const EXP_LEVEL_VALUES = [
     'Executive',
 ]
 
-
 export const TRANSPORT = 'Transport'
 export const TRANSPORT_MODES = ['Metro', 'Bus', 'Car pooling', 'Motor Cycle']
 export const GREENCOMMUTE = 'GREEN COMMUTE'
@@ -195,20 +188,18 @@ export const DISTANCES = '25km'
 export const COST = '100'
 export const DURATION = '1 hr 20 mins'
 export const COMMON_ROUTES_AVAILABLE = 'Commute routes available :'
-export const APPROX = "Approximately"
-  
-  export const SIDESTEPS = [
-    'Dashboard',
-     'Find Jobs',
-     'Saved Jobs',
-     'Practice Test',
-     'News & Events',
-      'Need Help ?',
-      'Contact Us',
-      'Settings'
-  ];
-  
+export const APPROX = 'Approximately'
 
+export const SIDESTEPS = [
+    'Dashboard',
+    'Find Jobs',
+    'Saved Jobs',
+    'Practice Test',
+    'News & Events',
+    'Need Help ?',
+    'Contact Us',
+    'Settings',
+]
 
 export const VIEW = 'View in Google Maps'
 export const E_MAREDPALLY = 'E Marredpally, Secunderabad'
@@ -236,3 +227,7 @@ export const PLACEHOLDER = [
 ]
 
 export const AQI_TITLE = 'Real Time Air Quality Index(AQI) in this location'
+export const FILE_UPLOAD = 'File Upload'
+export const HI_MESSAGE = ' Hi abc!'
+export const SUCCESS_MESSAGE = 'Your Resume got Uploaded Successfully!'
+export const OKAY = 'OKAY'

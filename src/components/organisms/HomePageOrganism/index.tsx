@@ -8,6 +8,7 @@ import { Typography } from '@mui/material'
 import { Button1 } from '../../molecules/button'
 import theme from '../../../theme/customTheme'
 import { InputChip } from '../inputChip'
+// import Stepper from '../../molecules/stepper'
 import {
     BACK,
     LANDING_TITLE,
@@ -23,7 +24,7 @@ import { AQI } from '../AQI'
 import logo from '../../../../public/assets/images/logo.png'
 // import { useNavigate } from 'react-router-dom'
 
-export const ProgressStepper = ({ setAdditional }: any) => {
+export const HomePageOrganism = () => {
     // const navigate = useNavigate()
     const [activeStep, setActiveStep] = React.useState(0)
     const [title, setTitle] = React.useState(STEPPER[0])
@@ -32,17 +33,17 @@ export const ProgressStepper = ({ setAdditional }: any) => {
     const [jobLocation, setJobLocation] = React.useState<string[]>([])
     const [mySkills, setMySkills] = React.useState<string[]>([])
 
-    React.useEffect(() => {
-        setAdditional((prev: any) => {
-            return { ...prev, currentLocation: location }
-        })
-        setAdditional((prev: any) => {
-            return { ...prev, jobLocation: jobLocation }
-        })
-        setAdditional((prev: any) => {
-            return { ...prev, skills: mySkills }
-        })
-    }, [location, jobLocation, mySkills, setAdditional])
+    // React.useEffect(() => {
+    //     setAdditional((prev: any) => {
+    //         return { ...prev, currentLocation: location }
+    //     })
+    //     setAdditional((prev: any) => {
+    //         return { ...prev, jobLocation: jobLocation }
+    //     })
+    //     setAdditional((prev: any) => {
+    //         return { ...prev, skills: mySkills }
+    //     })
+    // }, [location, jobLocation, mySkills, setAdditional])
 
     const updateLocation = (currLoc: string[]): void => {
         setLocation(currLoc)
@@ -130,8 +131,9 @@ export const ProgressStepper = ({ setAdditional }: any) => {
                             <Step key={label}>
                                 <StepLabel
                                     sx={{
+                                        color: 'alpha300.main',
                                         '& .MuiSvgIcon-root': {
-                                            color: 'beta100.main',
+                                            color: 'alpha300.main',
                                             width: '40px',
                                             height: '40px',
                                         },
@@ -140,11 +142,6 @@ export const ProgressStepper = ({ setAdditional }: any) => {
                                         },
                                         '& .MuiStepIcon-root.Mui-active': {
                                             color: 'alpha300.main',
-                                        },
-                                        '& .MuiStepIcon-text': {
-                                            fill: 'black',
-                                            width: '7px',
-                                            height: '24px',
                                         },
                                     }}
                                 >
@@ -220,20 +217,24 @@ export const ProgressStepper = ({ setAdditional }: any) => {
                         </Box>
                     </Box>
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                        <Button
-                            sx={{
-                                marginTop: '356px',
-                                mr: 1,
-                                height: '46px',
-                                width: '140px',
-                            }}
-                            variant="outlined"
-                            disabled={activeStep === 0}
-                            onClick={handleBack}
-                            color="alpha300"
-                        >
-                            <Typography variant="caption1">{BACK}</Typography>
-                        </Button>
+                        {activeStep != 0 && (
+                            <Button
+                                sx={{
+                                    marginTop: '356px',
+                                    mr: 1,
+                                    height: '46px',
+                                    width: '140px',
+                                }}
+                                variant="outlined"
+                                disabled={activeStep === 0}
+                                onClick={handleBack}
+                                color="alpha300"
+                            >
+                                <Typography variant="caption1">
+                                    {BACK}
+                                </Typography>
+                            </Button>
+                        )}
                         <Box />
                         <Button
                             sx={{
@@ -262,7 +263,7 @@ export const ProgressStepper = ({ setAdditional }: any) => {
                     </Box>
                 </Box>
             </Box>
-            <Box
+            {/* <Box
                 sx={{
                     backgroundColor: theme.palette.gammaColor1.main,
                     width: '45%',
@@ -281,7 +282,7 @@ export const ProgressStepper = ({ setAdditional }: any) => {
                     }
                     step={activeStep}
                 ></AQI>
-            </Box>
+            </Box> */}
         </Box>
     )
 }

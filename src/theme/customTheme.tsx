@@ -177,9 +177,9 @@ const theme = createTheme({
             main: '#EFFFFD',
         },
         background: {
-            paper: 'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)'
+            paper: 'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)',
             // paper:'#EFFFFD'
-        }
+        },
     },
 
     typography: {
@@ -236,28 +236,30 @@ const theme = createTheme({
         },
     },
     components: {
-        'MuiCssBaseline': {
+        MuiCssBaseline: {
             styleOverrides: {
                 defaultProps: {
-                    background:'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)'
-                }
-            }
+                    background:
+                        'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)',
+                },
+            },
         },
-        'MuiPaper': {
+        MuiPaper: {
             styleOverrides: {
                 root: {
-                    background:'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)'
-                }
-            }
+                    background:
+                        'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)',
+                },
+            },
         },
-        'MuiCard': {
+        MuiCard: {
             styleOverrides: {
                 root: {
-                    background:'white'
-                }
-            }
-        }
-    }
+                    background: 'white',
+                },
+            },
+        },
+    },
 })
 
 export type textVariant =
@@ -321,69 +323,62 @@ export type textColor =
     | 'gammaAccent2.main'
     | undefined
 
-export type iconType = 
-    | "save" 
-    | "dashboard" 
-    | "work" 
-    | "test" 
-    | "settings" 
-    | "news" 
-    | "help" 
-    | "contact" 
-    | "done" 
-    | "notifications" 
-    | "search" 
-    | "message" 
-    | "bus" 
-    | "car" 
-    | "train" 
-    | "bike" 
-    | "more" 
-    | "filter" 
-    | "back" 
-    | "location1" 
-    | "location" 
-    | "tick" 
-    | "current" 
-    | "swap" 
-    | "rupee" 
-    | "close" 
-    | "upload" 
-    | "jobs" 
-    | "circle" 
-    | "hoveredBus"
-    | "hoveredCar"
-    | "line"
-    | "selectedBus"
-    | "selectedCar"
-    | "from"
-    | "to"
+export type iconType =
+    | 'save'
+    | 'dashboard'
+    | 'work'
+    | 'test'
+    | 'settings'
+    | 'news'
+    | 'help'
+    | 'contact'
+    | 'done'
+    | 'notifications'
+    | 'search'
+    | 'message'
+    | 'bus'
+    | 'car'
+    | 'train'
+    | 'bike'
+    | 'more'
+    | 'filter'
+    | 'back'
+    | 'location1'
+    | 'location'
+    | 'tick'
+    | 'current'
+    | 'swap'
+    | 'rupee'
+    | 'close'
+    | 'upload'
+    | 'jobs'
+    | 'circle'
+    | 'hoveredBus'
+    | 'hoveredCar'
+    | 'line'
+    | 'selectedBus'
+    | 'selectedCar'
+    | 'from'
+    | 'to'
 
-
-export type imageTypes = 
-    | "bmw" 
-    | "hp" 
-    | "instagram" 
-    | "myntra" 
-    | "ola" 
-    | "rapido" 
-    | "twitter" 
-    | "uber" 
-    | "wipro" 
-    | "avatar" 
-    | "work" 
-    | "jobs" 
-    | "hitech" 
-    | "logo1" 
-    | "logo2" 
-    | "stay"
-    | "aqi"
-    | "mapView"
-
-    let a = [];
-
+export type imageTypes =
+    | 'bmw'
+    | 'hp'
+    | 'instagram'
+    | 'myntra'
+    | 'ola'
+    | 'rapido'
+    | 'twitter'
+    | 'uber'
+    | 'wipro'
+    | 'avatar'
+    | 'work'
+    | 'jobs'
+    | 'hitech'
+    | 'logo1'
+    | 'logo2'
+    | 'stay'
+    | 'aqi'
+    | 'mapView'
 
 export default theme
-
-// ["bmw", "hp", "instagram", "myntra", "ola", "rapido", "twitter", "uber", "wipro", "avatar", "work", "jobs", "hitech", "logo1", "logo2", "stay"]
-// ["save", "dashboard", "work", "test", "settings", "news", "help", "contact", "done", "notifications", "search", "message", "bus", "car", "train", "bike", "more", "filter", "back", "location1", "location", "tick", "current", "swap", "rupee", "close", "upload", "jobs", "aqi"], 
