@@ -9,7 +9,7 @@ interface IconProps  {
     onClick?: React.MouseEventHandler<SVGSVGElement> | undefined;
     alt?: string | undefined
 
-};
+}
 
 
 const Icon = ({src, sx, onClick, alt}: IconProps) => {
