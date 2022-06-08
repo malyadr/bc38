@@ -9,9 +9,6 @@ export default {
             control: { type: 'select', options: ["save", "dashboard", "work", "test", "settings", "news", "help", "contact", "done", "notifications", "search", "message", "bus", "car", "train", "bike", "more", "filter", "back", "location1", "location", "tick", "current", "swap", "rupee", "close", "upload", "jobs", "circle", "hoveredBus", "hoveredCar", "line", "selectedBus", "selectedCar", "from", "to"]}, 
             
         },
-        sx: {
-            control: {type:'object'}
-        }
     },
 } as ComponentMeta<typeof Icon>
 
@@ -21,4 +18,5 @@ export const Default = Template.bind({})
 
 Default.args = {
     src: 'save',
+    sx: {overflow:'visible'}
 }
