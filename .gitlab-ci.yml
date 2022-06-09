@@ -9,11 +9,26 @@ netlify:
     stage: netlify
     image:
         name: sonarsource/sonar-scanner-cli:latest
-        entrypoint: [""]
+        entrypoint: ['']
     script:
         - npm install
         - npm run build-storybook
         - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir=storybook-static
+    only:
+        - merge_requests
+        - main
+sonarcloud-check:
+    image:
+        name: sonarsource/sonar-scanner-cli:latest
+        entrypoint: ['']
+    cache:
+        key: '${CI_JOB_NAME}'
+        paths:
+            - .sonar/cache
+    script:
+        - npm install
+        - npm test
+        - sonar-scanner
     only:
         - merge_requests
         - main

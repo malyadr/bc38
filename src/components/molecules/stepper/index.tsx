@@ -9,8 +9,12 @@ import { NEXT, BACK, STEPS } from '../../../constants/constants'
 
 const steps = STEPS
 
-const ProgressStepper = () => {
-    const [activeStep, setActiveStep] = React.useState(0)
+interface ProgressStepperProps {
+    step: number
+}
+
+const ProgressStepper = ({ step }: ProgressStepperProps) => {
+    const [activeStep, setActiveStep] = React.useState(step)
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1)
@@ -28,15 +32,14 @@ const ProgressStepper = () => {
                         <Step key={label} sx={{}}>
                             <StepLabel
                                 sx={{
-                                    color:'alpha300.main',
+                                    color: 'alpha300.main',
                                     '& .MuiSvgIcon-root': {
                                         color: 'alpha300.main',
                                         width: '40px',
                                         height: '40px',
-                                        
                                     },
                                     '& .MuiStepIcon-root.Mui-completed': {
-                                        color: 'alpha300.main'
+                                        color: 'alpha300.main',
                                     },
                                     '& .MuiStepIcon-root.Mui-active': {
                                         color: 'alpha300.main',
@@ -64,16 +67,17 @@ const ProgressStepper = () => {
                         marginTop: '356px',
                     }}
                 >
-                   {activeStep !== 0 &&  <Button
-                        variant="outlined"
-                        disabled={activeStep === 0}
-                        onClick={handleBack}
-                        color="alpha300"
-                        sx={{ mr: 1, width: '140px', height: '46px' }}
-                    >
-                        <Typography variant="caption1">{BACK}</Typography>
-                    </Button>
-                    }
+                    {activeStep !== 0 && (
+                        <Button
+                            variant="outlined"
+                            disabled={activeStep === 0}
+                            onClick={handleBack}
+                            color="alpha300"
+                            sx={{ mr: 1, width: '140px', height: '46px' }}
+                        >
+                            <Typography variant="caption1">{BACK}</Typography>
+                        </Button>
+                    )}
                     <Box />
                     <Button
                         variant="contained"

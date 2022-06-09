@@ -10,9 +10,9 @@ const Template: ComponentStory<typeof CabDetail> = (args) => (
     <CabDetail {...args} />
 )
 
-export const Cab = Template.bind({})
+export const cabDetail = Template.bind({})
 
-Cab.args = {
+cabDetail.args = {
     cab: 'Ola',
     detail: '1200',
     src: 'ola',

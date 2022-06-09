@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentStory } from '@storybook/react'
 import { HomePageOrganism } from '.'
 export default {
-    title: 'molecules / HomePageOrganism',
+    title: 'organisms / HomePageOrganism',
     component: HomePageOrganism,
 }
 const Template: ComponentStory<typeof HomePageOrganism> = (args) => (

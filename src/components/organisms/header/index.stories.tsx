@@ -10,9 +10,9 @@ export default {
 const Template: ComponentStory<typeof TopNavbar> = (args) => (
   <TopNavbar {...args}></TopNavbar>
 );
-export const Sample = Template.bind({});
+export const topNavBar = Template.bind({});
 
-Sample.args = {
+topNavBar.args = {
     backgroundColor: `${theme.palette.alpha600.main}`,
     text: "East Marredpally, Secunderabad"
 }

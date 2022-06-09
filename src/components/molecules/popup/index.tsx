@@ -4,6 +4,7 @@ import Modal from '@mui/material/Modal'
 import { Grid } from '@mui/material'
 import { Button1 } from '../button'
 import { APPLY } from '../../../constants/constants'
+import FileUploader from '../fileUploader'
 
 const style = {
     position: 'absolute',
@@ -18,11 +19,7 @@ const style = {
     p: '20px',
 }
 
-type Props = {
-    children: JSX.Element
-}
-
-const Popup = ({ children }: Props) => {
+const Popup = () => {
     const [open, setOpen] = React.useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -46,9 +43,10 @@ const Popup = ({ children }: Props) => {
                 aria-describedby="modal-modal-description"
             >
                 <Grid container sx={style}>
-                    {React.cloneElement(children, {
+                    {/* {React.cloneElement(children, {
                         setOpen: setOpen,
-                    })}
+                    })} */}
+                    <FileUploader setOpen={setOpen} />
                 </Grid>
             </Modal>
         </>

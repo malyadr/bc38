@@ -5,6 +5,6 @@ import save from '../../../../public/assets/icons/save.svg'
 import React from 'react'
 
 it('renders mui icons', () => {
-    render(<Icon src={save} />)
+    render(<Icon src={'save'} data-testid="icon" />)
     const testIcon = screen.getByTestId('icon')
 })

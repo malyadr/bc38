@@ -6,4 +6,4 @@ export default {
   component: ProgressStepper,
 };
 
-export const ProgressBar = () => <ProgressStepper />;
+export const ProgressBar = () => <ProgressStepper step={0} />;

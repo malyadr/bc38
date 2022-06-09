@@ -24,7 +24,7 @@ import { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/image'
 
 interface Props {
-    src: imageTypes;
+    src: imageTypes
     jobTitle: string
     companyName: string
     companyCity: string
@@ -57,7 +57,7 @@ const DetailCard = ({
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,
                     bgcolor: 'gammaWhite.main',
-                    display:'flex',
+                    display: 'flex',
                 }}
             >
                 <CardContent
@@ -66,7 +66,7 @@ const DetailCard = ({
                         marginRight: '24px',
                         padding: 0,
                         marginTop: '24px',
-                        width:'361px'
+                        width: '361px',
                     }}
                 >
                     <Grid container>
@@ -130,16 +130,14 @@ const DetailCard = ({
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
-                                                <Popup>
-                                                    <FileUploader />
-                                                </Popup>
+                                                <Popup />
                                             </Grid>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item sx={{position:'relative', left:'20px'}}>
+                        <Grid item sx={{ position: 'relative', left: '20px' }}>
                             <MoreHorizIcon />
                         </Grid>
                     </Grid>
@@ -217,7 +215,7 @@ const DetailCard = ({
                         borderRadius: '12px',
                         borderTopLeftRadius: 0,
                         borderTopRightRadius: 0,
-                        bgcolor:'gammaWhite.main'
+                        bgcolor: 'gammaWhite.main',
                     }}
                 >
                     <CardContent>
@@ -232,7 +230,7 @@ const DetailCard = ({
                                     setCommuteClickStatus(true)
                                 }}
                             >
-                                <Grid container >
+                                <Grid container>
                                     <Grid item sx={{ marginRight: 1 }}>
                                         {GREEN_COMMUTE_ROUTE}
                                     </Grid>

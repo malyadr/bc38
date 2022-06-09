@@ -38,7 +38,7 @@ const SearchBar = () => {
   }
   return (
     <>
-        <Stack direction="row" sx={{border:'1px solid black', bgcolor:'gammaWhite.main', borderRadius:'32px', width:'843px', height:'56px', display:'flex', alignItems:'center'}}>
+        <Stack direction="row" sx={{ bgcolor:'gammaWhite.main', borderRadius:'32px', width:'843px', height:'56px', display:'flex', alignItems:'center'}}>
           <Icon src="work" sx={{pl:'28px'}}/>
         <Autocomplete
           autoHighlight

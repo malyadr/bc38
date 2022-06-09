@@ -21,8 +21,12 @@ const style = {
     height: '268px',
     marginLeft: '30px',
 }
-
-const FileUploadPopup = ({ setOpen }: any) => {
+interface FileUploadProps {
+    open?: boolean
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+const FileUploadPopup = ({ open, setOpen }: FileUploadProps) => {
+    open && setOpen(open)
     const [clickStatus, setStatus] = useState<boolean>(false)
 
     const hiddenFileInput = React.useRef<HTMLInputElement>(null)
@@ -59,6 +63,7 @@ const FileUploadPopup = ({ setOpen }: any) => {
                         onClick={() => {
                             setOpen(false)
                         }}
+                        data-testid="close"
                     ></SvgIcon>
                 </Box>
             ) : (
@@ -68,6 +73,7 @@ const FileUploadPopup = ({ setOpen }: any) => {
                         onClick={() => {
                             setOpen(false)
                         }}
+                        data-testid="close1"
                     ></SvgIcon>
                 </Box>
             )}
@@ -87,6 +93,7 @@ const FileUploadPopup = ({ setOpen }: any) => {
                         buttonColor="alpha300"
                         styles={null}
                         onClick={handleClick}
+                        data-testid="fileuploadbutton"
                     >
                         {FILE_UPLOAD_TEXT}
                     </Button1>
@@ -95,6 +102,7 @@ const FileUploadPopup = ({ setOpen }: any) => {
                         ref={hiddenFileInput}
                         onChange={handleChange}
                         style={{ display: 'none' }}
+                        data-testid="input"
                     />
                 </Grid>
             ) : (

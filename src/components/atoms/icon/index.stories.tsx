@@ -14,9 +14,9 @@ export default {
 
 const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
 
-export const Default = Template.bind({})
+export const icon = Template.bind({})
 
-Default.args = {
+icon.args = {
     src: 'save',
     sx: {overflow:'visible'}
 }

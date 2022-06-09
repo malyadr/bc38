@@ -11,7 +11,6 @@ import Line from '../../../../public/assets/images/vector.png'
 import From from '../../../../public/assets/icons/label.svg'
 import To from '../../../../public/assets/icons/label 2.svg'
 
-
 import {
     CATCH_A_BLUE,
     DURATION,
@@ -28,10 +27,10 @@ import Img from '../../atoms/image'
 
 const styles = makeStyles({
     flexRow: {
-        height:'16px',
+        height: '16px',
         display: 'flex',
         flexDirection: 'row',
-        alignItems:'center'
+        alignItems: 'center',
     },
 })
 
@@ -44,7 +43,13 @@ export const Routes = ({ onClick }: RoutesProps) => {
 
     const classes = styles()
     return (
-        <Box sx={{ bgcolor:'gammaWhite.main', maxWidth: '404px', height: 'fit-content' }}>
+        <Box
+            sx={{
+                bgcolor: 'gammaWhite.main',
+                maxWidth: '404px',
+                height: 'fit-content',
+            }}
+        >
             <CommonRoutes
                 from={E_MAREDPALLY}
                 to={HITECH_CITY}
@@ -68,7 +73,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
                     onClick={() => {
                         setTransport('')
                     }}
-                    alt="bike"
+                    data-testid="bike"
                 />
                 {transport === 'bus' ? (
                     <Box
@@ -86,7 +91,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             onClick={() => {
                                 setTransport('bus')
                             }}
-                            alt="busHovered"
+                            data-testid="busHovered"
                             sx={{
                                 height: '60%',
                                 width: '60%',
@@ -103,7 +108,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
                         onClick={() => {
                             setTransport('bus')
                         }}
-                        alt="buss"
+                        data-testid="testBus"
                     />
                 )}
                 {transport === 'car' ? (
@@ -122,7 +127,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             onClick={() => {
                                 setTransport('car')
                             }}
-                            alt="carHovered"
+                            data-testid="carHovered"
                             sx={{
                                 height: '60%',
                                 width: '60%',
@@ -134,12 +139,12 @@ export const Routes = ({ onClick }: RoutesProps) => {
                     </Box>
                 ) : (
                     <Icon
-                        sx={{ marginRight: '20px', color:"betaLow.main" }}
+                        sx={{ marginRight: '20px', color: 'betaLow.main' }}
                         src="car"
                         onClick={() => {
                             setTransport('car')
                         }}
-                        alt="car"
+                        data-testid="car"
                     />
                 )}
                 <Icon
@@ -148,7 +153,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
                     onClick={() => {
                         setTransport('')
                     }}
-                    alt="train"
+                    data-testid="train"
                 />
             </Box>
             <Box
@@ -174,9 +179,9 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             component="div"
                             style={{
                                 marginRight: '7px',
-                                height:'16px',
-                                display:'flex',
-                                alignItems: 'center'
+                                height: '16px',
+                                display: 'flex',
+                                alignItems: 'center',
                             }}
                         >
                             <Icon src="rupee" />
@@ -231,9 +236,9 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             sx={{
                                 position: 'relative',
                                 marginBottom: '1.19%',
-                                display:'flex',
-                                justifyContent:'center',
-                                right:'15px'
+                                display: 'flex',
+                                justifyContent: 'center',
+                                right: '15px',
                             }}
                         >
                             <Img
@@ -267,7 +272,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
                                     position: 'absolute',
                                     top: '80px',
                                     left: '287px',
-                                    stroke: "white",
+                                    stroke: 'white',
                                 }}
                             />
                             <Box
@@ -299,8 +304,8 @@ export const Routes = ({ onClick }: RoutesProps) => {
                                 width: '150px',
                                 height: '16px',
                                 marginTop: '16px',
-                                position:'relative',
-                                right:'20px'
+                                position: 'relative',
+                                right: '20px',
                             }}
                         >
                             {VIEW}
@@ -310,22 +315,18 @@ export const Routes = ({ onClick }: RoutesProps) => {
             )}
             {transport === 'car' && (
                 <>
-                    <Box component="div" style={{ marginTop: '1.19%', display:'flex', flexDirection:'column', gap:'8px' }}>
-                        <CabDetail
-                            src="ola"
-                            cab="Ola"
-                            detail="45"
-                        />
-                        <CabDetail
-                            src="uber"
-                            cab="Uber"
-                            detail="45"
-                        />
-                        <CabDetail
-                            src="rapido"
-                            cab="Rapido"
-                            detail="45"
-                        />
+                    <Box
+                        component="div"
+                        style={{
+                            marginTop: '1.19%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '8px',
+                        }}
+                    >
+                        <CabDetail src="ola" cab="Ola" detail="45" />
+                        <CabDetail src="uber" cab="Uber" detail="45" />
+                        <CabDetail src="rapido" cab="Rapido" detail="45" />
                     </Box>
                 </>
             )}

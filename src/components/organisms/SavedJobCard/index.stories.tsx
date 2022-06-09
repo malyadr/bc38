@@ -9,8 +9,8 @@ const Template: ComponentStory<typeof SavedJobCard> = (args) => (
   <SavedJobCard {...args} />
 );
 
-export const jobCard = Template.bind({});
-jobCard.args = {
+export const savedJobCard = Template.bind({});
+savedJobCard.args = {
   src: "hp",
   role: "User Experience Designer",
   companyName: "HP",

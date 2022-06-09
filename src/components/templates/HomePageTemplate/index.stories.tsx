@@ -12,4 +12,4 @@ const Template: ComponentStory<typeof HomePageTemplate> = (args) => (
   <HomePageTemplate />
 );
 
-export const Card = Template.bind({});
+export const homePageTemplate = Template.bind({});

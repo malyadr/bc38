@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1654748660089" clover="3.2.0">
+  <project timestamp="1654748660089" name="All files">
+    <metrics statements="390" coveredstatements="379" conditionals="38" coveredconditionals="32" methods="54" coveredmethods="45" elements="482" coveredelements="456" complexity="0" loc="390" ncloc="390" packages="25" files="44" classes="44"/>
+    <package name="public.assets">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Avatar.jpg" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/Avatar.jpg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="public.assets.images">
+      <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="aqi.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/aqi.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="avatar.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/avatar.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="bmw.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/bmw.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="hitech.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/hitech.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="hp.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/hp.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="instagram.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/instagram.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="jobs.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/jobs.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="logo1.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/logo1.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="logo2.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/logo2.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="mapView.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/mapView.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="myntra.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/myntra.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="ola.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/ola.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="rapido.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/rapido.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="stay.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/stay.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="success.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/success.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="twitter.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/twitter.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="uber.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/uber.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="vector.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/vector.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+      <file name="wipro.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/wipro.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+      <file name="work.png" path="/home/sowmga/Desktop/dummy/final_testcases_boot/public/assets/images/work.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.atoms.CurrentIcon">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/atoms/CurrentIcon/index.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
+        <line num="27" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.atoms.avatar">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/atoms/avatar/index.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.atoms.icon">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/atoms/icon/index.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="11" type="stmt"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="13" count="207" type="stmt"/>
+        <line num="14" count="207" type="stmt"/>
+        <line num="29" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.atoms.image">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/atoms/image/index.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="8" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="27" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.AQIIndicator">
+      <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/AQIIndicator/index.tsx">
+        <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.CabDetail">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/CabDetail/index.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="91" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.CommonRoutes">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/CommonRoutes/index.tsx">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="25" count="11" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.InputField">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/InputField/index.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.LocationBar">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/LocationBar/index.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.button">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/button/index.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="25" count="34" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.chips">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/chips/index.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.fileUploader">
+      <metrics statements="22" coveredstatements="22" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/fileUploader/index.tsx">
+        <metrics statements="22" coveredstatements="22" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="29" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="34" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="5" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="132" count="1" type="stmt"/>
+        <line num="145" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.popup">
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/popup/index.tsx">
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="9" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.molecules.stepper">
+      <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/molecules/stepper/index.tsx">
+        <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="31" count="24" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.organisms.JobCard">
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/organisms/JobCard/index.tsx">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.organisms.JobRoutes">
+      <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/organisms/JobRoutes/index.tsx">
+        <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="11" type="stmt"/>
+        <line num="44" count="11" type="stmt"/>
+        <line num="45" count="11" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="145" count="2" type="stmt"/>
+        <line num="154" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.organisms.SavedJobCard">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/organisms/SavedJobCard/index.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.organisms.detailCard">
+      <metrics statements="23" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="3"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/organisms/detailCard/index.tsx">
+        <metrics statements="23" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="41" count="5" type="stmt"/>
+        <line num="42" count="5" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="230" count="1" type="stmt"/>
+        <line num="250" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.organisms.header">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/organisms/header/index.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.organisms.searchbar">
+      <metrics statements="25" coveredstatements="16" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="3"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/organisms/searchbar/index.tsx">
+        <metrics statements="25" coveredstatements="16" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.organisms.sidebar">
+      <metrics statements="17" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="3"/>
+      <file name="index.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/components/organisms/sidebar/index.tsx">
+        <metrics statements="17" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="22" count="18" type="stmt"/>
+        <line num="24" count="18" type="stmt"/>
+        <line num="49" count="16" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.constants">
+      <metrics statements="108" coveredstatements="108" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="constants.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/constants/constants.tsx">
+        <metrics statements="108" coveredstatements="108" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="16" type="stmt"/>
+        <line num="2" count="16" type="stmt"/>
+        <line num="3" count="16" type="stmt"/>
+        <line num="4" count="16" type="stmt"/>
+        <line num="5" count="16" type="stmt"/>
+        <line num="6" count="16" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="8" count="16" type="stmt"/>
+        <line num="9" count="16" type="stmt"/>
+        <line num="10" count="16" type="stmt"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="12" count="16" type="stmt"/>
+        <line num="13" count="16" type="stmt"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="15" count="16" type="stmt"/>
+        <line num="16" count="16" type="stmt"/>
+        <line num="17" count="16" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
+        <line num="21" count="16" type="stmt"/>
+        <line num="22" count="16" type="stmt"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="24" count="16" type="stmt"/>
+        <line num="25" count="16" type="stmt"/>
+        <line num="26" count="16" type="stmt"/>
+        <line num="27" count="16" type="stmt"/>
+        <line num="28" count="16" type="stmt"/>
+        <line num="29" count="16" type="stmt"/>
+        <line num="30" count="16" type="stmt"/>
+        <line num="31" count="16" type="stmt"/>
+        <line num="32" count="16" type="stmt"/>
+        <line num="33" count="16" type="stmt"/>
+        <line num="34" count="16" type="stmt"/>
+        <line num="35" count="16" type="stmt"/>
+        <line num="36" count="16" type="stmt"/>
+        <line num="37" count="16" type="stmt"/>
+        <line num="38" count="16" type="stmt"/>
+        <line num="39" count="16" type="stmt"/>
+        <line num="40" count="16" type="stmt"/>
+        <line num="41" count="16" type="stmt"/>
+        <line num="42" count="16" type="stmt"/>
+        <line num="43" count="16" type="stmt"/>
+        <line num="44" count="16" type="stmt"/>
+        <line num="45" count="16" type="stmt"/>
+        <line num="46" count="16" type="stmt"/>
+        <line num="47" count="16" type="stmt"/>
+        <line num="48" count="16" type="stmt"/>
+        <line num="49" count="16" type="stmt"/>
+        <line num="50" count="16" type="stmt"/>
+        <line num="51" count="16" type="stmt"/>
+        <line num="52" count="16" type="stmt"/>
+        <line num="53" count="16" type="stmt"/>
+        <line num="54" count="16" type="stmt"/>
+        <line num="55" count="16" type="stmt"/>
+        <line num="57" count="16" type="stmt"/>
+        <line num="58" count="16" type="stmt"/>
+        <line num="59" count="16" type="stmt"/>
+        <line num="60" count="16" type="stmt"/>
+        <line num="61" count="16" type="stmt"/>
+        <line num="62" count="16" type="stmt"/>
+        <line num="63" count="16" type="stmt"/>
+        <line num="69" count="16" type="stmt"/>
+        <line num="109" count="16" type="stmt"/>
+        <line num="129" count="16" type="stmt"/>
+        <line num="131" count="16" type="stmt"/>
+        <line num="132" count="16" type="stmt"/>
+        <line num="135" count="16" type="stmt"/>
+        <line num="138" count="16" type="stmt"/>
+        <line num="140" count="16" type="stmt"/>
+        <line num="142" count="16" type="stmt"/>
+        <line num="143" count="16" type="stmt"/>
+        <line num="149" count="16" type="stmt"/>
+        <line num="151" count="16" type="stmt"/>
+        <line num="152" count="16" type="stmt"/>
+        <line num="159" count="16" type="stmt"/>
+        <line num="160" count="16" type="stmt"/>
+        <line num="162" count="16" type="stmt"/>
+        <line num="163" count="16" type="stmt"/>
+        <line num="170" count="16" type="stmt"/>
+        <line num="171" count="16" type="stmt"/>
+        <line num="178" count="16" type="stmt"/>
+        <line num="179" count="16" type="stmt"/>
+        <line num="180" count="16" type="stmt"/>
+        <line num="182" count="16" type="stmt"/>
+        <line num="183" count="16" type="stmt"/>
+        <line num="185" count="16" type="stmt"/>
+        <line num="186" count="16" type="stmt"/>
+        <line num="187" count="16" type="stmt"/>
+        <line num="188" count="16" type="stmt"/>
+        <line num="189" count="16" type="stmt"/>
+        <line num="190" count="16" type="stmt"/>
+        <line num="191" count="16" type="stmt"/>
+        <line num="193" count="16" type="stmt"/>
+        <line num="204" count="16" type="stmt"/>
+        <line num="205" count="16" type="stmt"/>
+        <line num="206" count="16" type="stmt"/>
+        <line num="207" count="16" type="stmt"/>
+        <line num="213" count="16" type="stmt"/>
+        <line num="215" count="16" type="stmt"/>
+        <line num="220" count="16" type="stmt"/>
+        <line num="222" count="16" type="stmt"/>
+        <line num="223" count="16" type="stmt"/>
+        <line num="229" count="16" type="stmt"/>
+        <line num="230" count="16" type="stmt"/>
+        <line num="231" count="16" type="stmt"/>
+        <line num="232" count="16" type="stmt"/>
+        <line num="233" count="16" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.theme">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="customTheme.tsx" path="/home/sowmga/Desktop/dummy/final_testcases_boot/src/theme/customTheme.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="120" count="15" type="stmt"/>
+        <line num="384" count="15" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

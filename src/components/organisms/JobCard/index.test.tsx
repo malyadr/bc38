@@ -5,6 +5,12 @@ import { JobCard } from '.'
 
 test('test to check whether chip Component is present ', () => {
     render(
-        <JobCard src={''} role={''} companyName={''} location={''} time={''} />
+        <JobCard
+            src={'ola'}
+            role={''}
+            companyName={''}
+            location={''}
+            time={''}
+        />
     )
 })

@@ -2,7 +2,6 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import LandingPageTemplate from '.'
-import { ProgressStepper } from '../../organisms/HomePageOrganism'
 import { AQI } from '../../organisms/AQI'
 
 export default {
@@ -14,8 +13,8 @@ const Template: ComponentStory<typeof LandingPageTemplate> = (args) => (
     <LandingPageTemplate {...args} />
 )
 
-export const Card = Template.bind({})
+export const landingPageTemplate = Template.bind({})
 
-Card.args = {
+landingPageTemplate.args = {
     left: <AQI details={['Hyderabad']} step={1} />,
 }

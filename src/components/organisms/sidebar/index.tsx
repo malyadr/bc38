@@ -121,9 +121,6 @@ export default function SideNav({ style }: SideNavProps) {
                         height: '1000px',
                         justifyContent: 'space-between',
                     },
-                    '.MuiTab-iconWrapper': {
-                        background: 'red',
-                    },
                 }}
             >
                 <Tab
