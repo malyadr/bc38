@@ -6,12 +6,8 @@ import theme from '../../../theme/customTheme'
 import { AQI_TITLE } from '../../../constants/constants'
 import Img from '../../atoms/image'
 
-const crypto = window.crypto || window.Crypto
-const array = new Uint32Array(1)
-crypto.getRandomValues(array)
-
 export const AQI = ({ details, step }: any) => {
-
+    
 
     return (
         <Box
@@ -35,7 +31,7 @@ export const AQI = ({ details, step }: any) => {
                         }}
                     >
                         <AqiIndicator
-                            index={Math.floor(array[0] * 1000).toString()}
+                            index={Math.floor(Math.random() * 1000).toString()}
                             size={step == 0 ? 'large' : 'small'}
                         ></AqiIndicator>
                         {step == 1 && (
@@ -50,7 +46,7 @@ export const AQI = ({ details, step }: any) => {
                 ))
             ) : details.length != 0 && step == 2 ? (
                 <AqiIndicator
-                    index={Math.floor(array[0] * 10).toString()}
+                    index={Math.floor(Math.random() * 10).toString()}
                     size={step == 0 ? 'large' : 'small'}
                 ></AqiIndicator>
             ) : (
