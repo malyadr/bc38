@@ -7,7 +7,7 @@ interface ChipProps {
     text: string
     variant: textVariant
     styles: React.CSSProperties | null
-    onDelete?: React.MouseEventHandler<HTMLButtonElement> | undefined
+    onDelete?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const Chips = ({ text, variant, styles, onDelete }: ChipProps) => {

@@ -6,16 +6,19 @@ import theme from '../../../theme/customTheme'
 import { AQI_TITLE } from '../../../constants/constants'
 import Img from '../../atoms/image'
 
-export const AQI = ({ details, step }: any) => {
-    
+interface AqiProps {
+    details: string[]
+    step: 0 | 1 | 2
+}
 
+export const AQI = ({ details, step }: AqiProps) => {
     return (
         <Box
             sx={{
-                display:'flex',
-                alignItems:'center',
-                flexDirection:'column',
-                gap:'32px',
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+                gap: '32px',
             }}
         >
             {details.length != 0 && step != 2 ? (
@@ -24,14 +27,14 @@ export const AQI = ({ details, step }: any) => {
                         key={d.id}
                         sx={{
                             display: 'flex',
-                            alignItems:'center',
-                            height:'100%',
-                            gap:'32px',
-                            width:'320px'
+                            alignItems: 'center',
+                            height: '100%',
+                            gap: '32px',
+                            width: '320px',
                         }}
                     >
                         <AqiIndicator
-                            index={Math.floor(Math.random() * 1000).toString()}
+                            index={'500'}
                             size={step == 0 ? 'large' : 'small'}
                         ></AqiIndicator>
                         {step == 1 && (
@@ -45,26 +48,15 @@ export const AQI = ({ details, step }: any) => {
                     </Box>
                 ))
             ) : details.length != 0 && step == 2 ? (
-                <AqiIndicator
-                    index={Math.floor(Math.random() * 10).toString()}
-                    size={step == 0 ? 'large' : 'small'}
-                ></AqiIndicator>
+                <AqiIndicator index={'6'} size={'large'}></AqiIndicator>
             ) : (
-                <Img
-                    src={
-                        step == 0
-                            ? "stay"
-                            : step == 1
-                            ? "work"
-                            : "jobs"
-                    }
-                />
+                <Img src={step == 0 ? 'stay' : step == 1 ? 'work' : 'jobs'} />
             )}
             {details.length != 0 && (
                 <Typography
                     variant="h2"
                     sx={{
-                        textAlign:'center',
+                        textAlign: 'center',
                         marginTop: '60px',
                         width: '325px',
                         color: theme.palette.betaHigh.main,
@@ -78,12 +70,14 @@ export const AQI = ({ details, step }: any) => {
                     variant="h2"
                     color="betaHigh"
                     sx={{
-                        textAlign:'center',
+                        textAlign: 'center',
                         marginTop: '60px',
-                        width: (step != 2) ? '281px': "363px",
+                        width: step != 2 ? '281px' : '363px',
                     }}
                 >
-                    {step != 2 ? 'Enter Location to know Time Air Quality Index (AQI)' : 'Enter your Skills to know how many jobs are in this Location'}
+                    {step != 2
+                        ? 'Enter Location to know Time Air Quality Index (AQI)'
+                        : 'Enter your Skills to know how many jobs are in this Location'}
                 </Typography>
             )}
         </Box>

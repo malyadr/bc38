@@ -17,7 +17,6 @@ interface CardProps {
     companyName: string
     location: string
     time: string
-    isHovered: boolean
 }
 
 const SavedJobCard = ({
@@ -26,7 +25,6 @@ const SavedJobCard = ({
     companyName,
     location,
     time,
-    isHovered,
 }: CardProps) => {
     return (
         <>

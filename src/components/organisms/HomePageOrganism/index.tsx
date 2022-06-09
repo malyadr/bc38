@@ -17,16 +17,14 @@ import {
     STEPPER_ONE_OPTIONS,
     STEPPER_THREE_OPTIONS,
     STEPPER_TWO_OPTIONS,
+    STEPS,
+    STEPPER,
 } from '../../../constants/constants'
-import { STEPS, STEPPER } from '../../../constants/constants'
-import { AQI } from '../AQI'
-import logo from '../../../../public/assets/images/logo.png'
 
 type HomePageOrganismProps = {
     step?: number
 }
 export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
-    // const navigate = useNavigate()
     const [activeStep, setActiveStep] = React.useState(step ? step : 0)
     const [title, setTitle] = React.useState(STEPPER[0])
 
@@ -72,28 +70,27 @@ export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1)
     }
 
-    const inputChip = (activeStep: number) => {
+    const inputChip = (ActiveStep: number) => {
         let placeholder = ''
         let options: string[] = []
         let updateData: any
         let uniqueKey = 0
         let backTextValue: string[] = []
 
-        if (activeStep == 0) {
+        if (ActiveStep == 0) {
             placeholder = PLACEHOLDER[0]
             options = STEPPER_ONE_OPTIONS
             updateData = updateLocation
-            uniqueKey = 0
             backTextValue = location
         }
-        if (activeStep == 1) {
+        if (ActiveStep == 1) {
             placeholder = PLACEHOLDER[1]
             options = STEPPER_TWO_OPTIONS
             updateData = updateJobLocation
             uniqueKey = 1
             backTextValue = jobLocation
         }
-        if (activeStep == 2) {
+        if (ActiveStep == 2) {
             placeholder = PLACEHOLDER[2]
             options = STEPPER_THREE_OPTIONS
             updateData = updateSkills

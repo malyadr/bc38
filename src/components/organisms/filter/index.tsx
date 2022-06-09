@@ -129,16 +129,18 @@ const Filter = () => {
     return (
         <>
             <Button
-                startIcon={<Icon src="filter" sx={{width:'24px', height:'24px'}} />}
+                startIcon={
+                    <Icon src="filter" sx={{ width: '24px', height: '24px' }} />
+                }
                 onClick={handleOpen}
                 sx={{
                     display: 'flex',
-                    alignItems:'center',
+                    alignItems: 'center',
                     borderRadius: 4,
                     textTransform: 'capitalize',
                     width: '137px',
                     height: '57px',
-                    bgcolor:'gammaWhite.main'
+                    bgcolor: 'gammaWhite.main',
                 }}
                 color="betaHigh"
                 variant="text"
@@ -544,13 +546,9 @@ const Filter = () => {
                             }}
                             onDelete={() => {
                                 const Filterdata = []
-                                for (
-                                    let i = 0;
-                                    i < allCheckedValue.length;
-                                    i++
-                                ) {
-                                    if (allCheckedValue[i] != d) {
-                                        Filterdata.push(allCheckedValue[i])
+                                for (const val of allCheckedValue) {
+                                    if (val != d) {
+                                        Filterdata.push(val)
                                     }
                                 }
                                 setCheckedState(Filterdata)

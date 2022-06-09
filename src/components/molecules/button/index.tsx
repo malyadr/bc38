@@ -9,7 +9,7 @@ interface ButtonProps {
     buttonColor: color
     children: React.ReactNode
     styles: React.CSSProperties | null
-    onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button1 = ({

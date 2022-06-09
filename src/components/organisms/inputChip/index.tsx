@@ -37,7 +37,7 @@ export const InputChip = ({
                 options={options}
                 freeSolo
                 value={backTextValue}
-                onChange={(event, value) => {
+                onChange={(_event, value) => {
                     updateData(value)
                     placeholder = ''
                 }}
