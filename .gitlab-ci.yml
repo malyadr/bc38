@@ -6,7 +6,6 @@ stages:
     - netlify
     - sonarcloud-check-frontend
 
-
 netlify:
     stage: netlify
     image:
