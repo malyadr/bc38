@@ -1,13 +1,9 @@
-import { Grid, GridProps, Box, Typography, SvgIcon } from "@mui/material";
-import {default as logo} from "../../../../public/assets/icons/Logo 2.svg";
-import notifications from "../../../../public/assets/icons/notifications.svg";
+import { Grid, GridProps, Box } from "@mui/material";
 import AvatarComp from "../../atoms/avatar";
 import React from "react";
 import theme from "../../../theme/customTheme";
 import LocationBar from "../../molecules/LocationBar";
-import { default as message } from '../../../../public/assets/icons/message.svg'
-import { GREENCOMMUTE ,East_MAREDPALLY} from "../../../constants/constants";
-import Logo from '../../../../public/assets/icons/logo.png'
+import { East_MAREDPALLY} from "../../../constants/constants";
 import Img from "../../atoms/image";
 import Icon from "../../atoms/icon";
 export interface HeaderPropsType extends GridProps {
@@ -20,7 +16,7 @@ export interface HeaderPropsType extends GridProps {
 }
 
 export default function TopNavbar({
-  height = "80px", width, backgroundColor = `${theme.palette.alpha600.main}`, padding, text,
+  height = "80px", backgroundColor = `${theme.palette.alpha600.main}`, padding
 }: HeaderPropsType) {
   return (
     <Grid

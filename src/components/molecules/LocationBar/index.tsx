@@ -1,7 +1,6 @@
-import { Box, SvgIcon } from '@mui/material'
+import { Box } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import React from 'react'
-import { default as Location } from '../../../../public/assets/icons/location.svg'
 import Icon from '../../atoms/icon'
 
 interface LocationProps {

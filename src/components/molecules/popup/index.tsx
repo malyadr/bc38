@@ -43,9 +43,6 @@ const Popup = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Grid container sx={style}>
-                    {/* {React.cloneElement(children, {
-                        setOpen: setOpen,
-                    })} */}
                     <FileUploader setOpen={setOpen} />
                 </Grid>
             </Modal>

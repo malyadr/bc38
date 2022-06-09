@@ -5,8 +5,8 @@ import { iconType } from '../../../theme/customTheme'
 
 interface IconProps {
     src: iconType
-    sx?: SxProps<Theme> | undefined
-    onClick?: React.MouseEventHandler<SVGSVGElement> | undefined
+    sx?: SxProps<Theme>
+    onClick?: React.MouseEventHandler<SVGSVGElement> 
     [key: string]: any
 }
 

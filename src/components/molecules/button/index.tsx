@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button } from '@mui/material'
-import { Typography } from '@mui/material'
+import { Button, Typography } from '@mui/material'
 import { textVariant, color, textColor } from '../../../theme/customTheme'
 
 interface ButtonProps {
@@ -15,7 +14,6 @@ interface ButtonProps {
 
 export const Button1 = ({
     variant,
-    TextColor,
     buttonVariant,
     buttonColor,
     children,

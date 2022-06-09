@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SvgIcon, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { Current } from '../../atoms/CurrentIcon'
 import { COMMON_ROUTE } from '../../../constants/constants'
@@ -18,7 +18,7 @@ const styles = makeStyles({
 type CommonRoutesProps = {
     from: string
     to: string
-    onClick?: React.MouseEventHandler<SVGSVGElement> | undefined
+    onClick?: React.MouseEventHandler<SVGSVGElement> 
 }
 
 export const CommonRoutes = ({ from, to, onClick }: CommonRoutesProps) => {

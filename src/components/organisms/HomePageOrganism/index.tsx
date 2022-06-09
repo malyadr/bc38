@@ -8,7 +8,6 @@ import { Typography } from '@mui/material'
 import { Button1 } from '../../molecules/button'
 import theme from '../../../theme/customTheme'
 import { InputChip } from '../inputChip'
-// import Stepper from '../../molecules/stepper'
 import {
     BACK,
     LANDING_TITLE,
@@ -20,30 +19,14 @@ import {
     STEPPER_TWO_OPTIONS,
 } from '../../../constants/constants'
 import { STEPS, STEPPER } from '../../../constants/constants'
-import { AQI } from '../AQI'
-import logo from '../../../../public/assets/images/logo.png'
-// import { useNavigate } from 'react-router-dom'
 
 export const HomePageOrganism = () => {
-    // const navigate = useNavigate()
     const [activeStep, setActiveStep] = React.useState(0)
     const [title, setTitle] = React.useState(STEPPER[0])
 
     const [location, setLocation] = React.useState<string[]>([])
     const [jobLocation, setJobLocation] = React.useState<string[]>([])
     const [mySkills, setMySkills] = React.useState<string[]>([])
-
-    // React.useEffect(() => {
-    //     setAdditional((prev: any) => {
-    //         return { ...prev, currentLocation: location }
-    //     })
-    //     setAdditional((prev: any) => {
-    //         return { ...prev, jobLocation: jobLocation }
-    //     })
-    //     setAdditional((prev: any) => {
-    //         return { ...prev, skills: mySkills }
-    //     })
-    // }, [location, jobLocation, mySkills, setAdditional])
 
     const updateLocation = (currLoc: string[]): void => {
         setLocation(currLoc)

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, Typography, SvgIcon } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useState } from 'react'
 import { Button1 } from '../../molecules/button'
@@ -35,7 +35,7 @@ const styles = makeStyles({
 })
 
 type RoutesProps = {
-    onClick?: React.MouseEventHandler<SVGSVGElement> | undefined
+    onClick?: React.MouseEventHandler<SVGSVGElement>
 }
 
 export const Routes = ({ onClick }: RoutesProps) => {

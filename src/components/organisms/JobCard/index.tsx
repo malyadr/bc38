@@ -1,9 +1,9 @@
-import { Box, SvgIcon, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import React from 'react'
 import Icon from '../../atoms/icon'
 import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
-import theme, { iconType, imageTypes } from '../../../theme/customTheme'
+import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/image'
 
 const styles = makeStyles({

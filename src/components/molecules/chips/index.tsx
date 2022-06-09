@@ -1,17 +1,16 @@
-import { Typography } from '@mui/material'
+import { Typography, Chip } from '@mui/material'
 import React from 'react'
-import { Chip } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { textVariant } from '../../../theme/customTheme'
 
-interface chips {
+interface ChipProps {
     text: string
     variant: textVariant
     styles: React.CSSProperties | null
     onDelete?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-export const Chips = ({ text, variant, styles, onDelete }: chips) => {
+export const Chips = ({ text, variant, styles, onDelete }: ChipProps) => {
     return (
         <Chip
             sx={styles}

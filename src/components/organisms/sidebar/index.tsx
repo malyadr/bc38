@@ -15,7 +15,7 @@ interface TabPanelProps {
 }
 
 interface SideNavProps {
-    style?: React.CSSProperties | undefined
+    style?: React.CSSProperties
 }
 
 function TabPanel(props: TabPanelProps) {

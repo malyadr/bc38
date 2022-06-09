@@ -3,14 +3,14 @@ import React from "react";
 import {Logos} from '../../../constants/constants'
 import { imageTypes } from "../../../theme/customTheme";
 
-interface imgProps {
+interface ImgProps {
     
     src: imageTypes,
-    sx?: SxProps<Theme> | undefined
+    sx?: SxProps<Theme>
    
 }
 
-const Img = ({src, sx}:imgProps) => {
+const Img = ({src, sx}:ImgProps) => {
     return (
     <>
      <Box component="img" src={Logos[src].type} sx={sx} data-testid="img" alt="no image"/>

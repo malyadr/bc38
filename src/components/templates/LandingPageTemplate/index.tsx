@@ -1,4 +1,4 @@
-import { Stack, Paper, Box } from '@mui/material'
+import { Stack, Paper} from '@mui/material'
 import React from 'react'
 import Img from '../../atoms/image';
 
@@ -6,7 +6,7 @@ interface TemplateProps {
     left: React.ReactNode;
 }
 
-const LandingPageTemplate = ({left}: TemplateProps) => {
+const LandingPageTemplate = () => {
   return (
     <>
      <Stack direction="row" sx={{height:'768px', position:'relative', left:'0px', top:'0px', m: '0px', p: '0px'}}>

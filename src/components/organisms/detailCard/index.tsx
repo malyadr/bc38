@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-import { Grid, Box } from '@mui/material'
+import { Grid } from '@mui/material'
 import Popup from '../../molecules/popup'
-import FileUploader from '../../molecules/fileUploader'
 import Divider from '@mui/material/Divider'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
@@ -126,7 +125,6 @@ const DetailCard = ({
                                                     {saveClickStatus
                                                         ? 'unsave'
                                                         : SAVE}
-                                                    {/* {SAVE} */}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
@@ -145,7 +143,7 @@ const DetailCard = ({
                         variant="middle"
                         sx={{ marginTop: '24px', marginBottom: '24px' }}
                     />
-                    {commuteClickStatus == false ? (
+                    {!commuteClickStatus ? (
                         <Grid container>
                             <Grid item sx={{ marginBottom: '8px' }}>
                                 <Typography
@@ -206,7 +204,7 @@ const DetailCard = ({
                     )}
                 </CardContent>
             </Card>
-            {commuteClickStatus == false && (
+            {!commuteClickStatus && (
                 <Card
                     variant="outlined"
                     sx={{

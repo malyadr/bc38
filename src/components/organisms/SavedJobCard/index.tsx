@@ -1,20 +1,17 @@
 import React from 'react'
 import {
-    Button,
     Box,
     Card,
     CardContent,
     CardActions,
     Typography,
-    CardMedia,
     Stack,
-    SvgIcon,
 } from '@mui/material'
 import Icon from '../../atoms/icon'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/image'
 
-interface props {
+interface CardProps {
     src: imageTypes
     role: string
     companyName: string
@@ -30,7 +27,7 @@ const SavedJobCard = ({
     location,
     time,
     isHovered,
-}: props) => {
+}: CardProps) => {
     return (
         <>
             <Card

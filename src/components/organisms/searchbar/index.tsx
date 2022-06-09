@@ -1,7 +1,5 @@
-import { TextField, Autocomplete, Stack, Button, SvgIcon, Box, Divider } from "@mui/material";
+import { TextField, Autocomplete, Stack, Button, SvgIcon, Divider } from "@mui/material";
 import React, { useState } from "react";
-import Work from '../../../../public/assets/icons/work.svg'
-import Location from '../../../../public/assets/icons/location.svg';
 import SearchIcon from '../../../../public/assets/icons/search.svg';
 import Icon from "../../atoms/icon";
 
@@ -27,14 +25,7 @@ const SearchBar = () => {
   const [filteredList, setOptions] = useState<OptionType[]>(options);
 
   const handleClick = () => {
-    let a = options;
-    if (skills !== "") {
-       a = a.filter(a => a.skill === skills);
-    }
-    if (location !== "") {
-      a = a.filter(a => a.location === location);
-    }
-    setOptions(a);
+    setOptions(options);
   }
   return (
     <>
