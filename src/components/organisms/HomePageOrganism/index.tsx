@@ -19,9 +19,15 @@ import {
     STEPPER_TWO_OPTIONS,
 } from '../../../constants/constants'
 import { STEPS, STEPPER } from '../../../constants/constants'
+import { AQI } from '../AQI'
+import logo from '../../../../public/assets/images/logo.png'
 
-export const HomePageOrganism = () => {
-    const [activeStep, setActiveStep] = React.useState(0)
+type HomePageOrganismProps = {
+    step?: number
+}
+export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
+    // const navigate = useNavigate()
+    const [activeStep, setActiveStep] = React.useState(step ? step : 0)
     const [title, setTitle] = React.useState(STEPPER[0])
 
     const [location, setLocation] = React.useState<string[]>([])

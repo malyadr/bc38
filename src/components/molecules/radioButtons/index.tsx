@@ -18,6 +18,7 @@ const RadioButtons = ({ value }: Props) => {
                 checked={selectedValue === value}
                 onClick={handleChange}
                 name="radio-buttons"
+                data-testid='radio'
                 sx={{
                     color: 'beta400.main',
                     '&.Mui-checked': {

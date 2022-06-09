@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.25% </span>
+                <span class="strong">77.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/27</span>
+                <span class='fraction'>21/27</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64% </span>
+                <span class="strong">84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/25</span>
+                <span class='fraction'>21/25</span>
             </div>
         
             
@@ -166,35 +166,22 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,13 +194,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,19 +249,19 @@ const SearchBar = () =&gt; {
   const [location, setLocation] = useState&lt;string&gt;("");
   const [filteredList, setOptions] = useState&lt;OptionType[]&gt;(options);
 &nbsp;
-  const handleClick = <span class="fstat-no" title="function not covered" >() =</span>&gt; {
-    let a = <span class="cstat-no" title="statement not covered" >options;</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (skills !== "") {</span>
+  const handleClick = () =&gt; {
+    let a = options;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (skills !== "") {
 <span class="cstat-no" title="statement not covered" >       a = a.filter(<span class="fstat-no" title="function not covered" >a </span>=&gt; <span class="cstat-no" title="statement not covered" >a.skill === skills)</span>;</span>
     }
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (location !== "") {</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (location !== "") {
 <span class="cstat-no" title="statement not covered" >      a = a.filter(<span class="fstat-no" title="function not covered" >a </span>=&gt; <span class="cstat-no" title="statement not covered" >a.location === location)</span>;</span>
     }
-<span class="cstat-no" title="statement not covered" >    setOptions(a);</span>
+    setOptions(a);
   }
   return (
     &lt;&gt;
-        &lt;Stack direction="row" sx={{border:'1px solid black', bgcolor:'gammaWhite.main', borderRadius:'32px', width:'843px', height:'56px', display:'flex', alignItems:'center'}}&gt;
+        &lt;Stack direction="row" sx={{ bgcolor:'gammaWhite.main', borderRadius:'32px', width:'843px', height:'56px', display:'flex', alignItems:'center'}}&gt;
           &lt;Icon src="work" sx={{pl:'28px'}}/&gt;
         &lt;Autocomplete
           autoHighlight
@@ -292,7 +292,7 @@ const SearchBar = () =&gt; {
           &lt;TextField {...params} id="standard-search" placeholder="Location" sx={{'.MuiOutlinedInput-root': {'&amp; fieldset': {border:'none'}, '&amp;:hover fieldset': {border:'none'}}}} /&gt;}
           value={location} 
         /&gt;
-        &lt;Button variant="contained" color="alpha300" onClick={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >handleClick()}</span>  sx={{ minWidth:'44px', maxWidth:'44px', height:'44px', borderRadius:'50%', position:'relative', right:'6px'}}&gt;
+        &lt;Button variant="contained" color="alpha300" onClick={() =&gt; handleClick()}  sx={{ minWidth:'44px', maxWidth:'44px', height:'44px', borderRadius:'50%', position:'relative', right:'6px'}} data-testid='iconButton'&gt;
           &lt;SvgIcon component={SearchIcon} sx={{fill:'transparent'}}/&gt;
         &lt;/Button&gt;
         &lt;/Stack&gt;
@@ -307,7 +307,7 @@ export default SearchBar;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jun 09 2022 09:54:19 GMT+0530 (India Standard Time)
+                at Thu Jun 09 2022 16:20:09 GMT+0530 (India Standard Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

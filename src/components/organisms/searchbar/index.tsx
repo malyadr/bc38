@@ -60,7 +60,7 @@ const SearchBar = () => {
           <TextField {...params} id="standard-search" placeholder="Location" sx={{'.MuiOutlinedInput-root': {'& fieldset': {border:'none'}, '&:hover fieldset': {border:'none'}}}} />}
           value={location} 
         />
-        <Button variant="contained" color="alpha300" onClick={() => handleClick()}  sx={{ minWidth:'44px', maxWidth:'44px', height:'44px', borderRadius:'50%', position:'relative', right:'6px'}}>
+        <Button variant="contained" color="alpha300" onClick={() => handleClick()}  sx={{ minWidth:'44px', maxWidth:'44px', height:'44px', borderRadius:'50%', position:'relative', right:'6px'}} data-testid='iconButton'>
           <SvgIcon component={SearchIcon} sx={{fill:'transparent'}}/>
         </Button>
         </Stack>
