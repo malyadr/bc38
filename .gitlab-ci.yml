@@ -19,9 +19,9 @@ netlify:
     only:
         - merge_requests
         - main
+
 sonarcloud-check-frontend:
     stage: sonarcloud-check-frontend
-
     image:
         name: sonarsource/sonar-scanner-cli:latest
         entrypoint: ['']
