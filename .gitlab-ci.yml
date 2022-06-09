@@ -4,6 +4,7 @@ variables:
 
 stages:
     - netlify
+    - sonarscan
 
 netlify:
     stage: netlify
@@ -17,7 +18,8 @@ netlify:
     only:
         - merge_requests
         - main
-sonarcloud-check:
+sonar:
+    stage: sonarscan
     image:
         name: sonarsource/sonar-scanner-cli:latest
         entrypoint: ['']
