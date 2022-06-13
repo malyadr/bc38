@@ -39,7 +39,6 @@ export const InputChip = ({
                 value={backTextValue}
                 onChange={(_event, value) => {
                     updateData(value)
-                    placeholder = ''
                 }}
                 renderTags={(value: readonly string[], getTagProps) => {
                     if (uniqueKey != 0) {

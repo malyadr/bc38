@@ -60,18 +60,9 @@ export const AQI = ({ details, step }: AqiProps) => {
             return <Img src={imgSrc()} />
         }
     }
-    return (
-        <Box
-            sx={{
-                display: 'flex',
-                alignItems: 'center',
-                flexDirection: 'column',
-                gap: '32px',
-            }}
-        >
-            {renderComponent()}
-
-            {details.length != 0 ? (
+    const condition = () => {
+        if (details.length !== 0) {
+            return (
                 <Typography
                     variant="h2"
                     sx={{
@@ -83,7 +74,9 @@ export const AQI = ({ details, step }: AqiProps) => {
                 >
                     {step == 2 ? 'Jobs found in Hyderabad & Mumbai' : AQI_TITLE}
                 </Typography>
-            ) : (
+            )
+        } else {
+            return (
                 <Typography
                     variant="h2"
                     color="betaHigh"
@@ -95,7 +88,21 @@ export const AQI = ({ details, step }: AqiProps) => {
                 >
                     {step != 2 ? ENTER_LOCATION : ENTER_SKILLS}
                 </Typography>
-            )}
+            )
+        }
+    }
+    return (
+        <Box
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+                gap: '32px',
+            }}
+        >
+            {renderComponent()}
+
+            {condition()}
         </Box>
     )
 }
