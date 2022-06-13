@@ -259,6 +259,19 @@ const theme = createTheme({
                 },
             },
         },
+        MuiAutocomplete: {
+            styleOverrides: {
+                root: {
+                    background:'white'
+                },
+                option: {
+                    background:'white'
+                },
+                paper: {
+                    background:'white'
+                }
+            }
+        }
     },
 })
 
