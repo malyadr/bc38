@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Box, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useState } from 'react'
-import { Button1 } from '../../molecules/button'
+import { Button1 } from '../../molecules/Button'
 import CabDetail from '../../molecules/CabDetail'
 import { CommonRoutes } from '../../molecules/CommonRoutes'
 
@@ -22,8 +22,8 @@ import {
 } from '../../../constants/constants'
 
 import theme from '../../../theme/customTheme'
-import Icon from '../../atoms/icon'
-import Img from '../../atoms/image'
+import Icon from '../../atoms/Icon'
+import Img from '../../atoms/Image'
 
 const styles = makeStyles({
     flexRow: {

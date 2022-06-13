@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@mui/styles'
-import Img from '../../atoms/image'
+import Img from '../../atoms/Image'
 
 const useStyles = makeStyles({
     index: {

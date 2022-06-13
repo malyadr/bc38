@@ -3,8 +3,8 @@ import Box from '@mui/material/Box'
 import React from 'react'
 import { APPROX } from '../../../constants/constants'
 import { imageTypes } from '../../../theme/customTheme'
-import Icon from '../../atoms/icon'
-import Img from '../../atoms/image'
+import Icon from '../../atoms/Icon'
+import Img from '../../atoms/Image'
 
 interface CabProps {
     cab: string

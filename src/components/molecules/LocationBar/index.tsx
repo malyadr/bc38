@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import React from 'react'
-import Icon from '../../atoms/icon'
+import Icon from '../../atoms/Icon'
 
 interface LocationProps {
     location: string

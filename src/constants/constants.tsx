@@ -231,3 +231,5 @@ export const FILE_UPLOAD = 'File Upload'
 export const HI_MESSAGE = ' Hi abc!'
 export const SUCCESS_MESSAGE = 'Your Resume got Uploaded Successfully!'
 export const OKAY = 'OKAY'
+export const ENTER_SKILLS = "Enter your Skills to know how many jobs are in this Location"
+export const ENTER_LOCATION = 'Enter Location to know Time Air Quality Index (AQI)'

@@ -5,9 +5,9 @@ import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Button from '@mui/material/Button'
 import { Typography } from '@mui/material'
-import { Button1 } from '../../molecules/button'
+import { Button1 } from '../../molecules/Button'
 import theme from '../../../theme/customTheme'
-import { InputChip } from '../inputChip'
+import { InputChip } from '../InputChip'
 import {
     BACK,
     LANDING_TITLE,

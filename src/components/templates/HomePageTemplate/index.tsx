@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../../organisms/header'
-import SideNav from '../../organisms/sidebar'
+import Header from '../../organisms/Header'
+import SideNav from '../../organisms/SideNavBar'
 
 const HomePageTemplate = () => {
     return (

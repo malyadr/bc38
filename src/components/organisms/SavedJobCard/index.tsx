@@ -7,9 +7,9 @@ import {
     Typography,
     Stack,
 } from '@mui/material'
-import Icon from '../../atoms/icon'
+import Icon from '../../atoms/Icon'
 import theme, { imageTypes } from '../../../theme/customTheme'
-import Img from '../../atoms/image'
+import Img from '../../atoms/Image'
 
 interface CardProps {
     src: imageTypes

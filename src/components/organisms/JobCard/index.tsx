@@ -1,10 +1,10 @@
 import { Box, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import React from 'react'
-import Icon from '../../atoms/icon'
+import Icon from '../../atoms/Icon'
 import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
 import theme, { imageTypes } from '../../../theme/customTheme'
-import Img from '../../atoms/image'
+import Img from '../../atoms/Image'
 
 const styles = makeStyles({
     flexRow: {

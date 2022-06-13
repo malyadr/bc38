@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles'
 import { Current } from '../../atoms/CurrentIcon'
 import { COMMON_ROUTE } from '../../../constants/constants'
 import { Box } from '@mui/system'
-import Icon from '../../atoms/icon'
+import Icon from '../../atoms/Icon'
 import theme from '../../../theme/customTheme'
 
 const styles = makeStyles({
