@@ -3,31 +3,32 @@ variables:
     GIT_DEPTH: '0' # Tells git to fetch all the branches of the project, required by the analysis task
 
 stages:
-    - node
     - sonarcloud-check-frontend
     - netlify
 
-node:
-    stage: node
-    image:
-        name: node:16
-        entrypoint: ['']
-    script:
-        npm install --legacy-peer-deps
-    only:
-        - merge_requests
-        - main
+# node:
+#     stage: node
+#     image:
+#         name: node:16
+#         entrypoint: ['']
+#     script:
+#         npm install --legacy-peer-deps
+#     only:
+#         - merge_requests
+#         - main
 
 sonarcloud-check-frontend:
     stage: sonarcloud-check-frontend
     image:
         name: sonarsource/sonar-scanner-cli:latest
+        service: node:16
         entrypoint: ['']
     cache:
         key: '${CI_JOB_NAME}'
         paths:
             - .sonar/cache
     script:
+        - npm install --legacy-peer-deps
         - npm test
         - sonar-scanner
     only:
@@ -38,8 +39,10 @@ netlify:
     stage: netlify
     image:
         name: sonarsource/sonar-scanner-cli:latest
+        service: node:16
         entrypoint: ['']
     script:
+        - npm install --legacy-peer-deps
         - npm run build-storybook
         - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir=storybook-static
     only:
