@@ -4,19 +4,32 @@ variables:
 
 stages:
     - sonarcloud-check-frontend
+    - netlify
+
+netlify:
+    stage: netlify
+    image:
+        name: sonarsource/sonar-scanner-cli:4.6
+        entrypoint: ['']
+    script:
+        - npm install
+        - npm run build-storybook
+        - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir=storybook-static
+    only:
+        - merge_requests
+        - main
 
 sonarcloud-check-frontend:
     stage: sonarcloud-check-frontend
     image:
-        name: sonarsource/sonar-scanner-cli:latest
-        name: node:16
+        name: sonarsource/sonar-scanner-cli:4.6
         entrypoint: ['']
     cache:
         key: '${CI_JOB_NAME}'
         paths:
             - .sonar/cache
     script:
-        - npm install --legacy-peer-deps
+        - npm install
         - npm test
         - sonar-scanner
     only:
