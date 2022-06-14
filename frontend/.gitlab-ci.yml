@@ -50,7 +50,7 @@ docker build and push:
         - main
 =======
         - docker build . -t bc38mock:1
-        - docker tag bc3211:1 "$REGISTRY_USER"/mock_bc38:1
+        - docker tag bc38mock:1 "$REGISTRY_USER"/mock_bc38:1
         - docker push "$REGISTRY_USER"/mock_bc38:1
     environment:
        name: staging
