@@ -11,6 +11,9 @@ netlify:
     image:
         name: sonarsource/sonar-scanner-cli:latest
         entrypoint: ['']
+    image:
+        name: npm:latest
+        entrypoint: ['']
     script:
         - npm install
         - npm run build-storybook
