@@ -1,0 +1,64 @@
+{
+  "job": [
+    {
+      "id": 1,
+      "image": "hp",
+      "company": "HP",
+      "role": "User Experience Designer",
+      "jobLocation": "Hyderabad, Telangana, India",
+      "time": "1hr 36 mins ago",
+      "saved": false,
+      "applied":false
+    },
+    {
+      "id": 2,
+      "image": "instagram",
+      "company": "Instagram",
+      "role": "User Experience Designer",
+      "jobLocation": "Hyderabad, Telangana, India",
+      "time": "45 mins ago",
+      "saved": false,
+      "applied":false
+    },
+    {
+      "id": 3,
+      "image": "bmw",
+      "company": "BMW",
+      "role": "Product Designer",
+      "jobLocation": "Hyderabad, Telangana, India",
+      "time": "3 days ago",
+      "saved": false,
+      "applied":false
+    },
+    {
+      "id": 4,
+      "image": "myntra",
+      "company": "Myntra",
+      "role": "User Experience Designer",
+      "jobLocation": "Hyderabad, Telangana, India",
+      "time": "4 days ago",
+      "saved": false,
+      "applied":false
+    },
+    {
+      "id": 5,
+      "image": "twitter",
+      "company": "Twitter",
+      "role": "User Experience Designer",
+      "jobLocation": "Hyderabad, Telangana, India",
+      "time": "1 week ago",
+      "saved": false,
+      "applied":false
+    },
+    {
+      "id": 6,
+      "image": "wipro",
+      "company": "Wipro",
+      "role": "User Experience Designer",
+      "jobLocation": "Hyderabad, Telangana, India",
+      "time": "10 days ago",
+      "saved": false,
+      "applied":false
+    }
+  ]
+}
