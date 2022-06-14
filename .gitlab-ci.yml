@@ -11,14 +11,13 @@ sonarcloud-check-frontend:
     image:
         name: sonarsource/sonar-scanner-cli:latest
         entrypoint: ['']
+    services:
+        - name: node:14
     cache:
         key: '${CI_JOB_NAME}'
         paths:
             - .sonar/cache
     script:
-        - apt install sudo
-        - sudo apt update
-        - sudo apt install nodejs npm
         - npm install
         - npm test
         - sonar-scanner
