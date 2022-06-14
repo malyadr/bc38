@@ -8,8 +8,8 @@ stages:
 sonarcloud-check-frontend:
     stage: sonarcloud-check-frontend
     image:
-        name: node:16
         name: sonarsource/sonar-scanner-cli:latest
+        name: node:16
         entrypoint: ['']
     cache:
         key: '${CI_JOB_NAME}'
