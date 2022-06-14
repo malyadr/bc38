@@ -6,21 +6,6 @@ stages:
     - sonarcloud-check-frontend
     - netlify
 
-netlify:
-    stage: netlify
-    image:
-        name: sonarsource/sonar-scanner-cli:latest
-        entrypoint: ['']
-    script:
-        - sudo apt update
-        - sudo apt install nodejs npm
-        - npm install
-        - npm run build-storybook
-        - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir=storybook-static
-    only:
-        - merge_requests
-        - main
-
 sonarcloud-check-frontend:
     stage: sonarcloud-check-frontend
     image:
@@ -31,9 +16,23 @@ sonarcloud-check-frontend:
         paths:
             - .sonar/cache
     script:
+        - sudo apt update
+        - sudo apt install nodejs npm
         - npm install
         - npm test
         - sonar-scanner
+    only:
+        - merge_requests
+        - main
+
+netlify:
+    stage: netlify
+    image:
+        name: sonarsource/sonar-scanner-cli:latest
+        entrypoint: ['']
+    script:
+        - npm run build-storybook
+        - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir=storybook-static
     only:
         - merge_requests
         - main
