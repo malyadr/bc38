@@ -10,6 +10,15 @@ import {
 import Icon from '../../atoms/Icon'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
+import { makeStyles } from '@mui/styles'
+
+const styles = makeStyles({
+    root: {
+        borderColor: theme.palette.alpha200.main,
+        borderWidth: '2px',
+        borderStyle: 'solid',
+    },
+})
 
 interface CardProps {
     src: imageTypes
@@ -17,6 +26,7 @@ interface CardProps {
     companyName: string
     location: string
     time: string
+    isBordered: boolean
 }
 
 const SavedJobCard = ({
@@ -25,13 +35,16 @@ const SavedJobCard = ({
     companyName,
     location,
     time,
+    isBordered,
 }: CardProps) => {
+    console.log(isBordered)
+    const classes = styles()
     return (
         <>
             <Card
                 sx={{
-                    maxWidth: '571px',
-                    height: '159px',
+                    width: '41vw',
+                    height: '17vh',
                     display: 'flex',
                     justifyContent: 'space-between',
                     borderRadius: '12px',
@@ -39,12 +52,9 @@ const SavedJobCard = ({
                     paddingRight: '20px',
                     paddingLeft: '20px',
                     background: 'gammaWhite.main',
-                    '&:hover': {
-                        borderColor: 'alpha200.main',
-                        borderWidth: '2px',
-                        borderStyle: 'solid',
-                    },
+                    boxShadow: 'none',
                 }}
+                className={isBordered ? classes.root : ''}
             >
                 <Box sx={{ display: 'flex' }}>
                     <div
@@ -89,6 +99,7 @@ const SavedJobCard = ({
                         <Typography
                             variant="caption2"
                             sx={{ height: '16px', marginBottom: '36px' }}
+                            color="betaMedium.main"
                         >
                             {location}
                         </Typography>

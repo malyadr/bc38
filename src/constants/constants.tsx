@@ -53,6 +53,7 @@ import SelectedBus from '../../public/assets/icons/SelectedBus.svg'
 import SelectedCar from '../../public/assets/icons/selectedCar.svg'
 import Line from '../../public/assets/icons/vector7.svg'
 import MapView from '../../public/assets/images/mapView.png'
+import { imageTypes } from '../theme/customTheme'
 
 export const FILE_UPLOAD_TEXT = 'Click Here to Upload Files'
 export const NEXT = 'Next'
@@ -231,5 +232,26 @@ export const FILE_UPLOAD = 'File Upload'
 export const HI_MESSAGE = ' Hi abc!'
 export const SUCCESS_MESSAGE = 'Your Resume got Uploaded Successfully!'
 export const OKAY = 'OKAY'
-export const ENTER_SKILLS = "Enter your Skills to know how many jobs are in this Location"
-export const ENTER_LOCATION = 'Enter Location to know Time Air Quality Index (AQI)'
+export const ENTER_SKILLS =
+    'Enter your Skills to know how many jobs are in this Location'
+export const ENTER_LOCATION =
+    'Enter Location to know Time Air Quality Index (AQI)'
+
+export interface JOBCARDPROPS {
+    id: number
+    image: any
+    company: string
+    role: string
+    jobLocation: string
+    time: string
+    saved: boolean
+    applied: boolean
+    distance?: string
+}
+
+export const FIND_JOBS = 'Find Jobs'
+export const RECOMMENDED = 'Recommended for you'
+export const PROFILE_SKILL_SEARCH =
+    'Based on your profile, skills and search history.'
+export const JOB_LIST = ' Job list'
+export const BASED_ON_SEARCH = 'Based on your search'

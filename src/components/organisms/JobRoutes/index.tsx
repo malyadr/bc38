@@ -47,7 +47,6 @@ export const Routes = ({ onClick }: RoutesProps) => {
             sx={{
                 bgcolor: 'gammaWhite.main',
                 maxWidth: '404px',
-                height: 'fit-content',
             }}
         >
             <CommonRoutes
@@ -59,7 +58,7 @@ export const Routes = ({ onClick }: RoutesProps) => {
                 component="div"
                 style={{
                     marginLeft: '16px',
-                    marginTop: '21.5px',
+                    marginTop: '29.5px',
                     display: 'flex',
                 }}
             >
