@@ -27,11 +27,7 @@ export const AQI = ({ details, step }: AqiProps) => {
         else if (step == 1) return 'work'
         else return 'jobs'
     }
-    console.log("currentLocation in aqi = ", details.currentLocation);
-    console.log("step in aqi  = ", step);
     const renderComponent = () => {
-        console.log("have data");
-        console.log('aqi details = ', details);
         if (step === 0 && details.currentLocation !== '' && details.currentLocation !== null) {
             return (
                 <Box

@@ -50,13 +50,11 @@ export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, detail
     useEffect(() => {
          let job = jobLocation
         setDetails({ ...details, jobLocation: job })
-        console.log('job = ', job);
     }, [jobLocation])
 
     useEffect(() => {
          let skills = mySkills
          setDetails({ ...details, mySkills: skills })
-        console.log('skills = ', mySkills)
     }, [mySkills])
 
     const updateLocation = (currLoc: string): void => {
@@ -65,12 +63,9 @@ export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, detail
     }
     const updateJobLocation = (currJobLoc: string[]): void => {
         setJobLocation(currJobLoc)
-        console.log('job location = ', jobLocation);
-        console.log('curr = ', currJobLoc);
     }
     const updateSkills = (allSkills: string[]): void => {
         setMySkills(allSkills)
-        console.log("skills = ", mySkills);
     }
 
     const handleNextTitle = () => {
