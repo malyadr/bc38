@@ -7,6 +7,8 @@ import { Divider } from '@mui/material'
 import { SIDESTEPS } from '../../../constants/constants'
 import Icon from '../../atoms/Icon'
 import theme from '../../../theme/customTheme'
+import { FindJobs } from '../FindJobs'
+import data from '../../../../db.json'
 
 interface TabPanelProps {
     children?: React.ReactNode
@@ -30,9 +32,9 @@ function TabPanel(props: TabPanelProps) {
             style={{
                 flexGrow: 1,
                 width: '100%',
-                height: '1800px',
-                background: '#E5E5E5',
-                overflow: 'hidden',
+                height: window.innerHeight,
+                background: theme.palette.additional.main,
+                overflow: 'auto',
             }}
             {...other}
         >
@@ -53,7 +55,7 @@ function a11yProps(index: number) {
 }
 
 export default function SideNav({ style }: SideNavProps) {
-    const [value, setValue] = React.useState(0)
+    const [value, setValue] = React.useState(1)
 
     const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
@@ -77,6 +79,7 @@ export default function SideNav({ style }: SideNavProps) {
                 textColor="inherit"
                 onChange={handleChange}
                 aria-label="Vertical tabs example"
+                data-testid="navbar"
                 sx={{
                     textTransform: 'none',
                     textDecoration: 'none',
@@ -265,7 +268,7 @@ export default function SideNav({ style }: SideNavProps) {
                 Item One
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                <FindJobs data={data.job} />
             </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three

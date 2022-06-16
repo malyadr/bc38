@@ -17,9 +17,9 @@ const styles = makeStyles({
         flexDirection: 'column',
     },
     root: {
-        width: '320px',
-        height: '23.29%',
-        padding: '17.5px',
+        width: '360px',
+        height: '271px',
+        padding: '21px',
         backgroundColor: theme.palette.gammaWhite.main,
         borderRadius: '12px',
     },
@@ -62,7 +62,7 @@ export const JobCard = ({
                     <Typography
                         variant="caption2"
                         color="betaMedium.main"
-                        sx={{ marginTop: '4px', marginBottom: '32px' }}
+                        sx={{ marginTop: '8px', marginBottom: '32px' }}
                     >
                         {location}
                     </Typography>

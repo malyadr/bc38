@@ -20,7 +20,9 @@ export const Chips = ({ text, variant, styles, onDelete }: ChipProps) => {
                 </Typography>
             }
             onDelete={onDelete}
-            deleteIcon={<CloseIcon sx={{ fontSize: 'small' }} />}
+            deleteIcon={
+                <CloseIcon data-testid="close" sx={{ fontSize: 'small' }} />
+            }
         />
     )
 }

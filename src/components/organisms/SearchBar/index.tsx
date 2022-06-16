@@ -10,27 +10,24 @@ import React, { useState } from 'react'
 import SearchIcon from '../../../../public/assets/icons/search.svg'
 import Icon from '../../atoms/Icon'
 
-const options = [
-    { skill: 'ux', location: 'Hyderabad' },
-    { skill: 'ui', location: 'Hyderabad' },
-    { skill: 'frontend', location: 'Mumbai' },
-    { skill: 'ux', location: 'Mumbai' },
-    { skill: 'backend', location: 'Mumbai' },
-]
-interface OptionType {
-    skill: string
-    location: string
-}
 const skillsList = ['ux', 'ui', 'backend', 'frontend']
 
 const locationList = ['Hyderabad', 'Mumbai']
 
-const SearchBar = () => {
+interface SearchBarProps {
+    SetSkill: React.Dispatch<React.SetStateAction<string>>
+    SetLocation: React.Dispatch<React.SetStateAction<string>>
+    setStatus: React.Dispatch<React.SetStateAction<number>>
+}
+
+const SearchBar = ({ SetSkill, SetLocation, setStatus }: SearchBarProps) => {
     const [skills, setSkills] = useState<string>('')
     const [location, setLocation] = useState<string>('')
 
     const handleClick = () => {
-        setLocation('hyderabad')
+        SetSkill(skills)
+        SetLocation(location)
+        setStatus(0)
     }
     return (
         <>
@@ -39,10 +36,11 @@ const SearchBar = () => {
                 sx={{
                     bgcolor: 'gammaWhite.main',
                     borderRadius: '32px',
-                    width: '843px',
+                    width: '70%',
                     height: '56px',
                     display: 'flex',
                     alignItems: 'center',
+                    marginRight: '20px',
                 }}
             >
                 <Icon src="work" sx={{ pl: '28px' }} />
@@ -115,12 +113,13 @@ const SearchBar = () => {
                     color="alpha300"
                     onClick={() => handleClick()}
                     sx={{
-                        minWidth: '44px',
-                        maxWidth: '44px',
-                        height: '44px',
+                        minWidth: '50px',
+                        maxWidth: '50px',
+                        height: '50px',
+                        width: '55px',
                         borderRadius: '50%',
                         position: 'relative',
-                        right: '6px',
+                        right: '-10px',
                     }}
                     data-testid="iconButton"
                 >

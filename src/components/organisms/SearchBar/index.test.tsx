@@ -5,11 +5,15 @@ import { render, screen } from '@testing-library/react'
 import React from 'react'
 import theme from '../../../theme/customTheme'
 import SearchBar from './index'
-
+const mockFn = jest.fn()
 it('renders Job Search Bar', () => {
     render(
         <ThemeProvider theme={theme}>
-            <SearchBar />
+            <SearchBar
+                SetSkill={mockFn}
+                SetLocation={mockFn}
+                setStatus={mockFn}
+            />
         </ThemeProvider>
     )
     const button = screen.getByTestId(/iconButton/i)
@@ -18,7 +22,11 @@ it('renders Job Search Bar', () => {
 it('renders search skills input', () => {
     render(
         <ThemeProvider theme={theme}>
-            <SearchBar />
+            <SearchBar
+                SetSkill={mockFn}
+                SetLocation={mockFn}
+                setStatus={mockFn}
+            />
         </ThemeProvider>
     )
     const button = screen.getByPlaceholderText(/Search Skills/i)
@@ -27,7 +35,11 @@ it('renders search skills input', () => {
 it('renders Location input', () => {
     render(
         <ThemeProvider theme={theme}>
-            <SearchBar />
+            <SearchBar
+                SetSkill={mockFn}
+                SetLocation={mockFn}
+                setStatus={mockFn}
+            />
         </ThemeProvider>
     )
     const button = screen.getByPlaceholderText(/Location/i)

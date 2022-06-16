@@ -37,6 +37,7 @@ export const InputChip = ({
                 options={options}
                 freeSolo
                 value={backTextValue}
+                data-testid="autocomplete"
                 onChange={(_event, value) => {
                     updateData(value)
                 }}
