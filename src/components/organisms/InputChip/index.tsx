@@ -14,6 +14,8 @@ const style = {
     },
 }
 
+const emptyString = "";
+
 interface InputChipProps {
     placeholder: string
     options: string[]
@@ -57,26 +59,28 @@ export const InputChip = ({
                                 {...getTagProps({ index })}
                             />
                         ))
-                    } else {
-                        return value.map((option: string, index: number) => (
-                            <Typography
-                                key={index}
-                                variant="caption2"
-                                color="betaLow.main"
-                            >
-                                {option}
-                            </Typography>
-                        ))
-                    }
+                    } //else {
+                    //     return value.map((option: string, index: number) => (
+                    //         <Typography
+                    //             key={index}
+                    //             variant="caption2"
+                    //             color="betaLow.main"
+                    //         >
+                    //             {option}
+                    //         </Typography>
+                    //     ))
+                    // }
                 }}
                 renderInput={(params) => (
                     <TextField
                         {...params}
                         variant="outlined"
-                        placeholder={
-                            backTextValue.length == 0 ? placeholder : ''
-                        }
                         sx={style}
+                        placeholder={
+                            backTextValue.length == 0
+                                ? placeholder
+                                : emptyString
+                        }
                     />
                 )}
             />

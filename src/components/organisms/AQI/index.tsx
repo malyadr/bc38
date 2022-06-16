@@ -10,8 +10,14 @@ import {
 } from '../../../constants/constants'
 import Img from '../../atoms/Image'
 
+interface DetailsProps {
+    currentLocation: string
+    jobLocation: string[]
+    mySkills: string[]
+}
+
 interface AqiProps {
-    details: string[]
+    details: DetailsProps
     step: 0 | 1 | 2
 }
 
@@ -21,12 +27,31 @@ export const AQI = ({ details, step }: AqiProps) => {
         else if (step == 1) return 'work'
         else return 'jobs'
     }
+    console.log("currentLocation in aqi = ", details.currentLocation);
+    console.log("step in aqi  = ", step);
     const renderComponent = () => {
-        if (details.length != 0) {
-            if (step != 2) {
+        console.log("have data");
+        console.log('aqi details = ', details);
+        if (step === 0 && details.currentLocation !== '' && details.currentLocation !== null) {
+            return (
+                <Box
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: '100%',
+                    gap: '32px',
+                    width: '320px'
+                }}
+            >
+                <AqiIndicator
+                    index={'500'}
+                    size={'large'}
+                ></AqiIndicator>
+            </Box>)
+            } else if (step === 1 && details.jobLocation.length != 0 ) {
                 return (
                     <Box>
-                        {details.map((d: any) => (
+                        {details.jobLocation.map((d: any) => (
                             <Box
                                 key={d.id}
                                 sx={{
@@ -39,29 +64,26 @@ export const AQI = ({ details, step }: AqiProps) => {
                             >
                                 <AqiIndicator
                                     index={'500'}
-                                    size={step == 0 ? 'large' : 'small'}
+                                    size={'small'}
                                 ></AqiIndicator>
-                                {step == 1 && (
                                     <Typography
                                         variant="h2"
                                         color={theme.palette.gammaAccent2.main}
                                     >
                                         {d}
                                     </Typography>
-                                )}
                             </Box>
                         ))}
                     </Box>
                 )
-            } else {
+            } else if (step === 2 && details.mySkills.length != 0) {
                 return <AqiIndicator index={'6'} size={'large'}></AqiIndicator>
-            }
-        } else {
+            } else {
             return <Img src={imgSrc()} />
-        }
+            }
     }
     const condition = () => {
-        if (details.length !== 0) {
+        if (details.mySkills.length !== 0) {
             return (
                 <Typography
                     variant="h2"
