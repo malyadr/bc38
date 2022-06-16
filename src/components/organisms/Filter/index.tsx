@@ -92,7 +92,7 @@ const Filter = ({ setData, setDistance }: FilterProps) => {
     ]
 
     const [checkedState, setCheckedState] = React.useState(defaultChecked)
-    const [allCheckedValue, setAllCheckedValue] = React.useState<any[]>([])
+    const [_allCheckedValue, setAllCheckedValue] = React.useState<any[]>([])
 
     const clearAll = () => {
         setCheckedState(defaultChecked)

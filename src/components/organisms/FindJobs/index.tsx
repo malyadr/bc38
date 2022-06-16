@@ -139,10 +139,10 @@ export const FindJobs = ({ data, setData }: FindJobsProps) => {
                                 {data &&
                                     data.map((d: JOBCARDPROPS) => (
                                         <Grid
+                                            data-testid="card1"
                                             onClick={() => {
                                                 setStatus(d.id)
                                             }}
-                                            data-testid="grid"
                                             item
                                             key={d.id}
                                         >
@@ -202,7 +202,7 @@ export const FindJobs = ({ data, setData }: FindJobsProps) => {
                                                         onClick={() => {
                                                             setStatus(d.id)
                                                         }}
-                                                        data-testid="grid"
+                                                        data-testid="card2"
                                                         item
                                                         key={d.id}
                                                         sx={{

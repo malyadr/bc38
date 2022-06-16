@@ -21,12 +21,17 @@ test('render', () => {
     const button = screen.getByText(/Clear All/i)
     fireEvent.click(button)
 })
-// test('test for checkbox values', () => {
-//     render(
-//         <MUIThemeProvider theme={customTheme}>
-//             <DisplayChips data={[]} setData={mockFun} setDistance={mockFun} distance={['hi']} />
-//         </MUIThemeProvider>
-//     )
-//     const button = screen.getByText(/Filter/i)
-//     fireEvent.click(button)
-// })
+test('test for checkbox values', () => {
+    render(
+        <MUIThemeProvider theme={customTheme}>
+            <DisplayChips
+                data={['first']}
+                setData={mockFun}
+                setDistance={mockFun}
+                distance={['hi']}
+            />
+        </MUIThemeProvider>
+    )
+    const button = screen.getByTestId(/close/i)
+    fireEvent.click(button)
+})
