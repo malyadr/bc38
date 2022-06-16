@@ -5,14 +5,23 @@ import { HomePageOrganism } from './'
 import { ThemeProvider } from '@mui/material/styles'
 import customTheme from '../../../theme/customTheme'
 import { fireEvent } from '@storybook/testing-library'
+import {BrowserRouter} from 'react-router-dom'
 
 const mockFunction = jest.fn()
 
+const dummy = {
+    currentLocation: "",
+    jobLocation: [],
+    mySkills: []
+}
+
 it('renders navbar', () => {
     render(
+        <BrowserRouter>
         <ThemeProvider theme={customTheme}>
-            <HomePageOrganism step={0} />
+            <HomePageOrganism activeStep={0} setActiveStep={() => undefined} setDetails={() => undefined} details={dummy} />
         </ThemeProvider>
+        </BrowserRouter >
     )
     const nextButton = screen.getByText(/Next/i)
     fireEvent.click(nextButton)
@@ -21,9 +30,11 @@ it('renders navbar', () => {
 
 it('renders navbar', () => {
     render(
+        <BrowserRouter>
         <ThemeProvider theme={customTheme}>
-            <HomePageOrganism step={1} />
+            <HomePageOrganism activeStep={1} setActiveStep={() => undefined} setDetails={() => undefined} details={dummy} />
         </ThemeProvider>
+        </BrowserRouter>
     )
     const backButton = screen.getByText(/Back/i)
     fireEvent.click(backButton)
@@ -31,8 +42,10 @@ it('renders navbar', () => {
 
 it('renders navbar', () => {
     render(
+        <BrowserRouter>
         <ThemeProvider theme={customTheme}>
-            <HomePageOrganism step={2} />
+            <HomePageOrganism activeStep={1} setActiveStep={() => undefined} setDetails={() => undefined} details={dummy} />
         </ThemeProvider>
+        </BrowserRouter>
     )
 })

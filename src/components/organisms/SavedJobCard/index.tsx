@@ -39,6 +39,7 @@ const SavedJobCard = ({
                     paddingRight: '20px',
                     paddingLeft: '20px',
                     background: 'gammaWhite.main',
+                    marginLeft:'2px',
                     '&:hover': {
                         borderColor: 'alpha200.main',
                         borderWidth: '2px',
@@ -115,7 +116,7 @@ const SavedJobCard = ({
                 <CardActions
                     sx={{
                         position: 'relative',
-                        height: '80%',
+                        height: '137px',
                         top: '10px',
                         display: 'flex',
                         flexDirection: 'column',

@@ -3,10 +3,14 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import { Divider } from '@mui/material'
+import { Divider, Grid } from '@mui/material'
 import { SIDESTEPS } from '../../../constants/constants'
 import Icon from '../../atoms/Icon'
 import theme from '../../../theme/customTheme'
+import axios from 'axios'
+import { useState } from 'react'
+import SavedJobCard from '../SavedJobCard'
+import { imageTypes } from '../../../theme/customTheme'
 
 interface TabPanelProps {
     children?: React.ReactNode
@@ -16,6 +20,18 @@ interface TabPanelProps {
 
 interface SideNavProps {
     style?: React.CSSProperties
+}
+
+interface JobProps {
+    id: number;
+    image: imageTypes;
+    role: string;
+    jobLocation: string;
+    company: string;
+    time: string;
+    saved: boolean;
+    applied: boolean;
+
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -30,9 +46,12 @@ function TabPanel(props: TabPanelProps) {
             style={{
                 flexGrow: 1,
                 width: '100%',
-                height: '1800px',
+                height: window.innerHeight,
+                
                 background: '#E5E5E5',
                 overflow: 'hidden',
+                paddingLeft: '50px',
+                paddingTop:'20px'
             }}
             {...other}
         >
@@ -53,10 +72,21 @@ function a11yProps(index: number) {
 }
 
 export default function SideNav({ style }: SideNavProps) {
-    const [value, setValue] = React.useState(0)
+    const [value, setValue] = React.useState(1)
+
+    const [jobs, setJobs] = useState<JobProps[]>([])
 
     const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
+    }
+
+    const getData = async () => {
+        const { data } = await axios.get("http://18.191.37.77:8080/job")
+        setJobs(data);
+
+        await axios.patch('http://18.191.37.77:8080/job/1', { saved: true })
+         await axios.patch('http://18.191.37.77:8080/job/2', {saved: true})
+          await axios.patch('http://18.191.37.77:8080/job/3', { saved: true })
     }
 
     return (
@@ -171,6 +201,7 @@ export default function SideNav({ style }: SideNavProps) {
                             }}
                         />
                     }
+                    onClick={getData}
                     iconPosition="start"
                     {...a11yProps(2)}
                 />
@@ -268,8 +299,24 @@ export default function SideNav({ style }: SideNavProps) {
                 Item Two
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
+                <Typography variant="h2" sx={{mb:'40px'}}>Saved Jobs</Typography>
+                <Grid container spacing={2} direction="column" sx={{gap:'30px'}}>
+                    {jobs
+                        .filter((job: JobProps) => job.saved === true)
+                        .map((j: JobProps) => {
+                            return (
+                                <SavedJobCard
+                                    src={j.image}
+                                    role={j.role}
+                                    companyName={j.company}
+                                    location={j.jobLocation}
+                                    time={j.time}
+                                />
+                            )
+                        })}
+                </Grid>
             </TabPanel>
+
             <TabPanel value={value} index={3}>
                 Item Four
             </TabPanel>

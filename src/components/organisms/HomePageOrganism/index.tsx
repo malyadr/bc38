@@ -36,7 +36,6 @@ type HomePageOrganismProps = {
     details: DetailsProps
 }
 export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, details }: HomePageOrganismProps) => {
-    // const [activeStep, setActiveStep] = React.useState(step ? step : 0)
     const [title, setTitle] = useState(STEPPER[0])
 
     const [location, setLocation] = useState<string>('')
@@ -46,7 +45,6 @@ export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, detail
 
     useEffect(() => {
         setDetails({ ...details, currentLocation: location })
-        console.log('location = ', location);
     }, [location])
 
     useEffect(() => {
