@@ -38,17 +38,17 @@ function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props
 
     return (
-        <div
+        <Box
             role="tabpanel"
             hidden={value !== index}
             id={`vertical-tabpanel-${index}`}
             aria-labelledby={`vertical-tab-${index}`}
-            style={{
+            sx={{
                 flexGrow: 1,
                 width: '100%',
                 height: window.innerHeight,
                 
-                background: '#E5E5E5',
+                bgcolor: 'bgColor.main',
                 overflow: 'hidden',
                 paddingLeft: '50px',
                 paddingTop:'20px'
@@ -60,7 +60,7 @@ function TabPanel(props: TabPanelProps) {
                     <Typography>{children}</Typography>
                 </Box>
             )}
-        </div>
+        </Box>
     )
 }
 
@@ -293,10 +293,10 @@ export default function SideNav({ style }: SideNavProps) {
                 />
             </Tabs>
             <TabPanel value={value} index={0}>
-                Item One
+                
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <Typography variant="h2" sx={{mb:'40px'}}>Saved Jobs</Typography>
@@ -318,22 +318,22 @@ export default function SideNav({ style }: SideNavProps) {
             </TabPanel>
 
             <TabPanel value={value} index={3}>
-                Item Four
+               
             </TabPanel>
             <TabPanel value={value} index={4}>
-                Item Five
+                
             </TabPanel>
             <TabPanel value={value} index={5}>
-                Item Six
+            
             </TabPanel>
             <TabPanel value={value} index={6}>
-                Item Seven
+                
             </TabPanel>
             <TabPanel value={value} index={7}>
-                Item Eight
+                
             </TabPanel>
             <TabPanel value={value} index={8}>
-                Item Nine
+                
             </TabPanel>
         </Box>
     )
