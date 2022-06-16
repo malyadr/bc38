@@ -241,7 +241,13 @@ const theme = createTheme({
                 defaultProps: {
                     background:
                         'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)',
+                    margin: '0px',
+                    padding: '0px',
                 },
+                body: {
+                    margin: '0px',
+                    padding:'0px'
+                }
             },
         },
         MuiPaper: {
@@ -262,16 +268,16 @@ const theme = createTheme({
         MuiAutocomplete: {
             styleOverrides: {
                 root: {
-                    background:'white'
+                    background: 'white',
                 },
                 option: {
-                    background:'white'
+                    background: 'white',
                 },
                 paper: {
-                    background:'white'
-                }
-            }
-        }
+                    background: 'white',
+                },
+            },
+        },
     },
 })
 
