@@ -33,7 +33,7 @@ function TabPanel(props: TabPanelProps) {
                 flexGrow: 1,
                 width: '100%',
                 height: window.innerHeight,
-                background: '#E5E5E5',
+                background: theme.palette.additional.main,
                 overflow: 'auto',
             }}
             {...other}
@@ -79,6 +79,7 @@ export default function SideNav({ style }: SideNavProps) {
                 textColor="inherit"
                 onChange={handleChange}
                 aria-label="Vertical tabs example"
+                data-testid="navbar"
                 sx={{
                     textTransform: 'none',
                     textDecoration: 'none',

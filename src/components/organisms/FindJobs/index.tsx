@@ -15,6 +15,7 @@ import {
     PROFILE_SKILL_SEARCH,
     RECOMMENDED,
 } from '../../../constants/constants'
+import theme from '../../../theme/customTheme'
 
 interface FindJobsProps {
     data: JOBCARDPROPS[]
@@ -67,13 +68,13 @@ export const FindJobs = ({ data, setData }: FindJobsProps) => {
             <Box
                 sx={{
                     height: 'fit-content',
-                    backgroundColor: '#E5E5E5',
+                    backgroundColor: theme.palette.background.paper,
                     marginTop: '2vw',
                     paddingLeft: '40px',
                     paddingBottom: '140px',
                 }}
             >
-                <Box sx={{}}>
+                <Box>
                     <Typography variant="h2" color="betaHigh.main">
                         {FIND_JOBS}
                     </Typography>

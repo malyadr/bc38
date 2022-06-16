@@ -37,7 +37,6 @@ const SavedJobCard = ({
     time,
     isBordered,
 }: CardProps) => {
-    console.log(isBordered)
     const classes = styles()
     return (
         <>

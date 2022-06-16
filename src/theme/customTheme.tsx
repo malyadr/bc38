@@ -25,6 +25,7 @@ declare module '@mui/material/styles' {
         gammaAccent1: PaletteColorOptions
         gammaAccent2: PaletteColorOptions
         gammaAccent3: PaletteColorOptions
+        additional: PaletteColorOptions
     }
 
     interface Palette {
@@ -47,6 +48,7 @@ declare module '@mui/material/styles' {
         gammaAccent1: PaletteColor
         gammaAccent2: PaletteColor
         gammaAccent3: PaletteColor
+        additional: PaletteColor
     }
 
     interface TypographyVariants {
@@ -81,6 +83,7 @@ declare module '@mui/material/Button' {
         gammaColor3: true
         gammaAccent1: true
         gammaAccent2: true
+        additional: true
     }
     interface ButtonClasses {
         textText1: string
@@ -114,6 +117,7 @@ declare module '@mui/material/SvgIcon' {
         gammaColor3: true
         gammaAccent1: true
         gammaAccent2: true
+        additional: true
     }
 }
 
@@ -179,6 +183,9 @@ const theme = createTheme({
         background: {
             paper: 'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)',
             // paper:'#EFFFFD'
+        },
+        additional: {
+            main: '#E5E5E5',
         },
     },
 
@@ -262,16 +269,16 @@ const theme = createTheme({
         MuiAutocomplete: {
             styleOverrides: {
                 root: {
-                    background:'white'
+                    background: 'white',
                 },
                 option: {
-                    background:'white'
+                    background: 'white',
                 },
                 paper: {
-                    background:'white'
-                }
-            }
-        }
+                    background: 'white',
+                },
+            },
+        },
     },
 })
 
