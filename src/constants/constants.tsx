@@ -53,7 +53,6 @@ import SelectedBus from '../../public/assets/icons/SelectedBus.svg'
 import SelectedCar from '../../public/assets/icons/selectedCar.svg'
 import Line from '../../public/assets/icons/vector7.svg'
 import MapView from '../../public/assets/images/mapView.png'
-import { imageTypes } from '../theme/customTheme'
 
 export const FILE_UPLOAD_TEXT = 'Click Here to Upload Files'
 export const NEXT = 'Next'

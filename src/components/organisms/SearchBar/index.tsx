@@ -14,13 +14,13 @@ const skillsList = ['ux', 'ui', 'backend', 'frontend']
 
 const locationList = ['Hyderabad', 'Mumbai']
 
-interface searchBarProps {
+interface SearchBarProps {
     SetSkill: React.Dispatch<React.SetStateAction<string>>
     SetLocation: React.Dispatch<React.SetStateAction<string>>
     setStatus: React.Dispatch<React.SetStateAction<number>>
 }
 
-const SearchBar = ({ SetSkill, SetLocation, setStatus }: searchBarProps) => {
+const SearchBar = ({ SetSkill, SetLocation, setStatus }: SearchBarProps) => {
     const [skills, setSkills] = useState<string>('')
     const [location, setLocation] = useState<string>('')
 

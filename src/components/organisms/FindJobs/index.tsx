@@ -19,10 +19,10 @@ import theme from '../../../theme/customTheme'
 
 interface FindJobsProps {
     data: JOBCARDPROPS[]
-    setData?: React.Dispatch<React.SetStateAction<JOBCARDPROPS[]>>
+    // setData?: React.Dispatch<React.SetStateAction<JOBCARDPROPS[]>>
 }
 
-export const FindJobs = ({ data, setData }: FindJobsProps) => {
+export const FindJobs = ({ data }: FindJobsProps) => {
     const [clickStatus, setStatus] = useState<number>(0)
     const [skills, setSkills] = useState<string>('')
     const [location, setLocation] = useState<string>('')
@@ -31,14 +31,15 @@ export const FindJobs = ({ data, setData }: FindJobsProps) => {
 
     const cardData: JOBCARDPROPS[] = []
 
-    for (let i = 0; i < distance.length; i++) {
+    for (const val of distance) {
         data &&
             data.map((d: JOBCARDPROPS) => {
-                if (d.distance === distance[i]) {
+                if (d.distance === val) {
                     cardData.push(d)
                 }
             })
     }
+
     cardData.length != 0 && (data = cardData)
 
     let card: any
@@ -185,13 +186,13 @@ export const FindJobs = ({ data, setData }: FindJobsProps) => {
                                         {data &&
                                             data
                                                 .filter(
-                                                    (card: JOBCARDPROPS) =>
-                                                        card.role
+                                                    (d: JOBCARDPROPS) =>
+                                                        d.role
                                                             .toLowerCase()
                                                             .includes(
                                                                 skills.toLowerCase()
                                                             ) &&
-                                                        card.jobLocation
+                                                        d.jobLocation
                                                             .toLowerCase()
                                                             .includes(
                                                                 location.toLowerCase()
