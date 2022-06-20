@@ -51,7 +51,13 @@ const SavedJobCard = ({
                     paddingRight: '20px',
                     paddingLeft: '20px',
                     background: 'gammaWhite.main',
-                    boxShadow: 'none',
+                    marginLeft:'2px',
+                    '&:hover': {
+                        borderColor: 'alpha200.main',
+                        borderWidth: '2px',
+                        borderStyle: 'solid',
+                    },
+                    boxShadow: 'none'
                 }}
                 className={isBordered ? classes.root : ''}
             >
@@ -125,7 +131,7 @@ const SavedJobCard = ({
                 <CardActions
                     sx={{
                         position: 'relative',
-                        height: '80%',
+                        height: '137px',
                         top: '10px',
                         display: 'flex',
                         flexDirection: 'column',

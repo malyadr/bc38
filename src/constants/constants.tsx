@@ -254,3 +254,5 @@ export const PROFILE_SKILL_SEARCH =
     'Based on your profile, skills and search history.'
 export const JOB_LIST = ' Job list'
 export const BASED_ON_SEARCH = 'Based on your search'
+
+export const BASE_URL = 'http://18.191.37.77:8080/job'

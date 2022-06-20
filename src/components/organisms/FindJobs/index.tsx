@@ -19,11 +19,12 @@ import theme from '../../../theme/customTheme'
 
 interface FindJobsProps {
     data: JOBCARDPROPS[]
-    // setData?: React.Dispatch<React.SetStateAction<JOBCARDPROPS[]>>
+    setState: React.Dispatch<React.SetStateAction<boolean>>
+    clickStatus: number
+    setStatus: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const FindJobs = ({ data }: FindJobsProps) => {
-    const [clickStatus, setStatus] = useState<number>(0)
+export const FindJobs = ({ data, setState, setStatus, clickStatus }: FindJobsProps) => {
     const [skills, setSkills] = useState<string>('')
     const [location, setLocation] = useState<string>('')
     const [filterData, setFilterData] = useState<string[]>([])
@@ -39,7 +40,6 @@ export const FindJobs = ({ data }: FindJobsProps) => {
                 }
             })
     }
-
     cardData.length != 0 && (data = cardData)
 
     let card: any
@@ -70,9 +70,12 @@ export const FindJobs = ({ data }: FindJobsProps) => {
                 sx={{
                     height: 'fit-content',
                     backgroundColor: theme.palette.background.paper,
-                    marginTop: '2vw',
                     paddingLeft: '40px',
                     paddingBottom: '140px',
+                    paddingRight: '40px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%',
                 }}
             >
                 <Box>
@@ -80,17 +83,17 @@ export const FindJobs = ({ data }: FindJobsProps) => {
                         {FIND_JOBS}
                     </Typography>
                     <Box
-                        style={{
+                        sx={{
                             display: 'flex',
-                            width: '100%',
+                            width: 'fit-content',
                             marginTop: '8px',
                             marginBottom: '36px',
+                            justifyContent: 'space-between',
                         }}
                     >
                         <SearchBar
                             SetSkill={setSkills}
                             SetLocation={setLocation}
-                            setStatus={setStatus}
                         />
                         <Filter
                             setData={setFilterData}
@@ -133,29 +136,54 @@ export const FindJobs = ({ data }: FindJobsProps) => {
                         />
                     )}
                 </Box>
-                {clickStatus == 0 && skills == '' && location == '' ? (
+                {clickStatus == 0 ? (
                     <>
                         <Box sx={{}}>
-                            <Grid container spacing="30px">
+                            <Grid
+                                container
+                                sx={{
+                                    display: 'flex',
+                                    gap: '30px',
+                                    width: '100%',
+                                }}
+                            >
                                 {data &&
-                                    data.map((d: JOBCARDPROPS) => (
-                                        <Grid
-                                            data-testid="card1"
-                                            onClick={() => {
-                                                setStatus(d.id)
-                                            }}
-                                            item
-                                            key={d.id}
-                                        >
-                                            <JobCard
-                                                src={d.image}
-                                                role={d.role}
-                                                companyName={d.company}
-                                                location={d.jobLocation}
-                                                time={d.time}
-                                            ></JobCard>
-                                        </Grid>
-                                    ))}
+                                    data
+                                        .filter(
+                                            (j: JOBCARDPROPS) =>
+                                                j.role
+                                                    .toLowerCase()
+                                                    .includes(
+                                                        skills.toLowerCase()
+                                                    ) &&
+                                                j.jobLocation
+                                                    .toLowerCase()
+                                                    .includes(
+                                                        location.toLowerCase()
+                                                    )
+                                        )
+                                        .map((j: JOBCARDPROPS) => (
+                                            <Grid
+                                                data-testid="card1"
+                                                onClick={() => {
+                                                    setStatus(j.id)
+                                                }}
+                                                item
+                                                key={j.id}
+                                                sx={{
+                                                    background: 'yellow',
+                                                    height: '100%',
+                                                }}
+                                            >
+                                                <JobCard
+                                                    src={j.image}
+                                                    role={j.role}
+                                                    companyName={j.company}
+                                                    location={j.jobLocation}
+                                                    time={j.time}
+                                                ></JobCard>
+                                            </Grid>
+                                        ))}
                             </Grid>
                         </Box>
                     </>
@@ -166,7 +194,6 @@ export const FindJobs = ({ data }: FindJobsProps) => {
                                 sx={{
                                     display: 'flex',
                                     justifyContent: 'space-around',
-                                    marginRight: '5vw',
                                 }}
                             >
                                 <Box
@@ -177,9 +204,8 @@ export const FindJobs = ({ data }: FindJobsProps) => {
                                     <Grid
                                         container
                                         spacing={'16px'}
+                                        direction="column"
                                         sx={{
-                                            display: 'flex',
-                                            flexDirection: 'column',
                                             justifyContent: 'space-around',
                                         }}
                                     >
@@ -233,11 +259,14 @@ export const FindJobs = ({ data }: FindJobsProps) => {
                                 </Box>
                                 <Box>
                                     <DetailCard
+                                        id={card.id}
                                         src={card.image}
                                         jobTitle={card.role}
                                         companyName={card.company}
                                         companyCity={card.jobLocation}
                                         time={card.time}
+                                        saved={card.saved}
+                                        setState={setState}
                                     />
                                 </Box>
                             </Box>

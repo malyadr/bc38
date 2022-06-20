@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof AQI> = (args) => {
 export const AQIViewer = Template.bind({})
 
 AQIViewer.args = {
-    details: ['Hyderabad', 'Delhi'],
+    details: {currentLocation: 'Hyderabad', jobLocation: ['Hyderabad', 'Mumbai'], mySkills: ['ui', 'ux']},
     step: 1,
 }
 

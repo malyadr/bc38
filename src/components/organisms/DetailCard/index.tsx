@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
@@ -18,27 +18,45 @@ import {
     SKILL_DETAILS,
     SEE_MORE,
     GREEN_COMMUTE_ROUTE,
+    BASE_URL,
 } from '../../../constants/constants'
 import { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
+import axios from 'axios'
 
 interface Props {
+    id: number
     src: imageTypes
     jobTitle: string
     companyName: string
     companyCity: string
     time: string
+    saved: boolean
+    setState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const DetailCard = ({
+    id,
     src,
     jobTitle,
     companyName,
     companyCity,
     time,
+    saved,
+    setState
 }: Props) => {
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
-    const [saveClickStatus, setSaveClickStatus] = useState<boolean>(false)
+    const [saveClickStatus, setSaveClickStatus] = useState<boolean>(saved)
+
+   
+
+    useEffect(() => {
+        setState(saveClickStatus)
+        const handleChange = async () => {
+            await axios.patch(`${BASE_URL}/${id}`, { saved: saveClickStatus })
+        }
+        handleChange();
+    }, [saveClickStatus])
     const handleSaved = () => {
         setSaveClickStatus(!saveClickStatus)
     }
@@ -51,7 +69,7 @@ const DetailCard = ({
                 variant="outlined"
                 sx={{
                     width: '26.2vw',
-                    height: 'fit-content',
+                    height: '670px',
                     borderRadius: '12px',
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,

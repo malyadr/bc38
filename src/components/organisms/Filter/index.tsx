@@ -143,7 +143,11 @@ const Filter = ({ setData, setDistance }: FilterProps) => {
                     alignItems: 'center',
                     borderRadius: '32px',
                     textTransform: 'capitalize',
-                    width: '10%',
+                    width: {
+                        'sm': '100px',
+                        'md': '100px',
+                        'lg': '137x'
+                    },
                     marginLeft: '20px',
                     height: '57px',
                     bgcolor: 'gammaWhite.main',

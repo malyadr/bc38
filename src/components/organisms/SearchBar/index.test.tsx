@@ -12,7 +12,6 @@ it('renders Job Search Bar', () => {
             <SearchBar
                 SetSkill={mockFn}
                 SetLocation={mockFn}
-                setStatus={mockFn}
             />
         </ThemeProvider>
     )
@@ -25,7 +24,6 @@ it('renders search skills input', () => {
             <SearchBar
                 SetSkill={mockFn}
                 SetLocation={mockFn}
-                setStatus={mockFn}
             />
         </ThemeProvider>
     )
@@ -38,7 +36,6 @@ it('renders Location input', () => {
             <SearchBar
                 SetSkill={mockFn}
                 SetLocation={mockFn}
-                setStatus={mockFn}
             />
         </ThemeProvider>
     )

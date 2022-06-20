@@ -17,17 +17,15 @@ const locationList = ['Hyderabad', 'Mumbai']
 interface SearchBarProps {
     SetSkill: React.Dispatch<React.SetStateAction<string>>
     SetLocation: React.Dispatch<React.SetStateAction<string>>
-    setStatus: React.Dispatch<React.SetStateAction<number>>
 }
 
-const SearchBar = ({ SetSkill, SetLocation, setStatus }: SearchBarProps) => {
+const SearchBar = ({ SetSkill, SetLocation }: SearchBarProps) => {
     const [skills, setSkills] = useState<string>('')
     const [location, setLocation] = useState<string>('')
 
     const handleClick = () => {
         SetSkill(skills)
         SetLocation(location)
-        setStatus(0)
     }
     return (
         <>
@@ -36,7 +34,8 @@ const SearchBar = ({ SetSkill, SetLocation, setStatus }: SearchBarProps) => {
                 sx={{
                     bgcolor: 'gammaWhite.main',
                     borderRadius: '32px',
-                    width: '70%',
+                    maxWidth: '1879px',
+                    minWidth:'579px',
                     height: '56px',
                     display: 'flex',
                     alignItems: 'center',
@@ -119,7 +118,7 @@ const SearchBar = ({ SetSkill, SetLocation, setStatus }: SearchBarProps) => {
                         width: '55px',
                         borderRadius: '50%',
                         position: 'relative',
-                        right: '-10px',
+                        right:'6px'
                     }}
                     data-testid="iconButton"
                 >

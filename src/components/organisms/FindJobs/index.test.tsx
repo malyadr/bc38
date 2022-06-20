@@ -4,8 +4,9 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { FindJobs } from '.'
 import theme from '../../../theme/customTheme'
 
-const da = jest.fn()
 
+const mockFn = jest.fn()
+const mockStatus = jest.fn(x => x + 4);
 test('render', () => {
     render(
         <ThemeProvider theme={theme}>
@@ -23,11 +24,10 @@ test('render', () => {
                         distance: '31-40 Kms',
                     },
                 ]}
-            ></FindJobs>
+                setState={mockFn} setStatus={mockStatus} clickStatus={0}
+           />
         </ThemeProvider>
     )
     const card = screen.getByTestId(/card1/i)
     fireEvent.click(card)
-    const card2 = screen.getByTestId(/card2/i)
-    fireEvent.click(card2)
 })

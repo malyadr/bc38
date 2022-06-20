@@ -1,10 +1,10 @@
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Button from '@mui/material/Button'
-import { Typography } from '@mui/material'
+import { Typography, TextField, Autocomplete } from '@mui/material'
 import { Button1 } from '../../molecules/Button'
 import theme from '../../../theme/customTheme'
 import { InputChip } from '../InputChip'
@@ -20,20 +20,44 @@ import {
     STEPS,
     STEPPER,
 } from '../../../constants/constants'
+import { useNavigate } from 'react-router-dom';
+
+type Step = 0 | 1 | 2;
+interface DetailsProps {
+    currentLocation: string
+    jobLocation: string[]
+    mySkills: string[]
+}
 
 type HomePageOrganismProps = {
-    step?: number
+    activeStep: 0 | 1 | 2
+    setActiveStep: React.Dispatch<React.SetStateAction<Step>>,
+    setDetails: React.Dispatch<React.SetStateAction<DetailsProps>>
+    details: DetailsProps
 }
-export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
-    const [activeStep, setActiveStep] = React.useState(step ? step : 0)
-    const [title, setTitle] = React.useState(STEPPER[0])
+export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, details }: HomePageOrganismProps) => {
+    const [title, setTitle] = useState(STEPPER[0])
 
-    const [location, setLocation] = React.useState<string[]>([])
-    const [jobLocation, setJobLocation] = React.useState<string[]>([])
-    const [mySkills, setMySkills] = React.useState<string[]>([])
+    const [location, setLocation] = useState<string>('')
+    const [jobLocation, setJobLocation] = useState<string[]>([])
+    const [mySkills, setMySkills] = useState<string[]>([])
+    const navigate = useNavigate();
 
-    const updateLocation = (currLoc: string[]): void => {
+    useEffect(() => {
+        setDetails({ ...details, currentLocation: location })
+    }, [location])
+
+    useEffect(() => {
+        setDetails({ ...details, jobLocation: jobLocation })
+    }, [jobLocation])
+
+    useEffect(() => {
+         setDetails({ ...details, mySkills: mySkills })
+    }, [mySkills])
+
+    const updateLocation = (currLoc: string): void => {
         setLocation(currLoc)
+        
     }
     const updateJobLocation = (currJobLoc: string[]): void => {
         setJobLocation(currJobLoc)
@@ -51,9 +75,7 @@ export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
     }
 
     const handleBackTitle = () => {
-        if (activeStep == 3) {
-            setTitle(STEPPER[2])
-        } else if (activeStep == 2) {
+        if (activeStep == 2) {
             setTitle(STEPPER[1])
         } else {
             setTitle(STEPPER[0])
@@ -62,12 +84,14 @@ export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
 
     const handleNext = () => {
         handleNextTitle()
-        setActiveStep((prevActiveStep) => prevActiveStep + 1)
+        setActiveStep((prevActiveStep) => {
+            return prevActiveStep == 0 ? 1 : 2
+        })
     }
 
     const handleBack = () => {
         handleBackTitle()
-        setActiveStep((prevActiveStep) => prevActiveStep - 1)
+        setActiveStep((prevActiveStep) => (prevActiveStep == 1 ? 0 : 1))
     }
 
     const inputChip = (ActiveStep: number) => {
@@ -81,23 +105,23 @@ export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
             placeholder = PLACEHOLDER[0]
             options = STEPPER_ONE_OPTIONS
             updateData = updateLocation
-            backTextValue = location
+            // backTextValue = location
         }
         if (ActiveStep == 1) {
             placeholder = PLACEHOLDER[1]
             options = STEPPER_TWO_OPTIONS
             updateData = updateJobLocation
             uniqueKey = 1
-            backTextValue = jobLocation
+            backTextValue = details.jobLocation
         }
         if (ActiveStep == 2) {
             placeholder = PLACEHOLDER[2]
             options = STEPPER_THREE_OPTIONS
             updateData = updateSkills
             uniqueKey = 2
-            backTextValue = mySkills
+            backTextValue = details.mySkills
         }
-        return (
+        return ActiveStep != 0 ? (
             <InputChip
                 placeholder={placeholder}
                 options={options}
@@ -105,12 +129,36 @@ export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
                 uniqueKey={uniqueKey}
                 backTextValue={backTextValue}
             />
+        ) : (
+            <Autocomplete
+                freeSolo
+                options={options}
+                onChange={(_event, value) => {
+                    updateData(value)
+                }}
+                value={location ? location : ''}
+                renderInput={(params) => (
+                    <TextField
+                        {...params}
+                        sx={{
+                            width: '420px',
+                            height: '48px',
+                            '& .MuiOutlinedInput-root': {
+                                '&.Mui-focused fieldset': {
+                                    borderColor: 'alpha200.main',
+                                },
+                            },
+                        }}
+                        placeholder={placeholder}
+                    />
+                )}
+            />
         )
     }
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <Box sx={{ width: '55%', marginLeft: '200px', marginTop: '100px' }}>
+            <Box sx={{ width: '55%',  marginTop: '100px' }}>
                 <Stepper activeStep={activeStep} connector={null}>
                     {STEPS.map((label) => {
                         return (
@@ -212,7 +260,6 @@ export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
                                     width: '140px',
                                 }}
                                 variant="outlined"
-                                disabled={activeStep === 0}
                                 onClick={handleBack}
                                 color="alpha300"
                             >
@@ -229,12 +276,11 @@ export const HomePageOrganism = ({ step }: HomePageOrganismProps) => {
                                 width: '140px',
                             }}
                             variant="contained"
-                            disabled={activeStep === 3 || location.length == 0}
                             onClick={
                                 activeStep < 2
                                     ? handleNext
                                     : () => {
-                                          //   navigate('/findjobs')
+                                            navigate('/findjobs')
                                       }
                             }
                             color="alpha300"
