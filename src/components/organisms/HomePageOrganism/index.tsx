@@ -48,13 +48,11 @@ export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, detail
     }, [location])
 
     useEffect(() => {
-         let job = jobLocation
-        setDetails({ ...details, jobLocation: job })
+        setDetails({ ...details, jobLocation: jobLocation })
     }, [jobLocation])
 
     useEffect(() => {
-         let skills = mySkills
-         setDetails({ ...details, mySkills: skills })
+         setDetails({ ...details, mySkills: mySkills })
     }, [mySkills])
 
     const updateLocation = (currLoc: string): void => {

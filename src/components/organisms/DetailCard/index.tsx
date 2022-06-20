@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
@@ -18,27 +18,45 @@ import {
     SKILL_DETAILS,
     SEE_MORE,
     GREEN_COMMUTE_ROUTE,
+    BASE_URL,
 } from '../../../constants/constants'
 import { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
+import axios from 'axios'
 
 interface Props {
+    id: number
     src: imageTypes
     jobTitle: string
     companyName: string
     companyCity: string
     time: string
+    saved: boolean
+    setState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const DetailCard = ({
+    id,
     src,
     jobTitle,
     companyName,
     companyCity,
     time,
+    saved,
+    setState
 }: Props) => {
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
-    const [saveClickStatus, setSaveClickStatus] = useState<boolean>(false)
+    const [saveClickStatus, setSaveClickStatus] = useState<boolean>(saved)
+
+   
+
+    useEffect(() => {
+        setState(saveClickStatus)
+        const handleChange = async () => {
+            await axios.patch(`${BASE_URL}/${id}`, { saved: saveClickStatus })
+        }
+        handleChange();
+    }, [saveClickStatus])
     const handleSaved = () => {
         setSaveClickStatus(!saveClickStatus)
     }
@@ -50,7 +68,7 @@ const DetailCard = ({
             <Card
                 variant="outlined"
                 sx={{
-                    width: '404px',
+                    width: '26.2vw',
                     height: '670px',
                     borderRadius: '12px',
                     borderBottomLeftRadius: 0,
@@ -61,18 +79,21 @@ const DetailCard = ({
             >
                 <CardContent
                     sx={{
-                        marginLeft: '26px',
-                        marginRight: '24px',
+                        marginLeft: '1.9vw',
+                        marginRight: '1.9vw',
                         padding: 0,
-                        marginTop: '24px',
-                        width: '361px',
+                        marginTop: '2vh',
+                        width: '26.4vw',
                     }}
                 >
                     <Grid container>
                         <Grid item sx={{ marginRight: '20px' }}>
                             <Img src={src} />
                         </Grid>
-                        <Grid item sx={{ width: '212px', marginRight: '20px' }}>
+                        <Grid
+                            item
+                            sx={{ width: '15.5vw', marginRight: '20px' }}
+                        >
                             <Grid>
                                 <Grid item>
                                     <Typography
@@ -107,7 +128,7 @@ const DetailCard = ({
                                     </Typography>
                                     <Grid
                                         item
-                                        sx={{ marginTop: '24px' }}
+                                        sx={{ marginTop: '2vh' }}
                                         justifyContent="center"
                                     >
                                         <Grid container spacing={2}>
@@ -141,7 +162,7 @@ const DetailCard = ({
                     </Grid>
                     <Divider
                         variant="middle"
-                        sx={{ marginTop: '24px', marginBottom: '24px' }}
+                        sx={{ marginTop: '2vh', marginBottom: '2vh' }}
                     />
                     {!commuteClickStatus ? (
                         <Grid container>
@@ -163,7 +184,7 @@ const DetailCard = ({
                             </Grid>
                             <Grid
                                 item
-                                sx={{ marginTop: '24px', marginBottom: '8px' }}
+                                sx={{ marginTop: '2vh', marginBottom: '8px' }}
                             >
                                 <Typography
                                     variant="body1"
@@ -208,8 +229,8 @@ const DetailCard = ({
                 <Card
                     variant="outlined"
                     sx={{
-                        width: '404px',
-                        height: '64px',
+                        width: '26.2vw',
+                        height: 'fit-content',
                         borderRadius: '12px',
                         borderTopLeftRadius: 0,
                         borderTopRightRadius: 0,

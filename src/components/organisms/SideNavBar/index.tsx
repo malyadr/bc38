@@ -1,16 +1,15 @@
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import { Divider, Grid } from '@mui/material'
-import { SIDESTEPS } from '../../../constants/constants'
+import { SIDESTEPS, BASE_URL } from '../../../constants/constants'
 import Icon from '../../atoms/Icon'
-import theme from '../../../theme/customTheme'
-import axios from 'axios'
-import { useState } from 'react'
+import theme, { imageTypes } from '../../../theme/customTheme'
+import { FindJobs } from '../FindJobs'
 import SavedJobCard from '../SavedJobCard'
-import { imageTypes } from '../../../theme/customTheme'
+import axios from 'axios'
 
 interface TabPanelProps {
     children?: React.ReactNode
@@ -46,12 +45,17 @@ function TabPanel(props: TabPanelProps) {
             sx={{
                 flexGrow: 1,
                 width: '100%',
-                height: window.innerHeight,
-                
-                bgcolor: 'bgColor.main',
-                overflow: 'hidden',
+                height:'auto',
+                bgcolor: 'additional.main',
+                overflow: 'auto',
                 paddingLeft: '50px',
-                paddingTop:'20px'
+                paddingTop: '20px',
+                paddingBottom: '100px',
+                '&::-webkit-scrollbar': {
+                    width: 0
+                }
+                
+                
             }}
             {...other}
         >
@@ -72,23 +76,23 @@ function a11yProps(index: number) {
 }
 
 export default function SideNav({ style }: SideNavProps) {
-    const [value, setValue] = React.useState(1)
+    const [value, setValue] = useState(1)
 
     const [jobs, setJobs] = useState<JobProps[]>([])
+    const [state, setState] = useState<boolean>(true);
+    const [clickStatus, setStatus] = useState<number>(0);
 
     const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
     }
-
-    const getData = async () => {
-        const { data } = await axios.get("http://18.191.37.77:8080/job")
-        setJobs(data);
-
-        await axios.patch('http://18.191.37.77:8080/job/1', { saved: true })
-         await axios.patch('http://18.191.37.77:8080/job/2', {saved: true})
-          await axios.patch('http://18.191.37.77:8080/job/3', { saved: true })
-    }
-
+    useEffect(() => {
+        const getData = async () => {
+             const { data } = await axios.get(BASE_URL)
+             setJobs(data)
+         }
+        getData();
+    }, [state])
+    
     return (
         <Box
             style={style}
@@ -107,6 +111,7 @@ export default function SideNav({ style }: SideNavProps) {
                 textColor="inherit"
                 onChange={handleChange}
                 aria-label="Vertical tabs example"
+                data-testid="navbar"
                 sx={{
                     textTransform: 'none',
                     textDecoration: 'none',
@@ -186,6 +191,7 @@ export default function SideNav({ style }: SideNavProps) {
                     }
                     iconPosition="start"
                     {...a11yProps(1)}
+                    onClick={() => setState(!state)}
                 />
                 <Tab
                     label={
@@ -201,7 +207,7 @@ export default function SideNav({ style }: SideNavProps) {
                             }}
                         />
                     }
-                    onClick={getData}
+                    onClick={() => setState(!state)}
                     iconPosition="start"
                     {...a11yProps(2)}
                 />
@@ -296,7 +302,7 @@ export default function SideNav({ style }: SideNavProps) {
                 
             </TabPanel>
             <TabPanel value={value} index={1}>
-                
+                <FindJobs data={jobs} setState={setState} setStatus={setStatus} clickStatus={clickStatus}/>
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <Typography variant="h2" sx={{mb:'40px'}}>Saved Jobs</Typography>
@@ -310,8 +316,7 @@ export default function SideNav({ style }: SideNavProps) {
                                     role={j.role}
                                     companyName={j.company}
                                     location={j.jobLocation}
-                                    time={j.time}
-                                />
+                                    time={j.time} isBordered={false}                                />
                             )
                         })}
                 </Grid>

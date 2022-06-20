@@ -11,6 +11,7 @@ test('test to check whether chip Component is present ', () => {
             companyName={''}
             location={''}
             time={''}
+            isBordered={false}
         />
     )
 })

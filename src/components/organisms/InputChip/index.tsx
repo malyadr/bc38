@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import { TextField, Typography } from '@mui/material'
+import { TextField } from '@mui/material'
 import React from 'react'
 import Autocomplete from '@mui/material/Autocomplete'
 import { Chips } from '../../molecules/Chips'
@@ -39,6 +39,7 @@ export const InputChip = ({
                 options={options}
                 freeSolo
                 value={backTextValue}
+                data-testid="autocomplete"
                 onChange={(_event, value) => {
                     updateData(value)
                 }}

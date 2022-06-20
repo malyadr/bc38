@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
-import { Box, Grid, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox'
 import Radio from '@mui/material/Radio'
 import FormControl from '@mui/material/FormControl'
@@ -22,8 +22,6 @@ import {
     TRANSPORT,
     TRANSPORT_MODES,
 } from '../../../constants/constants'
-import { Chips } from '../../molecules/Chips'
-import theme from '../../../theme/customTheme'
 import Icon from '../../atoms/Icon'
 
 const style = {
@@ -40,7 +38,12 @@ const style = {
 }
 let checkedValue = [] as string[]
 
-const Filter = () => {
+interface FilterProps {
+    setData: React.Dispatch<React.SetStateAction<string[]>>
+    setDistance: React.Dispatch<React.SetStateAction<string[]>>
+}
+
+const Filter = ({ setData, setDistance }: FilterProps) => {
     const [open, setOpen] = React.useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -60,7 +63,6 @@ const Filter = () => {
                 checkedValue.splice(index, 1)
             }
             checkedValue.push(value)
-            // setAllCheckedValue(checkedValue)
         }
     }
 
@@ -90,20 +92,25 @@ const Filter = () => {
     ]
 
     const [checkedState, setCheckedState] = React.useState(defaultChecked)
-    const [allCheckedValue, setAllCheckedValue] = React.useState<any[]>([])
+    const [_allCheckedValue, setAllCheckedValue] = React.useState<any[]>([])
 
     const clearAll = () => {
         setCheckedState(defaultChecked)
         setSelectedValue('yes')
         checkedValue = []
         setAllCheckedValue([])
-        handleClose()
+        setDistance([])
     }
-
+    const distance: string[] = []
+    for (let i = 0; i < 4; i++) {
+        if (checkedState[i]) {
+            distance.push(DISTANCE_VALUES[i])
+        }
+    }
     const apply = () => {
         setAllCheckedValue(checkedValue)
-        console.log(allCheckedValue)
-        handleClose()
+        setData(checkedValue)
+        setDistance(distance)
     }
 
     const handleOnChange = (
@@ -117,12 +124,10 @@ const Filter = () => {
         const { value, checked } = event.target
         if (checked) {
             checkedValue.push(value)
-            // setAllCheckedValue(checkedValue)
         } else {
             const index = checkedValue.indexOf(value)
 
             checkedValue.splice(index, 1)
-            // setAllCheckedValue(checkedValue)
         }
     }
 
@@ -136,9 +141,14 @@ const Filter = () => {
                 sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    borderRadius: 4,
+                    borderRadius: '32px',
                     textTransform: 'capitalize',
-                    width: '137px',
+                    width: {
+                        'sm': '100px',
+                        'md': '100px',
+                        'lg': '137x'
+                    },
+                    marginLeft: '20px',
                     height: '57px',
                     bgcolor: 'gammaWhite.main',
                 }}
@@ -528,47 +538,6 @@ const Filter = () => {
                     </Grid>
                 </Grid>
             </Modal>
-            <Box sx={{ display: 'flex' }}>
-                {allCheckedValue &&
-                    allCheckedValue.map((d: any) => (
-                        <Chips
-                            key={1}
-                            text={d}
-                            variant={'caption2'}
-                            styles={{
-                                backgroundColor: theme.palette.gammaWhite.main,
-                                width: '121px',
-                                height: '32px',
-                                borderRadius: '8px',
-                                marginTop: '12px',
-                                marginBottom: '8px',
-                                marginRight: '5px',
-                            }}
-                            onDelete={() => {
-                                const Filterdata = []
-                                for (const val of allCheckedValue) {
-                                    if (val != d) {
-                                        Filterdata.push(val)
-                                    }
-                                }
-                                setCheckedState(Filterdata)
-                                setAllCheckedValue(Filterdata)
-                            }}
-                        ></Chips>
-                    ))}
-                {allCheckedValue.length != 0 && (
-                    <Button1
-                        variant="body1"
-                        TextColor={'alpha300.main'}
-                        buttonVariant={'text'}
-                        buttonColor={'alpha300'}
-                        styles={null}
-                        onClick={clearAll}
-                    >
-                        {CLEAR_ALL}
-                    </Button1>
-                )}
-            </Box>
         </>
     )
 }
