@@ -75,7 +75,7 @@ deploy:
     # - ssh ubuntu@18.223.206.231 "docker rm bootcamp"
     - ssh ubuntu@18.191.37.77 "sudo docker pull "$REGISTRY_USER"/mockser_bc38:1"  
     - ssh ubuntu@18.191.37.77 "sudo docker run --name mockerver -p 8080:8080 "$REGISTRY_USER"/mockser_bc38:1"
-    - Exit
+    - exit
   
    
   only:
