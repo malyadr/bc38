@@ -41,9 +41,9 @@ export const HomePageOrganism = ({
     setDetails,
     details,
 }: HomePageOrganismProps) => {
-    const setLocationValue = (location: string) => {
-        if (location) {
-            return location
+    const setLocationValue = (location1: string) => {
+        if (location1) {
+            return location1
         }
         return ''
     }
