@@ -24,7 +24,12 @@ interface FindJobsProps {
     setStatus: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const FindJobs = ({ data, setState, setStatus, clickStatus }: FindJobsProps) => {
+export const FindJobs = ({
+    data,
+    setState,
+    setStatus,
+    clickStatus,
+}: FindJobsProps) => {
     const [skills, setSkills] = useState<string>('')
     const [location, setLocation] = useState<string>('')
     const [filterData, setFilterData] = useState<string[]>([])
@@ -267,6 +272,7 @@ export const FindJobs = ({ data, setState, setStatus, clickStatus }: FindJobsPro
                                         time={card.time}
                                         saved={card.saved}
                                         setState={setState}
+                                        applied={card.applied}
                                     />
                                 </Box>
                             </Box>
