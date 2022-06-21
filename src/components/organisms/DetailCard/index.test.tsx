@@ -6,7 +6,7 @@ import customTheme from '../../../theme/customTheme'
 import '@testing-library/jest-dom'
 import { fireEvent } from '@storybook/testing-library'
 
-const mockFun = jest.fn();
+const mockFun = jest.fn()
 
 describe('Detail Job Card Test', () => {
     test('Testing Render', () => {
@@ -21,6 +21,7 @@ describe('Detail Job Card Test', () => {
                     id={1}
                     saved={true}
                     setState={mockFun}
+                    applied={false}
                 />
             </MUIThemeProvider>
         )
@@ -41,6 +42,7 @@ test('Testing save button', () => {
                 id={1}
                 saved={true}
                 setState={mockFun}
+                applied={false}
             />
         </MUIThemeProvider>
     )
@@ -62,6 +64,7 @@ test('Testing Green Commute Routes button', () => {
                 id={1}
                 saved={true}
                 setState={mockFun}
+                applied={false}
             />
         </MUIThemeProvider>
     )

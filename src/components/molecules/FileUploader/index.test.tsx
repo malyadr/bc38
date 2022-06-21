@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import React from 'react'
+import React, { SetStateAction } from 'react'
 import FileUploadPopup from '.'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from '../../../theme/customTheme'
@@ -7,7 +7,7 @@ const name = jest.fn()
 test('test to check where close icons fires an event when clicked', () => {
     render(
         <ThemeProvider theme={theme}>
-            <FileUploadPopup setOpen={name} />
+            <FileUploadPopup setOpen={name} setApplied={name} />
         </ThemeProvider>
     )
     const closeIcon = screen.getByTestId('close')
@@ -17,7 +17,7 @@ test('test to check where close icons fires an event when clicked', () => {
 test('test to check where upload files button fires an event when clicked', () => {
     render(
         <ThemeProvider theme={theme}>
-            <FileUploadPopup setOpen={name} open={true} />
+            <FileUploadPopup setOpen={name} open={true} setApplied={name} />
         </ThemeProvider>
     )
 
@@ -28,7 +28,7 @@ test('test to check where upload files button fires an event when clicked', () =
 test('test to check whether close1 icon and okay button are in the document after the input value is changed', () => {
     render(
         <ThemeProvider theme={theme}>
-            <FileUploadPopup setOpen={name} open={true} />
+            <FileUploadPopup setOpen={name} open={true} setApplied={name} />
         </ThemeProvider>
     )
 

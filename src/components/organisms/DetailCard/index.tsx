@@ -45,32 +45,33 @@ const DetailCard = ({
     time,
     saved,
     applied,
-    setState
+    setState,
 }: Props) => {
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
     const [saveClickStatus, setSaveClickStatus] = useState<boolean>(saved)
-    const [applyClickStatus, setApplyClickStatus] = useState<boolean>(applied);
-   
+    const [applyClickStatus, setApplyClickStatus] = useState<boolean>(applied)
 
     useEffect(() => {
         setState(saveClickStatus)
         const handleChange = async () => {
             await axios.patch(`${BASE_URL}/${id}`, { saved: saveClickStatus })
         }
-        handleChange();
+        handleChange()
     }, [saveClickStatus])
 
     useEffect(() => {
-        setState(prev => {
-            console.log('state = ', prev)
-            return !prev;
+        setState((prev) => {
+            
+            return !prev
         })
-        console.log('saved in applied is ', applyClickStatus);
+        
         const handlChange = async () => {
-            console.log("in change")
-            await axios.patch(`${BASE_URL}/${id}`, { applied: applyClickStatus })
+           
+            await axios.patch(`${BASE_URL}/${id}`, {
+                applied: applyClickStatus,
+            })
         }
-        handlChange();
+        handlChange()
     }, [applyClickStatus])
     const handleSaved = () => {
         setSaveClickStatus(!saveClickStatus)
@@ -158,13 +159,16 @@ const DetailCard = ({
                                                     }}
                                                     onClick={handleSaved}
                                                 >
-                                                    {saved
-                                                        ? 'unsave'
-                                                        : SAVE}
+                                                    {saved ? 'unsave' : SAVE}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
-                                                <Popup  setApplied={setApplyClickStatus} applied={false} />
+                                                <Popup
+                                                    setApplied={
+                                                        setApplyClickStatus
+                                                    }
+                                                    applied={false}
+                                                />
                                             </Grid>
                                         </Grid>
                                     </Grid>
