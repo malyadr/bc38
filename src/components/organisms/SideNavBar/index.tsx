@@ -22,15 +22,14 @@ interface SideNavProps {
 }
 
 interface JobProps {
-    id: number;
-    image: imageTypes;
-    role: string;
-    jobLocation: string;
-    company: string;
-    time: string;
-    saved: boolean;
-    applied: boolean;
-
+    id: number
+    image: imageTypes
+    role: string
+    jobLocation: string
+    company: string
+    time: string
+    saved: boolean
+    applied: boolean
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -45,17 +44,15 @@ function TabPanel(props: TabPanelProps) {
             sx={{
                 flexGrow: 1,
                 width: '100%',
-                height:'auto',
+                height: 'auto',
                 bgcolor: 'additional.main',
                 overflow: 'auto',
                 paddingLeft: '50px',
                 paddingTop: '20px',
                 paddingBottom: '100px',
                 '&::-webkit-scrollbar': {
-                    width: 0
-                }
-                
-                
+                    width: 0,
+                },
             }}
             {...other}
         >
@@ -79,20 +76,20 @@ export default function SideNav({ style }: SideNavProps) {
     const [value, setValue] = useState(1)
 
     const [jobs, setJobs] = useState<JobProps[]>([])
-    const [state, setState] = useState<boolean>(true);
-    const [clickStatus, setStatus] = useState<number>(0);
+    const [state, setState] = useState<boolean>(true)
+    const [clickStatus, setStatus] = useState<number>(0)
 
     const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
     }
     useEffect(() => {
         const getData = async () => {
-             const { data } = await axios.get(BASE_URL)
-             setJobs(data)
-         }
-        getData();
+            const { data } = await axios.get(BASE_URL)
+            setJobs(data)
+        }
+        getData()
     }, [state])
-    
+
     return (
         <Box
             style={style}
@@ -298,48 +295,49 @@ export default function SideNav({ style }: SideNavProps) {
                     {...a11yProps(7)}
                 />
             </Tabs>
-            <TabPanel value={value} index={0}>
-                
-            </TabPanel>
+            <TabPanel value={value} index={0}></TabPanel>
             <TabPanel value={value} index={1}>
-                <FindJobs data={jobs} setState={setState} setStatus={setStatus} clickStatus={clickStatus}/>
+                <FindJobs
+                    data={jobs}
+                    setState={setState}
+                    setStatus={setStatus}
+                    clickStatus={clickStatus}
+                />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <Typography variant="h2" sx={{mb:'40px'}}>Saved Jobs</Typography>
-                <Grid container spacing={2} direction="column" sx={{gap:'30px'}}>
+                <Typography variant="h2" sx={{ mb: '40px' }}>
+                    Saved Jobs
+                </Typography>
+                <Grid
+                    container
+                    spacing={2}
+                    direction="column"
+                    sx={{ gap: '30px' }}
+                >
                     {jobs
                         .filter((job: JobProps) => job.saved === true)
                         .map((j: JobProps) => {
                             return (
                                 <SavedJobCard
+                                    key={j.id}
                                     src={j.image}
                                     role={j.role}
                                     companyName={j.company}
                                     location={j.jobLocation}
-                                    time={j.time} isBordered={false}                                />
+                                    time={j.time}
+                                    isBordered={false}
+                                />
                             )
                         })}
                 </Grid>
             </TabPanel>
 
-            <TabPanel value={value} index={3}>
-               
-            </TabPanel>
-            <TabPanel value={value} index={4}>
-                
-            </TabPanel>
-            <TabPanel value={value} index={5}>
-            
-            </TabPanel>
-            <TabPanel value={value} index={6}>
-                
-            </TabPanel>
-            <TabPanel value={value} index={7}>
-                
-            </TabPanel>
-            <TabPanel value={value} index={8}>
-                
-            </TabPanel>
+            <TabPanel value={value} index={3}></TabPanel>
+            <TabPanel value={value} index={4}></TabPanel>
+            <TabPanel value={value} index={5}></TabPanel>
+            <TabPanel value={value} index={6}></TabPanel>
+            <TabPanel value={value} index={7}></TabPanel>
+            <TabPanel value={value} index={8}></TabPanel>
         </Box>
     )
 }

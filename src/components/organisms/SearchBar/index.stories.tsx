@@ -7,17 +7,7 @@ export default {
 } as ComponentMeta<typeof JobSearch>
 
 const Template: ComponentStory<typeof JobSearch> = () => (
-    <JobSearch
-        SetSkill={function (value: SetStateAction<string>): void {
-            throw new Error('Function not implemented.')
-        }}
-        SetLocation={function (value: SetStateAction<string>): void {
-            throw new Error('Function not implemented.')
-        }}
-        setStatus={function (value: SetStateAction<number>): void {
-            throw new Error('Function not implemented.')
-        }}
-    />
+    <JobSearch SetSkill={() => undefined} SetLocation={() => undefined} />
 )
 
 export const searchBar = Template.bind({})

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SetStateAction } from 'react'
 import { ComponentStory } from '@storybook/react'
 import { HomePageOrganism } from '.'
 export default {
@@ -6,10 +6,12 @@ export default {
     component: HomePageOrganism,
 }
 const Template: ComponentStory<typeof HomePageOrganism> = (args) => (
-    <HomePageOrganism />
+    <HomePageOrganism {...args} />
 )
 
 export const homePageOrganism = Template.bind({})
 homePageOrganism.args = {
-    // setAdditional: { undefined },
+    activeStep: 0,
+    setActiveStep: () => undefined,
+    setDetails: () => undefined,
 }

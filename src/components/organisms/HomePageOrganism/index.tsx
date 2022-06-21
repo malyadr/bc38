@@ -20,9 +20,9 @@ import {
     STEPS,
     STEPPER,
 } from '../../../constants/constants'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
-type Step = 0 | 1 | 2;
+type Step = 0 | 1 | 2
 interface DetailsProps {
     currentLocation: string
     jobLocation: string[]
@@ -31,17 +31,28 @@ interface DetailsProps {
 
 type HomePageOrganismProps = {
     activeStep: 0 | 1 | 2
-    setActiveStep: React.Dispatch<React.SetStateAction<Step>>,
+    setActiveStep: React.Dispatch<React.SetStateAction<Step>>
     setDetails: React.Dispatch<React.SetStateAction<DetailsProps>>
     details: DetailsProps
 }
-export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, details }: HomePageOrganismProps) => {
+export const HomePageOrganism = ({
+    activeStep,
+    setActiveStep,
+    setDetails,
+    details,
+}: HomePageOrganismProps) => {
+    const setLocationValue = (location: string) => {
+        if (location) {
+            return location
+        }
+        return ''
+    }
     const [title, setTitle] = useState(STEPPER[0])
 
     const [location, setLocation] = useState<string>('')
     const [jobLocation, setJobLocation] = useState<string[]>([])
     const [mySkills, setMySkills] = useState<string[]>([])
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     useEffect(() => {
         setDetails({ ...details, currentLocation: location })
@@ -52,12 +63,11 @@ export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, detail
     }, [jobLocation])
 
     useEffect(() => {
-         setDetails({ ...details, mySkills: mySkills })
+        setDetails({ ...details, mySkills: mySkills })
     }, [mySkills])
 
     const updateLocation = (currLoc: string): void => {
         setLocation(currLoc)
-        
     }
     const updateJobLocation = (currJobLoc: string[]): void => {
         setJobLocation(currJobLoc)
@@ -136,7 +146,7 @@ export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, detail
                 onChange={(_event, value) => {
                     updateData(value)
                 }}
-                value={location ? location : ''}
+                value={setLocationValue(location)}
                 renderInput={(params) => (
                     <TextField
                         {...params}
@@ -158,7 +168,7 @@ export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, detail
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <Box sx={{ width: '55%',  marginTop: '100px' }}>
+            <Box sx={{ width: '55%', marginTop: '100px' }}>
                 <Stepper activeStep={activeStep} connector={null}>
                     {STEPS.map((label) => {
                         return (
@@ -280,7 +290,7 @@ export const HomePageOrganism = ({ activeStep, setActiveStep, setDetails, detail
                                 activeStep < 2
                                     ? handleNext
                                     : () => {
-                                            navigate('/findjobs')
+                                          navigate('/findjobs')
                                       }
                             }
                             color="alpha300"
