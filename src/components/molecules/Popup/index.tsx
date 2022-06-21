@@ -19,11 +19,17 @@ const style = {
     p: '20px',
 }
 
-const Popup = () => {
+interface PopupProps {
+    setApplied: React.Dispatch<React.SetStateAction<boolean>>,
+    applied: boolean;
+}
+const Popup = ({ setApplied, applied }: PopupProps) => {
     const [open, setOpen] = React.useState(false)
+    const [appliedStatus, setAppliedStatus] = React.useState(applied);
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
+    
     return (
         <>
             <Button1
@@ -33,8 +39,9 @@ const Popup = () => {
                 buttonColor="alpha400"
                 styles={{ borderRadius: '8px' }}
                 onClick={handleOpen}
+                disabled={applied ? true: false}
             >
-                {APPLY}
+                {appliedStatus ? 'Applied': APPLY}
             </Button1>
             <Modal
                 open={open}
@@ -43,7 +50,7 @@ const Popup = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Grid container sx={style}>
-                    <FileUploader setOpen={setOpen} />
+                    <FileUploader setOpen={setOpen} setApplied={setAppliedStatus} />
                 </Grid>
             </Modal>
         </>

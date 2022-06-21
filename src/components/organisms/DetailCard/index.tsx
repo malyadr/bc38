@@ -32,6 +32,7 @@ interface Props {
     companyCity: string
     time: string
     saved: boolean
+    applied: boolean
     setState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -43,11 +44,12 @@ const DetailCard = ({
     companyCity,
     time,
     saved,
+    applied,
     setState
 }: Props) => {
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
     const [saveClickStatus, setSaveClickStatus] = useState<boolean>(saved)
-
+    const [applyClickStatus, setApplyClickStatus] = useState<boolean>(applied);
    
 
     useEffect(() => {
@@ -57,6 +59,19 @@ const DetailCard = ({
         }
         handleChange();
     }, [saveClickStatus])
+
+    useEffect(() => {
+        setState(prev => {
+            console.log('state = ', prev)
+            return !prev;
+        })
+        console.log('saved in applied is ', applyClickStatus);
+        const handlChange = async () => {
+            console.log("in change")
+            await axios.patch(`${BASE_URL}/${id}`, { applied: applyClickStatus })
+        }
+        handlChange();
+    }, [applyClickStatus])
     const handleSaved = () => {
         setSaveClickStatus(!saveClickStatus)
     }
@@ -143,13 +158,13 @@ const DetailCard = ({
                                                     }}
                                                     onClick={handleSaved}
                                                 >
-                                                    {saveClickStatus
+                                                    {saved
                                                         ? 'unsave'
                                                         : SAVE}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
-                                                <Popup />
+                                                <Popup  setApplied={setApplyClickStatus} applied={false} />
                                             </Grid>
                                         </Grid>
                                     </Grid>
