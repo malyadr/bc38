@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SetStateAction } from 'react'
 import { ComponentStory } from '@storybook/react'
 import Popup from '.'
 import FileUploader from '../FileUploader'
@@ -8,7 +8,9 @@ export default {
     component: Popup,
 }
 
-const Template: ComponentStory<typeof Popup> = (args) => <Popup />
+const Template: ComponentStory<typeof Popup> = (args) => <Popup setApplied={function (value: SetStateAction<boolean>): void {
+    throw new Error('Function not implemented.')
+} } applied={false} />
 
 export const ApplyPopup = Template.bind({})
 

@@ -40,7 +40,7 @@ const Popup = ({ setApplied, applied }: PopupProps) => {
                 onClick={handleOpen}
                 disabled={applied ? true : false}
             >
-                {appliedStatus ? 'Applied' : APPLY}
+                {APPLY}
             </Button1>
             <Modal
                 open={open}
