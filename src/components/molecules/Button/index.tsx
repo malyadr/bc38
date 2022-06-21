@@ -10,6 +10,7 @@ interface ButtonProps {
     children: React.ReactNode
     styles: React.CSSProperties | null
     onClick?: React.MouseEventHandler<HTMLButtonElement>
+    disabled?:boolean
 }
 
 export const Button1 = ({
@@ -19,6 +20,7 @@ export const Button1 = ({
     children,
     styles,
     onClick,
+    disabled
 }: ButtonProps) => {
     return (
         <>
@@ -28,6 +30,7 @@ export const Button1 = ({
                 color={buttonColor}
                 onClick={onClick}
                 style={{ borderRadius: '8px' }}
+                disabled={disabled}
             >
                 <Typography
                     variant={variant}

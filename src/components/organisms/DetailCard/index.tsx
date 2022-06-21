@@ -32,6 +32,7 @@ interface Props {
     companyCity: string
     time: string
     saved: boolean
+    applied: boolean
     setState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -43,20 +44,35 @@ const DetailCard = ({
     companyCity,
     time,
     saved,
-    setState
+    applied,
+    setState,
 }: Props) => {
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
     const [saveClickStatus, setSaveClickStatus] = useState<boolean>(saved)
-
-   
+    const [applyClickStatus, setApplyClickStatus] = useState<boolean>(applied)
 
     useEffect(() => {
         setState(saveClickStatus)
         const handleChange = async () => {
             await axios.patch(`${BASE_URL}/${id}`, { saved: saveClickStatus })
         }
-        handleChange();
+        handleChange()
     }, [saveClickStatus])
+
+    useEffect(() => {
+        setState((prev) => {
+            
+            return !prev
+        })
+        
+        const handlChange = async () => {
+           
+            await axios.patch(`${BASE_URL}/${id}`, {
+                applied: applyClickStatus,
+            })
+        }
+        handlChange()
+    }, [applyClickStatus])
     const handleSaved = () => {
         setSaveClickStatus(!saveClickStatus)
     }
@@ -143,13 +159,16 @@ const DetailCard = ({
                                                     }}
                                                     onClick={handleSaved}
                                                 >
-                                                    {saveClickStatus
-                                                        ? 'unsave'
-                                                        : SAVE}
+                                                    {saved ? 'unsave' : SAVE}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
-                                                <Popup />
+                                                <Popup
+                                                    setApplied={
+                                                        setApplyClickStatus
+                                                    }
+                                                    applied={false}
+                                                />
                                             </Grid>
                                         </Grid>
                                     </Grid>

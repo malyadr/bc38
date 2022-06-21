@@ -24,8 +24,9 @@ const style = {
 interface FileUploadProps {
     open?: boolean
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setApplied: React.Dispatch<React.SetStateAction<boolean>>
 }
-const FileUploadPopup = ({ open, setOpen }: FileUploadProps) => {
+const FileUploadPopup = ({ open, setOpen, setApplied }: FileUploadProps) => {
     open && setOpen(open)
     const [clickStatus, setStatus] = useState<boolean>(false)
 
@@ -37,7 +38,7 @@ const FileUploadPopup = ({ open, setOpen }: FileUploadProps) => {
     const handleChange = (event: any) => {
         const fileUploaded = event.target.files[0]
         setStatus(true)
-        console.log(fileUploaded)
+        
     }
 
     return (
@@ -130,6 +131,10 @@ const FileUploadPopup = ({ open, setOpen }: FileUploadProps) => {
                         styles={{ width: '156px', height: '40px' }}
                         onClick={() => {
                             setOpen(false)
+                            setApplied((prev) => {
+                                
+                                return prev ? prev : true
+                            })
                         }}
                     >
                         <Typography variant="caption1" sx={{ fontWeight: 700 }}>

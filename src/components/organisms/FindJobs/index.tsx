@@ -271,6 +271,7 @@ export const FindJobs = ({
                                         time={card.time}
                                         saved={card.saved}
                                         setState={setState}
+                                        applied={card.applied}
                                     />
                                 </Box>
                             </Box>

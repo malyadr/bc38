@@ -1,7 +1,7 @@
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles'
 import { fireEvent, render, screen } from '@testing-library/react'
 import Popup from '.'
-import React from 'react'
+import React, { SetStateAction } from 'react'
 import customTheme from '../../../theme/customTheme'
 import '@testing-library/jest-dom'
 
@@ -10,7 +10,14 @@ describe('Pop Test', () => {
     test('Popup Render', () => {
         render(
             <MUIThemeProvider theme={customTheme}>
-                <Popup />
+                <Popup
+                    setApplied={function (
+                        value: SetStateAction<boolean>
+                    ): void {
+                        throw new Error('Function not implemented.')
+                    }}
+                    applied={false}
+                />
             </MUIThemeProvider>
         )
 
@@ -20,7 +27,14 @@ describe('Pop Test', () => {
     test('Popup Button Fire', () => {
         render(
             <MUIThemeProvider theme={customTheme}>
-                <Popup />
+                <Popup
+                    setApplied={function (
+                        value: SetStateAction<boolean>
+                    ): void {
+                        throw new Error('Function not implemented.')
+                    }}
+                    applied={false}
+                />
             </MUIThemeProvider>
         )
 
