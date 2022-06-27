@@ -3,7 +3,7 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import { Divider, Grid } from '@mui/material'
+import { Divider, Stack } from '@mui/material'
 import { SIDESTEPS, BASE_URL } from '../../../constants/constants'
 import Icon from '../../atoms/Icon'
 import theme, { imageTypes } from '../../../theme/customTheme'
@@ -21,6 +21,11 @@ interface SideNavProps {
     style?: React.CSSProperties
 }
 
+const styles = {
+    overflow: 'visible',
+    position: 'relative',
+    bottom: '7px',
+}
 interface JobProps {
     id: number
     image: imageTypes
@@ -45,7 +50,7 @@ function TabPanel(props: TabPanelProps) {
                 flexGrow: 1,
                 width: '100%',
                 height: 'auto',
-                bgcolor: 'additional.main',
+                bgcolor: 'beta100.main',
                 overflow: 'auto',
                 paddingLeft: '50px',
                 paddingTop: '20px',
@@ -114,7 +119,7 @@ export default function SideNav({ style }: SideNavProps) {
                     textDecoration: 'none',
                     borderRight: 1,
                     borderColor: 'divider',
-                    width: '270px',
+                    width: '310px',
                     height: '100%',
                     display: 'flex',
                     pt: '20px',
@@ -136,9 +141,11 @@ export default function SideNav({ style }: SideNavProps) {
                         justifyContent: 'flex-start',
                         overflow: 'visible',
                         minHeight: '48px',
-                        gap: '28px',
+                        gap: '18px',
                         paddingLeft: '40px',
                         marginTop: '16px',
+                        width: '370px',
+                        alignItems: 'center',
                     },
                     '.MuiTabs-indicator': {
                         width: '4px',
@@ -146,7 +153,7 @@ export default function SideNav({ style }: SideNavProps) {
                         borderRadius: '4px 0px 0px 4px',
                     },
                     '.MuiTabs-root': {
-                        width: '270px',
+                        width: '370px',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -159,16 +166,7 @@ export default function SideNav({ style }: SideNavProps) {
                     label={
                         <Typography variant="body2">{SIDESTEPS[0]}</Typography>
                     }
-                    icon={
-                        <Icon
-                            src="dashboard"
-                            sx={{
-                                overflow: 'visible',
-                                position: 'relative',
-                                bottom: '5px',
-                            }}
-                        />
-                    }
+                    icon={<Icon src="dashboard" sx={styles} />}
                     iconPosition="start"
                     {...a11yProps(0)}
                 />
@@ -176,16 +174,7 @@ export default function SideNav({ style }: SideNavProps) {
                     label={
                         <Typography variant="body2">{SIDESTEPS[1]}</Typography>
                     }
-                    icon={
-                        <Icon
-                            src="jobs"
-                            sx={{
-                                overflow: 'visible',
-                                position: 'relative',
-                                bottom: '5px',
-                            }}
-                        />
-                    }
+                    icon={<Icon src="jobs" sx={styles} />}
                     iconPosition="start"
                     {...a11yProps(1)}
                     onClick={() => setState(!state)}
@@ -194,16 +183,7 @@ export default function SideNav({ style }: SideNavProps) {
                     label={
                         <Typography variant="body2">{SIDESTEPS[2]}</Typography>
                     }
-                    icon={
-                        <Icon
-                            src="save"
-                            sx={{
-                                overflow: 'visible',
-                                position: 'relative',
-                                bottom: '5px',
-                            }}
-                        />
-                    }
+                    icon={<Icon src="save" sx={styles} />}
                     onClick={() => setState(!state)}
                     iconPosition="start"
                     {...a11yProps(2)}
@@ -212,16 +192,7 @@ export default function SideNav({ style }: SideNavProps) {
                     label={
                         <Typography variant="body2">{SIDESTEPS[3]}</Typography>
                     }
-                    icon={
-                        <Icon
-                            src="test"
-                            sx={{
-                                overflow: 'visible',
-                                position: 'relative',
-                                bottom: '5px',
-                            }}
-                        />
-                    }
+                    icon={<Icon src="test" sx={styles} />}
                     iconPosition="start"
                     {...a11yProps(3)}
                 />
@@ -229,16 +200,7 @@ export default function SideNav({ style }: SideNavProps) {
                     label={
                         <Typography variant="body2">{SIDESTEPS[4]}</Typography>
                     }
-                    icon={
-                        <Icon
-                            src="news"
-                            sx={{
-                                overflow: 'visible',
-                                position: 'relative',
-                                bottom: '5px',
-                            }}
-                        />
-                    }
+                    icon={<Icon src="news" sx={styles} />}
                     iconPosition="start"
                     {...a11yProps(4)}
                 />
@@ -247,16 +209,7 @@ export default function SideNav({ style }: SideNavProps) {
                     label={
                         <Typography variant="body2">{SIDESTEPS[5]}</Typography>
                     }
-                    icon={
-                        <Icon
-                            src="help"
-                            sx={{
-                                overflow: 'visible',
-                                position: 'relative',
-                                bottom: '5px',
-                            }}
-                        />
-                    }
+                    icon={<Icon src="help" sx={styles} />}
                     iconPosition="start"
                     {...a11yProps(5)}
                 />
@@ -264,16 +217,7 @@ export default function SideNav({ style }: SideNavProps) {
                     label={
                         <Typography variant="body2">{SIDESTEPS[6]}</Typography>
                     }
-                    icon={
-                        <Icon
-                            src="contact"
-                            sx={{
-                                overflow: 'visible',
-                                position: 'relative',
-                                bottom: '5px',
-                            }}
-                        />
-                    }
+                    icon={<Icon src="contact" sx={styles} />}
                     iconPosition="start"
                     {...a11yProps(6)}
                 />
@@ -281,16 +225,7 @@ export default function SideNav({ style }: SideNavProps) {
                     label={
                         <Typography variant="body2">{SIDESTEPS[7]}</Typography>
                     }
-                    icon={
-                        <Icon
-                            src="settings"
-                            sx={{
-                                overflow: 'visible',
-                                position: 'relative',
-                                bottom: '5px',
-                            }}
-                        />
-                    }
+                    icon={<Icon src="settings" sx={styles} />}
                     iconPosition="start"
                     {...a11yProps(7)}
                 />
@@ -308,12 +243,7 @@ export default function SideNav({ style }: SideNavProps) {
                 <Typography variant="h2" sx={{ mb: '40px' }}>
                     Saved Jobs
                 </Typography>
-                <Grid
-                    container
-                    spacing={2}
-                    direction="column"
-                    sx={{ gap: '30px' }}
-                >
+                <Stack direction="column" sx={{ gap: '10px' }}>
                     {jobs
                         .filter((job: JobProps) => job.saved === true)
                         .map((j: JobProps) => {
@@ -329,7 +259,7 @@ export default function SideNav({ style }: SideNavProps) {
                                 />
                             )
                         })}
-                </Grid>
+                </Stack>
             </TabPanel>
 
             <TabPanel value={value} index={3}></TabPanel>
