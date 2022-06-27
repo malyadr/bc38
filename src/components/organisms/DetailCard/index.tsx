@@ -83,7 +83,6 @@ const DetailCard = ({
                 variant="outlined"
                 sx={{
                     width: '450px',
-                    // height: '670px',
                     borderRadius: '12px',
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,
