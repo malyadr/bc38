@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material'
+import { Grid, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import DetailCard from '../DetailCard'
@@ -75,7 +75,7 @@ export const FindJobs = ({
                 sx={{
                     height: 'fit-content',
                     backgroundColor: theme.palette.background.paper,
-                    paddingLeft: '40px',
+                    // paddingLeft: '40px',
                     paddingBottom: '140px',
                     paddingRight: '40px',
                     display: 'flex',
@@ -99,6 +99,7 @@ export const FindJobs = ({
                         <SearchBar
                             SetSkill={setSkills}
                             SetLocation={setLocation}
+                            setStatus={setStatus}
                         />
                         <Filter
                             setData={setFilterData}
@@ -141,76 +142,57 @@ export const FindJobs = ({
                         />
                     )}
                 </Box>
-                {clickStatus == 0 ? (
+                {clickStatus == 0 && skills == '' && location == '' ? (
                     <>
-                        <Box sx={{}}>
-                            <Grid
-                                container
+                        <Box>
+                            <Stack
+                                direction="row"
                                 sx={{
-                                    display: 'flex',
-                                    gap: '40px',
+                                    flexWrap: 'wrap',
+                                    gap: '10px',
                                     width: '100%',
                                 }}
                             >
                                 {data &&
-                                    data
-                                        .filter(
-                                            (j: JOBCARDPROPS) =>
-                                                j.role
-                                                    .toLowerCase()
-                                                    .includes(
-                                                        skills.toLowerCase()
-                                                    ) &&
-                                                j.jobLocation
-                                                    .toLowerCase()
-                                                    .includes(
-                                                        location.toLowerCase()
-                                                    )
-                                        )
-                                        .map((j: JOBCARDPROPS) => (
-                                            <Grid
-                                                data-testid="card1"
-                                                onClick={() => {
-                                                    setStatus(j.id)
-                                                }}
-                                                item
-                                                key={j.id}
-                                                sx={{
-                                                    height: '100%',
-                                                }}
-                                            >
-                                                <JobCard
-                                                    src={j.image}
-                                                    role={j.role}
-                                                    companyName={j.company}
-                                                    location={j.jobLocation}
-                                                    time={j.time}
-                                                ></JobCard>
-                                            </Grid>
-                                        ))}
-                            </Grid>
+                                    data.map((j: JOBCARDPROPS) => (
+                                        <Grid
+                                            data-testid="card1"
+                                            onClick={() => {
+                                                setStatus(j.id)
+                                            }}
+                                            item
+                                            key={j.id}
+                                            sx={{
+                                                height: '100%',
+                                            }}
+                                        >
+                                            <JobCard
+                                                src={j.image}
+                                                role={j.role}
+                                                companyName={j.company}
+                                                location={j.jobLocation}
+                                                time={j.time}
+                                            ></JobCard>
+                                        </Grid>
+                                    ))}
+                            </Stack>
                         </Box>
                     </>
                 ) : (
                     <>
                         {card && (
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'space-around',
-                                }}
-                            >
-                                <Box
+                            <Box>
+                                <Stack
+                                    direction="row"
                                     sx={{
-                                        flexGrow: 2,
+                                        flexWrap: 'wrap',
+                                        gap: '16px',
                                     }}
                                 >
-                                    <Grid
-                                        container
-                                        spacing={'16px'}
+                                    <Stack
                                         direction="column"
                                         sx={{
-                                            justifyContent: 'space-around',
+                                            gap: '10px',
                                         }}
                                     >
                                         {data &&
@@ -229,15 +211,13 @@ export const FindJobs = ({
                                                             )
                                                 )
                                                 .map((d: JOBCARDPROPS) => (
-                                                    <Grid
+                                                    <Box
                                                         onClick={() => {
                                                             setStatus(d.id)
                                                         }}
                                                         data-testid="card2"
-                                                        item
                                                         key={d.id}
                                                         sx={{
-                                                            flexGrow: 1,
                                                             width: '100%',
                                                         }}
                                                     >
@@ -257,23 +237,23 @@ export const FindJobs = ({
                                                                     : false
                                                             }
                                                         ></SavedJobCard>
-                                                    </Grid>
+                                                    </Box>
                                                 ))}
-                                    </Grid>
-                                </Box>
-                                <Box>
-                                    <DetailCard
-                                        id={card.id}
-                                        src={card.image}
-                                        jobTitle={card.role}
-                                        companyName={card.company}
-                                        companyCity={card.jobLocation}
-                                        time={card.time}
-                                        saved={card.saved}
-                                        setState={setState}
-                                        applied={card.applied}
-                                    />
-                                </Box>
+                                    </Stack>
+                                    <Box>
+                                        <DetailCard
+                                            id={card.id}
+                                            src={card.image}
+                                            jobTitle={card.role}
+                                            companyName={card.company}
+                                            companyCity={card.jobLocation}
+                                            time={card.time}
+                                            saved={card.saved}
+                                            setState={setState}
+                                            applied={card.applied}
+                                        />
+                                    </Box>
+                                </Stack>
                             </Box>
                         )}
                     </>

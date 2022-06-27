@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-import { Grid } from '@mui/material'
+import { Grid, Stack } from '@mui/material'
 import Popup from '../../molecules/Popup'
 import Divider from '@mui/material/Divider'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
@@ -61,12 +61,10 @@ const DetailCard = ({
 
     useEffect(() => {
         setState((prev) => {
-            
             return !prev
         })
-        
+
         const handlChange = async () => {
-           
             await axios.patch(`${BASE_URL}/${id}`, {
                 applied: applyClickStatus,
             })
@@ -84,8 +82,8 @@ const DetailCard = ({
             <Card
                 variant="outlined"
                 sx={{
-                    width: '26.2vw',
-                    height: '670px',
+                    width: '450px',
+                    // height: '670px',
                     borderRadius: '12px',
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,
@@ -99,17 +97,14 @@ const DetailCard = ({
                         marginRight: '1.9vw',
                         padding: 0,
                         marginTop: '2vh',
-                        width: '26.4vw',
+                        width: '450px',
                     }}
                 >
-                    <Grid container>
+                    <Stack direction="row" sx={{ width: '404px' }}>
                         <Grid item sx={{ marginRight: '20px' }}>
                             <Img src={src} />
                         </Grid>
-                        <Grid
-                            item
-                            sx={{ width: '15.5vw', marginRight: '20px' }}
-                        >
+                        <Grid item sx={{ width: '404px', marginRight: '20px' }}>
                             <Grid>
                                 <Grid item>
                                     <Typography
@@ -156,10 +151,12 @@ const DetailCard = ({
                                                     buttonColor="alpha300"
                                                     styles={{
                                                         borderRadius: '8px',
+                                                        width: '99px',
+                                                        height: '32px',
                                                     }}
                                                     onClick={handleSaved}
                                                 >
-                                                    {saved ? 'unsave' : SAVE}
+                                                    {saved ? 'Unsave' : SAVE}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
@@ -175,10 +172,10 @@ const DetailCard = ({
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item sx={{ position: 'relative', left: '20px' }}>
+                        <Grid item sx={{ position: 'relative', right: '5px' }}>
                             <MoreHorizIcon />
                         </Grid>
-                    </Grid>
+                    </Stack>
                     <Divider
                         variant="middle"
                         sx={{ marginTop: '2vh', marginBottom: '2vh' }}
@@ -248,7 +245,7 @@ const DetailCard = ({
                 <Card
                     variant="outlined"
                     sx={{
-                        width: '26.2vw',
+                        width: '450px',
                         height: 'fit-content',
                         borderRadius: '12px',
                         borderTopLeftRadius: 0,
