@@ -5,7 +5,6 @@ import {
     Button,
     SvgIcon,
     Divider,
-    Box,
 } from '@mui/material'
 import React, { useState } from 'react'
 import SearchIcon from '../../../../public/assets/icons/search.svg'
