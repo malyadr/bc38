@@ -7,7 +7,11 @@ export default {
 } as ComponentMeta<typeof JobSearch>
 
 const Template: ComponentStory<typeof JobSearch> = () => (
-    <JobSearch SetSkill={() => undefined} SetLocation={() => undefined} />
+    <JobSearch
+        SetSkill={() => undefined}
+        SetLocation={() => undefined}
+        setStatus={() => undefined}
+    />
 )
 
 export const searchBar = Template.bind({})
