@@ -92,7 +92,7 @@ deploy:
     # - ssh ubuntu@18.223.206.231 "docker stop bootcamp"
     # - ssh ubuntu@18.223.206.231 "docker rm bootcamp"
     - ssh ubuntu@18.191.37.77 "sudo docker pull "$REGISTRY_USER"/frontend_bc38re1:1"  
-    - ssh ubuntu@18.191.37.77 "sudo docker run --name frontend -p -d 4000:4000 "$REGISTRY_USER"/frontend_bc38re1:1"
+    - ssh ubuntu@18.191.37.77 "sudo docker run -d --name frontend -p  4000:4000 "$REGISTRY_USER"/frontend_bc38re1:1"
     - exit
  
    
