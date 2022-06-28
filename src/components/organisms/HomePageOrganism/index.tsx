@@ -115,7 +115,6 @@ export const HomePageOrganism = ({
             placeholder = PLACEHOLDER[0]
             options = STEPPER_ONE_OPTIONS
             updateData = updateLocation
-            // backTextValue = location
         }
         if (ActiveStep == 1) {
             placeholder = PLACEHOLDER[1]
@@ -209,7 +208,7 @@ export const HomePageOrganism = ({
                     }}
                 >
                     {STEPS.map((label, index) => {
-                        console.log(label)
+                        
                         return (
                             <Step key={label}>
                                 <StepLabel
@@ -384,26 +383,6 @@ export const HomePageOrganism = ({
                     </Box>
                 </Box>
             </Box>
-            {/* <Box
-                sx={{
-                    backgroundColor: theme.palette.gammaColor1.main,
-                    width: '45%',
-                    height: '100vh',
-                    display: 'flex',
-                    paddingTop: '200px',
-                }}
-            >
-                <AQI
-                    details={
-                        activeStep == 0
-                            ? location
-                            : activeStep == 1
-                            ? jobLocation
-                            : mySkills
-                    }
-                    step={activeStep}
-                ></AQI>
-            </Box> */}
         </Box>
     )
 }

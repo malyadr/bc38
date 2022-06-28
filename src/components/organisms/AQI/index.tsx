@@ -89,7 +89,6 @@ export const AQI = ({ details, step }: AqiProps) => {
         }
         location1 += details.jobLocation[length - 1]
         return location1
-        console.log('jobfound' + location1)
     }
     const condition = () => {
         if (step == 0) {
@@ -104,8 +103,8 @@ export const AQI = ({ details, step }: AqiProps) => {
                     }}
                 >
                     {step == 0 && details.currentLocation !== ''
-                        ? 'Real Time Air Quality Index(AQI) in this location '
-                        : 'Enter Location to know Time Air Quality Index (AQI)'}
+                        ? AQI_TITLE
+                        : ENTER_LOCATION}
                 </Typography>
             )
         }
@@ -121,8 +120,8 @@ export const AQI = ({ details, step }: AqiProps) => {
                     }}
                 >
                     {details.jobLocation.length !== 0
-                        ? 'Real Time Air Quality Index(AQI) in this location '
-                        : 'Enter Location to know Time Air Quality Index (AQI)'}
+                        ? AQI_TITLE
+                        : ENTER_LOCATION}
                 </Typography>
             )
         }
@@ -137,9 +136,7 @@ export const AQI = ({ details, step }: AqiProps) => {
                         color: theme.palette.betaHigh.main,
                     }}
                 >
-                    {details.mySkills.length !== 0
-                        ? jobFound()
-                        : 'Enter your Skills to know how many jobs are in this Location'}
+                    {details.mySkills.length !== 0 ? jobFound() : ENTER_SKILLS}
                 </Typography>
             )
         }
