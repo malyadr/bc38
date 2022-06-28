@@ -17,15 +17,17 @@ const locationList = ['Hyderabad', 'Mumbai']
 interface SearchBarProps {
     SetSkill: React.Dispatch<React.SetStateAction<string>>
     SetLocation: React.Dispatch<React.SetStateAction<string>>
+    setStatus: React.Dispatch<React.SetStateAction<number>>
 }
 
-const SearchBar = ({ SetSkill, SetLocation }: SearchBarProps) => {
+const SearchBar = ({ SetSkill, SetLocation, setStatus }: SearchBarProps) => {
     const [skills, setSkills] = useState<string>('')
     const [location, setLocation] = useState<string>('')
 
     const handleClick = () => {
         SetSkill(skills)
         SetLocation(location)
+        setStatus(0)
     }
     return (
         <>
@@ -34,15 +36,15 @@ const SearchBar = ({ SetSkill, SetLocation }: SearchBarProps) => {
                 sx={{
                     bgcolor: 'gammaWhite.main',
                     borderRadius: '32px',
-                    maxWidth: '1879px',
-                    minWidth:'579px',
+                    width: '65vw',
+                    minWidth: '450px',
                     height: '56px',
                     display: 'flex',
                     alignItems: 'center',
                     marginRight: '20px',
                 }}
             >
-                <Icon src="work" sx={{ pl: '28px' }} />
+                <Icon src="work" sx={{ marginLeft: '28px' }} />
                 <Autocomplete
                     autoHighlight
                     autoSelect
@@ -52,7 +54,7 @@ const SearchBar = ({ SetSkill, SetLocation }: SearchBarProps) => {
                     onChange={(_event, value) => setSkills(value ? value : '')}
                     id="combo-box-demo2"
                     options={skillsList}
-                    sx={{ width: 408 }}
+                    sx={{ width: '30vw' }}
                     renderInput={(params) => (
                         <TextField
                             {...params}
@@ -75,7 +77,7 @@ const SearchBar = ({ SetSkill, SetLocation }: SearchBarProps) => {
                 <Icon
                     src="location1"
                     sx={{
-                        pl: '28px',
+                        marginLeft: '28px',
                         stroke: 'grey',
                         fill: 'transparent',
                         alignSelf: 'center',
@@ -91,7 +93,7 @@ const SearchBar = ({ SetSkill, SetLocation }: SearchBarProps) => {
                     freeSolo
                     id="combo-box-demo1"
                     options={locationList}
-                    sx={{ width: 408 }}
+                    sx={{ width: '30vw' }}
                     renderInput={(params) => (
                         <TextField
                             {...params}
@@ -118,7 +120,7 @@ const SearchBar = ({ SetSkill, SetLocation }: SearchBarProps) => {
                         width: '55px',
                         borderRadius: '50%',
                         position: 'relative',
-                        right:'6px'
+                        right: '6px',
                     }}
                     data-testid="iconButton"
                 >

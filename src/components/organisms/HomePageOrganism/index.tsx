@@ -4,7 +4,7 @@ import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Button from '@mui/material/Button'
-import { Typography, TextField, Autocomplete } from '@mui/material'
+import { Typography, TextField, Autocomplete} from '@mui/material'
 import { Button1 } from '../../molecules/Button'
 import theme from '../../../theme/customTheme'
 import { InputChip } from '../InputChip'
@@ -21,6 +21,7 @@ import {
     STEPPER,
 } from '../../../constants/constants'
 import { useNavigate } from 'react-router-dom'
+import Img from '../../atoms/Image'
 
 type Step = 0 | 1 | 2
 interface DetailsProps {
@@ -28,7 +29,6 @@ interface DetailsProps {
     jobLocation: string[]
     mySkills: string[]
 }
-
 type HomePageOrganismProps = {
     activeStep: 0 | 1 | 2
     setActiveStep: React.Dispatch<React.SetStateAction<Step>>
@@ -115,7 +115,6 @@ export const HomePageOrganism = ({
             placeholder = PLACEHOLDER[0]
             options = STEPPER_ONE_OPTIONS
             updateData = updateLocation
-            // backTextValue = location
         }
         if (ActiveStep == 1) {
             placeholder = PLACEHOLDER[1]
@@ -146,12 +145,18 @@ export const HomePageOrganism = ({
                 onChange={(_event, value) => {
                     updateData(value)
                 }}
+                sx={{
+                    width: {
+                        md: '300px',
+                        lg: '400px',
+                        xl: '400px',
+                    },
+                }}
                 value={setLocationValue(location)}
                 renderInput={(params) => (
                     <TextField
                         {...params}
                         sx={{
-                            width: '420px',
                             height: '48px',
                             '& .MuiOutlinedInput-root': {
                                 '&.Mui-focused fieldset': {
@@ -167,31 +172,84 @@ export const HomePageOrganism = ({
     }
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <Box sx={{ width: '55%', marginTop: '100px' }}>
-                <Stepper activeStep={activeStep} connector={null}>
-                    {STEPS.map((label) => {
+        <Box
+            sx={{
+                display: 'flex',
+                width: 'fit-content',
+            }}
+        >
+            <Box sx={{ marginTop: '32px' }}>
+                <Box
+                    sx={{
+                        // bgcolor: 'red',
+                        width: {
+                            xs: '350px',
+                            sm: '400px',
+                            md: '500px',
+                            lg: '600px',
+                        },
+                        marginBottom: '64px',
+                    }}
+                >
+                    <Img src="logo2" />
+                </Box>
+                <Stepper
+                    activeStep={activeStep}
+                    connector={null}
+                    sx={{
+                        display: 'flex',
+                        gap: {
+                            sm: '20px',
+                            md: '25px',
+                            lg: '32px',
+                        },
+                        position: 'relative',
+                        right: '10px',
+                    }}
+                >
+                    {STEPS.map((label, index) => {
+                        
                         return (
                             <Step key={label}>
                                 <StepLabel
                                     sx={{
-                                        color: 'alpha300.main',
                                         '& .MuiSvgIcon-root': {
-                                            color: 'alpha300.main',
-                                            width: '40px',
                                             height: '40px',
-                                        },
-                                        '& .MuiStepIcon-root.Mui-completed': {
-                                            color: 'alpha300.main',
+                                            width: '40px',
+                                            color: 'beta100.main',
                                         },
                                         '& .MuiStepIcon-root.Mui-active': {
+                                            color: 'alpha300.main',
+                                        },
+                                        '& .Mui-active .MuiStepIcon-text': {
+                                            fill: 'white',
+                                        },
+                                        '& .Mui-active ,& .Mui-completed': {
+                                            color: 'alpha300.main',
+                                        },
+                                        '& .MuiStepIcon-text': {
+                                            fill: theme.palette.betaHigh.main,
+                                            lineHeight: '24px',
+                                            fontWeight: '500',
+                                        },
+                                        '& .MuiStepIcon-root.Mui-completed': {
                                             color: 'alpha300.main',
                                         },
                                     }}
                                 >
                                     <Typography
-                                        variant="subtitle1"
-                                        color="alpha300.main"
+                                        variant="subtitle2"
+                                        sx={{
+                                            color:
+                                                activeStep >= index
+                                                    ? 'alpha300.main'
+                                                    : 'betaHigh.main',
+                                            fontSize: {
+                                                sm: '12px',
+                                                md: '14px',
+                                                lg: '16px',
+                                            },
+                                        }}
                                     >
                                         {label}
                                     </Typography>
@@ -205,13 +263,29 @@ export const HomePageOrganism = ({
                     <Box sx={{ position: 'absolute' }}>
                         <Box component="div"></Box>
                         <Box
-                            style={{
-                                width: '650px',
+                            sx={{
                                 marginTop: '80px',
                                 marginBottom: '64px',
+                                width: {
+                                    xs: '350px',
+                                    sm: '400px',
+                                    md: '500px',
+                                    lg: '600px',
+                                },
                             }}
                         >
-                            <Typography variant="h1" color="betaHigh.main">
+                            <Typography
+                                variant="h1"
+                                color="betaHigh.main"
+                                sx={{
+                                    fontSize: {
+                                        xs: '20px',
+                                        sm: '24px',
+                                        md: '28px',
+                                        lg: '32px',
+                                    },
+                                }}
+                            >
                                 {LANDING_TITLE}
                             </Typography>
                         </Box>
@@ -223,7 +297,10 @@ export const HomePageOrganism = ({
                                 {title}
                             </Typography>
                             <Box
-                                sx={{ marginTop: '24px', marginBottom: '52px' }}
+                                sx={{
+                                    marginTop: '24px',
+                                    marginBottom: '52px',
+                                }}
                             >
                                 {inputChip(activeStep)}
                             </Box>
@@ -252,8 +329,9 @@ export const HomePageOrganism = ({
                             <hr
                                 style={{
                                     width: '36px',
-                                    height: '1px',
-                                    background: theme.palette.alpha400.main,
+                                    height: '4px',
+                                    backgroundColor:
+                                        theme.palette.alpha300.main,
                                     marginLeft: '12px',
                                     marginTop: '0',
                                 }}
@@ -305,26 +383,6 @@ export const HomePageOrganism = ({
                     </Box>
                 </Box>
             </Box>
-            {/* <Box
-                sx={{
-                    backgroundColor: theme.palette.gammaColor1.main,
-                    width: '45%',
-                    height: '100vh',
-                    display: 'flex',
-                    paddingTop: '200px',
-                }}
-            >
-                <AQI
-                    details={
-                        activeStep == 0
-                            ? location
-                            : activeStep == 1
-                            ? jobLocation
-                            : mySkills
-                    }
-                    step={activeStep}
-                ></AQI>
-            </Box> */}
         </Box>
     )
 }
