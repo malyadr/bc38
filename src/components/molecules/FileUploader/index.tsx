@@ -36,7 +36,6 @@ const FileUploadPopup = ({ open, setOpen, setApplied }: FileUploadProps) => {
     }
 
     const handleChange = (event: any) => {
-        const fileUploaded = event.target.files[0]
         setStatus(true)
         
     }

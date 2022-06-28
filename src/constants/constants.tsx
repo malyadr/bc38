@@ -228,7 +228,7 @@ export const PLACEHOLDER = [
 
 export const AQI_TITLE = 'Real Time Air Quality Index(AQI) in this location'
 export const FILE_UPLOAD = 'File Upload'
-export const HI_MESSAGE = ' Hi abc!'
+export const HI_MESSAGE = ' Hi Gayatri!'
 export const SUCCESS_MESSAGE = 'Your Resume got Uploaded Successfully!'
 export const OKAY = 'OKAY'
 export const ENTER_SKILLS =

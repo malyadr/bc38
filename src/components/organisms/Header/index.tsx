@@ -3,7 +3,6 @@ import AvatarComp from '../../atoms/Avatar'
 import React from 'react'
 import theme from '../../../theme/customTheme'
 import LocationBar from '../../molecules/LocationBar'
-import { East_MAREDPALLY } from '../../../constants/constants'
 import Img from '../../atoms/Image'
 import Icon from '../../atoms/Icon'
 export interface HeaderPropsType extends GridProps {
