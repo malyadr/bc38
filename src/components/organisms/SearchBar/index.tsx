@@ -5,11 +5,9 @@ import {
     Button,
     SvgIcon,
     Divider,
-    Box,
 } from '@mui/material'
 import React, { useState } from 'react'
 import SearchIcon from '../../../../public/assets/icons/search.svg'
-import theme from '../../../theme/customTheme'
 import Icon from '../../atoms/Icon'
 
 const skillsList = ['ux', 'ui', 'backend', 'frontend']

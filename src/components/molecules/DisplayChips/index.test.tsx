@@ -17,7 +17,6 @@ test('render', () => {
             />
         </MUIThemeProvider>
     )
-    const text = screen.getByText(/hi/i)
 
     const button = screen.getByText(/Clear All/i)
     fireEvent.click(button)

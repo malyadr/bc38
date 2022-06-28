@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material/styles'
 import React from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render} from '@testing-library/react'
 import { FindJobs } from '.'
 import theme from '../../../theme/customTheme'
 import { Provider } from 'react-redux'

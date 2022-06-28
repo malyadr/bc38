@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import { Divider, Stack } from '@mui/material'
-import { SIDESTEPS, BASE_URL } from '../../../constants/constants'
+import { Divider} from '@mui/material'
+import { SIDESTEPS} from '../../../constants/constants'
 import Icon from '../../atoms/Icon'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import FindJobs from '../FindJobs'
-import SavedJobCard from '../SavedJobCard'
-import axios from 'axios'
 import SavedJobs from '../SavedJobs'
 
 interface TabPanelProps {

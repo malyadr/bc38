@@ -25,7 +25,6 @@ interface PopupProps {
 }
 const Popup = ({ setApplied, applied }: PopupProps) => {
     const [open, setOpen] = React.useState(false)
-    const [appliedStatus, setAppliedStatus] = React.useState(applied)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
@@ -51,7 +50,7 @@ const Popup = ({ setApplied, applied }: PopupProps) => {
                 <Grid container sx={style}>
                     <FileUploader
                         setOpen={setOpen}
-                        setApplied={setAppliedStatus}
+                        setApplied={setApplied}
                     />
                 </Grid>
             </Modal>
