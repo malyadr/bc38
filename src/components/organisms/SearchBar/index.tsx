@@ -10,7 +10,7 @@ import React, { useState } from 'react'
 import SearchIcon from '../../../../public/assets/icons/search.svg'
 import Icon from '../../atoms/Icon'
 
-const skillsList = ['ux', 'ui', 'backend', 'frontend']
+const skillsList = ['ux', 'ui', 'backend', 'frontend', 'product designer']
 
 const locationList = ['Hyderabad', 'Mumbai']
 

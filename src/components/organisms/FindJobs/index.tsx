@@ -33,7 +33,6 @@ export const FindJobs = () => {
     const [clearAll, setClearAll] = useState<boolean>(false)
     const { jobs } = useSelector((state: RootState) => state.jobsData)
     const dispatch = useDispatch<StoreDispatch>()
-   
 
     useEffect(() => {
         dispatch(getAllJobs())
@@ -42,7 +41,6 @@ export const FindJobs = () => {
         } else {
             handleIdStatus(0)
         }
-       
     }, [])
 
     useEffect(() => {
@@ -55,7 +53,7 @@ export const FindJobs = () => {
     }, [skills, location])
 
     useEffect(() => {
-        dispatch(getAllFilteredJobs(distance));
+        dispatch(getAllFilteredJobs(distance))
     }, [distance])
 
     const handleIdStatus = (uniqueId: number) => {
@@ -63,6 +61,27 @@ export const FindJobs = () => {
             setId(uniqueId)
         }, 200)
     }
+
+    let card: any
+    jobs &&
+        jobs.forEach((arrayItem: JOBCARDPROPS) => {
+            if (id != 0 && arrayItem.id == id) {
+                card = arrayItem
+            } else {
+                if (
+                    (skills != '' || location !== '') &&
+                    id == 0 &&
+                    arrayItem.role
+                        .toLowerCase()
+                        .includes(skills.toLowerCase()) &&
+                    arrayItem.jobLocation
+                        .toLowerCase()
+                        .includes(location.toLowerCase())
+                ) {
+                    card = arrayItem
+                }
+            }
+        })
 
     return (
         <>
@@ -138,7 +157,7 @@ export const FindJobs = () => {
                         />
                     )}
                 </Box>
-                {id === 0 ? (
+                {id === 0 && skills == '' && location == '' ? (
                     <>
                         <Box>
                             <Stack
@@ -174,22 +193,22 @@ export const FindJobs = () => {
                     </>
                 ) : (
                     <>
-                        <Box>
-                            <Stack
-                                direction="row"
-                                sx={{
-                                    flexWrap: 'wrap',
-                                    gap: '16px',
-                                }}
-                            >
+                        {jobs && (
+                            <Box>
                                 <Stack
-                                    direction="column"
+                                    direction="row"
                                     sx={{
-                                        gap: '10px',
+                                        flexWrap: 'wrap',
+                                        gap: '16px',
                                     }}
                                 >
-                                    {jobs &&
-                                        jobs.map((d: JOBCARDPROPS) => (
+                                    <Stack
+                                        direction="column"
+                                        sx={{
+                                            gap: '10px',
+                                        }}
+                                    >
+                                        {jobs.map((d: JOBCARDPROPS) => (
                                             <Box
                                                 onClick={() =>
                                                     handleIdStatus(d.id)
@@ -207,19 +226,23 @@ export const FindJobs = () => {
                                                     location={d.jobLocation}
                                                     time={d.time}
                                                     isBordered={
-                                                        d.id == id
+                                                        d.id == id ||
+                                                        d.id == card.id
                                                             ? true
                                                             : false
                                                     }
                                                 ></SavedJobCard>
                                             </Box>
                                         ))}
+                                    </Stack>
+                                    <Box>
+                                        {card && card.id !== 0 && (
+                                            <DetailCard id={card.id} />
+                                        )}
+                                    </Box>
                                 </Stack>
-                                <Box>
-                                    {jobs && id !== 0 && <DetailCard id={id} />}
-                                </Box>
-                            </Stack>
-                        </Box>
+                            </Box>
+                        )}
                     </>
                 )}
             </Box>
