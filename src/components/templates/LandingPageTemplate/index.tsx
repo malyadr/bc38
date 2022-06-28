@@ -1,4 +1,4 @@
-import { Stack, Paper } from '@mui/material'
+import { Stack, Paper, Box } from '@mui/material'
 import React from 'react'
 import Img from '../../atoms/Image'
 
@@ -12,8 +12,8 @@ const LandingPageTemplate = ({ left, right }: TemplateProps) => {
         <>
             <Stack
                 direction="row"
-          sx={{
-            height: window.innerHeight,
+                sx={{
+                    height: window.innerHeight,
                     position: 'relative',
                     left: '0px',
                     top: '0px',
@@ -22,15 +22,24 @@ const LandingPageTemplate = ({ left, right }: TemplateProps) => {
                 }}
             >
                 <Paper
-                    // variant="elevation"
-                    sx={{ width: '60%', background: 'white', pl:'200px', pt: 4 }}
+                    sx={{
+                        width: '60%',
+                        background: 'white',
+                        pt: 4,
+                        alignItems: 'center',
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }}
                 >
-                    <Img src="logo2" />
                     {left}
                 </Paper>
                 <Paper
-                    // variant="elevation"
-                    sx={{ width: '40%', display: 'flex', justifyContent: 'center', alignItems:'center' }}
+                    sx={{
+                        width: '40%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
                 >
                     {right}
                 </Paper>

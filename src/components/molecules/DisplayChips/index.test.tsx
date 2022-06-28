@@ -13,6 +13,7 @@ test('render', () => {
                 setData={mockFun}
                 setDistance={mockFun}
                 distance={['hi']}
+                setClearAll={mockFun}
             />
         </MUIThemeProvider>
     )
@@ -29,6 +30,7 @@ test('test for checkbox values', () => {
                 setData={mockFun}
                 setDistance={mockFun}
                 distance={['hi']}
+                setClearAll={mockFun}
             />
         </MUIThemeProvider>
     )

@@ -447,7 +447,32 @@
 <a name='L382'></a><a href='#L382'>382</a>
 <a name='L383'></a><a href='#L383'>383</a>
 <a name='L384'></a><a href='#L384'>384</a>
-<a name='L385'></a><a href='#L385'>385</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">19x</span>
+<a name='L385'></a><a href='#L385'>385</a>
+<a name='L386'></a><a href='#L386'>386</a>
+<a name='L387'></a><a href='#L387'>387</a>
+<a name='L388'></a><a href='#L388'>388</a>
+<a name='L389'></a><a href='#L389'>389</a>
+<a name='L390'></a><a href='#L390'>390</a>
+<a name='L391'></a><a href='#L391'>391</a>
+<a name='L392'></a><a href='#L392'>392</a>
+<a name='L393'></a><a href='#L393'>393</a>
+<a name='L394'></a><a href='#L394'>394</a>
+<a name='L395'></a><a href='#L395'>395</a>
+<a name='L396'></a><a href='#L396'>396</a>
+<a name='L397'></a><a href='#L397'>397</a>
+<a name='L398'></a><a href='#L398'>398</a>
+<a name='L399'></a><a href='#L399'>399</a>
+<a name='L400'></a><a href='#L400'>400</a>
+<a name='L401'></a><a href='#L401'>401</a>
+<a name='L402'></a><a href='#L402'>402</a>
+<a name='L403'></a><a href='#L403'>403</a>
+<a name='L404'></a><a href='#L404'>404</a>
+<a name='L405'></a><a href='#L405'>405</a>
+<a name='L406'></a><a href='#L406'>406</a>
+<a name='L407'></a><a href='#L407'>407</a>
+<a name='L408'></a><a href='#L408'>408</a>
+<a name='L409'></a><a href='#L409'>409</a>
+<a name='L410'></a><a href='#L410'>410</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -566,11 +591,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -830,7 +855,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
     createTheme,
     PaletteColorOptions,
@@ -858,6 +908,7 @@ declare module '@mui/material/styles' {
         gammaAccent1: PaletteColorOptions
         gammaAccent2: PaletteColorOptions
         gammaAccent3: PaletteColorOptions
+        additional: PaletteColorOptions
     }
 &nbsp;
     interface Palette {
@@ -880,6 +931,7 @@ declare module '@mui/material/styles' {
         gammaAccent1: PaletteColor
         gammaAccent2: PaletteColor
         gammaAccent3: PaletteColor
+        additional: PaletteColor
     }
 &nbsp;
     interface TypographyVariants {
@@ -914,6 +966,7 @@ declare module '@mui/material/Button' {
         gammaColor3: true
         gammaAccent1: true
         gammaAccent2: true
+        additional: true
     }
     interface ButtonClasses {
         textText1: string
@@ -947,6 +1000,7 @@ declare module '@mui/material/SvgIcon' {
         gammaColor3: true
         gammaAccent1: true
         gammaAccent2: true
+        additional: true
     }
 }
 &nbsp;
@@ -1011,7 +1065,9 @@ const theme = createTheme({
         },
         background: {
             paper: 'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)',
-            // paper:'#EFFFFD'
+        },
+        additional: {
+            main: '#F7F7F7',
         },
     },
 &nbsp;
@@ -1074,6 +1130,12 @@ const theme = createTheme({
                 defaultProps: {
                     background:
                         'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)',
+                    margin: '0px',
+                    padding: '0px',
+                },
+                body: {
+                    margin: '0px',
+                    padding: '0px',
                 },
             },
         },
@@ -1088,6 +1150,19 @@ const theme = createTheme({
         MuiCard: {
             styleOverrides: {
                 root: {
+                    background: 'white',
+                },
+            },
+        },
+        MuiAutocomplete: {
+            styleOverrides: {
+                root: {
+                    background: 'white',
+                },
+                option: {
+                    background: 'white',
+                },
+                paper: {
                     background: 'white',
                 },
             },
@@ -1222,7 +1297,7 @@ export default theme
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jun 09 2022 16:20:09 GMT+0530 (India Standard Time)
+                at Tue Jun 28 2022 16:12:13 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

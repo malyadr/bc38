@@ -18,7 +18,7 @@ const styles = makeStyles({
     },
     root: {
         width: '360px',
-        height: '310px',
+        height: '285px',
         padding: '21px',
         backgroundColor: theme.palette.gammaWhite.main,
         borderRadius: '12px',

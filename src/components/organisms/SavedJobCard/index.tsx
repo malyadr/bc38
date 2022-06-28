@@ -42,22 +42,21 @@ const SavedJobCard = ({
         <>
             <Card
                 sx={{
-                    width: '41vw',
-                    height: '17vh',
+                    width: '51vw',
+                    minWidth: '571px',
+                    height: '21vh',
                     display: 'flex',
                     justifyContent: 'space-between',
                     borderRadius: '12px',
-                    paddingBottom: '15px',
-                    paddingRight: '20px',
-                    paddingLeft: '20px',
+                    p: '10px 19px 10px 19px',
                     background: 'gammaWhite.main',
-                    marginLeft:'2px',
+                    marginLeft: '2px',
                     '&:hover': {
                         borderColor: 'alpha200.main',
                         borderWidth: '2px',
                         borderStyle: 'solid',
                     },
-                    boxShadow: 'none'
+                    boxShadow: 'none',
                 }}
                 className={isBordered ? classes.root : ''}
             >
@@ -116,6 +115,8 @@ const SavedJobCard = ({
                                 display: 'flex',
                                 justifyContent: 'space-between',
                                 pt: '-20px',
+                                position: 'relative',
+                                top: '15px',
                             }}
                         >
                             <Icon src="bus" />
@@ -143,7 +144,11 @@ const SavedJobCard = ({
                     <Typography
                         variant="caption1"
                         color="betaMedium.main"
-                        sx={{ width: 'fit-content' }}
+                        sx={{
+                            width: 'fit-content',
+                            position: 'relative',
+                            top: '15px',
+                        }}
                     >
                         {time}
                     </Typography>

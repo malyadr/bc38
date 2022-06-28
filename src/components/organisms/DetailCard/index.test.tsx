@@ -5,46 +5,33 @@ import React from 'react'
 import customTheme from '../../../theme/customTheme'
 import '@testing-library/jest-dom'
 import { fireEvent } from '@storybook/testing-library'
+import { Provider } from 'react-redux'
+import store from '../../../store/store'
 
 const mockFun = jest.fn()
 
 describe('Detail Job Card Test', () => {
     test('Testing Render', () => {
         render(
-            <MUIThemeProvider theme={customTheme}>
-                <DetailCard
-                    src="ola"
-                    jobTitle="MockTitle"
-                    companyCity="MockCity"
-                    companyName="MockCompany"
-                    time="44 min ago"
-                    id={1}
-                    saved={true}
-                    setState={mockFun}
-                    applied={false}
-                />
-            </MUIThemeProvider>
+            <Provider store={store}>
+                <MUIThemeProvider theme={customTheme}>
+                    <DetailCard id={4} />
+                </MUIThemeProvider>
+            </Provider>
         )
 
-        const title = screen.getByText(/MockTitle/i)
+        const title = screen.getByText('Apply')
         expect(title).toBeInTheDocument()
     })
 })
 test('Testing save button', () => {
     render(
-        <MUIThemeProvider theme={customTheme}>
+        <Provider store={store}><MUIThemeProvider theme={customTheme}>
             <DetailCard
-                src="ola"
-                jobTitle="MockTitle"
-                companyCity="MockCity"
-                companyName="MockCompany"
-                time="44 min ago"
-                id={1}
-                saved={true}
-                setState={mockFun}
-                applied={false}
+                id={3}
             />
         </MUIThemeProvider>
+        </Provider>
     )
 
     const saveButton = screen.getByText(/Save/i)
@@ -54,19 +41,12 @@ test('Testing save button', () => {
 
 test('Testing Green Commute Routes button', () => {
     render(
-        <MUIThemeProvider theme={customTheme}>
+        <Provider store={store}><MUIThemeProvider theme={customTheme}>
             <DetailCard
-                src="ola"
-                jobTitle="MockTitle"
-                companyCity="MockCity"
-                companyName="MockCompany"
-                time="44 min ago"
-                id={1}
-                saved={true}
-                setState={mockFun}
-                applied={false}
+             id={1}
             />
         </MUIThemeProvider>
+            </Provider>
     )
 
     const title = screen.getByText(/Green Commute Routes/i)

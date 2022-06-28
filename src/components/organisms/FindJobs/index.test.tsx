@@ -3,31 +3,19 @@ import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { FindJobs } from '.'
 import theme from '../../../theme/customTheme'
+import { Provider } from 'react-redux'
+import store from '../../../store/store'
 
 
 const mockFn = jest.fn()
 const mockStatus = jest.fn(x => x + 4);
 test('render', () => {
     render(
-        <ThemeProvider theme={theme}>
-            <FindJobs
-                data={[
-                    {
-                        id: 1,
-                        image: 'hp',
-                        company: 'HP',
-                        role: 'User Experience Designer',
-                        jobLocation: 'Hyderabad, Telangana, India',
-                        time: '1hr 36 mins ago',
-                        saved: false,
-                        applied: false,
-                        distance: '31-40 Kms',
-                    },
-                ]}
-                setState={mockFn} setStatus={mockStatus} clickStatus={0}
-           />
-        </ThemeProvider>
+        <Provider store={store}>
+            <ThemeProvider theme={theme}>
+                <FindJobs />
+            </ThemeProvider>
+        </Provider>
     )
-    const card = screen.getByTestId(/card1/i)
-    fireEvent.click(card)
+   
 })

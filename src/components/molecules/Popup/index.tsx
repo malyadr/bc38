@@ -36,7 +36,7 @@ const Popup = ({ setApplied, applied }: PopupProps) => {
                 variant="caption1"
                 buttonVariant="contained"
                 buttonColor="alpha400"
-                styles={{ borderRadius: '8px' }}
+                styles={{ borderRadius: '8px', width: '99px', height: '32px' }}
                 onClick={handleOpen}
                 disabled={applied ? true : false}
             >

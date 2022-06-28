@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-import { Grid } from '@mui/material'
+import { Grid, Stack } from '@mui/material'
 import Popup from '../../molecules/Popup'
 import Divider from '@mui/material/Divider'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
@@ -18,74 +18,46 @@ import {
     SKILL_DETAILS,
     SEE_MORE,
     GREEN_COMMUTE_ROUTE,
-    BASE_URL,
 } from '../../../constants/constants'
-import { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
-import axios from 'axios'
+import { RootState, StoreDispatch } from '../../../store/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { getJobById, updateJobSavedStatus } from '../../../features/JobSlice'
 
-interface Props {
+interface DetailCardProps {
     id: number
-    src: imageTypes
-    jobTitle: string
-    companyName: string
-    companyCity: string
-    time: string
-    saved: boolean
-    applied: boolean
-    setState: React.Dispatch<React.SetStateAction<boolean>>
+    setState?: () => void
 }
 
-const DetailCard = ({
-    id,
-    src,
-    jobTitle,
-    companyName,
-    companyCity,
-    time,
-    saved,
-    applied,
-    setState,
-}: Props) => {
+const DetailCard = ({ id, setState }: DetailCardProps) => {
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
-    const [saveClickStatus, setSaveClickStatus] = useState<boolean>(saved)
-    const [applyClickStatus, setApplyClickStatus] = useState<boolean>(applied)
+    const { job } = useSelector((state: RootState) => state.jobData)
+    const dispatch = useDispatch<StoreDispatch>()
 
     useEffect(() => {
-        setState(saveClickStatus)
-        const handleChange = async () => {
-            await axios.patch(`${BASE_URL}/${id}`, { saved: saveClickStatus })
-        }
-        handleChange()
-    }, [saveClickStatus])
+        dispatch(getJobById(id))
+    }, [id])
 
-    useEffect(() => {
-        setState((prev) => {
-            
-            return !prev
-        })
-        
-        const handlChange = async () => {
-           
-            await axios.patch(`${BASE_URL}/${id}`, {
-                applied: applyClickStatus,
-            })
-        }
-        handlChange()
-    }, [applyClickStatus])
-    const handleSaved = () => {
-        setSaveClickStatus(!saveClickStatus)
-    }
     const goBack = () => {
         setCommuteClickStatus(false)
     }
+
+    const handleState = async () => {
+        // setTimeout(() => {
+        await dispatch(updateJobSavedStatus({ id: id, saved: job.saved }))
+        // }, 1000)
+        if (setState) {
+            setState()
+        }
+    }
+
     return (
         <>
             <Card
                 variant="outlined"
                 sx={{
-                    width: '26.2vw',
-                    height: '670px',
+                    width: '450px',
+                    // height: '670px',
                     borderRadius: '12px',
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,
@@ -99,24 +71,21 @@ const DetailCard = ({
                         marginRight: '1.9vw',
                         padding: 0,
                         marginTop: '2vh',
-                        width: '26.4vw',
+                        width: '450px',
                     }}
                 >
-                    <Grid container>
+                    <Stack direction="row" sx={{ width: '404px' }}>
                         <Grid item sx={{ marginRight: '20px' }}>
-                            <Img src={src} />
+                            <Img src={job.image} />
                         </Grid>
-                        <Grid
-                            item
-                            sx={{ width: '15.5vw', marginRight: '20px' }}
-                        >
+                        <Grid item sx={{ width: '404px', marginRight: '20px' }}>
                             <Grid>
                                 <Grid item>
                                     <Typography
                                         variant="subtitle1"
                                         color="betaHigh.main"
                                     >
-                                        {jobTitle}
+                                        {job.role}
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -124,7 +93,7 @@ const DetailCard = ({
                                         variant="caption2"
                                         color="betaMedium.main"
                                     >
-                                        {companyName}
+                                        {job.company}
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -132,7 +101,7 @@ const DetailCard = ({
                                         variant="caption2"
                                         color="betaMedium.main"
                                     >
-                                        {companyCity}
+                                        {job.jobLocation}
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -140,7 +109,7 @@ const DetailCard = ({
                                         variant="caption1"
                                         color="betaMedium.main"
                                     >
-                                        {time}
+                                        {job.time}
                                     </Typography>
                                     <Grid
                                         item
@@ -156,17 +125,19 @@ const DetailCard = ({
                                                     buttonColor="alpha300"
                                                     styles={{
                                                         borderRadius: '8px',
+                                                        width: '99px',
+                                                        height: '32px',
                                                     }}
-                                                    onClick={handleSaved}
+                                                    onClick={handleState}
                                                 >
-                                                    {saved ? 'unsave' : SAVE}
+                                                    {job.saved
+                                                        ? 'Unsave'
+                                                        : SAVE}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
                                                 <Popup
-                                                    setApplied={
-                                                        setApplyClickStatus
-                                                    }
+                                                    setApplied={() => 'jobs'}
                                                     applied={false}
                                                 />
                                             </Grid>
@@ -175,10 +146,10 @@ const DetailCard = ({
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item sx={{ position: 'relative', left: '20px' }}>
+                        <Grid item sx={{ position: 'relative', right: '5px' }}>
                             <MoreHorizIcon />
                         </Grid>
-                    </Grid>
+                    </Stack>
                     <Divider
                         variant="middle"
                         sx={{ marginTop: '2vh', marginBottom: '2vh' }}
@@ -248,7 +219,7 @@ const DetailCard = ({
                 <Card
                     variant="outlined"
                     sx={{
-                        width: '26.2vw',
+                        width: '450px',
                         height: 'fit-content',
                         borderRadius: '12px',
                         borderTopLeftRadius: 0,

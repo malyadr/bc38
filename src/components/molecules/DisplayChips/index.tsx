@@ -10,6 +10,7 @@ interface DisplayChipsProps {
     setData: React.Dispatch<React.SetStateAction<string[]>>
     setDistance: React.Dispatch<React.SetStateAction<string[]>>
     distance: string[]
+    setClearAll: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const DisplayChips = ({
@@ -17,6 +18,7 @@ const DisplayChips = ({
     setData,
     setDistance,
     distance,
+    setClearAll,
 }: DisplayChipsProps) => {
     return (
         <Box sx={{ display: 'flex', marginBottom: '15px' }}>
@@ -63,6 +65,7 @@ const DisplayChips = ({
                     onClick={() => {
                         setData([])
                         setDistance([])
+                        setClearAll((prev: boolean) => !prev)
                     }}
                 >
                     {CLEAR_ALL}

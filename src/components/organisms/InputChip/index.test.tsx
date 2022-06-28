@@ -20,7 +20,6 @@ test('render', () => {
         </ThemeProvider>
     )
     const text = screen.getByPlaceholderText('hi')
-    // expect(text).toBeInTheDocument()
     fireEvent.change(text)
 })
 test('test for autocomplete', () => {

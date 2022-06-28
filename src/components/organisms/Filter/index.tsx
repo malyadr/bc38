@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
-import { Grid, Typography } from '@mui/material'
+import { Grid, Stack, Typography } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox'
 import Radio from '@mui/material/Radio'
 import FormControl from '@mui/material/FormControl'
@@ -28,22 +28,23 @@ const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
+    width: '560px',
+    height: '464px',
     transform: 'translate(-50%, -50%)',
-    width: '546px',
-    height: '500px',
     bgcolor: 'gammaWhite.main',
     boxShadow: 24,
     borderRadius: 2,
-    p: '20px',
+    p: '16px 16px 32px 32px',
 }
 let checkedValue = [] as string[]
 
 interface FilterProps {
     setData: React.Dispatch<React.SetStateAction<string[]>>
     setDistance: React.Dispatch<React.SetStateAction<string[]>>
+    ClearAll: boolean
 }
 
-const Filter = ({ setData, setDistance }: FilterProps) => {
+const Filter = ({ setData, setDistance, ClearAll }: FilterProps) => {
     const [open, setOpen] = React.useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -91,6 +92,7 @@ const Filter = ({ setData, setDistance }: FilterProps) => {
         false,
     ]
 
+    
     const [checkedState, setCheckedState] = React.useState(defaultChecked)
     const [_allCheckedValue, setAllCheckedValue] = React.useState<any[]>([])
 
@@ -101,6 +103,10 @@ const Filter = ({ setData, setDistance }: FilterProps) => {
         setAllCheckedValue([])
         setDistance([])
     }
+    React.useEffect(() => {
+        clearAll()
+    }, [ClearAll])
+    
     const distance: string[] = []
     for (let i = 0; i < 4; i++) {
         if (checkedState[i]) {
@@ -111,6 +117,7 @@ const Filter = ({ setData, setDistance }: FilterProps) => {
         setAllCheckedValue(checkedValue)
         setData(checkedValue)
         setDistance(distance)
+        setOpen(false)
     }
 
     const handleOnChange = (
@@ -144,9 +151,9 @@ const Filter = ({ setData, setDistance }: FilterProps) => {
                     borderRadius: '32px',
                     textTransform: 'capitalize',
                     width: {
-                        'sm': '100px',
-                        'md': '100px',
-                        'lg': '137x'
+                        sm: '100px',
+                        md: '100px',
+                        lg: '137x',
                     },
                     marginLeft: '20px',
                     height: '57px',
@@ -163,380 +170,356 @@ const Filter = ({ setData, setDistance }: FilterProps) => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Grid container sx={style}>
-                    <Grid item xs={4}>
-                        <Typography variant="body1" color="betaHigh.main">
-                            {DISTANCE}
-                        </Typography>
-
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[0]}
-                                onChange={(event) => handleOnChange(event, 0)}
-                                value={DISTANCE_VALUES[0]}
-                            />
-                            {DISTANCE_VALUES[0]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[1]}
-                                onChange={(event) => handleOnChange(event, 1)}
-                                value={DISTANCE_VALUES[1]}
-                            />
-                            {DISTANCE_VALUES[1]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[2]}
-                                onChange={(event) => handleOnChange(event, 2)}
-                                value={DISTANCE_VALUES[2]}
-                            />
-                            {DISTANCE_VALUES[2]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[3]}
-                                onChange={(event) => handleOnChange(event, 3)}
-                                value={DISTANCE_VALUES[3]}
-                            />
-                            {DISTANCE_VALUES[3]}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="body1" color="betaHigh.main">
-                            {POSTED_DATE}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[4]}
-                                onChange={(event) => handleOnChange(event, 4)}
-                                value={POSTED_DATE_VALUES[0]}
-                            />{' '}
-                            {POSTED_DATE_VALUES[0]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[5]}
-                                onChange={(event) => handleOnChange(event, 5)}
-                                value={POSTED_DATE_VALUES[1]}
-                            />{' '}
-                            {POSTED_DATE_VALUES[1]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[6]}
-                                onChange={(event) => handleOnChange(event, 6)}
-                                value={POSTED_DATE_VALUES[2]}
-                            />{' '}
-                            {POSTED_DATE_VALUES[2]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[7]}
-                                onChange={(event) => handleOnChange(event, 7)}
-                                value={POSTED_DATE_VALUES[3]}
-                            />{' '}
-                            {POSTED_DATE_VALUES[3]}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <FormControl>
-                            <Typography variant="body1" color="betaHigh.main">
-                                {GREEN_COMMUTE}
-                            </Typography>
-
-                            <Typography variant="body2" color="betaMedium.main">
-                                <Radio
-                                    checked={selectedValue === 'yes'}
-                                    onChange={(event) => handleChange(event)}
-                                    value="yes"
-                                    name="radio-buttons"
-                                    sx={{
-                                        color: 'beta400.main',
-                                        '&.Mui-checked': {
-                                            color: 'alpha400.main',
-                                        },
-                                    }}
-                                />
-                                {GREEN_COMMUTE_VALUES[0]}
-                            </Typography>
-                            <Typography variant="body2" color="betaMedium.main">
-                                <Radio
-                                    checked={selectedValue === 'no'}
-                                    onChange={(event) => handleChange(event)}
-                                    value="no"
-                                    name="radio-buttons"
-                                    sx={{
-                                        color: 'beta400.main',
-                                        '&.Mui-checked': {
-                                            color: 'alpha400.main',
-                                        },
-                                    }}
-                                />
-                                {GREEN_COMMUTE_VALUES[1]}
-                            </Typography>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="body1" color="betaHigh.main">
-                            {JOB_DISTANCE}
-                        </Typography>
-
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[8]}
-                                onChange={(event) => handleOnChange(event, 8)}
-                                value={JOB_DISTANCE_VALUES[0]}
-                            />{' '}
-                            {JOB_DISTANCE_VALUES[0]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[9]}
-                                onChange={(event) => handleOnChange(event, 9)}
-                                value={JOB_DISTANCE_VALUES[1]}
-                            />{' '}
-                            {JOB_DISTANCE_VALUES[1]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[10]}
-                                onChange={(event) => handleOnChange(event, 10)}
-                                value={JOB_DISTANCE_VALUES[2]}
-                            />{' '}
-                            {JOB_DISTANCE_VALUES[2]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[11]}
-                                onChange={(event) => handleOnChange(event, 11)}
-                                value={JOB_DISTANCE_VALUES[3]}
-                            />{' '}
-                            {JOB_DISTANCE_VALUES[3]}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="body1" color="betaHigh.main">
-                            {EXP_LEVEL}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[12]}
-                                onChange={(event) => handleOnChange(event, 12)}
-                                value={EXP_LEVEL_VALUES[0]}
-                            />{' '}
-                            {EXP_LEVEL_VALUES[0]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[13]}
-                                onChange={(event) => handleOnChange(event, 13)}
-                                value={EXP_LEVEL_VALUES[1]}
-                            />{' '}
-                            {EXP_LEVEL_VALUES[1]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[14]}
-                                onChange={(event) => handleOnChange(event, 14)}
-                                value={EXP_LEVEL_VALUES[2]}
-                            />{' '}
-                            {EXP_LEVEL_VALUES[2]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[15]}
-                                onChange={(event) => handleOnChange(event, 15)}
-                                value={EXP_LEVEL_VALUES[3]}
-                            />{' '}
-                            {EXP_LEVEL_VALUES[3]}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="body1" color="betaHigh.main">
-                            {TRANSPORT}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[16]}
-                                onChange={(event) => handleOnChange(event, 16)}
-                                value={TRANSPORT_MODES[0]}
-                            />{' '}
-                            {TRANSPORT_MODES[0]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[17]}
-                                onChange={(event) => handleOnChange(event, 17)}
-                                value={TRANSPORT_MODES[1]}
-                            />{' '}
-                            {TRANSPORT_MODES[1]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[18]}
-                                onChange={(event) => handleOnChange(event, 18)}
-                                value={TRANSPORT_MODES[2]}
-                            />{' '}
-                            {TRANSPORT_MODES[2]}
-                        </Typography>
-                        <Typography variant="body2" color="betaMedium.main">
-                            <Checkbox
-                                sx={{
-                                    color: 'beta400.main',
-                                    '&.Mui-checked': {
-                                        color: 'alpha400.main',
-                                    },
-                                }}
-                                checked={checkedState[19]}
-                                onChange={(event) => handleOnChange(event, 19)}
-                                value={TRANSPORT_MODES[3]}
-                            />{' '}
-                            {TRANSPORT_MODES[3]}
-                        </Typography>
-                    </Grid>
-
-                    <Grid
-                        container
-                        justifyContent="flex-end"
-                        sx={{ marginTop: '39px' }}
+                <Stack direction="row" sx={style}>
+                    <Stack
+                        direction="column"
+                        sx={{
+                            gap: '30px',
+                            padding: '7px 21.5px',
+                        }}
                     >
-                        <Button1
-                            TextColor="alpha300.main"
-                            variant="caption1"
-                            buttonVariant="text"
-                            buttonColor="alpha300"
-                            styles={{ borderRadius: '8px' }}
-                            onClick={clearAll}
+                        <Stack>
+                            <Typography
+                                variant="body1"
+                                color="betaHigh.main"
+                                sx={{ pb: '12px' }}
+                            >
+                                {DISTANCE}
+                            </Typography>
+                            {DISTANCE_VALUES.map((j, index) => {
+                                return (
+                                    <Typography
+                                        variant="body2"
+                                        color="betaMedium.main"
+                                        sx={{
+                                            marginBottom: '8px',
+                                            gap: '12px',
+                                            display: 'flex',
+                                        }}
+                                        key={index}
+                                    >
+                                        <Checkbox
+                                            sx={{
+                                                position: 'relative',
+                                                right: '2px',
+                                                p: '0px',
+                                                color: 'beta400.main',
+                                                '&.Mui-checked': {
+                                                    color: 'alpha400.main',
+                                                },
+                                            }}
+                                            checked={checkedState[index]}
+                                            onChange={(event) =>
+                                                handleOnChange(event, index)
+                                            }
+                                            value={j}
+                                        />
+                                        {j}
+                                    </Typography>
+                                )
+                            })}
+                        </Stack>
+                        <Stack>
+                            <Typography
+                                variant="body1"
+                                color="betaHigh.main"
+                                sx={{ pb: '12px' }}
+                            >
+                                {JOB_DISTANCE}
+                            </Typography>
+                            {JOB_DISTANCE_VALUES.map((j, index) => {
+                                return (
+                                    <Typography
+                                        variant="body2"
+                                        color="betaMedium.main"
+                                        sx={{
+                                            marginBottom: '8px',
+                                            gap: '12px',
+                                            display: 'flex',
+                                        }}
+                                        key={index}
+                                    >
+                                        <Checkbox
+                                            sx={{
+                                                position: 'relative',
+                                                right: '2px',
+                                                p: '0px',
+                                                color: 'beta400.main',
+                                                '&.Mui-checked': {
+                                                    color: 'alpha400.main',
+                                                },
+                                            }}
+                                            checked={checkedState[index + 10]}
+                                            onChange={(event) =>
+                                                handleOnChange(
+                                                    event,
+                                                    index + 10
+                                                )
+                                            }
+                                            value={j}
+                                        />
+                                        {j}
+                                    </Typography>
+                                )
+                            })}
+                        </Stack>
+                    </Stack>
+                    <Stack
+                        direction="column"
+                        sx={{
+                            padding: '7px 21.5px',
+                            gap: '30px',
+                        }}
+                    >
+                        <Stack sx={{}}>
+                            <Typography
+                                variant="body1"
+                                color="betaHigh.main"
+                                sx={{ pb: '12px', width: '150px' }}
+                            >
+                                {POSTED_DATE}
+                            </Typography>
+                            {POSTED_DATE_VALUES.map((j, index) => {
+                                return (
+                                    <Typography
+                                        variant="body2"
+                                        color="betaMedium.main"
+                                        sx={{
+                                            marginBottom: '8px',
+                                            gap: '10px',
+                                            display: 'flex',
+                                            width: 'fit-content',
+                                        }}
+                                        key={index}
+                                    >
+                                        <Checkbox
+                                            sx={{
+                                                position: 'relative',
+                                                right: '2px',
+                                                p: '0px',
+                                                color: 'beta400.main',
+                                                '&.Mui-checked': {
+                                                    color: 'alpha400.main',
+                                                },
+                                            }}
+                                            checked={checkedState[index + 4]}
+                                            onChange={(event) =>
+                                                handleOnChange(event, index + 4)
+                                            }
+                                            value={j}
+                                        />
+                                        {j}
+                                    </Typography>
+                                )
+                            })}
+                        </Stack>
+
+                        <Stack>
+                            <Typography
+                                variant="body1"
+                                color="betaHigh.main"
+                                sx={{ pb: '12px' }}
+                            >
+                                {EXP_LEVEL}
+                            </Typography>
+                            {EXP_LEVEL_VALUES.map((j, index) => {
+                                return (
+                                    <Typography
+                                        variant="body2"
+                                        color="betaMedium.main"
+                                        sx={{
+                                            marginBottom: '8px',
+                                            gap: '12px',
+                                            display: 'flex',
+                                        }}
+                                        key={index}
+                                    >
+                                        <Checkbox
+                                            sx={{
+                                                position: 'relative',
+                                                right: '2px',
+                                                p: '0px',
+                                                color: 'beta400.main',
+                                                '&.Mui-checked': {
+                                                    color: 'alpha400.main',
+                                                },
+                                            }}
+                                            checked={checkedState[index + 14]}
+                                            onChange={(event) =>
+                                                handleOnChange(
+                                                    event,
+                                                    index + 14
+                                                )
+                                            }
+                                            value={j}
+                                        />
+                                        {j}
+                                    </Typography>
+                                )
+                            })}
+                        </Stack>
+                    </Stack>
+
+                    <Stack
+                        direction="column"
+                        sx={{
+                            justifyContent: 'space-between',
+                        }}
+                    >
+                        <Stack sx={{ p: '7px 21.5px' }}>
+                            <FormControl sx={{ padding: '0px' }}>
+                                <Typography
+                                    variant="body1"
+                                    color="betaHigh.main"
+                                    sx={{ pb: '12px' }}
+                                >
+                                    {GREEN_COMMUTE}
+                                </Typography>
+
+                                <Typography
+                                    variant="body2"
+                                    color="betaMedium.main"
+                                    sx={{
+                                        pb: '8px',
+                                        gap: '12px',
+                                        display: 'flex',
+                                    }}
+                                >
+                                    <Radio
+                                        checked={selectedValue === 'yes'}
+                                        onChange={(event) =>
+                                            handleChange(event)
+                                        }
+                                        value="yes"
+                                        name="radio-buttons"
+                                        sx={{
+                                            color: 'beta400.main',
+                                            p: '0px',
+
+                                            '&.Mui-checked': {
+                                                color: 'alpha400.main',
+                                            },
+                                        }}
+                                    />
+                                    {GREEN_COMMUTE_VALUES[0]}
+                                </Typography>
+                                <Typography
+                                    variant="body2"
+                                    color="betaMedium.main"
+                                    sx={{
+                                        pb: '8px',
+                                        gap: '12px',
+                                        display: 'flex',
+                                    }}
+                                >
+                                    <Radio
+                                        checked={selectedValue === 'no'}
+                                        onChange={(event) =>
+                                            handleChange(event)
+                                        }
+                                        value="no"
+                                        name="radio-buttons"
+                                        sx={{
+                                            color: 'beta400.main',
+                                            p: '0px',
+                                            '&.Mui-checked': {
+                                                color: 'alpha400.main',
+                                            },
+                                        }}
+                                    />
+                                    {GREEN_COMMUTE_VALUES[1]}
+                                </Typography>
+                            </FormControl>
+                        </Stack>
+                        <Stack
+                            sx={{
+                                position: 'relative',
+                                top: '30px',
+                                px: '21.5px',
+                            }}
                         >
-                            {CLEAR_ALL}
-                        </Button1>
-                        <Button1
-                            TextColor="gammaWhite.main"
-                            variant="caption1"
-                            buttonVariant="contained"
-                            buttonColor="alpha400"
-                            styles={{ borderRadius: '8px' }}
-                            onClick={apply}
+                            <Typography
+                                variant="body1"
+                                color="betaHigh.main"
+                                sx={{ pb: '12px' }}
+                            >
+                                {TRANSPORT}
+                            </Typography>
+                            {TRANSPORT_MODES.map((j, index) => {
+                                return (
+                                    <Typography
+                                        variant="body2"
+                                        color="betaMedium.main"
+                                        // sx={{
+                                        //     pb: '8px',
+                                        //     width: 'fit-content',
+                                        // }}
+                                        sx={{
+                                            marginBottom: '8px',
+                                            gap: '12px',
+                                            display: 'flex',
+                                        }}
+                                        key={index}
+                                    >
+                                        <Checkbox
+                                            sx={{
+                                                position: 'relative',
+                                                right: '2px',
+                                                p: '0px',
+                                                color: 'beta400.main',
+                                                borderRadius: '4px',
+                                                '&.Mui-checked': {
+                                                    color: 'alpha400.main',
+                                                },
+                                            }}
+                                            checked={checkedState[index + 18]}
+                                            onChange={(event) =>
+                                                handleOnChange(
+                                                    event,
+                                                    index + 18
+                                                )
+                                            }
+                                            value={j}
+                                        />
+                                        {j}
+                                    </Typography>
+                                )
+                            })}
+                        </Stack>
+                        <Stack
+                            direction="row"
+                            sx={{
+                                padding: '0px',
+                                width: '100%',
+                            }}
                         >
-                            {APPLY}
-                        </Button1>
-                    </Grid>
-                </Grid>
+                            <Button1
+                                TextColor="alpha300.main"
+                                variant="caption1"
+                                buttonVariant="text"
+                                buttonColor="alpha300"
+                                styles={{ borderRadius: '8px', height: '30px' }}
+                                onClick={clearAll}
+                            >
+                                {CLEAR_ALL}
+                            </Button1>
+                            <Button1
+                                TextColor="gammaWhite.main"
+                                variant="caption1"
+                                buttonVariant="contained"
+                                buttonColor="alpha400"
+                                styles={{
+                                    borderRadius: '8px',
+                                    height: '30px',
+                                    width: '101px',
+                                }}
+                                onClick={apply}
+                            >
+                                {APPLY}
+                            </Button1>
+                        </Stack>
+                    </Stack>
+                </Stack>
             </Modal>
         </>
     )

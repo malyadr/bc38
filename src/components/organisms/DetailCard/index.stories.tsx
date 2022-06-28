@@ -19,9 +19,5 @@ const Template: ComponentStory<typeof DetailCard> = (args) => (
 export const DetailJobCard = Template.bind({})
 
 DetailJobCard.args = {
-    src: 'hp',
-    jobTitle: 'Software Engineer',
-    companyCity: 'Hitech City Hyderabad-50072',
-    companyName: 'Zemoso',
-    time: '36 min ago',
+    id: 4
 }

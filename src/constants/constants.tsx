@@ -245,7 +245,7 @@ export interface JOBCARDPROPS {
     time: string
     saved: boolean
     applied: boolean
-    distance?: string
+    distance: string
 }
 
 export const FIND_JOBS = 'Find Jobs'
@@ -256,3 +256,111 @@ export const JOB_LIST = ' Job list'
 export const BASED_ON_SEARCH = 'Based on your search'
 
 export const BASE_URL = 'http://18.191.37.77:8080/job'
+
+export const dummy: JOBCARDPROPS = {
+    id: 0,
+    image: 'myntra',
+    company: '',
+    role: '',
+    jobLocation: '',
+    time: '',
+    saved: false,
+    applied: false,
+    distance: '',
+}
+
+export interface FilterData {
+    name: string;
+    value: boolean;
+}
+
+export const filterOptions = [
+    {
+        name: '0-10 Kms',
+        value: false
+    },
+    {
+        name: '11-20 Kms',
+        value: false
+    },
+    {
+        name: '21-30 Kms',
+        value: false
+    },
+    {
+        name: '31-40 Kms',
+        value: false
+    },
+    {
+        name: 'Past 24 Hours',
+        value: false
+    },
+    {
+        name: 'Past week',
+        value: false
+    },
+    {
+        name: 'Past month',
+        value: false
+    },
+    {
+        name: 'Anytime',
+        value: false
+    },
+    {
+        name: 'Yes',
+        value: false
+    },
+    {
+        name: 'No',
+        value: false
+    },
+    {
+        name: 'Full time',
+        value: false
+    },
+    {
+        name: 'Internship',
+        value: false
+    },
+    {
+        name: 'Contract',
+        value: false
+    },
+    {
+        name: 'Remote',
+        value: false
+    },
+    {
+        name: 'Fresher',
+        value: false
+    },
+    {
+        name: 'Mid - level',
+        value: false
+    },
+    {
+        name: 'Director',
+        value: false
+    },
+    {
+        name: 'Executive',
+        value: false
+    },
+    {
+        name: 'Metro',
+        value: false
+    },
+    {
+        name: 'Bus',
+        value: false
+    },
+    {
+        name: 'Car pooling',
+        value: false
+    },
+    {
+        name: 'Motor Cycle',
+        value: false
+    }
+]

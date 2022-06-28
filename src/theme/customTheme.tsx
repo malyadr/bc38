@@ -184,7 +184,7 @@ const theme = createTheme({
             paper: 'linear-gradient(155.94deg, #EFFEFF 6.2%, #E9FFF4 52.61%)',
         },
         additional: {
-            main: '#E5E5E5',
+            main: '#F7F7F7',
         },
     },
 
@@ -252,8 +252,8 @@ const theme = createTheme({
                 },
                 body: {
                     margin: '0px',
-                    padding:'0px'
-                }
+                    padding: '0px',
+                },
             },
         },
         MuiPaper: {

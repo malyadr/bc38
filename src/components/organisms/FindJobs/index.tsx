@@ -1,12 +1,17 @@
-import { Grid, Typography } from '@mui/material'
+import { Grid, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DetailCard from '../DetailCard'
 import { JobCard } from '../JobCard'
 import SavedJobCard from '../SavedJobCard'
 import SearchBar from '../SearchBar'
 import Filter from '../Filter'
 import DisplayChips from '../../molecules/DisplayChips'
+import {
+    getAllFilteredJobs,
+    getAllJobs,
+    getAllJobsBySkillsAndLocation,
+} from '../../../features/JobsSlice'
 import {
     BASED_ON_SEARCH,
     FIND_JOBS,
@@ -16,58 +21,48 @@ import {
     RECOMMENDED,
 } from '../../../constants/constants'
 import theme from '../../../theme/customTheme'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState, StoreDispatch } from '../../../store/store'
 
-interface FindJobsProps {
-    data: JOBCARDPROPS[]
-    setState: React.Dispatch<React.SetStateAction<boolean>>
-    clickStatus: number
-    setStatus: React.Dispatch<React.SetStateAction<number>>
-}
-
-export const FindJobs = ({
-    data,
-    setState,
-    setStatus,
-    clickStatus,
-}: FindJobsProps) => {
+export const FindJobs = () => {
     const [skills, setSkills] = useState<string>('')
     const [location, setLocation] = useState<string>('')
     const [filterData, setFilterData] = useState<string[]>([])
     const [distance, setDistance] = useState<string[]>([])
+    const [id, setId] = useState<number>(0)
+    const [clearAll, setClearAll] = useState<boolean>(false)
+    const { jobs } = useSelector((state: RootState) => state.jobsData)
+    const dispatch = useDispatch<StoreDispatch>()
+   
 
-    const cardData: JOBCARDPROPS[] = []
+    useEffect(() => {
+        dispatch(getAllJobs())
+        if (jobs.length !== 0) {
+            handleIdStatus(jobs[0].id)
+        } else {
+            handleIdStatus(0)
+        }
+       
+    }, [])
 
-    for (const val of distance) {
-        data &&
-            data.map((d: JOBCARDPROPS) => {
-                if (d.distance === val) {
-                    cardData.push(d)
-                }
+    useEffect(() => {
+        dispatch(
+            getAllJobsBySkillsAndLocation({
+                skills: skills,
+                location: location,
             })
+        )
+    }, [skills, location])
+
+    useEffect(() => {
+        dispatch(getAllFilteredJobs(distance));
+    }, [distance])
+
+    const handleIdStatus = (uniqueId: number) => {
+        setTimeout(() => {
+            setId(uniqueId)
+        }, 200)
     }
-    cardData.length != 0 && (data = cardData)
-
-    let card: any
-
-    data &&
-        data.forEach((arrayItem: JOBCARDPROPS) => {
-            if (clickStatus != 0 && arrayItem.id == clickStatus) {
-                card = arrayItem
-            } else {
-                if (
-                    (skills != '' || location !== '') &&
-                    clickStatus == 0 &&
-                    arrayItem.role
-                        .toLowerCase()
-                        .includes(skills.toLowerCase()) &&
-                    arrayItem.jobLocation
-                        .toLowerCase()
-                        .includes(location.toLowerCase())
-                ) {
-                    card = arrayItem
-                }
-            }
-        })
 
     return (
         <>
@@ -75,7 +70,6 @@ export const FindJobs = ({
                 sx={{
                     height: 'fit-content',
                     backgroundColor: theme.palette.background.paper,
-                    paddingLeft: '40px',
                     paddingBottom: '140px',
                     paddingRight: '40px',
                     display: 'flex',
@@ -99,13 +93,15 @@ export const FindJobs = ({
                         <SearchBar
                             SetSkill={setSkills}
                             SetLocation={setLocation}
+                            setStatus={setId}
                         />
                         <Filter
                             setData={setFilterData}
                             setDistance={setDistance}
+                            ClearAll={clearAll}
                         />
                     </Box>
-                    {clickStatus == 0 && skills == '' && location == '' ? (
+                    {id === 0 ? (
                         <>
                             <Typography variant="h2" color="betaHigh.main">
                                 {RECOMMENDED}
@@ -138,147 +134,97 @@ export const FindJobs = ({
                             setData={setFilterData}
                             setDistance={setDistance}
                             distance={distance}
+                            setClearAll={setClearAll}
                         />
                     )}
                 </Box>
-                {clickStatus == 0 ? (
+                {id === 0 ? (
                     <>
-                        <Box sx={{}}>
-                            <Grid
-                                container
+                        <Box>
+                            <Stack
+                                direction="row"
                                 sx={{
-                                    display: 'flex',
-                                    gap: '40px',
+                                    flexWrap: 'wrap',
+                                    gap: '10px',
                                     width: '100%',
                                 }}
                             >
-                                {data &&
-                                    data
-                                        .filter(
-                                            (j: JOBCARDPROPS) =>
-                                                j.role
-                                                    .toLowerCase()
-                                                    .includes(
-                                                        skills.toLowerCase()
-                                                    ) &&
-                                                j.jobLocation
-                                                    .toLowerCase()
-                                                    .includes(
-                                                        location.toLowerCase()
-                                                    )
-                                        )
-                                        .map((j: JOBCARDPROPS) => (
-                                            <Grid
-                                                data-testid="card1"
-                                                onClick={() => {
-                                                    setStatus(j.id)
-                                                }}
-                                                item
-                                                key={j.id}
-                                                sx={{
-                                                    height: '100%',
-                                                }}
-                                            >
-                                                <JobCard
-                                                    src={j.image}
-                                                    role={j.role}
-                                                    companyName={j.company}
-                                                    location={j.jobLocation}
-                                                    time={j.time}
-                                                ></JobCard>
-                                            </Grid>
-                                        ))}
-                            </Grid>
+                                {jobs &&
+                                    jobs.map((j: JOBCARDPROPS) => (
+                                        <Grid
+                                            data-testid="card1"
+                                            onClick={() => handleIdStatus(j.id)}
+                                            item
+                                            key={j.id}
+                                            sx={{
+                                                height: '100%',
+                                            }}
+                                        >
+                                            <JobCard
+                                                src={j.image}
+                                                role={j.role}
+                                                companyName={j.company}
+                                                location={j.jobLocation}
+                                                time={j.time}
+                                            ></JobCard>
+                                        </Grid>
+                                    ))}
+                            </Stack>
                         </Box>
                     </>
                 ) : (
                     <>
-                        {card && (
-                            <Box
+                        <Box>
+                            <Stack
+                                direction="row"
                                 sx={{
-                                    display: 'flex',
-                                    justifyContent: 'space-around',
+                                    flexWrap: 'wrap',
+                                    gap: '16px',
                                 }}
                             >
-                                <Box
+                                <Stack
+                                    direction="column"
                                     sx={{
-                                        flexGrow: 2,
+                                        gap: '10px',
                                     }}
                                 >
-                                    <Grid
-                                        container
-                                        spacing={'16px'}
-                                        direction="column"
-                                        sx={{
-                                            justifyContent: 'space-around',
-                                        }}
-                                    >
-                                        {data &&
-                                            data
-                                                .filter(
-                                                    (d: JOBCARDPROPS) =>
-                                                        d.role
-                                                            .toLowerCase()
-                                                            .includes(
-                                                                skills.toLowerCase()
-                                                            ) &&
-                                                        d.jobLocation
-                                                            .toLowerCase()
-                                                            .includes(
-                                                                location.toLowerCase()
-                                                            )
-                                                )
-                                                .map((d: JOBCARDPROPS) => (
-                                                    <Grid
-                                                        onClick={() => {
-                                                            setStatus(d.id)
-                                                        }}
-                                                        data-testid="card2"
-                                                        item
-                                                        key={d.id}
-                                                        sx={{
-                                                            flexGrow: 1,
-                                                            width: '100%',
-                                                        }}
-                                                    >
-                                                        <SavedJobCard
-                                                            src={d.image}
-                                                            role={d.role}
-                                                            companyName={
-                                                                d.company
-                                                            }
-                                                            location={
-                                                                d.jobLocation
-                                                            }
-                                                            time={d.time}
-                                                            isBordered={
-                                                                d.id == card.id
-                                                                    ? true
-                                                                    : false
-                                                            }
-                                                        ></SavedJobCard>
-                                                    </Grid>
-                                                ))}
-                                    </Grid>
-                                </Box>
+                                    {jobs &&
+                                        jobs.map((d: JOBCARDPROPS) => (
+                                            <Box
+                                                onClick={() =>
+                                                    handleIdStatus(d.id)
+                                                }
+                                                data-testid="card2"
+                                                key={d.id}
+                                                sx={{
+                                                    width: '100%',
+                                                }}
+                                            >
+                                                <SavedJobCard
+                                                    src={d.image}
+                                                    role={d.role}
+                                                    companyName={d.company}
+                                                    location={d.jobLocation}
+                                                    time={d.time}
+                                                    isBordered={
+                                                        d.id == id
+                                                            ? true
+                                                            : false
+                                                    }
+                                                ></SavedJobCard>
+                                            </Box>
+                                        ))}
+                                </Stack>
                                 <Box>
-                                    <DetailCard
-                                        id={card.id}
-                                        src={card.image}
-                                        jobTitle={card.role}
-                                        companyName={card.company}
-                                        companyCity={card.jobLocation}
-                                        time={card.time}
-                                        saved={card.saved}
-                                        setState={setState}
-                                        applied={card.applied}
-                                    />
+                                    {jobs && id !== 0 && <DetailCard id={id} />}
                                 </Box>
-                            </Box>
-                        )}
+                            </Stack>
+                        </Box>
                     </>
                 )}
             </Box>
         </>
     )
 }
+
+export default FindJobs
