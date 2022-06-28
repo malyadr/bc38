@@ -4,10 +4,12 @@ import {
     Stack,
     Button,
     SvgIcon,
-    Divider,
+    Divider
+   
 } from '@mui/material'
 import React, { useState } from 'react'
 import SearchIcon from '../../../../public/assets/icons/search.svg'
+
 import Icon from '../../atoms/Icon'
 
 const skillsList = ['ux', 'ui', 'backend', 'frontend']

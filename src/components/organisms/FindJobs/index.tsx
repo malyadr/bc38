@@ -75,7 +75,6 @@ export const FindJobs = ({
                 sx={{
                     height: 'fit-content',
                     backgroundColor: theme.palette.background.paper,
-                    // paddingLeft: '40px',
                     paddingBottom: '140px',
                     paddingRight: '40px',
                     display: 'flex',
