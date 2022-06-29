@@ -5,6 +5,7 @@ import { APPROX } from '../../../constants/constants'
 import { imageTypes } from '../../../theme/customTheme'
 import Icon from '../../atoms/Icon'
 import Img from '../../atoms/Image'
+import { Button1 } from '../Button'
 
 interface CabProps {
     cab: string
@@ -21,11 +22,14 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                     justifyContent: 'space-between',
                     height: '60px',
                     width: '359px',
-                    bgcolor:'gammaWhite.main',
-                    boxShadow: '0px 2px 8px rgba(125, 125, 125, 0.12)'
+                    bgcolor: 'gammaWhite.main',
+                    boxShadow: '0px 2px 8px rgba(125, 125, 125, 0.12)',
                 }}
             >
-                <Img src={src} />
+                <Img
+                    src={src}
+                    sx={{ width: '40px', height: '40px', pr: '5px' }}
+                />
                 <Box
                     component="div"
                     pt="8px"
@@ -65,24 +69,22 @@ const CabDetail = ({ cab, detail, src }: CabProps) => {
                                 width: 'fit-content',
                             }}
                         >
-                            <Icon src="rupee" sx={{position:'relative', left:'5px'}} />
+                            <Icon
+                                src="rupee"
+                                sx={{ position: 'relative', left: '5px' }}
+                            />
                             {detail}
                         </Typography>
                     </Box>
                 </Box>
-                <Typography
-                    variant="caption1"
-                    color="alpha400.main"
-                    sx={{
-                        width: '65px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifySelf: 'flex-end',
-                        pr:'5px'
-                    }}
+                <Button1
+                    variant={'caption1'}
+                    buttonVariant={'text'}
+                    buttonColor={'alpha400'}
+                    styles={{ width: 'fit-content' }}
                 >
                     Book Now
-                </Typography>
+                </Button1>
             </Box>
         </>
     )
