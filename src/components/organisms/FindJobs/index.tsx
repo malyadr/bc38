@@ -62,7 +62,7 @@ export const FindJobs = () => {
         }, 200)
     }
 
-    let card: any
+    let card: JOBCARDPROPS | undefined
     jobs &&
         jobs.forEach((arrayItem: JOBCARDPROPS) => {
             if (id != 0 && arrayItem.id == id) {
@@ -120,7 +120,7 @@ export const FindJobs = () => {
                             ClearAll={clearAll}
                         />
                     </Box>
-                    {id === 0 ? (
+                    {id === 0 && skills == '' && location == '' ? (
                         <>
                             <Typography variant="h2" color="betaHigh.main">
                                 {RECOMMENDED}
@@ -227,7 +227,8 @@ export const FindJobs = () => {
                                                     time={d.time}
                                                     isBordered={
                                                         d.id == id ||
-                                                        d.id == card.id
+                                                        (card &&
+                                                            d.id == card.id)
                                                             ? true
                                                             : false
                                                     }

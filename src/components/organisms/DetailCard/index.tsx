@@ -43,9 +43,7 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
     }
 
     const handleState = async () => {
-        // setTimeout(() => {
         await dispatch(updateJobSavedStatus({ id: id, saved: job.saved }))
-        // }, 1000)
         if (setState) {
             setState()
         }

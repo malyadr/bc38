@@ -1,12 +1,15 @@
 import React, { SetStateAction } from 'react'
 import { ComponentStory } from '@storybook/react'
 import { HomePageOrganism } from '.'
+import { BrowserRouter } from 'react-router-dom'
 export default {
     title: 'organisms / HomePageOrganism',
     component: HomePageOrganism,
 }
 const Template: ComponentStory<typeof HomePageOrganism> = (args) => (
-    <HomePageOrganism {...args} />
+    <BrowserRouter>
+        <HomePageOrganism {...args} />
+    </BrowserRouter>
 )
 
 export const homePageOrganism = Template.bind({})

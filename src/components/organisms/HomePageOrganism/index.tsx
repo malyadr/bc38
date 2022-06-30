@@ -4,7 +4,7 @@ import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Button from '@mui/material/Button'
-import { Typography, TextField, Autocomplete} from '@mui/material'
+import { Typography, TextField, Autocomplete } from '@mui/material'
 import { Button1 } from '../../molecules/Button'
 import theme from '../../../theme/customTheme'
 import { InputChip } from '../InputChip'
@@ -157,14 +157,26 @@ export const HomePageOrganism = ({
                     <TextField
                         {...params}
                         sx={{
-                            height: '48px',
+                            borderColor: theme.palette.beta400.main,
+                            height: '40px',
                             '& .MuiOutlinedInput-root': {
                                 '&.Mui-focused fieldset': {
                                     borderColor: 'alpha200.main',
                                 },
+                                '&:hover fieldset': {
+                                    borderColor: theme.palette.beta400.main,
+                                },
                             },
+
+                            textOverflow: 'ellipsis',
                         }}
                         placeholder={placeholder}
+                        inputProps={{
+                            style: {
+                                color: theme.palette.betaLow.main,
+                                height: '5px',
+                            },
+                        }}
                     />
                 )}
             />
@@ -208,7 +220,6 @@ export const HomePageOrganism = ({
                     }}
                 >
                     {STEPS.map((label, index) => {
-                        
                         return (
                             <Step key={label}>
                                 <StepLabel

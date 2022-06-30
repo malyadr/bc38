@@ -1,7 +1,8 @@
 import React from 'react'
-
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import SideNav from '.'
+import { Provider } from 'react-redux'
+import store from '../../../store/store'
 
 export default {
     title: 'Organisms/SideNav',
@@ -14,6 +15,10 @@ export default {
     },
 } as ComponentMeta<typeof SideNav>
 
-const Template: ComponentStory<typeof SideNav> = (args) => <SideNav />
+const Template: ComponentStory<typeof SideNav> = (args) => (
+    <Provider store={store}>
+        <SideNav />
+    </Provider>
+)
 
 export const sidenav = Template.bind({})

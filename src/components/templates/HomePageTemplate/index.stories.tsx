@@ -2,6 +2,8 @@ import React from 'react'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import HomePageTemplate from '.'
+import { Provider } from 'react-redux'
+import store from '../../../store/store'
 
 export default {
     title: 'Template/HomePage',
@@ -9,7 +11,9 @@ export default {
 } as ComponentMeta<typeof HomePageTemplate>
 
 const Template: ComponentStory<typeof HomePageTemplate> = (args) => (
-    <HomePageTemplate details={''} />
+    <Provider store={store}>
+        <HomePageTemplate details={''} />
+    </Provider>
 )
 
 export const homePageTemplate = Template.bind({})

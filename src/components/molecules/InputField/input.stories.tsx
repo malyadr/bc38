@@ -13,5 +13,5 @@ export const Inputfield = Template.bind({})
 Inputfield.args = {
     text: 'Enter your location',
     variant: 'outlined',
-    styles: { width: '400px', height: '48px' },
+    styles: { width: '400px', height: '48px', textOverflow: 'ellipsis' },
 }

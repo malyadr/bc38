@@ -35,9 +35,8 @@ const FileUploadPopup = ({ open, setOpen, setApplied }: FileUploadProps) => {
         hiddenFileInput.current && hiddenFileInput.current.click()
     }
 
-    const handleChange = (event: any) => {
+    const handleChange = () => {
         setStatus(true)
-        
     }
 
     return (
@@ -131,7 +130,6 @@ const FileUploadPopup = ({ open, setOpen, setApplied }: FileUploadProps) => {
                         onClick={() => {
                             setOpen(false)
                             setApplied((prev) => {
-                                
                                 return prev ? prev : true
                             })
                         }}
