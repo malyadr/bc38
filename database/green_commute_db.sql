@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `green_commute_db`.`job_has_skill` (
   INDEX `fk_job_has_skill_job1_idx` (`job_id` ASC) VISIBLE,
   CONSTRAINT `fk_job_has_skill_job1`
     FOREIGN KEY (`job_id`)
-    REFERENCES `green_commute_db`.`job` (`id`)
+    REFERENCES `green_commute_db`.`jobs` (`id`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_job_has_skill_skill1`
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `green_commute_db`.`routes` (
   `job_id` INT NOT NULL,
   CONSTRAINT `fk_greencommute-job1-routes`
     FOREIGN KEY (`job_id`)
-    REFERENCES `green_commute_db`.`job` (`id`)
+    REFERENCES `green_commute_db`.`jobs` (`id`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `green_commute_db`.`applied_jobs` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_greencommute-applied_job1`
     FOREIGN KEY (`job_id`)
-    REFERENCES `green_commute_db`.`job` (`id`)
+    REFERENCES `green_commute_db`.`jobs` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `green_commute_db`.`saved_jobs` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_greencommute-saved_job1`
     FOREIGN KEY (`job_id`)
-    REFERENCES `green_commute_db`.`job` (`id`)
+    REFERENCES `green_commute_db`.`jobs` (`id`)
 ) ENGINE=InnoDB;
 
 
