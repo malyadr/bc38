@@ -7,26 +7,30 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: USER-SERVICE
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/user/**
-        - id: SKILL-SERVICE
+        - id: SKILLS-SERVICE
           uri: lb://SKILL-SERVICE
           predicates:
             - Path=/skill/**
-        - id: GREEN-COMMUTE-ROUTES-SERVICE
-          uri: lb://GREEN-COMMUTE-ROUTES-SERVICE
+        - id: ROUTES-SERVICE
+          uri: lb://ROUTES-SERVICE
           predicates:
             - Path=/routes/**
-        - id: JOB-SERVICE
-          uri: lb://JOB-SERVICE
+        - id: JOBS-SERVICE
+          uri: lb://JOBS-SERVICE
           predicates:
             - Path=/jobs/**
         - id: LOCATION-SERVICE
           uri: lb://LOCATION-SERVICE
           predicates:
             - Path=/locations/**
+        - id: APPLIED-JOBS-SERVICE
+            uri: lb://APPLIED-JOBS-SERVICE
+            predicates:
+              - Path=/appliedJobs/**
+        - id: SAVED-JOBS-SERVICE
+            uri: lb://SAVED-JOBS-SERVICE
+            predicates:
+              - Path=/savedJobs/**
 
 eureka:
   client:

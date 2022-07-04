@@ -1,9 +1,9 @@
 server:
-  port: 9003
+  port: 9002
 
 spring:
   application:
-    name: APPLIED-JOBS-SERVICE
+    name: SAVED-JOBS-SERVICE
   datasource:
     url: jdbc:mysql://18.191.37.77:3306/green_commute_db?useLegacyDatetimeCode=false&serverTimezone=Australia/Sydney&useSSL=false
     username: root

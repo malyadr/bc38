@@ -1,0 +1,15 @@
+image: maven:latest
+variables:
+  SONAR_TOKEN: "81f12f537f339d28cae1c4a508f7b26f2e75f1d2"
+  SONAR_HOST_URL: "https://sonarcloud.io"
+  GIT_DEPTH: 0
+
+sonarcloud-backend-location-service:
+  stage: sonar-location
+  script:
+    - cd "${CI_PROJECT_DIR}/backend/job-service"
+    - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=locations -Dsonar.login=81f12f537f339d28cae1c4a508f7b26f2e75f1d2
+  allow_failure: true
+  only:
+    - merge_requests
+    - main

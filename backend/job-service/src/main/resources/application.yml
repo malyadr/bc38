@@ -1,11 +1,12 @@
 server:
-  port: 9003
+  port: 9001
+
 
 spring:
   application:
-    name: APPLIED-JOBS-SERVICE
+    name: JOBS-SERVICE
   datasource:
-    url: jdbc:mysql://18.191.37.77:3306/green_commute_db?useLegacyDatetimeCode=false&serverTimezone=Australia/Sydney&useSSL=false
+    url: jdbc:mysql://18.191.37.77:3306/green_commute_db?useSSL=false&serverTimezone=UTC
     username: root
     password: Data@123
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -16,11 +17,12 @@ spring:
   cloud:
     config:
       enabled: false
+
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
-  instance:
-    hostname: localhost
+    instance:
+      hostname: localhost
