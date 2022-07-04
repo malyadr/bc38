@@ -1,4 +1,4 @@
-package com.greencommute.appliedjobs.vo;
+package com.greencommute.appliedjobs.valueobjects;
 
 
 import lombok.*;

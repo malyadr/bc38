@@ -25,7 +25,6 @@
 		<sonar.sources>src/main/java</sonar.sources>
 		<sonar.exclusions>
 			**/com/greencommute/appliedjobs/exceptions/**,
-			**/com/greencommute/appliedjobs/vo/**,
 		</sonar.exclusions>
 	</properties>
 	<dependencies>

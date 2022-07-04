@@ -7,10 +7,10 @@ import java.util.List;
 
 @Service
 public interface ApplyJobService {
-    public List<ApplyJob> getAllAppliedJobStatus();
+     List<ApplyJob> getAllAppliedJobStatus();
 
-    public int getAppliedJobStatusById(Long jobId);
+    int getAppliedJobStatusById(Long jobId);
 
-    public void updateStatusOfAppliedJob(Long jobId);
+    void updateStatusOfAppliedJob(Long jobId);
 
 }

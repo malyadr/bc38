@@ -2,7 +2,7 @@ package com.greencommute.appliedjobs.entity;
 
 
 import lombok.*;
-import com.greencommute.appliedjobs.vo.Job;
+import com.greencommute.appliedjobs.valueobjects.Job;
 
 import javax.persistence.*;
 

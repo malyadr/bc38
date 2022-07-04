@@ -1,6 +1,6 @@
 package com.greencommute.appliedjobs.service;
 
-import com.greencommute.appliedjobs.vo.Job;
+import com.greencommute.appliedjobs.valueobjects.Job;
 import com.greencommute.appliedjobs.entity.ApplyJob;
 import com.greencommute.appliedjobs.exceptions.JobNotFoundException;
 import com.greencommute.appliedjobs.repository.ApplyJobRepository;
