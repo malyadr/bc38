@@ -1,8 +1,7 @@
-package com.greencommute.appliedjobs.VO;
+package com.greencommute.appliedjobs.vo;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

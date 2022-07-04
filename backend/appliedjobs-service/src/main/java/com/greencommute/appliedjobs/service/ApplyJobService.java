@@ -11,6 +11,6 @@ public interface ApplyJobService {
 
     public int getAppliedJobStatusById(Long jobId);
 
-    public void UpdateStatusOfAppliedJob(Long jobId);
+    public void updateStatusOfAppliedJob(Long jobId);
 
 }

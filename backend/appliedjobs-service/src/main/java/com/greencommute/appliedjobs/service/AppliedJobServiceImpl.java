@@ -32,12 +32,12 @@ public class AppliedJobServiceImpl implements ApplyJobService{
     }
 
     @Override
-    public void UpdateStatusOfAppliedJob(Long jobId) {
+    public void updateStatusOfAppliedJob(Long jobId) {
         Optional<ApplyJob> applyJob=(applyJobRepository.findById(jobId));
         if(applyJob.isPresent()){
             ApplyJob dummy=new ApplyJob();
             dummy.setApplied(applyJob.get().getApplied()==1? 0:1);
-            dummy.setJob_id(applyJob.get().getJob_id());
+            dummy.setJobId(applyJob.get().getJobId());
             dummy.setId(applyJob.get().getId());
             applyJobRepository.save(dummy);
         }

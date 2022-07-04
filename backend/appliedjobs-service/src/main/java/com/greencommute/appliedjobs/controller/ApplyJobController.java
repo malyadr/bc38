@@ -18,20 +18,19 @@ public class ApplyJobController {
 
     @GetMapping("/appliedJobs")
     public ResponseEntity<List<ApplyJob>> getAllJobsWithAppliedStatus(){
-        return new ResponseEntity(applyJobService.getAllAppliedJobStatus(), HttpStatus.OK);
+        return new ResponseEntity<>(applyJobService.getAllAppliedJobStatus(), HttpStatus.OK);
     }
 
     @GetMapping("/appliedJobStatus/{Id}")
-    public ResponseEntity getAppliedStatusById(@PathVariable("Id") Long Id){
-        Integer id = applyJobService.getAppliedJobStatusById(Id);
-        return id == null ? ResponseEntity.status(500).body("NO id found") : ResponseEntity.status(200).body(id);
+    public ResponseEntity<Integer> getAppliedStatusById(@PathVariable("Id") Long id){
+        Integer result = applyJobService.getAppliedJobStatusById(id);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PutMapping("updateStatus/{Id}")
-    public ResponseEntity updateStatus(@PathVariable("Id") Long id){
+    public ResponseEntity<Long> updateStatus(@PathVariable("Id") Long id){
 
-        applyJobService.UpdateStatusOfAppliedJob(id);
-        return id == null ? ResponseEntity.status(500).body("NO id found") : ResponseEntity.status(200).body(id);
-
+        applyJobService.updateStatusOfAppliedJob(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 }

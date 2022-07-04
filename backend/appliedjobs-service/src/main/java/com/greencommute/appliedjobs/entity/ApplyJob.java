@@ -2,10 +2,9 @@ package com.greencommute.appliedjobs.entity;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.greencommute.appliedjobs.VO.Job;
+import com.greencommute.appliedjobs.vo.Job;
 
 import javax.persistence.*;
 
@@ -23,7 +22,7 @@ public class ApplyJob {
 
     @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "job_id")
-    private Job job_id;
+    private Job jobId;
 
     @Column(name = "applied")
     private int applied;
