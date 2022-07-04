@@ -1,4 +1,4 @@
-include : 
+include:
   - "/frontend/.gitlab-ci.yml"
   - "/backend/appliedjobs-service/.gitlab-ci.yml"
   - "/backend/savedjobs-service/.gitlab-ci.yml"
@@ -7,13 +7,12 @@ include :
   - "/backend/job-service/.gitlab-ci.yml"
   - "/backend/routes-service/.gitlab-ci.yml"
 
-
 stages:
+  - sonar-appliedJobs
   - sonar-routes
   - sonar-job
   - sonar-location
   - sonar-skill
-  - sonar-appliedJobs
   - sonar-savedJobs
   - sonarcloud-check-frontend
   - netlify

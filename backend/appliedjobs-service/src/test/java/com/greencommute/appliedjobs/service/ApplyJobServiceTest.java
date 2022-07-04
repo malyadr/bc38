@@ -40,36 +40,36 @@ import static org.mockito.Mockito.when;
 
     @Test
      void getAppliedJobStatusById() throws JobNotFoundException {
-        List<ApplyJob> applyJobs= new ArrayList<>();
+        List<Optional<ApplyJob>> applyJobs= new ArrayList<>();
 
         Job job=new Job(1,"","","","","","");
-        ApplyJob applyJob=new ApplyJob(1,job,0);
+       Optional<ApplyJob> applyJob= Optional.of(new ApplyJob(1, job, 0));
 
-        applyJobRepository.save(applyJob);
+//        applyJobRepository.save(applyJob);
 
         applyJobs.add(applyJob);
 
-        when(applyJobRepository.findById(applyJob.getId())).thenReturn(Optional.of(applyJob));
+        when(applyJobRepository.findById(applyJob.get().getId())).thenReturn((applyJob));
 
-        if(appliedJobService.getAppliedJobStatusById(1L)!=applyJob.getApplied()){
+        if(appliedJobService.getAppliedJobStatusById(1L)!=applyJob.get().getApplied()){
             throw new JobNotFoundException("job not found");
         }
-        System.out.println(applyJobRepository.findById(applyJob.getId()));
+        System.out.println(applyJobRepository.findById(applyJob.get().getId()));
 
-        Assert.assertEquals(applyJob.getApplied(), appliedJobService.getAppliedJobStatusById(1L));
+        Assert.assertEquals(applyJob.get().getApplied(), appliedJobService.getAppliedJobStatusById(1L));
     }
     @Test
      void update() throws JobNotFoundException{
-        List<ApplyJob> applyJobs= new ArrayList<>();
+        List<Optional<ApplyJob> > applyJobs= new ArrayList<>();
 
         Job job=new Job(1,"","","","","","");
-        ApplyJob applyJob=new ApplyJob(1,job,0);
+        Optional<ApplyJob> applyJob= Optional.of(new ApplyJob(1, job, 0));
 
-        applyJobRepository.save(applyJob);
+//        applyJobRepository.save(applyJob);
 
         applyJobs.add(applyJob);
 
-        when(applyJobRepository.findById(applyJob.getId())).thenReturn(Optional.of(applyJob));
+        when(applyJobRepository.findById(applyJob.get().getId())).thenReturn(applyJob);
 
         try{
             appliedJobService.updateStatusOfAppliedJob(1L);

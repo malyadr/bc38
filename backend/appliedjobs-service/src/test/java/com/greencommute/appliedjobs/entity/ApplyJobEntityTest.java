@@ -18,6 +18,9 @@ import java.util.List;
         List<ApplyJob> jobList = applyJobRepository.findAll();
 
         int length=jobList.size();
+        jobList.get(1).getApplied();
+        ApplyJob applyJob=jobList.get(2);
+        applyJob.setApplied(1);
 
         org.assertj.core.api.Assertions.assertThat(jobList).hasSize(length);
 

@@ -1,9 +1,7 @@
 package com.greencommute.appliedjobs.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import com.greencommute.appliedjobs.vo.Job;
 
 import javax.persistence.*;
@@ -11,7 +9,8 @@ import javax.persistence.*;
 @Table(name = "applied_jobs")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
 public class ApplyJob {
 
