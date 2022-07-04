@@ -12,6 +12,7 @@ netlify:
         name: sonarsource/sonar-scanner-cli:4.6
         entrypoint: ['']
     script:
+        - cd frontend
         - npm install
         - npm run build-storybook
         - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir=storybook-static
@@ -29,6 +30,7 @@ sonarcloud-check-frontend:
         paths:
             - .sonar/cache
     script:
+        - cd frontend
         - npm install
         - npm test
         - sonar-scanner

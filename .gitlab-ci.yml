@@ -1,0 +1,19 @@
+include : 
+  - "/frontend/.gitlab-ci.yml"
+  - "/backend/appliedjobs-service/.gitlab-ci.yml"
+  - "/backend/savedjobs-service/.gitlab-ci.yml"
+  - "/backend/location-service/.gitlab-ci.yml"
+  - "/backend/skills-service/.gitlab-ci.yml"
+  - "/backend/job-service/.gitlab-ci.yml"
+  - "/backend/routes-service/.gitlab-ci.yml"
+
+
+stages:
+  - sonar-routes
+  - sonar-job
+  - sonar-location
+  - sonar-skill
+  - sonar-appliedJobs
+  - sonar-savedJobs
+  - sonarcloud-check-frontend
+  - netlify
