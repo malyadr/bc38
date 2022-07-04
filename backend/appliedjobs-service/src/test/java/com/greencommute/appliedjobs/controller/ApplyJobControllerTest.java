@@ -40,7 +40,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     AppliedJobServiceImpl applyJobServiceImpl;
 
     @Test
-    public void getAllJobsWithAppliedStatus() throws Exception {
+     void getAllJobsWithAppliedStatus() throws Exception {
         when(applyJobServiceImpl.getAppliedJobStatusById(1L)).thenReturn(1);
         int res=applyJobServiceImpl.getAppliedJobStatusById(1L);
         this.mockMvc.perform(get("/api/appliedJobStatus/1")).andExpect(MockMvcResultMatchers.status().isOk());
@@ -48,7 +48,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     }
 
     @Test
-    public void getAllJobs() throws Exception {
+     void getAllJobs() throws Exception {
 
         Job job=new Job(1,"","","","","","");
         ApplyJob applyJob=new ApplyJob(1,job,1);
@@ -62,7 +62,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     }
 
     @Test
-    public void updateStatus() throws  Exception{
+     void updateStatus() throws  Exception{
 
         Job job=new Job(1,"","","","","","");
         ApplyJob applyJob=new ApplyJob(1,job,0);
@@ -74,7 +74,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
     }
     @Test
-    public void Exception() throws Exception {
+     void Exception() throws Exception {
         try{
             this.mockMvc.perform(put("/api/updateStatus/100")).andExpect(MockMvcResultMatchers.status().isOk());
         }

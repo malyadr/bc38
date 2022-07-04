@@ -27,7 +27,7 @@ import static org.mockito.Mockito.when;
      AppliedJobServiceImpl appliedJobService;
 
     @Test
-    public void getAllJobs() throws Exception {
+     void getAllJobs() throws Exception {
         Job job=new Job(1,"","","","","","");
         ApplyJob applyJob=new ApplyJob(1,job,1);
         applyJobRepository.save(applyJob);
@@ -39,7 +39,7 @@ import static org.mockito.Mockito.when;
     }
 
     @Test
-    public void getAppliedJobStatusById() throws JobNotFoundException {
+     void getAppliedJobStatusById() throws JobNotFoundException {
         List<ApplyJob> applyJobs= new ArrayList<>();
 
         Job job=new Job(1,"","","","","","");
@@ -59,7 +59,7 @@ import static org.mockito.Mockito.when;
         Assert.assertEquals(applyJob.getApplied(), appliedJobService.getAppliedJobStatusById(1L));
     }
     @Test
-    public void update() throws JobNotFoundException{
+     void update() throws JobNotFoundException{
         List<ApplyJob> applyJobs= new ArrayList<>();
 
         Job job=new Job(1,"","","","","","");

@@ -24,6 +24,7 @@ public class AppliedJobServiceImpl implements ApplyJobService{
     public int getAppliedJobStatusById(Long jobId) {
         Optional<ApplyJob> applyJob=(applyJobRepository.findById(jobId));
         if(applyJob.isPresent()){
+
             return  applyJob.get().getApplied();
         }
         else{

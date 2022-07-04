@@ -24,7 +24,8 @@
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.sources>src/main/java</sonar.sources>
 		<sonar.exclusions>
-			**/exception/**,
+			**/com/greencommute/appliedjobs/exceptions/**,
+			**/com/greencommute/appliedjobs/vo/**,
 		</sonar.exclusions>
 	</properties>
 	<dependencies>
@@ -69,7 +70,13 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>3.8.4</version>
+		</dependency>
+
+	</dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -106,6 +113,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${project.parent.version}</version>
 				<configuration>
 					<excludes>
 						<exclude>
@@ -115,6 +123,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 
