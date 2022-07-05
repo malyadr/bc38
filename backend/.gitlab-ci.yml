@@ -77,7 +77,7 @@ deploy:
       - chmod 600 ~/.ssh/id_rsa
       - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script: 
-    - ssh ubuntu@18.191.37.77 "sudo docker-compose up -d "   
+    - ssh ubuntu@3.144.240.106 "sudo docker-compose up -d "   
     - exit  
   only:
     - deployment
