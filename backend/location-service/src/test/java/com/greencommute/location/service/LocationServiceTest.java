@@ -26,7 +26,7 @@ class LocationServiceTest {
     LocationServiceImpl locationService;
 
     @Test
-    public void getAllJobs() {
+    void getAllJobs() {
         Location location = new Location(1, "job", 1);
         locationRepository.save(location);
         List<Location> initial = new ArrayList<>();
@@ -37,7 +37,7 @@ class LocationServiceTest {
     }
 
     @Test
-    public void getAppliedJobStatusById() throws LocationNotFoundException {
+    void getAppliedJobStatusById() throws LocationNotFoundException {
         List<Location> locations = new ArrayList<>();
 
         Location location = new Location(1, "hyd", 0);
@@ -57,7 +57,7 @@ class LocationServiceTest {
     }
 
     @Test
-    public void getAppliedJobStatusByName() throws LocationNotFoundException {
+    void getAppliedJobStatusByName() throws LocationNotFoundException {
         List<Location> locations = new ArrayList<>();
 
         Location location = new Location(1, "hyd", 0);

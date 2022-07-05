@@ -8,13 +8,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class LocationEntityTest {
+class LocationEntityTest {
 
     @Autowired
     private LocationRepository locationRepository;
 
     @Test
-    public void applyJob() {
+    void applyJob() {
         List<Location> jobList = locationRepository.findAll();
 
         int length = jobList.size();
@@ -23,7 +23,7 @@ public class LocationEntityTest {
         location.setLocationName("hyd");
         location.getLocationName();
 
-        org.assertj.core.api.Assertions.assertThat(jobList.size()).isEqualTo(length);
+        org.assertj.core.api.Assertions.assertThat(jobList).hasSize(length);
 
     }
 
