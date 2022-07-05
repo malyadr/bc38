@@ -1,8 +1,17 @@
+image: 
+   name: amazon/aws-cli
+   entrypoint: [""]   
+services:
+    - name: docker:20-dind
+      command: ["--tls=false"]
+
 variables:
-    SONAR_USER_HOME: '${CI_PROJECT_DIR}/.sonar' # Defines the location of the analysis task cache
-    GIT_DEPTH: '0' # Tells git to fetch all the branches of the project, required by the analysis task
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay
+  DOCKER_TLS_CERTDIR: ""
 
 stages:
+<<<<<<< HEAD
     - sonarcloud-check-frontend
     - netlify
 
@@ -16,24 +25,54 @@ netlify:
         - npm install
         - npm run build-storybook
         - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir=storybook-static
+=======
+    - Build image and Push to Docker Hub
+    - deploy
+docker build and push:
+    stage: Build image and Push to Docker Hub
+>>>>>>> mock
     only:
-        - merge_requests
-        - main
+        - deployment
 
-sonarcloud-check-frontend:
-    stage: sonarcloud-check-frontend
-    image:
-        name: sonarsource/sonar-scanner-cli:4.6
-        entrypoint: ['']
-    cache:
-        key: '${CI_JOB_NAME}'
-        paths:
-            - .sonar/cache
+    before_script:
+        - amazon-linux-extras install docker
+        - aws --version
+        - docker --version
+        - echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USER" --password-stdin
     script:
         - cd frontend
+<<<<<<< HEAD
         - npm install
         - npm test
         - sonar-scanner
     only:
         - merge_requests
         - main
+=======
+        - docker build . -t bc38mock:1
+        - docker tag bc3211:1 "$REGISTRY_USER"/mock_bc38:1
+        - docker push "$REGISTRY_USER"/mock_bc38:1
+    environment:
+       name: staging
+       url:
+deploy:
+  stage: deploy  
+  image: kroniak/ssh-client
+   
+  before_script:
+      - mkdir ~/.ssh
+      - echo -e "$KEY_PAIR" > ~/.ssh/id_rsa
+      - chmod 600 ~/.ssh/id_rsa
+      - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script: 
+    # - ssh ubuntu@18.223.206.231 "docker stop bootcamp"
+    # - ssh ubuntu@18.223.206.231 "docker rm bootcamp"
+    - ssh ubuntu@18.191.37.77 "sudo docker pull "$REGISTRY_USER"/mock_bc38:1"  
+  
+   
+  only:
+    - deployment
+  environment:
+      name: production
+      url: 
+>>>>>>> mock
