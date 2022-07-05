@@ -46,7 +46,7 @@ public class SavedJobServiceImpl implements SavedJobService {
         if(savedJob.isPresent()){
             SavedJob dummy=new SavedJob();
             dummy.setSaved(savedJob.get().getSaved()==1? 0:1);
-            dummy.setJob_id(savedJob.get().getJob_id());
+            dummy.setJobId(savedJob.get().getJobId());
             dummy.setId(savedJob.get().getId());
             savedJobRepository.save(dummy);
         }
