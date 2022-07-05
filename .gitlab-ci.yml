@@ -8,11 +8,6 @@ include:
   - "/backend/routes-service/.gitlab-ci.yml"
 
 stages:
-  - sonar-appliedJobs
-  - sonar-routes
-  - sonar-job
-  - sonar-location
-  - sonar-skill
-  - sonar-savedJobs
+  - backend
   - sonarcloud-check-frontend
   - netlify

@@ -5,7 +5,7 @@ variables:
   GIT_DEPTH: 0
 
 sonarcloud-backend-skill-service:
-  stage: sonar-skill
+  stage: backend
   script:
     - cd "${CI_PROJECT_DIR}/backend/job-service"
     - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=skills -Dsonar.login=45a2e5e168db0e2d2c9ff52c4f77691bd24e4345
