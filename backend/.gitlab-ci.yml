@@ -54,10 +54,12 @@ docker build and push:
         - docker build . -t savedjobs:1
         - docker tag savedjobs:1 "$REGISTRY_USER"/savedjobs_bootcamp38:1
         - docker push "$REGISTRY_USER"/savedjobs_bootcamp38:1
+        - cd ..
         - cd service-registry
         - docker build . -t service:1
         - docker tag service:1 "$REGISTRY_USER"/service_bootcamp38:1
         - docker push "$REGISTRY_USER"/service_bootcamp38:1
+        - cd ..
         - cd skills-service
         - docker build . -t skills:1
         - docker tag skills:1 "$REGISTRY_USER"/skills_bootcamp38:1
