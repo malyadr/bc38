@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.greencommute</groupId>
-	<artifactId>appliedjobs-service</artifactId>
+	<artifactId>location-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>appliedjobs-service</name>
-	<description>Applied Jobs Service</description>
+	<name>location-service</name>
+	<description>Location Service</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
@@ -22,6 +22,11 @@
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 		<sonar.language>java</sonar.language>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.sources>src/main/java</sonar.sources>
+		<sonar.exclusions>
+			**/com/greencommute/location/exceptions/**,
+			**/com/greencommute/location/LocationServiceApplication.java
+		</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
