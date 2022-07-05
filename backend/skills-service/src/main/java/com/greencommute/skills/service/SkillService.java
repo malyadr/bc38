@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public interface SkillService {
-    public List<Skill> findAll();
+     List<Skill> findAll();
 
-    public  Skill findById(int id);
+      Skill findById(int id);
 
 
 }
