@@ -22,6 +22,10 @@
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 		<sonar.language>java</sonar.language>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.sources>src/main/java</sonar.sources>
+		<sonar.exclusions>
+			**/com/greencommute/location/exceptions/**,
+		</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
