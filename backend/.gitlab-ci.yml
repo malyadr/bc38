@@ -27,8 +27,8 @@ docker build and push:
         - cd backend
         - cd appliedjobs-service
         - docker build . -t applied:1
-        - docker tag applied:1 "$REGISTRY_USER"/applied_bootcamp38:1
-        - docker push "$REGISTRY_USER"/applied_bootcamp38:1
+        - docker tag applied:1 "$REGISTRY_USER"/applied_bootcamp3812:1
+        - docker push "$REGISTRY_USER"/applied_bootcamp3812:1
         - cd ..
         - cd cloud-gateway
         - docker build . -t cloud38:1
@@ -37,33 +37,33 @@ docker build and push:
         - cd .. 
         - cd job-service
         - docker build . -t job:1
-        - docker tag job:1 "$REGISTRY_USER"/job_bootcamp38:1
-        - docker push "$REGISTRY_USER"/job_bootcamp38:1 
+        - docker tag job:1 "$REGISTRY_USER"/job_bootcamp3812:1
+        - docker push "$REGISTRY_USER"/job_bootcamp3812:1 
         - cd ..
         - cd location-service
         - docker build . -t location:1
-        - docker tag location:1 "$REGISTRY_USER"/location_bootcamp38:1
-        - docker push "$REGISTRY_USER"/location_bootcamp38:1
+        - docker tag location:1 "$REGISTRY_USER"/location_bootcamp3812:1
+        - docker push "$REGISTRY_USER"/location_bootcamp3812:1
         - cd ..
         - cd routes-service
         - docker build . -t routes:1
-        - docker tag routes:1 "$REGISTRY_USER"/routes_bootcamp38:1
-        - docker push "$REGISTRY_USER"/routes_bootcamp38:1
+        - docker tag routes:1 "$REGISTRY_USER"/routes_bootcamp3812:1
+        - docker push "$REGISTRY_USER"/routes_bootcamp3812:1
         - cd ..
         - cd savedjobs-service
         - docker build . -t savedjobs:1
-        - docker tag savedjobs:1 "$REGISTRY_USER"/savedjobs_bootcamp38:1
-        - docker push "$REGISTRY_USER"/savedjobs_bootcamp38:1
+        - docker tag savedjobs:1 "$REGISTRY_USER"/savedjobs_bootcamp3812:1
+        - docker push "$REGISTRY_USER"/savedjobs_bootcamp3812:1
         - cd ..
         - cd service-registry
         - docker build . -t service:1
-        - docker tag service:1 "$REGISTRY_USER"/service_bootcamp38:1
-        - docker push "$REGISTRY_USER"/service_bootcamp38:1
+        - docker tag service:1 "$REGISTRY_USER"/service_bootcamp3812:1
+        - docker push "$REGISTRY_USER"/service_bootcamp3812:1
         - cd ..
         - cd skills-service
         - docker build . -t skills:1
-        - docker tag skills:1 "$REGISTRY_USER"/skills_bootcamp38:1
-        - docker push "$REGISTRY_USER"/skills_bootcamp38:1
+        - docker tag skills:1 "$REGISTRY_USER"/skills_bootcamp3812:1
+        - docker push "$REGISTRY_USER"/skills_bootcamp3812:1
     environment:
        name: staging
        url:
