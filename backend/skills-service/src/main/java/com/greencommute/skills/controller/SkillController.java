@@ -15,23 +15,15 @@ public class SkillController {
     private SkillService skillService;
 
     @GetMapping("/skills")
-    public List<Skill> getSkills(){
+    public List<Skill> getAllSkills(){
         List<Skill> skill=skillService.findAll();
-
-        if(skill==null){
-            throw new RuntimeException("skills not found ");
-        }
         return skill;
     }
     @GetMapping("/skills/{id}")
-    public Skill getSkill(@PathVariable int id) throws SkillNotFoundException {
-        if( (id<0) ){
-            throw new SkillNotFoundException("Location id not Found -"+ id);
-        }
+    public Skill getSkillById(@PathVariable int id) throws SkillNotFoundException {
+
         Skill skill = skillService.findById(id);
-        if(skill==null) {
-            throw new SkillNotFoundException("Location id not Found -"+ id);
-        }
+
 
         return skill;
     }}

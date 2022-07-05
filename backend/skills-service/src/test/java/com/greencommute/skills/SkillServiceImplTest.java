@@ -1,4 +1,4 @@
-package com.greencommute.skills.service;
+package com.greencommute.skills;
 
 import com.greencommute.skills.entity.Skill;
 import com.greencommute.skills.repository.SkillRepository;

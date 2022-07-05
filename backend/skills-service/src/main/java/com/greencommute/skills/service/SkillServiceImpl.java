@@ -1,6 +1,7 @@
 package com.greencommute.skills.service;
 
 import com.greencommute.skills.entity.Skill;
+import com.greencommute.skills.exception.SkillNotFoundException;
 import com.greencommute.skills.repository.SkillRepository;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +25,14 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
-    public Skill findById(int id){
+    public Skill findById(int id) throws SkillNotFoundException {
         Optional<Skill> result= skillRepository.findById(id);
         Skill skill = null;
         if(result.isPresent()){
             skill = result.get();
         }
         else{
-            throw new RuntimeException("Didn't Find  Skill with id- "+id);
+            throw new SkillNotFoundException("Didn't Find  Skill with id- "+id);
         }
 
         return skill;
