@@ -21,7 +21,7 @@ public class SavedJob {
 
     @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "job_id")
-    private Job job_id;
+    private Job jobId;
 
     @Column(name = "saved")
     private int saved;

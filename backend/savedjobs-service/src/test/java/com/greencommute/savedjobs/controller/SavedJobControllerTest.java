@@ -73,7 +73,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
     }
     @Test
-    public void Exception() throws Exception {
+    void Exception() throws Exception {
         try{
             this.mockMvc.perform(put("/update-saved-status/100")).andExpect(MockMvcResultMatchers.status().isOk());
         }

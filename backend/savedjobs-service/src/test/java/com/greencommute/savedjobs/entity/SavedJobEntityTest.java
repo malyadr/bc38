@@ -25,6 +25,18 @@ class SavedJobEntityTest {
         Job job = new Job(1, "", "", "", "", "", "");
         job.setCompanyName("zemoso");
         job.getCompanyName();
+        job.setId(1);
+        job.getId();
+        job.setRole("zemoso");
+        job.getRole();
+        job.setDescription("zemoso");
+        job.getDescription();
+        job.setDistance("zemoso");
+        job.getDistance();
+        job.setTime("zemoso");
+        job.getTime();
+        job.setImage("zemoso");
+        job.getImage();
 
         org.assertj.core.api.Assertions.assertThat(jobList).hasSize(length);
     }
