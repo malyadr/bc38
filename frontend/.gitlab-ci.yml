@@ -40,6 +40,7 @@ docker build and push:
         - docker --version
         - echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USER" --password-stdin
     script:
+<<<<<<< HEAD
         - cd frontend
 <<<<<<< HEAD
         - npm install
@@ -52,6 +53,11 @@ docker build and push:
         - docker build . -t bc38mock:1
         - docker tag bc38mock:1 "$REGISTRY_USER"/mock_bc38:1
         - docker push "$REGISTRY_USER"/mock_bc38:1
+=======
+        - docker build . -t bc38mockser:1
+        - docker tag bc38mockser:1 "$REGISTRY_USER"/mockser_bc38:1
+        - docker push "$REGISTRY_USER"/mockser_bc38:1
+>>>>>>> mock
     environment:
        name: staging
        url:
@@ -67,7 +73,9 @@ deploy:
   script: 
     # - ssh ubuntu@18.223.206.231 "docker stop bootcamp"
     # - ssh ubuntu@18.223.206.231 "docker rm bootcamp"
-    - ssh ubuntu@18.191.37.77 "sudo docker pull "$REGISTRY_USER"/mock_bc38:1"  
+    - ssh ubuntu@18.191.37.77 "sudo docker pull "$REGISTRY_USER"/mockser_bc38:1"  
+    - ssh ubuntu@18.191.37.77 "sudo docker run --name mockerver -p 8080:8080 "$REGISTRY_USER"/mockser_bc38:1"
+    - Exit
   
    
   only:
