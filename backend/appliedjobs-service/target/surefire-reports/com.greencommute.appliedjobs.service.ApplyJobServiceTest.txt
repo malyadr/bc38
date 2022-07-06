@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.greencommute.appliedjobs.service.ApplyJobServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 39.192 s - in com.greencommute.appliedjobs.service.ApplyJobServiceTest

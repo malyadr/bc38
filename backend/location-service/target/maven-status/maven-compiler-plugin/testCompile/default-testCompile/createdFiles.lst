@@ -1,1 +1,4 @@
+com/greencommute/location/service/LocationServiceTest.class
+com/greencommute/location/entity/LocationEntityTest.class
 com/greencommute/location/LocationServiceApplicationTests.class
+com/greencommute/location/controller/LocationControllerTest.class

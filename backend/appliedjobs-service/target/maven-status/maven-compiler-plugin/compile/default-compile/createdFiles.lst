@@ -1,1 +1,10 @@
+com/greencommute/appliedjobs/entity/ApplyJob.class
+com/greencommute/appliedjobs/exceptions/JobNotFoundException.class
+com/greencommute/appliedjobs/controller/ApplyJobController.class
+com/greencommute/appliedjobs/exceptions/JobNotFoundExceptionHandler.class
+com/greencommute/appliedjobs/repository/ApplyJobRepository.class
+com/greencommute/appliedjobs/exceptions/AppliedJobErrorResponse.class
+com/greencommute/appliedjobs/service/AppliedJobServiceImpl.class
 com/greencommute/appliedjobs/AppliedjobsServiceApplication.class
+com/greencommute/appliedjobs/valueobjects/Job.class
+com/greencommute/appliedjobs/service/ApplyJobService.class

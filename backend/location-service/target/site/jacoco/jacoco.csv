@@ -1,2 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-location-service,com.greencommute.location,LocationServiceApplication,8,0,0,0,3,0,2,0,2,0
+location-service,com.greencommute.location.entity,Location,8,28,0,0,0,6,2,6,2,6
+location-service,com.greencommute.location.exceptions,LocationErrorResponse,46,0,0,0,7,0,10,0,10,0
+location-service,com.greencommute.location.exceptions,LocationNotFoundException,13,0,0,0,6,0,3,0,3,0
+location-service,com.greencommute.location.exceptions,LocationNotFoundExceptionHandler,41,3,0,0,10,1,2,1,2,1
+location-service,com.greencommute.location.service,LocationServiceImpl,11,42,3,3,3,9,3,4,0,4
+location-service,com.greencommute.location,LocationServiceApplication,5,3,0,0,2,1,1,1,1,1
+location-service,com.greencommute.location.controller,LocationController,0,35,0,0,0,6,0,4,0,4

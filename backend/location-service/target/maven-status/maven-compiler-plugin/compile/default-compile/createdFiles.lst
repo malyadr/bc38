@@ -1,1 +1,9 @@
+com/greencommute/location/service/LocationService.class
+com/greencommute/location/service/LocationServiceImpl.class
+com/greencommute/location/controller/LocationController.class
+com/greencommute/location/exceptions/LocationNotFoundException.class
+com/greencommute/location/exceptions/LocationNotFoundExceptionHandler.class
+com/greencommute/location/entity/Location.class
+com/greencommute/location/repository/LocationRepository.class
+com/greencommute/location/exceptions/LocationErrorResponse.class
 com/greencommute/location/LocationServiceApplication.class

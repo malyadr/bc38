@@ -1,1 +1,4 @@
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/appliedjobs-service/src/test/java/com/greencommute/appliedjobs/service/ApplyJobServiceTest.java
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/appliedjobs-service/src/test/java/com/greencommute/appliedjobs/entity/ApplyJobEntityTest.java
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/appliedjobs-service/src/test/java/com/greencommute/appliedjobs/controller/ApplyJobControllerTest.java
 /home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/appliedjobs-service/src/test/java/com/greencommute/appliedjobs/AppliedjobsServiceApplicationTests.java
