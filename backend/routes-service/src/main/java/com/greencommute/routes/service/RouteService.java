@@ -5,8 +5,8 @@ import com.greencommute.routes.entity.Route;
 import java.util.List;
 
 public interface RouteService {
-    public List<Route> findAll();
+     List<Route> findAll();
 
-    public Route findById(int jobId);
+     Route findById(int jobId);
 
 }
