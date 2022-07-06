@@ -3,7 +3,6 @@ package com.greencommute.job.controller;
 import com.greencommute.job.entity.Jobs;
 import com.greencommute.job.exceptions.JobNotFoundException;
 import com.greencommute.job.service.JobService;
-import com.greencommute.job.service.JobsServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,8 +33,8 @@ public class JobsController {
         return new ResponseEntity<>(jobService.getJobById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/filter/{data}")
-    public ResponseEntity<List<Jobs>> getFilteredJobs(@PathVariable("data") List<String> data) {
+    @GetMapping("/filter")
+    public ResponseEntity<List<Jobs>> getFilteredJobs(@RequestBody List<String> data) {
         return new ResponseEntity<>(jobService.getFilteredJobs(data), HttpStatus.OK);
     }
 

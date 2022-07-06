@@ -17,11 +17,13 @@ public class JobsServiceImpl implements JobService{
     @Autowired
     private JobsRepository jobsRepository;
 
+    @Override
     public List<Jobs> getAllJobs() {
         log.info("inside get all jobs services");
         return jobsRepository.findAll();
     }
 
+    @Override
     public Jobs getJobById(Integer id) throws JobNotFoundException {
         log.info("inside get job by id service " + id);
 
@@ -32,6 +34,7 @@ public class JobsServiceImpl implements JobService{
         return job.get();
     }
 
+    @Override
     public List<Jobs> getFilteredJobs(List<String> data) {
         return jobsRepository.findByDistanceIn(data);
     }

@@ -1,6 +1,6 @@
 package com.greencommute.job.entity;
 
-import com.greencommute.job.valueObjects.Location;
+import com.greencommute.job.valueobjects.Location;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Table(name="jobs")
 public class Jobs {
 

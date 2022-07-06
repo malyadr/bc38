@@ -1,7 +1,7 @@
 package com.greencommute.job.entity;
 
 import com.greencommute.job.repository.JobsRepository;
-import com.greencommute.job.valueObjects.Location;
+import com.greencommute.job.valueobjects.Location;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class JobEntityTest {
+class JobEntityTest {
 
     @Autowired
     private JobsRepository locationRepository;

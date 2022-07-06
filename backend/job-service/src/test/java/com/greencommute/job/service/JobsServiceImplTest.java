@@ -1,10 +1,13 @@
 package com.greencommute.job.service;
 
 import com.greencommute.job.entity.Jobs;
+import com.greencommute.job.exceptions.JobNotFoundException;
 import com.greencommute.job.repository.JobsRepository;
-import com.greencommute.job.valueObjects.Location;
+import com.greencommute.job.valueobjects.Location;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 
@@ -25,6 +29,8 @@ class JobsServiceImplTest {
     @InjectMocks
     JobsServiceImpl jobsServiceImpl;
 
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
     @Test
     void getAllJobs() {
         Location location = new Location(1, "delhi", 234);
@@ -58,5 +64,16 @@ class JobsServiceImplTest {
         when(jobsServiceImpl.getFilteredJobs(data)).thenReturn(jobs);
         List<Jobs> result = jobsServiceImpl.getFilteredJobs(data);
         assertEquals(result, jobs);
+    }
+
+    @Test
+    void getJobByIdException() {
+//       when(jobsServiceImpl.getJobById(1)).thenThrow(JobNotFoundException.class);
+        Exception exception = assertThrows(JobNotFoundException.class, () -> {
+            jobsServiceImpl.getJobById(1);
+        });
+        String expectedMessage = "No Job Exists with jobs Id 1";
+        String actualMessage = exception.getMessage();
+        assertEquals(expectedMessage, actualMessage);
     }
 }
