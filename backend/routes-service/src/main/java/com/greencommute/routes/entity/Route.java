@@ -1,17 +1,15 @@
 
 package com.greencommute.routes.entity;
 import com.greencommute.routes.VO.Job;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @Table(name = "routes")
 public class Route {

@@ -15,19 +15,19 @@
 	<description>Applied Jobs Service</description>
 	<properties>
 
-			<java.version>17</java.version>
-			<spring-cloud.version>2021.0.3</spring-cloud.version>
-			<sonar.organization>sai-dharaneesh264</sonar.organization>
-			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-			<jacoco.version>0.8.8</jacoco.version>
-			<sonar.exclusions>
+		<java.version>17</java.version>
+		<spring-cloud.version>2021.0.3</spring-cloud.version>
+		<sonar.organization>sai-dharaneesh264</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<jacoco.version>0.8.8</jacoco.version>
+		<sonar.exclusions>
 
-				**/com/greencommute/routes/RoutesServiceApplication.java
-			</sonar.exclusions>
+			**/com/greencommute/routes/RoutesServiceApplication.java
+		</sonar.exclusions>
 
-			<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-			<sonar.language>java</sonar.language>
-			<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.language>java</sonar.language>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
 	</properties>
