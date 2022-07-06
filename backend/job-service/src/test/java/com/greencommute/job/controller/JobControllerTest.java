@@ -49,13 +49,13 @@ public class JobControllerTest {
     @Test
     public void getAllJobs() throws Exception {
         Location location = new Location(1, "delhi", 234);
-        Jobs job = new Jobs(1, "role", "hp", "developer", "12", "234", 1, "34");
+        Jobs job = new Jobs(1, "role", "hp", "developer", "12", "234", location, "34");
         jobsRepository.save(job);
         List<Jobs> jobs = new ArrayList<>();
         jobs.add(job);
 
         when(jobsService.getAllJobs()).thenReturn(jobs);
-        this.mockMvc.perform(get("/jobs/all")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(get("/jobs/allJobs")).andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class JobControllerTest {
         Location location = new Location(1, "delhi", 234);
         List<String> data = new ArrayList<>();
         data.add("0-10kms");
-        Jobs job = new Jobs(1, "role", "hp", "developer", "0-10kms", "234",1, "34");
+        Jobs job = new Jobs(1, "role", "hp", "developer", "0-10kms", "234",location, "34");
         jobsRepository.save(job);
         List<Jobs> jobs = new ArrayList<>();
         jobs.add(job);

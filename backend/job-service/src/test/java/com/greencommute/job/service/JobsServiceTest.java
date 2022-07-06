@@ -30,7 +30,7 @@ class JobsServiceTest {
     @Test
     void getAllJobs() {
         Location location = new Location(1, "delhi", 234);
-        Jobs job = new Jobs(1, "", "", "", "", "", 1, "");
+        Jobs job = new Jobs(1, "", "", "", "", "", location, "");
         List<Jobs> jobs = new ArrayList<>();
         jobs.add(job);
         when(jobsService.getAllJobs()).thenReturn(jobs);
@@ -42,7 +42,7 @@ class JobsServiceTest {
     void getJobById() {
         List<Optional<Jobs>> jobs = new ArrayList<>();
         Location location = new Location(1, "delhi", 234);
-       Optional<Jobs> job = Optional.of(new Jobs(1, "", "", "", "", "", 1, ""));
+       Optional<Jobs> job = Optional.of(new Jobs(1, "", "", "", "", "", location, ""));
        jobs.add(job);
        when(jobsRepository.findById(job.get().getId())).thenReturn(job);
         Assert.assertEquals(job.get(), jobsService.getJobById(1));
@@ -51,7 +51,7 @@ class JobsServiceTest {
     @Test
     void getFilteredJobs() {
         Location location = new Location(1, "delhi", 234);
-        Jobs job = new Jobs(1, "", "", "", "", "", 1, "");
+        Jobs job = new Jobs(1, "", "", "", "", "", location, "");
         List<Jobs> jobs = new ArrayList<>();
         jobs.add(job);
         List<String> data = new ArrayList<>();
