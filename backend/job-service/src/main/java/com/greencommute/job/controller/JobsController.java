@@ -2,7 +2,8 @@ package com.greencommute.job.controller;
 
 import com.greencommute.job.entity.Jobs;
 import com.greencommute.job.exceptions.JobNotFoundException;
-import com.greencommute.job.service.JobsService;
+import com.greencommute.job.service.JobService;
+import com.greencommute.job.service.JobsServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,24 +19,24 @@ import java.util.List;
 public class JobsController {
 
     @Autowired
-    private JobsService jobsService;
+    private JobService jobService;
 
 
-    @RequestMapping("/allJobs")
+    @GetMapping("/all")
     public ResponseEntity<List<Jobs>> getJobs() {
         log.info("inside get all jobs controller");
-        return new ResponseEntity<>(jobsService.getAllJobs(), HttpStatus.OK);
+        return new ResponseEntity<>(jobService.getAllJobs(), HttpStatus.OK);
     }
 
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Jobs> getJobsByJobId(@PathVariable("id") Integer id) throws JobNotFoundException {
         log.info("inside get job by id controller " + id);
-        return new ResponseEntity<>(jobsService.getJobById(id), HttpStatus.OK);
+        return new ResponseEntity<>(jobService.getJobById(id), HttpStatus.OK);
     }
 
     @GetMapping("/filter/{data}")
     public ResponseEntity<List<Jobs>> getFilteredJobs(@PathVariable("data") List<String> data) {
-        return new ResponseEntity<>(jobsService.getFilteredJobs(data), HttpStatus.OK);
+        return new ResponseEntity<>(jobService.getFilteredJobs(data), HttpStatus.OK);
     }
 
 }

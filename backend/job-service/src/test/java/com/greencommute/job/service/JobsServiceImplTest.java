@@ -1,9 +1,7 @@
 package com.greencommute.job.service;
 
 import com.greencommute.job.entity.Jobs;
-import com.greencommute.job.exceptions.JobNotFoundException;
 import com.greencommute.job.repository.JobsRepository;
-import com.greencommute.job.service.JobsService;
 import com.greencommute.job.valueObjects.Location;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -20,12 +18,12 @@ import static org.mockito.Mockito.when;
 
 
 @SpringBootTest
-class JobsServiceTest {
+class JobsServiceImplTest {
     @Mock
     JobsRepository jobsRepository;
 
     @InjectMocks
-    JobsService jobsService;
+    JobsServiceImpl jobsServiceImpl;
 
     @Test
     void getAllJobs() {
@@ -33,8 +31,8 @@ class JobsServiceTest {
         Jobs job = new Jobs(1, "", "", "", "", "", location, "");
         List<Jobs> jobs = new ArrayList<>();
         jobs.add(job);
-        when(jobsService.getAllJobs()).thenReturn(jobs);
-        int size = jobsService.getAllJobs().size();
+        when(jobsServiceImpl.getAllJobs()).thenReturn(jobs);
+        int size = jobsServiceImpl.getAllJobs().size();
         assertEquals(1, size);
     }
 
@@ -45,7 +43,7 @@ class JobsServiceTest {
        Optional<Jobs> job = Optional.of(new Jobs(1, "", "", "", "", "", location, ""));
        jobs.add(job);
        when(jobsRepository.findById(job.get().getId())).thenReturn(job);
-        Assert.assertEquals(job.get(), jobsService.getJobById(1));
+        Assert.assertEquals(job.get(), jobsServiceImpl.getJobById(1));
     }
 
     @Test
@@ -57,8 +55,8 @@ class JobsServiceTest {
         List<String> data = new ArrayList<>();
         data.add("0-10kms");
         data.add("11-20kms");
-        when(jobsService.getFilteredJobs(data)).thenReturn(jobs);
-        List<Jobs> result = jobsService.getFilteredJobs(data);
+        when(jobsServiceImpl.getFilteredJobs(data)).thenReturn(jobs);
+        List<Jobs> result = jobsServiceImpl.getFilteredJobs(data);
         assertEquals(result, jobs);
     }
 }
