@@ -13,8 +13,11 @@ public class SkillRepoTest {
     private SkillRepository skillRepository;
     @Test
     public void getSkill(){
-        List<Skill> locations = skillRepository.findAll();
+        List<Skill> skills = skillRepository.findAll();
+        Skill skill=skills.get(1);
+        skill.setId(1);
+        skill.getId();
 
-        org.assertj.core.api.Assertions.assertThat(locations.size()).isEqualTo(2);
+        org.assertj.core.api.Assertions.assertThat(skills.size()).isEqualTo(2);
     }
 }
