@@ -1,6 +1,6 @@
 
 package com.greencommute.routes.entity;
-import com.greencommute.routes.VO.Job;
+import com.greencommute.routes.valueobject.Job;
 import lombok.*;
 
 import javax.persistence.*;

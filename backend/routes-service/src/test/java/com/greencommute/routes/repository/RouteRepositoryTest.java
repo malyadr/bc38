@@ -1,10 +1,10 @@
 package com.greencommute.routes.repository;
-import com.greencommute.routes.VO.Job;
+import com.greencommute.routes.valueobject.Job;
 import com.greencommute.routes.entity.Route;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.greencommute.routes.repository.RouteRepository;
+
 import java.util.List;
 
 @SpringBootTest

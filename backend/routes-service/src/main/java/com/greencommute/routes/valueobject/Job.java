@@ -1,10 +1,10 @@
-package com.greencommute.routes.VO;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.greencommute.routes.valueobject;
+import lombok.*;
+
 import javax.persistence.*;
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="jobs")

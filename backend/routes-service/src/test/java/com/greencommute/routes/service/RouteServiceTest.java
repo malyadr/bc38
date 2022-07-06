@@ -1,9 +1,8 @@
 package com.greencommute.routes.service;
 
-import com.greencommute.routes.VO.Job;
+import com.greencommute.routes.valueobject.Job;
 import com.greencommute.routes.entity.Route;
 import com.greencommute.routes.repository.RouteRepository;
-import com.greencommute.routes.service.RouteServiceImpl;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
