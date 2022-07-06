@@ -17,14 +17,14 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
-public class SkillServiceImplTest {
+    @SpringBootTest
+    class SkillServiceImplTest {
     @Mock
     private SkillRepository skillRepository;
     @InjectMocks
     private SkillServiceImpl skillService;
-    @Test
-    public void getSkills(){
+        @Test
+        void getSkills(){
         List<Skill> skills=new ArrayList<>();
         skills.add(new Skill(1,"Product Designer"));
         when(skillRepository.findAll()).thenReturn(skills);
@@ -33,7 +33,7 @@ public class SkillServiceImplTest {
         assertEquals(expected,actual);
     }
     @Test
-    public void getSkillById() throws SkillNotFoundException {
+    void getSkillById() throws SkillNotFoundException {
         List<Optional<Skill>> skills= new ArrayList<>();
 
 

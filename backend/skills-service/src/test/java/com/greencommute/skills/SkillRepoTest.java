@@ -8,16 +8,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class SkillRepoTest {
+ class SkillRepoTest {
     @Autowired
     private SkillRepository skillRepository;
-    @Test
-    public void getSkill(){
+        @Test
+        void getSkill(){
         List<Skill> skills = skillRepository.findAll();
         Skill skill=skills.get(1);
         skill.setId(1);
         skill.getId();
 
-        org.assertj.core.api.Assertions.assertThat(skills.size()).isEqualTo(2);
+        org.assertj.core.api.Assertions.assertThat(skills).hasSize(2);
     }
 }
