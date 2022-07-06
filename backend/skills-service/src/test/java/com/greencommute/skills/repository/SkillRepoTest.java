@@ -1,4 +1,4 @@
-package com.greencommute.skills;
+package com.greencommute.skills.repository;
 import com.greencommute.skills.entity.Skill;
 import com.greencommute.skills.repository.SkillRepository;
 import org.junit.jupiter.api.Test;
