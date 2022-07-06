@@ -38,7 +38,7 @@ class LocationControllerTest {
     void getAllLocationAqiWithId() throws Exception {
         when(locationService.getAqiById(1L)).thenReturn(1);
         locationService.getAqiById(1L);
-        this.mockMvc.perform(get("/location-aqi-by-id/1")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(get("/locations/aqi-by-id/1")).andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
@@ -56,6 +56,6 @@ class LocationControllerTest {
     void getAllLocationAqiWithName() throws Exception {
         when(locationService.getAqiByLocationName("hyd")).thenReturn(1);
         locationService.getAqiByLocationName("hyd");
-        this.mockMvc.perform(get("/location-aqi-by-name/hyd")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(get("/locations/aqi-by-name/hyd")).andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

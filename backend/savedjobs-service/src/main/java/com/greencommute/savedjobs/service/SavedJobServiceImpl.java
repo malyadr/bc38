@@ -17,15 +17,16 @@ public class SavedJobServiceImpl implements SavedJobService {
     private SavedJobRepository savedJobRepository;
 
     @Override
-    public List<Long> getAllSavedJobStatus() {
+    public List<SavedJob> getAllSavedJobStatus() {
 
+        List<SavedJob> savedJobs=savedJobRepository.findAll();
         List<Long> idsOfSavedJobs=new ArrayList<>();
         for(SavedJob savedJob:savedJobRepository.findAll()){
             if(savedJob.getSaved()==1){
                 idsOfSavedJobs.add(savedJob.getId());
             }
         }
-        return idsOfSavedJobs;
+        return savedJobs;
     }
 
     @Override

@@ -43,7 +43,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
      void getAllJobsWithAppliedStatus() throws Exception {
         when(applyJobServiceImpl.getAppliedJobStatusById(1L)).thenReturn(1);
         int res=applyJobServiceImpl.getAppliedJobStatusById(1L);
-        this.mockMvc.perform(get("/applied-job-status/1")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(get("/appliedJobs/status/1")).andExpect(MockMvcResultMatchers.status().isOk());
 
     }
 
@@ -58,7 +58,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
         List<ApplyJob> res=new ArrayList<>();
         res.add(applyJob);
         when(applyJobServiceImpl.getAllAppliedJobStatus()).thenReturn(res);
-        this.mockMvc.perform(get("/applied-jobs")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(get("/appliedJobs")).andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
@@ -70,13 +70,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
         repo.save(applyJob);
 
         doNothing().when(applyJobServiceImpl).updateStatusOfAppliedJob(1L);
-        this.mockMvc.perform(put("/update-applied-status/1")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(put("/appliedJobs/update-status/1")).andExpect(MockMvcResultMatchers.status().isOk());
 
     }
     @Test
      void Exception() throws Exception {
         try{
-            this.mockMvc.perform(put("/update-applied-status/100")).andExpect(MockMvcResultMatchers.status().isOk());
+            this.mockMvc.perform(put("/appliedJobs/update-status/100")).andExpect(MockMvcResultMatchers.status().isOk());
         }
         catch(JobNotFoundException job){
             throw new JobNotFoundException("job not found");

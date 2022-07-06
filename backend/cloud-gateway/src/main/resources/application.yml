@@ -24,13 +24,13 @@ spring:
           predicates:
             - Path=/locations/**
         - id: APPLIED-JOBS-SERVICE
-            uri: lb://APPLIED-JOBS-SERVICE
-            predicates:
-              - Path=/appliedJobs/**
+          uri: lb://APPLIED-JOBS-SERVICE
+          predicates:
+            - Path=/appliedJobs/**
         - id: SAVED-JOBS-SERVICE
-            uri: lb://SAVED-JOBS-SERVICE
-            predicates:
-              - Path=/savedJobs/**
+          uri: lb://SAVED-JOBS-SERVICE
+          predicates:
+            - Path=/savedJobs/**
 
 eureka:
   client:

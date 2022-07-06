@@ -10,24 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/locations")
 public class LocationController {
 
     @Autowired
     private LocationService locationService;
 
-    @GetMapping("/locations")
-    public ResponseEntity<List<Location>> getAllLocations(){
+    @GetMapping("")
+    public ResponseEntity<List<Location>> getAllLocations() {
         return new ResponseEntity<>(locationService.getAllLocations(), HttpStatus.OK);
     }
 
-    @GetMapping("/location-aqi-by-id/{id}")
-    public ResponseEntity<Integer> getLocationAqiById(@PathVariable("id") Long id){
+    @GetMapping("/aqi-by-id/{id}")
+    public ResponseEntity<Integer> getLocationAqiById(@PathVariable("id") Long id) {
         Integer result = locationService.getAqiById(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping("/location-aqi-by-name/{name}")
-    public ResponseEntity<Integer> getLocationAqiByName(@PathVariable("name") String name){
+    @GetMapping("/aqi-by-name/{name}")
+    public ResponseEntity<Integer> getLocationAqiByName(@PathVariable("name") String name) {
         Integer aqi = locationService.getAqiByLocationName(name);
         return new ResponseEntity<>(aqi, HttpStatus.OK);
     }

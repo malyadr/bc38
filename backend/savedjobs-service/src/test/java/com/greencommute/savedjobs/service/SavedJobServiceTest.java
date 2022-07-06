@@ -32,11 +32,11 @@ class SavedJobServiceTest {
         savedJobRepository.save(savedJob);
         List<SavedJob> initial=new ArrayList<>();
         initial.add(savedJob);
-        List<Long> ids=new ArrayList<>();
-        ids.add(savedJob.getId());
+        List<SavedJob> savedJobs=new ArrayList<>();
+        savedJobs.add(savedJob);
         when(savedJobRepository.findAll()).thenReturn(initial);
-        List<Long> result=savedJobService.getAllSavedJobStatus();
-        assertEquals(result,ids);
+        List<SavedJob> result=savedJobService.getAllSavedJobStatus();
+        assertEquals(result,savedJobs);
     }
 
     @Test

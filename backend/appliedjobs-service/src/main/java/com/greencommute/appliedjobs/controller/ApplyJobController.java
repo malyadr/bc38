@@ -10,24 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/appliedJobs")
 public class ApplyJobController {
 
     @Autowired
     private ApplyJobService applyJobService;
 
-    @GetMapping("/applied-jobs")
-    public ResponseEntity<List<ApplyJob>> getAllJobsWithAppliedStatus(){
+    @GetMapping("")
+    public ResponseEntity<List<ApplyJob>> getAllJobsWithAppliedStatus() {
         return new ResponseEntity<>(applyJobService.getAllAppliedJobStatus(), HttpStatus.OK);
     }
 
-    @GetMapping("/applied-job-status/{id}")
-    public ResponseEntity<Integer> getAppliedStatusById(@PathVariable("id") Long id){
+    @GetMapping("/status/{id}")
+    public ResponseEntity<Integer> getAppliedStatusById(@PathVariable("id") Long id) {
         Integer result = applyJobService.getAppliedJobStatusById(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PutMapping("update-applied-status/{id}")
-    public ResponseEntity<Long> updateStatus(@PathVariable("id") Long id){
+    @PutMapping("/update-status/{id}")
+    public ResponseEntity<Long> updateStatus(@PathVariable("id") Long id) {
 
         applyJobService.updateStatusOfAppliedJob(id);
         return new ResponseEntity<>(id, HttpStatus.OK);

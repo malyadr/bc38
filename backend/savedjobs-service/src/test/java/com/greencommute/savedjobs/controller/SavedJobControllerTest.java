@@ -43,7 +43,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     void getAllJobsWithSavedStatus() throws Exception {
         when(savedJobService.getSavedJobStatusById(1L)).thenReturn(1);
         savedJobService.getSavedJobStatusById(1L);
-        this.mockMvc.perform(get("/saved-job-status/1")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(get("/savedJobs/status/1")).andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
@@ -54,10 +54,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
         repo.save(savedJob);
 
-        List<Long> result=new ArrayList<>();
-        result.add(savedJob.getId());
+        List<SavedJob> result=new ArrayList<>();
+        result.add(savedJob);
         when(savedJobService.getAllSavedJobStatus()).thenReturn(result);
-        this.mockMvc.perform(get("/saved-jobs")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(get("/savedJobs")).andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
@@ -69,13 +69,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
         repo.save(savedJob);
 
         doNothing().when(savedJobService).updateStatusOfSavedJob(1L);
-        this.mockMvc.perform(put("/update-saved-status/1")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(put("/savedJobs/update-status/1")).andExpect(MockMvcResultMatchers.status().isOk());
 
     }
     @Test
     void Exception() throws Exception {
         try{
-            this.mockMvc.perform(put("/update-saved-status/100")).andExpect(MockMvcResultMatchers.status().isOk());
+            this.mockMvc.perform(put("/savedJobs/update-status/100")).andExpect(MockMvcResultMatchers.status().isOk());
         }
         catch(JobNotFoundException job){
             throw new JobNotFoundException("job not found");
