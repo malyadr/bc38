@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @RestController
+@RequestMapping("/routes")
 public class RouteController {
 
     @Autowired
     private RouteService routeService;
 
-    @GetMapping("/routes")
+    @GetMapping("")
     public List<Route> getAllRoute(){
         List<Route> route=routeService.findAll();
         return route;
     }
-    @GetMapping("/routes/{id}")
+    @GetMapping("/{id}")
     public Route getRouteById(@PathVariable int id)  {
         Route route = routeService.findById(id);
 
