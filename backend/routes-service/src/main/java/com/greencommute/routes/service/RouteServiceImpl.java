@@ -2,7 +2,6 @@ package com.greencommute.routes.service;
 
 import com.greencommute.routes.entity.Route;
 import com.greencommute.routes.repository.RouteRepository;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
