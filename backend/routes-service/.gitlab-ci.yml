@@ -7,7 +7,7 @@ variables:
 sonarcloud-backend-routes-service:
   stage: sonar-routes
   script:
-    - cd "${CI_PROJECT_DIR}/backend/job-service"
+    - cd "${CI_PROJECT_DIR}/backend/routes-service"
     - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=routes-service -Dsonar.login=a631a60d489a9ec043efc7af9afc90e32cfcf2b8
   allow_failure: true
   only:
