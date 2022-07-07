@@ -1,4 +1,5 @@
 package com.greencommute.skills.controller;
+import com.greencommute.skills.SkillsServiceApplication;
 import com.greencommute.skills.controller.SkillController;
 import com.greencommute.skills.entity.Skill;
 import com.greencommute.skills.exception.SkillNotFoundException;
@@ -49,7 +50,7 @@ class SkillControllerTest {
         List<Skill> res = new ArrayList<>();
         res.add(dummy);
         when(skillService.findAll()).thenReturn(res);
-        this.mockMvc.perform(get("/skills/all")).andExpect(MockMvcResultMatchers.status().isOk());
+        this.mockMvc.perform(get("/skills")).andExpect(MockMvcResultMatchers.status().isOk());
     }
 
 
