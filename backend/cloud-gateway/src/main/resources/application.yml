@@ -8,9 +8,9 @@ spring:
     gateway:
       routes:
         - id: SKILLS-SERVICE
-          uri: lb://SKILL-SERVICE
+          uri: lb://SKILLS-SERVICE
           predicates:
-            - Path=/skill/**
+            - Path=/skills/**
         - id: ROUTES-SERVICE
           uri: lb://ROUTES-SERVICE
           predicates:

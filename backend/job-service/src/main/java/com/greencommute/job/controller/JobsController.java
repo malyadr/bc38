@@ -21,7 +21,7 @@ public class JobsController {
     private JobService jobService;
 
 
-    @GetMapping("/all")
+    @GetMapping("")
     public ResponseEntity<List<Jobs>> getJobs() {
         log.info("inside get all jobs controller");
         return new ResponseEntity<>(jobService.getAllJobs(), HttpStatus.OK);

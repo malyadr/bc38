@@ -48,7 +48,7 @@ class JobControllerTest {
 
         doReturn(Lists.newArrayList(job)).when(jobsService).getAllJobs();
 
-        mockMvc.perform(get("/jobs/all"))
+        mockMvc.perform(get("/jobs"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
 //                .andExpect(header().string(HttpHeaders.LOCATION, "/jobs/all"))
