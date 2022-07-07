@@ -1,48 +1,6 @@
 version: '3.1'
 
 services:
-  
-  appliedjobs-service :
-    image: malyadr/applied_bootcamp38:1
-    container_name: appliedjobs
-    restart: always
-    ports:
-     - 9003:9003
-
-  cloud-gateway : 
-    image: malyadr/cloud_bootcamp38:1
-    container_name: cloudgateway 
-    restart: always
-    ports:
-     - 9191:9191
-  
-  job-service:
-    image: malyadr/job_bootcamp38:1
-    container_name: job-service
-    restart: always
-    ports:
-     - 9001:9001
-
-  location-service :
-    image: malyadr/location_bootcamp38:1
-    container_name: location-service
-    restart: always
-    ports:
-     - 9006:9006
-
-  routes-service :
-    image: malyadr/routes_bootcamp38:1
-    container_name: routes-service
-    restart: always
-    ports:
-     - 9004:9004
-  
-  savedjobs-service :
-    image: malyadr/savedjobs_bootcamp38:1
-    container_name: savedjobs
-    restart: always
-    ports:
-     - 9002:9002
 
   service-registry :
     image: malyadr/service_bootcamp38:1
@@ -51,11 +9,65 @@ services:
     ports:
      - 8761:8761
 
+  cloud-gateway : 
+    image: malyadr/cloud_bootcamp3812:1
+    container_name: cloudgateway 
+    restart: always
+    ports:
+     - 9191:9191
+
+  appliedjobs-service :
+    image: malyadr/applied_bootcamp38:1
+    container_name: appliedjobs
+    restart: always
+    ports:
+     - 9003:9003  
+    depends_on:
+       - cloud-gateway 
+  
+  job-service:
+    image: malyadr/job_bootcamp38:1
+    container_name: job-service
+    restart: always
+    ports:
+     - 9001:9001
+    depends_on:
+       - cloud-gateway 
+
+  location-service :
+    image: malyadr/location_bootcamp38:1
+    container_name: location-service
+    restart: always
+    ports:
+     - 9006:9006
+    depends_on:
+       - cloud-gateway 
+
+  routes-service :
+    image: malyadr/routes_bootcamp38:1
+    container_name: routes-service
+    restart: always
+    ports:
+     - 9004:9004
+    depends_on:
+       - cloud-gateway 
+  
+  savedjobs-service :
+    image: malyadr/savedjobs_bootcamp38:1
+    container_name: savedjobs
+    restart: always
+    ports:
+     - 9002:9002
+    depends_on:
+       - cloud-gateway 
+
+
   skills-service :
     image: malyadr/skills_bootcamp38:1
     container_name: skills
     restart: always
     ports:
      - 9005:9005   
-
+    depends_on:
+       - cloud-gateway 
      

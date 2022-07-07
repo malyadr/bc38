@@ -31,9 +31,9 @@ docker build and push:
         - docker push "$REGISTRY_USER"/applied_bootcamp38:1
         - cd ..
         - cd cloud-gateway
-        - docker build . -t cloud:1
-        - docker tag cloud:1 "$REGISTRY_USER"/cloud_bootcamp38:1
-        - docker push "$REGISTRY_USER"/cloud_bootcamp38:1 
+        - docker build . -t cloud38:1
+        - docker tag cloud38:1 "$REGISTRY_USER"/cloud_bootcamp3812:1
+        - docker push "$REGISTRY_USER"/cloud_bootcamp3812:1 
         - cd .. 
         - cd job-service
         - docker build . -t job:1

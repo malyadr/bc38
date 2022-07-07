@@ -34,11 +34,19 @@ spring:
         - id: APPLIED-JOBS-SERVICE
           uri: lb://APPLIED-JOBS-SERVICE
           predicates:
+<<<<<<< HEAD
             - Path=/appliedJobs/**
         - id: SAVED-JOBS-SERVICE
           uri: lb://SAVED-JOBS-SERVICE
           predicates:
             - Path=/savedJobs/**
+=======
+              - Path=/appliedJobs/**
+        - id: SAVED-JOBS-SERVICE
+          uri: lb://SAVED-JOBS-SERVICE
+          predicates:
+              - Path=/savedJobs/**
+>>>>>>> backend
 
 eureka:
   client:
