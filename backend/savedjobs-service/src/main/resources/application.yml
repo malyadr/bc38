@@ -5,17 +5,23 @@ spring:
   application:
     name: SAVED-JOBS-SERVICE
   datasource:
-    url: jdbc:mysql://18.191.37.77:3306/green_commute_db?allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=Australia/Sydney&useSSL=false
+    url: jdbc:mysql://18.191.37.77:3306/green_commute_db?useSSL=false&serverTimezone=UTC
     username: root
     password: Data@123
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
     generate-ddl: true
     hibernate:
       ddl-auto: update
   cloud:
     config:
       enabled: false
+  flyway:
+    baselineOnMigrate: true
+    locations: classpath:db/migration
+    enabled: true
+
 eureka:
   client:
     register-with-eureka: true

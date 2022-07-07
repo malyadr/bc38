@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/backend/appliedjobs-service/appliedjobs-service.iml" filepath="$PROJECT_DIR$/backend/appliedjobs-service/appliedjobs-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/bootcamp-38-greencommute.iml" filepath="$PROJECT_DIR$/.idea/bootcamp-38-greencommute.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/cloud-config-server/cloud-config-server.iml" filepath="$PROJECT_DIR$/backend/cloud-config-server/cloud-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/cloud-gateway/cloud-gateway.iml" filepath="$PROJECT_DIR$/backend/cloud-gateway/cloud-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/hystrix-dashboard/hystrix-dashboard.iml" filepath="$PROJECT_DIR$/backend/hystrix-dashboard/hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/job-service/job-service.iml" filepath="$PROJECT_DIR$/backend/job-service/job-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/location-service/location-service.iml" filepath="$PROJECT_DIR$/backend/location-service/location-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/routes-service/route-service.iml" filepath="$PROJECT_DIR$/backend/routes-service/route-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/savedjobs-service/savedjobs-service.iml" filepath="$PROJECT_DIR$/backend/savedjobs-service/savedjobs-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/service-registry/service-registry.iml" filepath="$PROJECT_DIR$/backend/service-registry/service-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/skills-service/skill-service.iml" filepath="$PROJECT_DIR$/backend/skills-service/skill-service.iml" />
+    </modules>
+  </component>
+</project>
