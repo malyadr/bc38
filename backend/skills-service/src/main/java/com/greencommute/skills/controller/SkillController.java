@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @RestController
 @RequestMapping("/skills")
+@CrossOrigin(origins = "http://localhost:4000")
 public class SkillController {
 
     @Autowired

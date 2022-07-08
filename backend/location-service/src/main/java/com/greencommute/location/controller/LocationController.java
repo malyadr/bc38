@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/locations")
+@CrossOrigin(origins = "http://localhost:4000")
 public class LocationController {
 
     @Autowired

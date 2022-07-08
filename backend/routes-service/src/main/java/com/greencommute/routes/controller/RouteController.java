@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @RestController
 @RequestMapping("/routes")
+@CrossOrigin(origins = "http://localhost:4000")
 public class RouteController {
 
     @Autowired
