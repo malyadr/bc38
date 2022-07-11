@@ -15,25 +15,28 @@ import javax.persistence.*;
 public class Job {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "companyName")
-    private String companyName;
-
-    @Column(name = "role")
+    @Column(name="role")
     private String role;
 
-    @Column(name = "description")
+    @Column(name="company_name")
+    private String companyName;
+
+    @Column(name="description")
     private String description;
 
     @Column(name="distance")
     private String distance;
 
-    @Column(name="time")
-    private String time;
-
     @Column(name="image")
     private String image;
+
+    @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinColumn(name = "location_id")
+    private Location locationId;
+
+    @Column(name="time")
+    private String time;
 }
