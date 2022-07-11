@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SavedJobServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">savedjobs-service</a> &gt; <a href="index.source.html" class="el_package">com.greencommute.savedjobs.service</a> &gt; <span class="el_source">SavedJobServiceImpl.java</span></div><h1>SavedJobServiceImpl.java</h1><pre class="source lang-java linenums">package com.greencommute.savedjobs.service;
+
+import com.greencommute.savedjobs.entity.SavedJob;
+import com.greencommute.savedjobs.exceptions.JobNotFoundException;
+import com.greencommute.savedjobs.repository.SavedJobRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L14">public class SavedJobServiceImpl implements SavedJobService {</span>
+
+    @Autowired
+    private SavedJobRepository savedJobRepository;
+
+    @Override
+    public List&lt;SavedJob&gt; getAllSavedJobStatus() {
+
+<span class="fc" id="L22">        List&lt;SavedJob&gt; savedJobs=savedJobRepository.findAll();</span>
+<span class="fc" id="L23">        List&lt;Long&gt; idsOfSavedJobs=new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for(SavedJob savedJob:savedJobRepository.findAll()){</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">            if(savedJob.getSaved()==1){</span>
+<span class="fc" id="L26">                idsOfSavedJobs.add(savedJob.getId());</span>
+            }
+<span class="fc" id="L28">        }</span>
+<span class="fc" id="L29">        return savedJobs;</span>
+    }
+
+    @Override
+    public int getSavedJobStatusById(Long jobId) {
+<span class="fc" id="L34">        Optional&lt;SavedJob&gt; savedJob=(savedJobRepository.findById(jobId));</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if(savedJob.isPresent()){</span>
+
+<span class="fc" id="L37">            return  savedJob.get().getSaved();</span>
+        }
+        else{
+<span class="nc" id="L40">            throw new JobNotFoundException(&quot;job not found&quot;);</span>
+        }
+    }
+
+    @Override
+    public void updateStatusOfSavedJob(Long jobId) {
+<span class="fc" id="L46">        Optional&lt;SavedJob&gt; savedJob=(savedJobRepository.findById(jobId));</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if(savedJob.isPresent()){</span>
+<span class="fc" id="L48">            SavedJob dummy=new SavedJob();</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">            dummy.setSaved(savedJob.get().getSaved()==1? 0:1);</span>
+<span class="fc" id="L50">            dummy.setJobId(savedJob.get().getJobId());</span>
+<span class="fc" id="L51">            dummy.setId(savedJob.get().getId());</span>
+<span class="fc" id="L52">            savedJobRepository.save(dummy);</span>
+<span class="fc" id="L53">        }</span>
+        else{
+<span class="nc" id="L55">            throw new JobNotFoundException(&quot;job not found&quot;);</span>
+        }
+
+
+<span class="fc" id="L59">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
