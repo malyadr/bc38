@@ -69,6 +69,10 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-mysql</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -93,6 +97,16 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>8.5.13</version>
+				<configuration>
+					<url>jdbc:mysql://18.191.37.77:3306/green_commute_db</url>
+					<user>root</user>
+					<password>Data@123</password>
 				</configuration>
 			</plugin>
 			<plugin>
