@@ -6,6 +6,7 @@ import com.greencommute.savedjobs.entity.SavedJob;
 import com.greencommute.savedjobs.exceptions.JobNotFoundException;
 import com.greencommute.savedjobs.repository.SavedJobRepository;
 import com.greencommute.savedjobs.service.SavedJobServiceImpl;
+import com.greencommute.savedjobs.valueobjects.Location;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     @Test
     void getAllJobs() throws Exception {
 
-        Job job=new Job(1,"","","","","","");
+        Location location=new Location(1,"hyd",894);
+        Job job=new Job(1,"","","","","",location,"");
         SavedJob savedJob=new SavedJob(1,job,1);
 
         repo.save(savedJob);
@@ -63,7 +65,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     @Test
     void updateStatus() throws  Exception{
 
-        Job job=new Job(1,"","","","","","");
+        Location location=new Location(1,"hyd",894);
+        Job job=new Job(1,"","","","","",location,"");
         SavedJob savedJob=new SavedJob(1,job,0);
 
         repo.save(savedJob);

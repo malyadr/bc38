@@ -2,6 +2,7 @@ package com.greencommute.savedjobs.entity;
 
 import com.greencommute.savedjobs.valueobjects.Job;
 import com.greencommute.savedjobs.repository.SavedJobRepository;
+import com.greencommute.savedjobs.valueobjects.Location;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +23,8 @@ class SavedJobEntityTest {
         SavedJob savedJob = jobList.get(2);
         savedJob.setSaved(savedJob.getSaved());
 
-        Job job = new Job(1, "", "", "", "", "", "");
+        Location location=new Location(1,"hyd",894);
+        Job job=new Job(1,"","","","","",location,"");
         job.setCompanyName("zemoso");
         job.getCompanyName();
         job.setId(1);

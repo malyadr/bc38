@@ -4,6 +4,7 @@ import com.greencommute.savedjobs.valueobjects.Job;
 import com.greencommute.savedjobs.entity.SavedJob;
 import com.greencommute.savedjobs.exceptions.JobNotFoundException;
 import com.greencommute.savedjobs.repository.SavedJobRepository;
+import com.greencommute.savedjobs.valueobjects.Location;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -27,7 +28,9 @@ class SavedJobServiceTest {
 
     @Test
     void getAllJobs() {
-        Job job=new Job(1,"","","","","","");
+
+        Location location=new Location(1,"hyd",894);
+        Job job=new Job(1,"","","","","",location,"");
         SavedJob savedJob=new SavedJob(1,job,1);
         savedJobRepository.save(savedJob);
         List<SavedJob> initial=new ArrayList<>();
@@ -43,7 +46,9 @@ class SavedJobServiceTest {
     void getSavedJobStatusById() throws JobNotFoundException {
         List<Optional<SavedJob>> savedJobs= new ArrayList<>();
 
-        Job job=new Job(1,"","","","","","");
+
+        Location location=new Location(1,"hyd",894);
+        Job job=new Job(1,"","","","","",location,"");
         Optional<SavedJob> savedJob= Optional.of(new SavedJob(1, job, 0));
 
         savedJobs.add(savedJob);
@@ -60,7 +65,9 @@ class SavedJobServiceTest {
     @Test
     void update() throws JobNotFoundException{
         List<SavedJob> savedJobs= new ArrayList<>();
-        Job job=new Job(1,"","","","","","");
+
+        Location location=new Location(1,"hyd",894);
+        Job job=new Job(1,"","","","","",location,"");
         SavedJob savedJob=new SavedJob(1,job,0);
 
         savedJobRepository.save(savedJob);

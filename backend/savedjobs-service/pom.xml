@@ -25,6 +25,7 @@
 		<sonar.sources>src/main/java</sonar.sources>
 		<sonar.exclusions>
 			**/com/greencommute/savedjobs/exceptions/**,
+			**/com/greencommute/savedjobs/valueobjects/Location.java,
 			**/com/greencommute/savedjobs/SavedJobsServiceApplication.java
 		</sonar.exclusions>
 
