@@ -11,26 +11,10 @@ variables:
   DOCKER_TLS_CERTDIR: ""
 
 stages:
-<<<<<<< HEAD
-    - sonarcloud-check-frontend
-    - netlify
-
-netlify:
-    stage: netlify
-    image:
-        name: sonarsource/sonar-scanner-cli:4.6
-        entrypoint: ['']
-    script:
-        - cd frontend
-        - npm install
-        - npm run build-storybook
-        - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod --dir=storybook-static
-=======
     - Build image and Push to Docker Hub
     - deploy
 docker build and push:
     stage: Build image and Push to Docker Hub
->>>>>>> mock
     only:
         - deployment
 
@@ -40,48 +24,11 @@ docker build and push:
         - docker --version
         - echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USER" --password-stdin
     script:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         - cd frontend
-<<<<<<< HEAD
-        - npm install
-        - npm test
-        - sonar-scanner
-    only:
-        - merge_requests
-        - main
-=======
-        - docker build . -t bc38mock:1
-        - docker tag bc38mock:1 "$REGISTRY_USER"/mock_bc38:1
-        - docker push "$REGISTRY_USER"/mock_bc38:1
-=======
-        - docker build . -t bc38mockser:1
-        - docker tag bc38mockser:1 "$REGISTRY_USER"/mockser_bc38:1
-        - docker push "$REGISTRY_USER"/mockser_bc38:1
->>>>>>> mock
-=======
-        - docker build --file front.dockerfile . -t bc38frontend:1
-        - docker tag bc38frontend:1 "$REGISTRY_USER"/frontend_bc38:1
-        - docker push "$REGISTRY_USER"/frontend_bc38:1
->>>>>>> re
-=======
-        - docker build --file front.dockerfile . -t bc38frontendre:1
-        - docker tag bc38frontendre:1 "$REGISTRY_USER"/frontend_bc38re:1
-        - docker push "$REGISTRY_USER"/frontend_bc38re:1
->>>>>>> frontend
-=======
-        - docker build --file front.dockerfile . -t bc38frontendre1:1
-        - docker tag bc38frontendre1:1 "$REGISTRY_USER"/frontend_bc38re1:1
-        - docker push "$REGISTRY_USER"/frontend_bc38re1:1
->>>>>>> frontend
-=======
         - docker build --file front.dockerfile . -t bc38frontendre11:1
         - docker tag bc38frontendre11:1 "$REGISTRY_USER"/frontend_bc38re11:1
         - docker push "$REGISTRY_USER"/frontend_bc38re11:1
->>>>>>> frontend
+
     environment:
        name: staging
        url:
@@ -110,4 +57,4 @@ deploy:
   environment:
       name: production
       url: 
->>>>>>> mock
+

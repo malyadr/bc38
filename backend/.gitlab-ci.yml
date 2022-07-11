@@ -1,0 +1,86 @@
+image: 
+   name: amazon/aws-cli
+   entrypoint: [""]   
+services:
+    - name: docker:20-dind
+      command: ["--tls=false"]
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay
+  DOCKER_TLS_CERTDIR: ""
+
+stages:
+    - Build image and Push to Docker Hub
+    - deploy
+docker build and push:
+    stage: Build image and Push to Docker Hub
+    only:
+        - deployment1
+
+    before_script:
+        - amazon-linux-extras install docker
+        - aws --version
+        - docker --version
+        - echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USER" --password-stdin
+    script:
+        - cd backend
+        - cd appliedjobs-service
+        - docker build . -t applied:1
+        - docker tag applied:1 "$REGISTRY_USER"/applied_bootcamp38:1
+        - docker push "$REGISTRY_USER"/applied_bootcamp38:1
+        - cd ..
+        - cd cloud-gateway
+        - docker build . -t cloud:1
+        - docker tag cloud:1 "$REGISTRY_USER"/cloud_bootcamp38:1
+        - docker push "$REGISTRY_USER"/cloud_bootcamp38:1 
+        - cd .. 
+        - cd job-service
+        - docker build . -t job:1
+        - docker tag job:1 "$REGISTRY_USER"/job_bootcamp38:1
+        - docker push "$REGISTRY_USER"/job_bootcamp38:1 
+        - cd ..
+        - cd location-service
+        - docker build . -t location:1
+        - docker tag location:1 "$REGISTRY_USER"/location_bootcamp38:1
+        - docker push "$REGISTRY_USER"/location_bootcamp38:1
+        - cd ..
+        - cd routes-service
+        - docker build . -t routes:1
+        - docker tag routes:1 "$REGISTRY_USER"/routes_bootcamp38:1
+        - docker push "$REGISTRY_USER"/routes_bootcamp38:1
+        - cd ..
+        - cd savedjobs-service
+        - docker build . -t savedjobs:1
+        - docker tag savedjobs:1 "$REGISTRY_USER"/savedjobs_bootcamp38:1
+        - docker push "$REGISTRY_USER"/savedjobs_bootcamp38:1
+        - cd service-registry
+        - docker build . -t service:1
+        - docker tag service:1 "$REGISTRY_USER"/service_bootcamp38:1
+        - docker push "$REGISTRY_USER"/service_bootcamp38:1
+        - cd skills-service
+        - docker build . -t skills:1
+        - docker tag skills:1 "$REGISTRY_USER"/skills_bootcamp38:1
+        - docker push "$REGISTRY_USER"/skills_bootcamp38:1
+    environment:
+       name: staging
+       url:
+deploy:
+  stage: deploy  
+  image: kroniak/ssh-client
+   
+  before_script:
+      - mkdir ~/.ssh
+      - echo -e "$KEY_PAIR" > ~/.ssh/id_rsa
+      - chmod 600 ~/.ssh/id_rsa
+      - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script: 
+    - cd Backend
+    - ssh ubuntu@18.191.37.77 "sudo docker-compose down -d "
+    - ssh ubuntu@18.191.37.77 "sudo docker-compose up -d "   
+    - exit  
+  only:
+    - deployment1
+  environment:
+      name: production
+      url: 
