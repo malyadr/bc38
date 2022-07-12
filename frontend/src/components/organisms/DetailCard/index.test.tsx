@@ -26,11 +26,10 @@ describe('Detail Job Card Test', () => {
 })
 test('Testing save button', () => {
     render(
-        <Provider store={store}><MUIThemeProvider theme={customTheme}>
-            <DetailCard
-                id={3}
-            />
-        </MUIThemeProvider>
+        <Provider store={store}>
+            <MUIThemeProvider theme={customTheme}>
+                <DetailCard id={3} />
+            </MUIThemeProvider>
         </Provider>
     )
 
@@ -41,12 +40,11 @@ test('Testing save button', () => {
 
 test('Testing Green Commute Routes button', () => {
     render(
-        <Provider store={store}><MUIThemeProvider theme={customTheme}>
-            <DetailCard
-             id={1}
-            />
-        </MUIThemeProvider>
-            </Provider>
+        <Provider store={store}>
+            <MUIThemeProvider theme={customTheme}>
+                <DetailCard id={1} />
+            </MUIThemeProvider>
+        </Provider>
     )
 
     const title = screen.getByText(/Green Commute Routes/i)

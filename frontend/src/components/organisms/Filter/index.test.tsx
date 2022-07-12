@@ -7,7 +7,12 @@ const mockFun = jest.fn()
 test('test for checkbox values', () => {
     render(
         <MUIThemeProvider theme={customTheme}>
-            <Filter setData={mockFun} setDistance={mockFun} ClearAll={false} />
+            <Filter
+                data={[]}
+                setData={mockFun}
+                setDistance={mockFun}
+                ClearAll={false}
+            />
         </MUIThemeProvider>
     )
     const button = screen.getByText(/Filter/i)
@@ -16,7 +21,12 @@ test('test for checkbox values', () => {
 test('render', () => {
     render(
         <MUIThemeProvider theme={customTheme}>
-            <Filter setData={mockFun} setDistance={mockFun} ClearAll={false} />
+            <Filter
+                data={[]}
+                setData={mockFun}
+                setDistance={mockFun}
+                ClearAll={false}
+            />
         </MUIThemeProvider>
     )
     const button = screen.getByText(/Filter/i)

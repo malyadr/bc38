@@ -25,6 +25,7 @@
 		<sonar.sources>src/main/java</sonar.sources>
 		<sonar.exclusions>
 			**/com/greencommute/location/exceptions/**,
+			**/com/greencommute/location/service/**,
 			**/com/greencommute/location/LocationServiceApplication.java
 		</sonar.exclusions>
 	</properties>

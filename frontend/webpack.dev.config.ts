@@ -2,15 +2,19 @@ import path from 'path'
 import {
     Configuration as WebpackConfiguration,
     HotModuleReplacementPlugin,
+    DefinePlugin,
 } from 'webpack'
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import ESLintPlugin from 'eslint-webpack-plugin'
+import dotenv from 'dotenv'
 
 interface Configuration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration
 }
+
+const env = dotenv.config().parsed
 
 const config: Configuration = {
     mode: 'development',
@@ -48,13 +52,15 @@ const config: Configuration = {
             },
             {
                 test: /\.svg$/i,
-                use: [{
-                    loader: '@svgr/webpack',
-                    options: {
-                        typescript: true,
-                        ext: 'tsx'
-                    }
-                }],
+                use: [
+                    {
+                        loader: '@svgr/webpack',
+                        options: {
+                            typescript: true,
+                            ext: 'tsx',
+                        },
+                    },
+                ],
             },
         ],
     },
@@ -73,6 +79,9 @@ const config: Configuration = {
             extensions: ['js', 'jsx', 'ts', 'tsx'],
         }),
         new HotModuleReplacementPlugin(),
+        new DefinePlugin({
+            'process.env': env,
+        }),
     ],
     devtool: 'inline-source-map',
     devServer: {

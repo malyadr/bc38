@@ -9,7 +9,7 @@ import theme from '../../../theme/customTheme'
 test('test to check whether bike fires an event when clicked ', () => {
     render(
         <ThemeProvider theme={theme}>
-            <Routes />
+            <Routes values={[true, true, true, true]} />
         </ThemeProvider>
     )
     const bike = screen.getByTestId(/bike/i)
@@ -19,7 +19,7 @@ test('test to check whether bike fires an event when clicked ', () => {
 test('test to check whether train fires an event when clicked ', () => {
     render(
         <ThemeProvider theme={theme}>
-            <Routes />
+            <Routes values={[true, true, true, true]} />
         </ThemeProvider>
     )
     const train = screen.getByTestId(/train/i)
@@ -29,7 +29,7 @@ test('test to check whether train fires an event when clicked ', () => {
 test('test to check whether car fires an event when clicked ', () => {
     render(
         <ThemeProvider theme={theme}>
-            <Routes />
+            <Routes values={[true, true, true, true]} />
         </ThemeProvider>
     )
     const car = screen.getByTestId(/car/i)
@@ -41,13 +41,9 @@ test('test to check whether car fires an event when clicked ', () => {
 test('test to check whether bus fires an event when clicked ', () => {
     render(
         <ThemeProvider theme={theme}>
-            <Routes />
+            <Routes values={[true, true, true, true]} />
         </ThemeProvider>
     )
-    const bus = screen.getByTestId(/busHovered/i)
+    const bus = screen.getByTestId(/testBus/i)
     fireEvent.click(bus)
-    const car = screen.getByTestId(/car/i)
-    fireEvent.click(car)
-    const Hoveredbus = screen.getByTestId(/testBus/i)
-    fireEvent.click(Hoveredbus)
 })

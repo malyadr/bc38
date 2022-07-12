@@ -23,6 +23,7 @@ import {
     TRANSPORT_MODES,
 } from '../../../constants/constants'
 import Icon from '../../atoms/Icon'
+import { useEffect } from 'react'
 
 const style = {
     position: 'absolute',
@@ -39,12 +40,13 @@ const style = {
 let checkedValue = [] as string[]
 
 interface FilterProps {
+    data: string[]
     setData: React.Dispatch<React.SetStateAction<string[]>>
     setDistance: React.Dispatch<React.SetStateAction<string[]>>
     ClearAll: boolean
 }
 
-const Filter = ({ setData, setDistance, ClearAll }: FilterProps) => {
+const Filter = ({ data, setData, setDistance, ClearAll }: FilterProps) => {
     const [open, setOpen] = React.useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -92,7 +94,6 @@ const Filter = ({ setData, setDistance, ClearAll }: FilterProps) => {
         false,
     ]
 
-    
     const [checkedState, setCheckedState] = React.useState(defaultChecked)
     const [_allCheckedValue, setAllCheckedValue] = React.useState<any[]>([])
 
@@ -106,7 +107,7 @@ const Filter = ({ setData, setDistance, ClearAll }: FilterProps) => {
     React.useEffect(() => {
         clearAll()
     }, [ClearAll])
-    
+
     const distance: string[] = []
     for (let i = 0; i < 4; i++) {
         if (checkedState[i]) {
@@ -137,6 +138,29 @@ const Filter = ({ setData, setDistance, ClearAll }: FilterProps) => {
             checkedValue.splice(index, 1)
         }
     }
+
+    useEffect(() => {
+        const filterData = defaultChecked
+        data.map((value) => {
+            if (DISTANCE_VALUES.includes(value)) {
+                const idx = DISTANCE_VALUES.indexOf(value)
+                filterData[idx] = true
+            }
+            if (JOB_DISTANCE_VALUES.includes(value)) {
+                const idx = JOB_DISTANCE_VALUES.indexOf(value) + 10
+                filterData[idx] = true
+            }
+            if (POSTED_DATE_VALUES.includes(value)) {
+                const idx = POSTED_DATE_VALUES.indexOf(value) + 4
+                filterData[idx] = true
+            }
+            if (EXP_LEVEL_VALUES.includes(value)) {
+                const idx = EXP_LEVEL_VALUES.indexOf(value) + 14
+                filterData[idx] = true
+            }
+        })
+        setCheckedState(filterData)
+    }, [data])
 
     return (
         <>

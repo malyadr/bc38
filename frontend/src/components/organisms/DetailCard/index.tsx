@@ -9,6 +9,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { Button1 } from '../../molecules/Button'
 import { Routes } from '../JobRoutes'
+import { getRoutes } from '../../services/routesService'
 import {
     SAVE,
     DESCRIPTION,
@@ -18,36 +19,40 @@ import {
     SKILL_DETAILS,
     SEE_MORE,
     GREEN_COMMUTE_ROUTE,
+    JOBCARDPROPS,
+    dummy,
 } from '../../../constants/constants'
 import Img from '../../atoms/Image'
-import { RootState, StoreDispatch } from '../../../store/store'
-import { useSelector, useDispatch } from 'react-redux'
-import { getJobById, updateJobSavedStatus } from '../../../features/JobSlice'
+import { GetJobById } from '../../services/FindJobsService'
 
 interface DetailCardProps {
     id: number
     setState?: () => void
 }
 
-const DetailCard = ({ id, setState }: DetailCardProps) => {
-    const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
-    const { job } = useSelector((state: RootState) => state.jobData)
-    const dispatch = useDispatch<StoreDispatch>()
+const DetailCard = ({ id }: DetailCardProps) => {
+    const [values, setValues] = useState<boolean[]>([])
 
     useEffect(() => {
-        dispatch(getJobById(id))
+        const val: boolean[] = []
+        getRoutes(id).then((res) => {
+            val.push(res.bike, res.bus, res.cab, res.metro)
+            setValues(val)
+        })
     }, [id])
+
+    const [job, setJob] = useState<JOBCARDPROPS>(dummy)
+    const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
 
     const goBack = () => {
         setCommuteClickStatus(false)
     }
-
-    const handleState = async () => {
-        await dispatch(updateJobSavedStatus({ id: id, saved: job.saved }))
-        if (setState) {
-            setState()
-        }
-    }
+    useEffect(() => {
+        const jobPromise = GetJobById(id)
+        jobPromise.then((result) => {
+            setJob(result)
+        })
+    }, [id])
 
     return (
         <>
@@ -55,7 +60,6 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                 variant="outlined"
                 sx={{
                     width: '450px',
-                    // height: '670px',
                     borderRadius: '12px',
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,
@@ -91,7 +95,7 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                                         variant="caption2"
                                         color="betaMedium.main"
                                     >
-                                        {job.company}
+                                        {job.companyName}
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -99,7 +103,7 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                                         variant="caption2"
                                         color="betaMedium.main"
                                     >
-                                        {job.jobLocation}
+                                        {job.locationId.locationName}
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -126,11 +130,8 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                                                         width: '99px',
                                                         height: '32px',
                                                     }}
-                                                    onClick={handleState}
                                                 >
-                                                    {job.saved
-                                                        ? 'Unsave'
-                                                        : SAVE}
+                                                    {SAVE}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
@@ -209,7 +210,7 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                             </Grid>
                         </Grid>
                     ) : (
-                        <Routes onClick={goBack}></Routes>
+                        <Routes onClick={goBack} values={values}></Routes>
                     )}
                 </CardContent>
             </Card>

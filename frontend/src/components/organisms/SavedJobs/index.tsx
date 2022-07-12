@@ -14,30 +14,29 @@ export const SavedJobs = () => {
 
     const dispatch = useDispatch<StoreDispatch>()
     const { jobs } = useSelector((states: RootState) => states.jobsData)
-    const [state, setState] = useState<number>(0);
+    const [state, setState] = useState<number>(0)
     useEffect(() => {
-        dispatch(getAllSavedJobs());
-       
+        dispatch(getAllSavedJobs())
     }, [state])
 
     useEffect(() => {
-         const handleId = async () => {
-             if (jobs.length !== 0) {
-                 await setId(jobs[0].id)
-             } else {
-                 await setId(0)
-             }
-         }
-         handleId()
+        const handleId = async () => {
+            if (jobs.length !== 0) {
+                await setId(jobs[0].id)
+            } else {
+                await setId(0)
+            }
+        }
+        handleId()
     }, [jobs])
 
-    const handleIdStatus =(uniqueId: number) => {
+    const handleIdStatus = (uniqueId: number) => {
         setId(uniqueId)
     }
 
     const handleState = () => {
         setTimeout(() => {
-            setState(state + 1);
+            setState(state + 1)
         }, 200)
     }
 
@@ -77,7 +76,9 @@ export const SavedJobs = () => {
                                         {jobs &&
                                             jobs.map((d: JOBCARDPROPS) => (
                                                 <Box
-                                                    onClick={() => handleIdStatus(d.id)}
+                                                    onClick={() =>
+                                                        handleIdStatus(d.id)
+                                                    }
                                                     data-testid="card2"
                                                     key={d.id}
                                                     sx={{
@@ -85,10 +86,16 @@ export const SavedJobs = () => {
                                                     }}
                                                 >
                                                     <SavedJobCard
+                                                        id={d.id}
                                                         src={d.image}
                                                         role={d.role}
-                                                        companyName={d.company}
-                                                        location={d.jobLocation}
+                                                        companyName={
+                                                            d.companyName
+                                                        }
+                                                        location={
+                                                            d.locationId
+                                                                .locationName
+                                                        }
                                                         time={d.time}
                                                         isBordered={
                                                             d.id === id
@@ -100,7 +107,12 @@ export const SavedJobs = () => {
                                             ))}
                                     </Stack>
                                     <Box>
-                                        {jobs.length !== 0  && id !== 0 && <DetailCard id={id} setState={handleState} />}
+                                        {jobs.length !== 0 && id !== 0 && (
+                                            <DetailCard
+                                                id={id}
+                                                setState={handleState}
+                                            />
+                                        )}
                                     </Box>
                                 </Stack>
                             </Box>

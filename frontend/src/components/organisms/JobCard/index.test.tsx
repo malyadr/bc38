@@ -6,6 +6,7 @@ import { JobCard } from '.'
 test('test to check whether chip Component is present ', () => {
     render(
         <JobCard
+            id={1}
             src={'ola'}
             role={''}
             companyName={''}

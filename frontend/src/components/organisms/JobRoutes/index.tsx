@@ -35,11 +35,12 @@ const styles = makeStyles({
 })
 
 type RoutesProps = {
+    values: boolean[]
     onClick?: React.MouseEventHandler<SVGSVGElement>
 }
 
-export const Routes = ({ onClick }: RoutesProps) => {
-    const [transport, setTransport] = useState('bus')
+export const Routes = ({ values, onClick }: RoutesProps) => {
+    const [transport, setTransport] = useState('car')
 
     const classes = styles()
     return (
@@ -62,54 +63,58 @@ export const Routes = ({ onClick }: RoutesProps) => {
                     display: 'flex',
                 }}
             >
-                <Icon
-                    sx={{
-                        width: '24px',
-                        height: '24px',
-                        marginRight: '20px',
-                    }}
-                    src="bike"
-                    onClick={() => {
-                        setTransport('')
-                    }}
-                    data-testid="bike"
-                />
-                {transport === 'bus' ? (
-                    <Box
-                        style={{
-                            height: '38px',
-                            width: '38px',
-                            borderRadius: '50%',
-                            backgroundColor: theme.palette.alpha400.main,
-                            marginTop: '-8px',
+                {values[0] && (
+                    <Icon
+                        sx={{
+                            width: '24px',
+                            height: '24px',
                             marginRight: '20px',
                         }}
-                    >
-                        <Icon
-                            src="hoveredBus"
-                            onClick={() => {
-                                setTransport('bus')
-                            }}
-                            data-testid="busHovered"
-                            sx={{
-                                height: '60%',
-                                width: '60%',
-                                marginTop: '7px',
-                                marginLeft: '7px',
-                                marginRight: '20px',
-                            }}
-                        />
-                    </Box>
-                ) : (
-                    <Icon
-                        sx={{ marginRight: '20px' }}
-                        src="bus"
+                        src="bike"
                         onClick={() => {
-                            setTransport('bus')
+                            setTransport('')
                         }}
-                        data-testid="testBus"
+                        data-testid="bike"
                     />
                 )}
+                {transport === 'bus'
+                    ? values[1] && (
+                          <Box
+                              style={{
+                                  height: '38px',
+                                  width: '38px',
+                                  borderRadius: '50%',
+                                  backgroundColor: theme.palette.alpha400.main,
+                                  marginTop: '-8px',
+                                  marginRight: '20px',
+                              }}
+                          >
+                              <Icon
+                                  src="hoveredBus"
+                                  onClick={() => {
+                                      setTransport('bus')
+                                  }}
+                                  data-testid="busHovered"
+                                  sx={{
+                                      height: '60%',
+                                      width: '60%',
+                                      marginTop: '7px',
+                                      marginLeft: '7px',
+                                      marginRight: '20px',
+                                  }}
+                              />
+                          </Box>
+                      )
+                    : values[1] && (
+                          <Icon
+                              sx={{ marginRight: '20px' }}
+                              src="bus"
+                              onClick={() => {
+                                  setTransport('bus')
+                              }}
+                              data-testid="testBus"
+                          />
+                      )}
                 {transport === 'car' ? (
                     <Box
                         style={{
@@ -121,39 +126,45 @@ export const Routes = ({ onClick }: RoutesProps) => {
                             marginRight: '20px',
                         }}
                     >
+                        {values[2] && (
+                            <Icon
+                                src="hoveredCar"
+                                onClick={() => {
+                                    setTransport('car')
+                                }}
+                                data-testid="carHovered"
+                                sx={{
+                                    height: '60%',
+                                    width: '60%',
+                                    marginTop: '7px',
+                                    marginLeft: '7px',
+                                    marginRight: '20px',
+                                }}
+                            />
+                        )}
+                    </Box>
+                ) : (
+                    values[2] && (
                         <Icon
-                            src="hoveredCar"
+                            sx={{ marginRight: '20px', color: 'betaLow.main' }}
+                            src="car"
                             onClick={() => {
                                 setTransport('car')
                             }}
-                            data-testid="carHovered"
-                            sx={{
-                                height: '60%',
-                                width: '60%',
-                                marginTop: '7px',
-                                marginLeft: '7px',
-                                marginRight: '20px',
-                            }}
+                            data-testid="car"
                         />
-                    </Box>
-                ) : (
+                    )
+                )}
+                {values[3] && (
                     <Icon
-                        sx={{ marginRight: '20px', color: 'betaLow.main' }}
-                        src="car"
+                        sx={{ marginRight: '4px' }}
+                        src="train"
                         onClick={() => {
-                            setTransport('car')
+                            setTransport('')
                         }}
-                        data-testid="car"
+                        data-testid="train"
                     />
                 )}
-                <Icon
-                    sx={{ marginRight: '4px' }}
-                    src="train"
-                    onClick={() => {
-                        setTransport('')
-                    }}
-                    data-testid="train"
-                />
             </Box>
             <Box
                 component="div"

@@ -8,11 +8,6 @@ import SearchBar from '../SearchBar'
 import Filter from '../Filter'
 import DisplayChips from '../../molecules/DisplayChips'
 import {
-    getAllFilteredJobs,
-    getAllJobs,
-    getAllJobsBySkillsAndLocation,
-} from '../../../features/JobsSlice'
-import {
     BASED_ON_SEARCH,
     FIND_JOBS,
     JOBCARDPROPS,
@@ -21,8 +16,11 @@ import {
     RECOMMENDED,
 } from '../../../constants/constants'
 import theme from '../../../theme/customTheme'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState, StoreDispatch } from '../../../store/store'
+import {
+    getAllFilteredJobs,
+    GetAllJobCards,
+    getAllJobsBySkillsAndLocation,
+} from '../../services/FindJobsService'
 
 export const FindJobs = () => {
     const [skills, setSkills] = useState<string>('')
@@ -31,11 +29,13 @@ export const FindJobs = () => {
     const [distance, setDistance] = useState<string[]>([])
     const [id, setId] = useState<number>(0)
     const [clearAll, setClearAll] = useState<boolean>(false)
-    const { jobs } = useSelector((state: RootState) => state.jobsData)
-    const dispatch = useDispatch<StoreDispatch>()
+    const [jobs, setJobs] = useState<JOBCARDPROPS[]>([])
 
     useEffect(() => {
-        dispatch(getAllJobs())
+        const jobPromise = GetAllJobCards()
+        jobPromise.then((result) => {
+            setJobs(result)
+        })
         if (jobs.length !== 0) {
             handleIdStatus(jobs[0].id)
         } else {
@@ -44,16 +44,18 @@ export const FindJobs = () => {
     }, [])
 
     useEffect(() => {
-        dispatch(
-            getAllJobsBySkillsAndLocation({
-                skills: skills,
-                location: location,
-            })
-        )
+        const jobPromise = getAllJobsBySkillsAndLocation({
+            skills: skills,
+            location: location,
+        })
+        jobPromise.then((result) => {
+            result && setJobs(result)
+        })
     }, [skills, location])
 
     useEffect(() => {
-        dispatch(getAllFilteredJobs(distance))
+        const jobPromise = getAllFilteredJobs(distance)
+        setJobs(jobPromise)
     }, [distance])
 
     const handleIdStatus = (uniqueId: number) => {
@@ -74,11 +76,11 @@ export const FindJobs = () => {
                     arrayItem.role
                         .toLowerCase()
                         .includes(skills.toLowerCase()) &&
-                    arrayItem.jobLocation
+                    arrayItem.locationId.locationName
                         .toLowerCase()
                         .includes(location.toLowerCase())
                 ) {
-                    card = arrayItem
+                    card = jobs[0]
                 }
             }
         })
@@ -115,6 +117,7 @@ export const FindJobs = () => {
                             setStatus={setId}
                         />
                         <Filter
+                            data={filterData}
                             setData={setFilterData}
                             setDistance={setDistance}
                             ClearAll={clearAll}
@@ -180,10 +183,13 @@ export const FindJobs = () => {
                                             }}
                                         >
                                             <JobCard
+                                                id={j.id}
                                                 src={j.image}
                                                 role={j.role}
-                                                companyName={j.company}
-                                                location={j.jobLocation}
+                                                companyName={j.companyName}
+                                                location={
+                                                    j.locationId.locationName
+                                                }
                                                 time={j.time}
                                             ></JobCard>
                                         </Grid>
@@ -220,10 +226,14 @@ export const FindJobs = () => {
                                                 }}
                                             >
                                                 <SavedJobCard
+                                                    id={d.id}
                                                     src={d.image}
                                                     role={d.role}
-                                                    companyName={d.company}
-                                                    location={d.jobLocation}
+                                                    companyName={d.companyName}
+                                                    location={
+                                                        d.locationId
+                                                            .locationName
+                                                    }
                                                     time={d.time}
                                                     isBordered={
                                                         d.id == id ||
