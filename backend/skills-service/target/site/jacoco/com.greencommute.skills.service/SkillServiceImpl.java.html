@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SkillServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">skill-service</a> &gt; <a href="index.source.html" class="el_package">com.greencommute.skills.service</a> &gt; <span class="el_source">SkillServiceImpl.java</span></div><h1>SkillServiceImpl.java</h1><pre class="source lang-java linenums">package com.greencommute.skills.service;
+
+import com.greencommute.skills.entity.Skill;
+import com.greencommute.skills.exception.SkillNotFoundException;
+import com.greencommute.skills.repository.SkillRepository;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L14">@NoArgsConstructor</span>
+public class SkillServiceImpl implements SkillService {
+    @Autowired
+    private SkillRepository skillRepository;
+
+<span class="fc" id="L19">    public SkillServiceImpl(SkillRepository theSkillRepository) {</span>
+<span class="fc" id="L20">        skillRepository = theSkillRepository;</span>
+<span class="fc" id="L21">    }</span>
+    @Override
+    public List&lt;Skill&gt; findAll() {
+<span class="fc" id="L24">        return skillRepository.findAll();</span>
+    }
+
+    @Override
+    public Skill findById(int id) throws SkillNotFoundException {
+<span class="fc" id="L29">        Optional&lt;Skill&gt; result= skillRepository.findById(id);</span>
+<span class="fc" id="L30">        Skill skill = null;</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if(result.isPresent()){</span>
+<span class="fc" id="L32">            skill = result.get();</span>
+        }
+        else{
+<span class="nc" id="L35">            throw new SkillNotFoundException(&quot;Didn't Find  Skill with id- &quot;+id);</span>
+        }
+
+<span class="fc" id="L38">        return skill;</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

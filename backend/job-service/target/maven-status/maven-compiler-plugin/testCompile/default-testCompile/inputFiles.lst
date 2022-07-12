@@ -1,1 +1,4 @@
 /home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/job-service/src/test/java/com/greencommute/job/JobServiceApplicationTests.java
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/job-service/src/test/java/com/greencommute/job/service/JobsServiceImplTest.java
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/job-service/src/test/java/com/greencommute/job/entity/JobEntityTest.java
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/job-service/src/test/java/com/greencommute/job/controller/JobControllerTest.java

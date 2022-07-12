@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Route.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">route-service</a> &gt; <a href="index.source.html" class="el_package">com.greencommute.routes.entity</a> &gt; <span class="el_source">Route.java</span></div><h1>Route.java</h1><pre class="source lang-java linenums">
+package com.greencommute.routes.entity;
+import com.greencommute.routes.valueobject.Job;
+import lombok.*;
+
+import javax.persistence.*;
+
+@Entity
+<span class="fc" id="L9">@NoArgsConstructor</span>
+<span class="fc" id="L10">@AllArgsConstructor</span>
+@Getter
+<span class="pc" id="L12">@Setter</span>
+<span class="pc" id="L13">@Builder</span>
+@Table(name = &quot;routes&quot;)
+public class Route {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="fc" id="L19">    int id;</span>
+    @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinColumn(name = &quot;job_id&quot;)
+<span class="fc" id="L22">    private Job job_id;</span>
+    @Column(name = &quot;cab&quot;)
+<span class="fc" id="L24">    private boolean cab;</span>
+    @Column(name = &quot;bike&quot;)
+<span class="fc" id="L26">    private boolean bike;</span>
+    @Column(name = &quot;bus&quot;)
+<span class="fc" id="L28">    private boolean bus;</span>
+    @Column(name = &quot;metro&quot;)
+<span class="fc" id="L30">    private boolean metro;</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

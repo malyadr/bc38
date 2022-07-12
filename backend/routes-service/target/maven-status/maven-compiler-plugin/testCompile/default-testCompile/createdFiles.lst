@@ -1,1 +1,4 @@
+com/greencommute/routes/service/RouteServiceTest.class
 com/greencommute/routes/RoutesServiceApplicationTests.class
+com/greencommute/routes/repository/RouteRepositoryTest.class
+com/greencommute/routes/controller/RouteControllerTest.class

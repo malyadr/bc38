@@ -17,44 +17,45 @@ import java.util.Optional;
     private SavedJobRepository savedJobRepository;
 
     @Override
-    public List&lt;Long&gt; getAllSavedJobStatus() {
+    public List&lt;SavedJob&gt; getAllSavedJobStatus() {
 
-<span class="fc" id="L22">        List&lt;Long&gt; idsOfSavedJobs=new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L23" title="All 2 branches covered.">        for(SavedJob savedJob:savedJobRepository.findAll()){</span>
-<span class="pc bpc" id="L24" title="1 of 2 branches missed.">            if(savedJob.getSaved()==1){</span>
-<span class="fc" id="L25">                idsOfSavedJobs.add(savedJob.getId());</span>
+<span class="fc" id="L22">        List&lt;SavedJob&gt; savedJobs=savedJobRepository.findAll();</span>
+<span class="fc" id="L23">        List&lt;Long&gt; idsOfSavedJobs=new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for(SavedJob savedJob:savedJobRepository.findAll()){</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">            if(savedJob.getSaved()==1){</span>
+<span class="fc" id="L26">                idsOfSavedJobs.add(savedJob.getId());</span>
             }
-<span class="fc" id="L27">        }</span>
-<span class="fc" id="L28">        return idsOfSavedJobs;</span>
+<span class="fc" id="L28">        }</span>
+<span class="fc" id="L29">        return savedJobs;</span>
     }
 
     @Override
     public int getSavedJobStatusById(Long jobId) {
-<span class="fc" id="L33">        Optional&lt;SavedJob&gt; savedJob=(savedJobRepository.findById(jobId));</span>
-<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if(savedJob.isPresent()){</span>
+<span class="fc" id="L34">        Optional&lt;SavedJob&gt; savedJob=(savedJobRepository.findById(jobId));</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if(savedJob.isPresent()){</span>
 
-<span class="fc" id="L36">            return  savedJob.get().getSaved();</span>
+<span class="fc" id="L37">            return  savedJob.get().getSaved();</span>
         }
         else{
-<span class="nc" id="L39">            throw new JobNotFoundException(&quot;job not found&quot;);</span>
+<span class="nc" id="L40">            throw new JobNotFoundException(&quot;job not found&quot;);</span>
         }
     }
 
     @Override
     public void updateStatusOfSavedJob(Long jobId) {
-<span class="fc" id="L45">        Optional&lt;SavedJob&gt; savedJob=(savedJobRepository.findById(jobId));</span>
-<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if(savedJob.isPresent()){</span>
-<span class="fc" id="L47">            SavedJob dummy=new SavedJob();</span>
-<span class="pc bpc" id="L48" title="1 of 2 branches missed.">            dummy.setSaved(savedJob.get().getSaved()==1? 0:1);</span>
-<span class="fc" id="L49">            dummy.setJobId(savedJob.get().getJobId());</span>
-<span class="fc" id="L50">            dummy.setId(savedJob.get().getId());</span>
-<span class="fc" id="L51">            savedJobRepository.save(dummy);</span>
-<span class="fc" id="L52">        }</span>
+<span class="fc" id="L46">        Optional&lt;SavedJob&gt; savedJob=(savedJobRepository.findById(jobId));</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if(savedJob.isPresent()){</span>
+<span class="fc" id="L48">            SavedJob dummy=new SavedJob();</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">            dummy.setSaved(savedJob.get().getSaved()==1? 0:1);</span>
+<span class="fc" id="L50">            dummy.setJobId(savedJob.get().getJobId());</span>
+<span class="fc" id="L51">            dummy.setId(savedJob.get().getId());</span>
+<span class="fc" id="L52">            savedJobRepository.save(dummy);</span>
+<span class="fc" id="L53">        }</span>
         else{
-<span class="nc" id="L54">            throw new JobNotFoundException(&quot;job not found&quot;);</span>
+<span class="nc" id="L55">            throw new JobNotFoundException(&quot;job not found&quot;);</span>
         }
 
 
-<span class="fc" id="L58">    }</span>
+<span class="fc" id="L59">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

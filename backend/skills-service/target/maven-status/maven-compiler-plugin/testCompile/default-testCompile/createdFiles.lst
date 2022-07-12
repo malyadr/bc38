@@ -1,1 +1,4 @@
 com/greencommute/skills/SkillsServiceApplicationTests.class
+com/greencommute/skills/repository/SkillRepoTest.class
+com/greencommute/skills/service/SkillServiceImplTest.class
+com/greencommute/skills/controller/SkillControllerTest.class

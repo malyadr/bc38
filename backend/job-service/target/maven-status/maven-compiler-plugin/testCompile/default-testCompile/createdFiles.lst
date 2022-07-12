@@ -1,1 +1,4 @@
+com/greencommute/job/service/JobsServiceImplTest.class
+com/greencommute/job/controller/JobControllerTest.class
 com/greencommute/job/JobServiceApplicationTests.class
+com/greencommute/job/entity/JobEntityTest.class

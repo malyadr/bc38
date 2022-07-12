@@ -1,1 +1,4 @@
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/routes-service/src/test/java/com/greencommute/routes/service/RouteServiceTest.java
 /home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/routes-service/src/test/java/com/greencommute/routes/RoutesServiceApplicationTests.java
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/routes-service/src/test/java/com/greencommute/routes/repository/RouteRepositoryTest.java
+/home/malyadm/bootcamp38/bootcamp-38-greencommute/backend/routes-service/src/test/java/com/greencommute/routes/controller/RouteControllerTest.java

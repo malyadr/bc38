@@ -10,27 +10,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-<span class="fc" id="L13">public class ApplyJobController {</span>
+@RequestMapping(&quot;/appliedJobs&quot;)
+<span class="fc" id="L14">public class ApplyJobController {</span>
 
     @Autowired
     private ApplyJobService applyJobService;
 
-    @GetMapping(&quot;/applied-jobs&quot;)
-    public ResponseEntity&lt;List&lt;ApplyJob&gt;&gt; getAllJobsWithAppliedStatus(){
-<span class="fc" id="L20">        return new ResponseEntity&lt;&gt;(applyJobService.getAllAppliedJobStatus(), HttpStatus.OK);</span>
+    @GetMapping(&quot;&quot;)
+    public ResponseEntity&lt;List&lt;ApplyJob&gt;&gt; getAllJobsWithAppliedStatus() {
+<span class="fc" id="L21">        return new ResponseEntity&lt;&gt;(applyJobService.getAllAppliedJobStatus(), HttpStatus.OK);</span>
     }
 
-    @GetMapping(&quot;/applied-job-status/{id}&quot;)
-    public ResponseEntity&lt;Integer&gt; getAppliedStatusById(@PathVariable(&quot;id&quot;) Long id){
-<span class="fc" id="L25">        Integer result = applyJobService.getAppliedJobStatusById(id);</span>
-<span class="fc" id="L26">        return new ResponseEntity&lt;&gt;(result, HttpStatus.OK);</span>
+    @GetMapping(&quot;/status/{id}&quot;)
+    public ResponseEntity&lt;Integer&gt; getAppliedStatusById(@PathVariable(&quot;id&quot;) Long id) {
+<span class="fc" id="L26">        Integer result = applyJobService.getAppliedJobStatusById(id);</span>
+<span class="fc" id="L27">        return new ResponseEntity&lt;&gt;(result, HttpStatus.OK);</span>
     }
 
-    @PutMapping(&quot;update-applied-status/{id}&quot;)
-    public ResponseEntity&lt;Long&gt; updateStatus(@PathVariable(&quot;id&quot;) Long id){
+    @PutMapping(&quot;/update-status/{id}&quot;)
+    public ResponseEntity&lt;Long&gt; updateStatus(@PathVariable(&quot;id&quot;) Long id) {
 
-<span class="fc" id="L32">        applyJobService.updateStatusOfAppliedJob(id);</span>
-<span class="fc" id="L33">        return new ResponseEntity&lt;&gt;(id, HttpStatus.OK);</span>
+<span class="fc" id="L33">        applyJobService.updateStatusOfAppliedJob(id);</span>
+<span class="fc" id="L34">        return new ResponseEntity&lt;&gt;(id, HttpStatus.OK);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

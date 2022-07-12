@@ -5,7 +5,7 @@ spring:
   application:
     name: SKILLS-SERVICE
   datasource:
-    url: jdbc:mysql://18.191.37.77:3306/green_commute_db?useLegacyDatetimeCode=false&serverTimezone=Australia/Sydney&useSSL=false
+    url: jdbc:mysql://18.191.37.77:3306/green_commute_db?allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=Australia/Sydney&useSSL=false
     username: root
     password: Data@123
     driver-class-name: com.mysql.cj.jdbc.Driver

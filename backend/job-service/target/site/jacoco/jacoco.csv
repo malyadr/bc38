@@ -1,2 +1,9 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-job-service,com.greencommute.job,JobServiceApplication,8,0,0,0,3,0,2,0,2,0
+job-service,com.greencommute.job.entity,Jobs,4,82,0,0,0,11,1,17,1,17
+job-service,com.greencommute.job.valueobjects,Location,0,36,0,0,0,6,0,8,0,8
+job-service,com.greencommute.job.service,JobsServiceImpl,0,41,0,2,0,10,0,6,0,5
+job-service,com.greencommute.job.controller,JobsController,0,40,0,0,0,7,0,5,0,5
+job-service,com.greencommute.job,JobServiceApplication,5,3,0,0,2,1,1,1,1,1
+job-service,com.greencommute.job.exceptions,JavaNotFoundExceptionHandler,41,3,0,0,10,1,2,1,2,1
+job-service,com.greencommute.job.exceptions,JobErrorResponse,167,0,20,0,7,0,24,0,14,0
+job-service,com.greencommute.job.exceptions,JobNotFoundException,0,4,0,0,0,2,0,1,0,1

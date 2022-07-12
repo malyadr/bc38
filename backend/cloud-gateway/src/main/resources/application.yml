@@ -34,19 +34,11 @@ spring:
         - id: APPLIED-JOBS-SERVICE
           uri: lb://APPLIED-JOBS-SERVICE
           predicates:
-<<<<<<< HEAD
             - Path=/appliedJobs/**
         - id: SAVED-JOBS-SERVICE
           uri: lb://SAVED-JOBS-SERVICE
           predicates:
             - Path=/savedJobs/**
-=======
-              - Path=/appliedJobs/**
-        - id: SAVED-JOBS-SERVICE
-          uri: lb://SAVED-JOBS-SERVICE
-          predicates:
-              - Path=/savedJobs/**
->>>>>>> backend
 
 eureka:
   client:
@@ -56,6 +48,7 @@ eureka:
       defaultZone: http://3.144.240.106:8761/eureka/
     instance:
 <<<<<<< HEAD
+<<<<<<< HEAD
       hostname: 3.144.240.106
 =======
 <<<<<<< HEAD
@@ -63,4 +56,7 @@ eureka:
 =======
       hostname: 3.144.240.106
 >>>>>>> backend
+>>>>>>> backend
+=======
+      hostname: 3.144.240.106
 >>>>>>> backend
