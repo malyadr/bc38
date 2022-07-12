@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles'
 import React, { useEffect, useState } from 'react'
 import Icon from '../../atoms/Icon'
 import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
-import theme, { iconType, imageTypes } from '../../../theme/customTheme'
+import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
 import { getRoutes } from '../../services/routesService'
 
@@ -43,26 +43,14 @@ export const JobCard = ({
     location,
     time,
 }: JobCardProps) => {
-    const [icons, setIcons] = useState<iconType[]>([])
+    const [values, setValues] = useState<boolean[]>([])
 
     useEffect(() => {
-        const val: iconType[] = []
+        const val: boolean[] = []
         getRoutes(id).then((res) => {
-            if (res.bike) {
-                val.push('bike')
-            }
-            if (res.bus) {
-                val.push('bus')
-            }
-            if (res.cab) {
-                val.push('car')
-            }
-            if (res.metro) {
-                val.push('train')
-            }
-            setIcons(val)
+            val.push(res.bike, res.bus, res.cab, res.metro)
+            setValues(val)
         })
-        console.log(icons)
     }, [id])
     const classes = styles()
     return (
@@ -103,18 +91,22 @@ export const JobCard = ({
                             width: '140px',
                         }}
                     >
-                        {icons.map((icon) => {
-                            return (
-                                <Icon
-                                    key={icons.indexOf(icon)}
-                                    src={icon}
-                                    sx={{
-                                        marginRight: '16px',
-                                        color: theme.palette.betaLow.main,
-                                    }}
-                                />
-                            )
-                        })}
+                        {values[0] && (
+                            <Icon src="bike" sx={{ marginRight: '16px' }} />
+                        )}
+                        {values[1] && (
+                            <Icon src="bus" sx={{ marginRight: '16px' }} />
+                        )}
+                        {values[2] && (
+                            <Icon
+                                src="car"
+                                sx={{
+                                    marginRight: '16px',
+                                    color: theme.palette.betaLow.main,
+                                }}
+                            />
+                        )}
+                        {values[3] && <Icon src="train" />}
                     </Box>
                     <Typography
                         variant="caption2"
