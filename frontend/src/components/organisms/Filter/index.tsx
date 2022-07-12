@@ -143,27 +143,22 @@ const Filter = ({ data, setData, setDistance, ClearAll }: FilterProps) => {
         const filterData = defaultChecked
         data.map((value) => {
             if (DISTANCE_VALUES.includes(value)) {
-                console.log(value + ' in distance')
                 const idx = DISTANCE_VALUES.indexOf(value)
                 filterData[idx] = true
             }
             if (JOB_DISTANCE_VALUES.includes(value)) {
-                console.log(value + ' in job distance')
                 const idx = JOB_DISTANCE_VALUES.indexOf(value) + 10
                 filterData[idx] = true
             }
             if (POSTED_DATE_VALUES.includes(value)) {
-                console.log(value + ' in posted')
                 const idx = POSTED_DATE_VALUES.indexOf(value) + 4
                 filterData[idx] = true
             }
             if (EXP_LEVEL_VALUES.includes(value)) {
-                console.log(value + ' in exp')
                 const idx = EXP_LEVEL_VALUES.indexOf(value) + 14
                 filterData[idx] = true
             }
         })
-        console.log(filterData)
         setCheckedState(filterData)
     }, [data])
 

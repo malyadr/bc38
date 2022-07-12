@@ -44,10 +44,6 @@ test('test to check whether bus fires an event when clicked ', () => {
             <Routes values={[true, true, true, true]} />
         </ThemeProvider>
     )
-    const bus = screen.getByTestId(/busHovered/i)
+    const bus = screen.getByTestId(/testBus/i)
     fireEvent.click(bus)
-    const car = screen.getByTestId(/car/i)
-    fireEvent.click(car)
-    const Hoveredbus = screen.getByTestId(/testBus/i)
-    fireEvent.click(Hoveredbus)
 })
