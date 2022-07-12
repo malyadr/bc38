@@ -2,13 +2,13 @@ import path from 'path'
 import {
     Configuration as WebpackConfiguration,
     HotModuleReplacementPlugin,
+    DefinePlugin,
 } from 'webpack'
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import ESLintPlugin from 'eslint-webpack-plugin'
 import dotenv from 'dotenv'
-import webpack from 'webpack'
 
 interface Configuration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration
@@ -79,7 +79,7 @@ const config: Configuration = {
             extensions: ['js', 'jsx', 'ts', 'tsx'],
         }),
         new HotModuleReplacementPlugin(),
-        new webpack.DefinePlugin({
+        new DefinePlugin({
             'process.env': env,
         }),
     ],

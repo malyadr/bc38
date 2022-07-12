@@ -19,6 +19,6 @@ public class RouteRepositoryTest {
         Job job=new Job(1, "","","","","","");
         job.setCompanyName("myntra");
 
-        org.assertj.core.api.Assertions.assertThat(route.size()).isEqualTo(5);
+        org.assertj.core.api.Assertions.assertThat(route.size()).isEqualTo(6);
     }
 }
