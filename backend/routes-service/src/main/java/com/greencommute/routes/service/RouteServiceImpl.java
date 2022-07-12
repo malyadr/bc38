@@ -1,6 +1,7 @@
 package com.greencommute.routes.service;
 
 import com.greencommute.routes.entity.Route;
+import com.greencommute.routes.exceptions.RouteNotFoundException;
 import com.greencommute.routes.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class RouteServiceImpl implements RouteService{
             route = result.get();
         }
         else{
-            throw new RuntimeException("Didn't Find  Skill with id- "+id);
+            throw new RouteNotFoundException("Didn't Find  Skill with id- "+id);
         }
 
         return route;

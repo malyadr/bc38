@@ -15,13 +15,10 @@ public class RouteController {
 
     @GetMapping("")
     public List<Route> getAllRoute(){
-        List<Route> route=routeService.findAll();
-        return route;
+        return routeService.findAll();
     }
     @GetMapping("/{id}")
     public Route getRouteById(@PathVariable int id)  {
-        Route route = routeService.findById(id);
+        return routeService.findById(id);
 
-
-        return route;
     }}
