@@ -289,6 +289,15 @@ export interface SavedJobProps {
     saved: number
 }
 
+export interface RouteProps {
+    id: number
+    jobId: JOBCARDPROPS
+    cab: boolean
+    bike: boolean
+    bus: boolean
+    metro: boolean
+}
+
 export const filterOptions = [
     {
         name: '0-10kms',

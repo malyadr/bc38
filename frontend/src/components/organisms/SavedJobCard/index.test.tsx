@@ -6,6 +6,7 @@ import SavedJobCard from '.'
 test('test to check whether chip Component is present ', () => {
     render(
         <SavedJobCard
+            id={1}
             src={'hp'}
             role={''}
             companyName={''}

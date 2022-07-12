@@ -9,6 +9,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { Button1 } from '../../molecules/Button'
 import { Routes } from '../JobRoutes'
+import { getRoutes } from '../../services/routesService'
 import {
     SAVE,
     DESCRIPTION,
@@ -29,7 +30,21 @@ interface DetailCardProps {
     setState?: () => void
 }
 
-const DetailCard = ({ id, setState }: DetailCardProps) => {
+const DetailCard = ({ id }: DetailCardProps) => {
+    const [values, setValues] = useState<boolean[]>([])
+
+    useEffect(() => {
+        if (id == 6) id = 5
+        const val: boolean[] = []
+        const route = getRoutes(id).then((res) => {
+            val.push(res.bike)
+            val.push(res.bus)
+            val.push(res.cab)
+            val.push(res.metro)
+            setValues(val)
+        })
+    }, [id])
+
     const [job, setJob] = useState<JOBCARDPROPS>(dummy)
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
 
@@ -199,7 +214,7 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                             </Grid>
                         </Grid>
                     ) : (
-                        <Routes onClick={goBack}></Routes>
+                        <Routes onClick={goBack} values={values}></Routes>
                     )}
                 </CardContent>
             </Card>

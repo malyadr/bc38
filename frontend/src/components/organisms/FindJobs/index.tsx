@@ -20,7 +20,6 @@ import {
     getAllFilteredJobs,
     GetAllJobCards,
     getAllJobsBySkillsAndLocation,
-    GetJobById,
 } from '../../services/FindJobsService'
 
 export const FindJobs = () => {
@@ -184,6 +183,7 @@ export const FindJobs = () => {
                                             }}
                                         >
                                             <JobCard
+                                                id={j.id}
                                                 src={
                                                     j.id == 3 ? 'bmw' : j.image
                                                 }
@@ -228,6 +228,7 @@ export const FindJobs = () => {
                                                 }}
                                             >
                                                 <SavedJobCard
+                                                    id={d.id}
                                                     src={
                                                         d.id == 3
                                                             ? 'bmw'

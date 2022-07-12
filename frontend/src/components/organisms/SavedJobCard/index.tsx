@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Box,
     Card,
@@ -11,6 +11,7 @@ import Icon from '../../atoms/Icon'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
 import { makeStyles } from '@mui/styles'
+import { getRoutes } from '../../services/routesService'
 
 const styles = makeStyles({
     root: {
@@ -21,6 +22,7 @@ const styles = makeStyles({
 })
 
 interface CardProps {
+    id: number
     src: imageTypes
     role: string
     companyName: string
@@ -30,6 +32,7 @@ interface CardProps {
 }
 
 const SavedJobCard = ({
+    id,
     src,
     role,
     companyName,
@@ -38,6 +41,19 @@ const SavedJobCard = ({
     isBordered,
 }: CardProps) => {
     const classes = styles()
+    const [values, setValues] = useState<boolean[]>([])
+
+    useEffect(() => {
+        if (id == 6) id = 5
+        const val: boolean[] = []
+        const route = getRoutes(id).then((res) => {
+            val.push(res.bike)
+            val.push(res.bus)
+            val.push(res.cab)
+            val.push(res.metro)
+            setValues(val)
+        })
+    }, [id])
     return (
         <>
             <Card
@@ -107,26 +123,31 @@ const SavedJobCard = ({
                         >
                             {location}
                         </Typography>
-                        <Stack
-                            direction="row"
+                        <Box
                             sx={{
-                                width: '144px',
-                                height: '24px',
                                 display: 'flex',
-                                justifyContent: 'space-between',
-                                pt: '-20px',
-                                position: 'relative',
-                                top: '15px',
+                                justifyContent: 'flex-start',
+                                marginTop: '11px',
+                                width: '140px',
                             }}
                         >
-                            <Icon src="bus" />
-                            <Icon src="train" />
-                            <Icon
-                                src="car"
-                                sx={{ color: theme.palette.betaLow.main }}
-                            />
-                            <Icon src="bike" />
-                        </Stack>
+                            {values[0] && (
+                                <Icon src="bike" sx={{ marginRight: '16px' }} />
+                            )}
+                            {values[1] && (
+                                <Icon src="bus" sx={{ marginRight: '16px' }} />
+                            )}
+                            {values[2] && (
+                                <Icon
+                                    src="car"
+                                    sx={{
+                                        marginRight: '16px',
+                                        color: theme.palette.betaLow.main,
+                                    }}
+                                />
+                            )}
+                            {values[3] && <Icon src="train" />}
+                        </Box>
                     </CardContent>
                 </Box>
                 <CardActions

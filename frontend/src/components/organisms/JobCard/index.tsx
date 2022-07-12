@@ -1,10 +1,14 @@
 import { Box, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Icon from '../../atoms/Icon'
-import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
+import {
+    COMMON_ROUTES_AVAILABLE,
+    RouteProps,
+} from '../../../constants/constants'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
+import { getRoutes } from '../../services/routesService'
 
 const styles = makeStyles({
     flexRow: {
@@ -26,6 +30,7 @@ const styles = makeStyles({
 })
 
 type JobCardProps = {
+    id: number
     src: imageTypes
     role: string
     companyName: string
@@ -34,12 +39,26 @@ type JobCardProps = {
 }
 
 export const JobCard = ({
+    id,
     src,
     role,
     companyName,
     location,
     time,
 }: JobCardProps) => {
+    const [values, setValues] = useState<boolean[]>([])
+
+    useEffect(() => {
+        if (id == 6) id = 5
+        const val: boolean[] = []
+        const route = getRoutes(id).then((res) => {
+            val.push(res.bike)
+            val.push(res.bus)
+            val.push(res.cab)
+            val.push(res.metro)
+            setValues(val)
+        })
+    }, [id])
     const classes = styles()
     return (
         <>
@@ -79,16 +98,22 @@ export const JobCard = ({
                             width: '140px',
                         }}
                     >
-                        <Icon src="bike" sx={{ marginRight: '16px' }} />
-                        <Icon src="bus" sx={{ marginRight: '16px' }} />
-                        <Icon
-                            src="car"
-                            sx={{
-                                marginRight: '16px',
-                                color: theme.palette.betaLow.main,
-                            }}
-                        />
-                        <Icon src="train" />
+                        {values[0] && (
+                            <Icon src="bike" sx={{ marginRight: '16px' }} />
+                        )}
+                        {values[1] && (
+                            <Icon src="bus" sx={{ marginRight: '16px' }} />
+                        )}
+                        {values[2] && (
+                            <Icon
+                                src="car"
+                                sx={{
+                                    marginRight: '16px',
+                                    color: theme.palette.betaLow.main,
+                                }}
+                            />
+                        )}
+                        {values[3] && <Icon src="train" />}
                     </Box>
                     <Typography
                         variant="caption2"

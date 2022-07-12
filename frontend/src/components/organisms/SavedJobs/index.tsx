@@ -86,6 +86,7 @@ export const SavedJobs = () => {
                                                     }}
                                                 >
                                                     <SavedJobCard
+                                                        id={d.id}
                                                         src={d.image}
                                                         role={d.role}
                                                         companyName={

@@ -47,8 +47,5 @@ export const getAllJobsBySkillsAndLocation = async ({
 export const getAllFilteredJobs = (filterData: any) => {
     const data = jobList
     if (filterData.length === 0) return data
-    const result = data.filter((job: JOBCARDPROPS) =>
-        filterData.includes(job.distance)
-    )
-    return result
+    return data.filter((job: JOBCARDPROPS) => filterData.includes(job.distance))
 }
