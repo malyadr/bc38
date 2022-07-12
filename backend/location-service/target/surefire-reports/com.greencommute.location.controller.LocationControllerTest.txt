@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.greencommute.location.controller.LocationControllerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.105 s - in com.greencommute.location.controller.LocationControllerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.306 s - in com.greencommute.location.controller.LocationControllerTest

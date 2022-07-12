@@ -29,8 +29,4 @@ eureka:
     service-url:
       defaultZone: http://3.144.240.106:8761/eureka/
   instance:
-<<<<<<< HEAD
     hostname: 3.144.240.106
-=======
-    hostname: 3.144.240.106
->>>>>>> front

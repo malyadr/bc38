@@ -1,9 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-savedjobs-service,com.greencommute.savedjobs.exceptions,JobNotFoundExceptionHandler,41,3,0,0,10,1,2,1,2,1
-savedjobs-service,com.greencommute.savedjobs.exceptions,JobNotFoundException,13,0,0,0,6,0,3,0,3,0
-savedjobs-service,com.greencommute.savedjobs.exceptions,SavedJobErrorResponse,46,0,0,0,7,0,10,0,10,0
-savedjobs-service,com.greencommute.savedjobs.service,SavedJobServiceImpl,12,89,4,6,2,20,4,5,0,4
-savedjobs-service,com.greencommute.savedjobs.entity,SavedJob,0,36,0,0,0,6,0,8,0,8
-savedjobs-service,com.greencommute.savedjobs.valueobjects,Job,0,76,0,0,0,10,0,16,0,16
-savedjobs-service,com.greencommute.savedjobs.controller,SavedJobController,0,33,0,0,0,6,0,4,0,4
-savedjobs-service,com.greencommute.savedjobs,SavedjobsServiceApplication,5,3,0,0,2,1,1,1,1,1
