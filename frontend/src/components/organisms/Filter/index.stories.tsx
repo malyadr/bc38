@@ -8,6 +8,7 @@ export default {
 
 export const FilterPopup = () => (
     <Popup
+        data={[]}
         setData={() => {
             undefined
         }}

@@ -18,11 +18,11 @@ import {
     SKILL_DETAILS,
     SEE_MORE,
     GREEN_COMMUTE_ROUTE,
+    JOBCARDPROPS,
+    dummy,
 } from '../../../constants/constants'
 import Img from '../../atoms/Image'
-import { RootState, StoreDispatch } from '../../../store/store'
-import { useSelector, useDispatch } from 'react-redux'
-import { getJobById, updateJobSavedStatus } from '../../../features/JobSlice'
+import { GetJobById } from '../../services/FindJobsService'
 
 interface DetailCardProps {
     id: number
@@ -30,24 +30,18 @@ interface DetailCardProps {
 }
 
 const DetailCard = ({ id, setState }: DetailCardProps) => {
+    const [job, setJob] = useState<JOBCARDPROPS>(dummy)
     const [commuteClickStatus, setCommuteClickStatus] = useState<boolean>(false)
-    const { job } = useSelector((state: RootState) => state.jobData)
-    const dispatch = useDispatch<StoreDispatch>()
-
-    useEffect(() => {
-        dispatch(getJobById(id))
-    }, [id])
 
     const goBack = () => {
         setCommuteClickStatus(false)
     }
-
-    const handleState = async () => {
-        await dispatch(updateJobSavedStatus({ id: id, saved: job.saved }))
-        if (setState) {
-            setState()
-        }
-    }
+    useEffect(() => {
+        const jobPromise = GetJobById(id)
+        jobPromise.then((result) => {
+            setJob(result)
+        })
+    }, [id])
 
     return (
         <>
@@ -55,7 +49,6 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                 variant="outlined"
                 sx={{
                     width: '450px',
-                    // height: '670px',
                     borderRadius: '12px',
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,
@@ -74,7 +67,7 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                 >
                     <Stack direction="row" sx={{ width: '404px' }}>
                         <Grid item sx={{ marginRight: '20px' }}>
-                            <Img src={job.image} />
+                            <Img src={job.id == 3 ? 'bmw' : job.image} />
                         </Grid>
                         <Grid item sx={{ width: '404px', marginRight: '20px' }}>
                             <Grid>
@@ -91,7 +84,7 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                                         variant="caption2"
                                         color="betaMedium.main"
                                     >
-                                        {job.company}
+                                        {job.companyName}
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -99,7 +92,7 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                                         variant="caption2"
                                         color="betaMedium.main"
                                     >
-                                        {job.jobLocation}
+                                        {job.locationId.locationName}
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -126,11 +119,8 @@ const DetailCard = ({ id, setState }: DetailCardProps) => {
                                                         width: '99px',
                                                         height: '32px',
                                                     }}
-                                                    onClick={handleState}
                                                 >
-                                                    {job.saved
-                                                        ? 'Unsave'
-                                                        : SAVE}
+                                                    {SAVE}
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
