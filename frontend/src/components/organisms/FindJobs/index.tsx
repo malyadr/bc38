@@ -184,9 +184,7 @@ export const FindJobs = () => {
                                         >
                                             <JobCard
                                                 id={j.id}
-                                                src={
-                                                    j.id == 3 ? 'bmw' : j.image
-                                                }
+                                                src={j.image}
                                                 role={j.role}
                                                 companyName={j.companyName}
                                                 location={
@@ -229,11 +227,7 @@ export const FindJobs = () => {
                                             >
                                                 <SavedJobCard
                                                     id={d.id}
-                                                    src={
-                                                        d.id == 3
-                                                            ? 'bmw'
-                                                            : d.image
-                                                    }
+                                                    src={d.image}
                                                     role={d.role}
                                                     companyName={d.companyName}
                                                     location={

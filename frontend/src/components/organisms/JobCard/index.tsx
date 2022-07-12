@@ -2,10 +2,7 @@ import { Box, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import React, { useEffect, useState } from 'react'
 import Icon from '../../atoms/Icon'
-import {
-    COMMON_ROUTES_AVAILABLE,
-    RouteProps,
-} from '../../../constants/constants'
+import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
 import { getRoutes } from '../../services/routesService'
@@ -49,13 +46,9 @@ export const JobCard = ({
     const [values, setValues] = useState<boolean[]>([])
 
     useEffect(() => {
-        if (id == 6) id = 5
         const val: boolean[] = []
-        const route = getRoutes(id).then((res) => {
-            val.push(res.bike)
-            val.push(res.bus)
-            val.push(res.cab)
-            val.push(res.metro)
+        getRoutes(id).then((res) => {
+            val.push(res.bike, res.bus, res.cab, res.metro)
             setValues(val)
         })
     }, [id])

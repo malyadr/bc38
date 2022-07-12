@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-    Box,
-    Card,
-    CardContent,
-    CardActions,
-    Typography,
-    Stack,
-} from '@mui/material'
+import { Box, Card, CardContent, CardActions, Typography } from '@mui/material'
 import Icon from '../../atoms/Icon'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
@@ -44,13 +37,9 @@ const SavedJobCard = ({
     const [values, setValues] = useState<boolean[]>([])
 
     useEffect(() => {
-        if (id == 6) id = 5
         const val: boolean[] = []
-        const route = getRoutes(id).then((res) => {
-            val.push(res.bike)
-            val.push(res.bus)
-            val.push(res.cab)
-            val.push(res.metro)
+        getRoutes(id).then((res) => {
+            val.push(res.bike, res.bus, res.cab, res.metro)
             setValues(val)
         })
     }, [id])

@@ -34,13 +34,9 @@ const DetailCard = ({ id }: DetailCardProps) => {
     const [values, setValues] = useState<boolean[]>([])
 
     useEffect(() => {
-        if (id == 6) id = 5
         const val: boolean[] = []
-        const route = getRoutes(id).then((res) => {
-            val.push(res.bike)
-            val.push(res.bus)
-            val.push(res.cab)
-            val.push(res.metro)
+        getRoutes(id).then((res) => {
+            val.push(res.bike, res.bus, res.cab, res.metro)
             setValues(val)
         })
     }, [id])
@@ -82,7 +78,7 @@ const DetailCard = ({ id }: DetailCardProps) => {
                 >
                     <Stack direction="row" sx={{ width: '404px' }}>
                         <Grid item sx={{ marginRight: '20px' }}>
-                            <Img src={job.id == 3 ? 'bmw' : job.image} />
+                            <Img src={job.image} />
                         </Grid>
                         <Grid item sx={{ width: '404px', marginRight: '20px' }}>
                             <Grid>
