@@ -3,21 +3,21 @@ version: '3.1'
 services:
 
   service-registry :
-    image: malyadr/service_bootcamp38:1
+    image: malyadr/service_bootcamp3811:1
     container_name: service
     restart: always
     ports:
      - 8761:8761
 
   cloud-gateway : 
-    image: malyadr/cloud_bootcamp3812:1
+    image: malyadr/cloud_bootcamp3811:1
     container_name: cloudgateway 
     restart: always
     ports:
      - 9191:9191
 
   appliedjobs-service :
-    image: malyadr/applied_bootcamp38:1
+    image: malyadr/applied_bootcamp3811:1
     container_name: appliedjobs
     restart: always
     ports:
@@ -26,7 +26,7 @@ services:
        - cloud-gateway 
   
   job-service:
-    image: malyadr/job_bootcamp38:1
+    image: malyadr/job_bootcamp3811:1
     container_name: job-service
     restart: always
     ports:
@@ -35,7 +35,7 @@ services:
        - cloud-gateway 
 
   location-service :
-    image: malyadr/location_bootcamp38:1
+    image: malyadr/location_bootcamp3811:1
     container_name: location-service
     restart: always
     ports:
@@ -44,7 +44,7 @@ services:
        - cloud-gateway 
 
   routes-service :
-    image: malyadr/routes_bootcamp38:1
+    image: malyadr/routes_bootcamp3811:1
     container_name: routes-service
     restart: always
     ports:
@@ -53,7 +53,7 @@ services:
        - cloud-gateway 
   
   savedjobs-service :
-    image: malyadr/savedjobs_bootcamp38:1
+    image: malyadr/savedjobs_bootcamp3811:1
     container_name: savedjobs
     restart: always
     ports:
@@ -63,7 +63,7 @@ services:
 
 
   skills-service :
-    image: malyadr/skills_bootcamp38:1
+    image: malyadr/skills_bootcamp3811:1
     container_name: skills
     restart: always
     ports:
