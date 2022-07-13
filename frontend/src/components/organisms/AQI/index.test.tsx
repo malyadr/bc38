@@ -2,14 +2,20 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { AQI } from '.'
 const defaultValue = {
-    currentLocation: 'hyderabad',
-    jobLocation: ['hyderabad', 'mumbai'],
-    mySkills: ['hyderabad', 'mumbai'],
-}
-const emptyValue = {
-    currentLocation: '',
-    jobLocation: [],
-    mySkills: [],
+    currentLocation: {
+        name: 'hyderabad',
+        aqi: 894,
+    },
+    jobLocation: [
+        {
+            name: 'hyderabad',
+            aqi: 894,
+        },
+    ],
+    mySkills: {
+        skills: ['ux'],
+        numberOfJobs: 5,
+    },
 }
 
 it('render step 2', () => {
@@ -20,15 +26,4 @@ it('render step 0', () => {
 })
 it('render step 1', () => {
     render(<AQI details={defaultValue} step={1}></AQI>)
-})
-
-it('render when details are empty adn step is 0', () => {
-    render(<AQI details={emptyValue} step={0}></AQI>)
-})
-
-it('render when details are empty adn step is 1', () => {
-    render(<AQI details={emptyValue} step={1}></AQI>)
-})
-it('render when details are empty adn step is 2', () => {
-    render(<AQI details={emptyValue} step={2}></AQI>)
 })
