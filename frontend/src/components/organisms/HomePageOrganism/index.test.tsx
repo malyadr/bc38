@@ -58,6 +58,8 @@ it('renders navbar', () => {
     )
     const backButton = screen.getByText(/Back/i)
     fireEvent.click(backButton)
+    const Next = screen.getByText(/Next/i)
+    fireEvent.click(Next)
 })
 
 it('renders navbar', () => {
@@ -65,7 +67,7 @@ it('renders navbar', () => {
         <BrowserRouter>
             <ThemeProvider theme={customTheme}>
                 <HomePageOrganism
-                    activeStep={1}
+                    activeStep={2}
                     setActiveStep={() => undefined}
                     setDetails={() => undefined}
                     details={dummy}
