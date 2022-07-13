@@ -26,50 +26,44 @@ docker build and push:
     script:
         - cd backend
         - cd appliedjobs-service
-        - docker build . -t applied388:1
-        - docker tag applied388:1 "$REGISTRY_USER"/applied_bc388:1
-        - docker push "$REGISTRY_USER"/applied_bc388:1
+        - docker build . -t applied3:1
+        - docker tag applied3:1 "$REGISTRY_USER"/applied_bc3:1
+        - docker push "$REGISTRY_USER"/applied_bc3:1
         - cd ..
         - cd cloud-gateway
-        - docker build . -t cloud388:1
-        - docker tag cloud388:1 "$REGISTRY_USER"/cloud_bc388:1
-        - docker push "$REGISTRY_USER"/cloud_bc388:1 
+        - docker build . -t cloud3:1
+        - docker tag cloud3:1 "$REGISTRY_USER"/cloud_bc3:1
+        - docker push "$REGISTRY_USER"/cloud_bc3:1 
         - cd .. 
         - cd job-service
-        - docker build . -t job388:1
-        - docker tag job388:1 "$REGISTRY_USER"/job_bc388:1
-        - docker push "$REGISTRY_USER"/job_bc388:1 
+        - docker build . -t job3:1
+        - docker tag job3:1 "$REGISTRY_USER"/job_bc3:1
+        - docker push "$REGISTRY_USER"/job_bc3:1 
         - cd ..
         - cd location-service
-        - docker build . -t location388:1
-        - docker tag location388:1 "$REGISTRY_USER"/location_bc388:1
-        - docker push "$REGISTRY_USER"/location_bc388:1
+        - docker build . -t location3:1
+        - docker tag location3:1 "$REGISTRY_USER"/location_bc3:1
+        - docker push "$REGISTRY_USER"/location_bc3:1
         - cd ..
         - cd routes-service
-        - docker build . -t routes388:1
-        - docker tag routes388:1 "$REGISTRY_USER"/routes_bc388:1
-        - docker push "$REGISTRY_USER"/routes_bc388:1
+        - docker build . -t routes3:1
+        - docker tag routes3:1 "$REGISTRY_USER"/routes_bc3:1
+        - docker push "$REGISTRY_USER"/routes_bc3:1
         - cd ..
         - cd savedjobs-service
-        - docker build . -t savedjobs388:1
-        - docker tag savedjobs388:1 "$REGISTRY_USER"/savedjobs_bc388:1
-        - docker push "$REGISTRY_USER"/savedjobs_bc388:1
+        - docker build . -t savedjobs3:1
+        - docker tag savedjobs3:1 "$REGISTRY_USER"/savedjobs_bc3:1
+        - docker push "$REGISTRY_USER"/savedjobs_bc3:1
         - cd ..
         - cd service-registry
-<<<<<<< HEAD
-        - docker build . -t service388:1
-        - docker tag service388:1 "$REGISTRY_USER"/service_bc388:1
-        - docker push "$REGISTRY_USER"/service_bc388:1
-=======
         - docker build . -t service3:1
         - docker tag service3:1 "$REGISTRY_USER"/service_bc3:1
         - docker push "$REGISTRY_USER"/service_bc3:1
->>>>>>> backend
         - cd ..
         - cd skills-service
-        - docker build . -t skills388:1
-        - docker tag skills388:1 "$REGISTRY_USER"/skills_bc388:1
-        - docker push "$REGISTRY_USER"/skills_bc388:1
+        - docker build . -t skills3:1
+        - docker tag skills3:1 "$REGISTRY_USER"/skills_bc3:1
+        - docker push "$REGISTRY_USER"/skills_bc3:1
     environment:
        name: staging
        url:
