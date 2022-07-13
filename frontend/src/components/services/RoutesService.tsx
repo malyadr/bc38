@@ -1,6 +1,4 @@
-import { GetJobById, jobList } from './FindJobsService'
-import { JOBCARDPROPS, RouteProps } from '../../constants/constants'
-import axios from 'axios'
+import { RouteProps } from '../../constants/constants'
 import api from '../../../api'
 
 export let savedJobs: RouteProps

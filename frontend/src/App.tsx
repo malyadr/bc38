@@ -5,16 +5,26 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 type Step = 0 | 1 | 2
 
+interface LocationProps {
+    name: string;
+    aqi: number;
+}
+
+interface SkillsProps {
+    skills: string[],
+    numberOfJobs: number;
+}
+
 interface DetailsProps {
-    currentLocation: string
-    jobLocation: string[]
-    mySkills: string[]
+    currentLocation: LocationProps;
+    jobLocation: LocationProps[];
+    mySkills: SkillsProps;
 }
 
 const defaultValue = {
-    currentLocation: '',
+    currentLocation: {name: '', aqi: 0},
     jobLocation: [],
-    mySkills: [],
+    mySkills: {skills: [], numberOfJobs: 0},
 }
 
 function App() {
@@ -33,7 +43,7 @@ function App() {
                 />
                 <Route
                     path="/findJobs"
-                    element={<HomePage details={details.currentLocation} />}
+                    element={<HomePage details={details.currentLocation.name} />}
                 />
             </Routes>
         </Router>

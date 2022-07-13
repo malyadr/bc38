@@ -22,13 +22,26 @@ import {
 } from '../../../constants/constants'
 import { useNavigate } from 'react-router-dom'
 import Img from '../../atoms/Image'
+import { getAqiByJobLocations, getAqiByLocationName } from '../../services/LocationService'
+import { getNoOfJobsHasSkills } from '../../services/SkillsService'
 
 type Step = 0 | 1 | 2
-interface DetailsProps {
-    currentLocation: string
-    jobLocation: string[]
-    mySkills: string[]
+interface LocationProps {
+    name: string
+    aqi: number
 }
+
+interface SkillsProps {
+    skills: string[]
+    numberOfJobs: number
+}
+
+interface DetailsProps {
+    currentLocation: LocationProps
+    jobLocation: LocationProps[]
+    mySkills: SkillsProps
+}
+
 type HomePageOrganismProps = {
     activeStep: 0 | 1 | 2
     setActiveStep: React.Dispatch<React.SetStateAction<Step>>
@@ -47,11 +60,13 @@ export const HomePageOrganism = ({
         }
         return ''
     }
+
+
     const [title, setTitle] = useState(STEPPER[0])
 
-    const [location, setLocation] = useState<string>('')
-    const [jobLocation, setJobLocation] = useState<string[]>([])
-    const [mySkills, setMySkills] = useState<string[]>([])
+    const [location, setLocation] = useState<LocationProps>({name: '', aqi: 0})
+    const [jobLocation, setJobLocation] = useState<LocationProps[]>([])
+    const [mySkills, setMySkills] = useState<SkillsProps>({skills: [], numberOfJobs: 0})
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -66,14 +81,29 @@ export const HomePageOrganism = ({
         setDetails({ ...details, mySkills: mySkills })
     }, [mySkills])
 
-    const updateLocation = (currLoc: string): void => {
-        setLocation(currLoc)
+    const updateLocation =  (currLoc: string) => {
+        const aqiPromise =  getAqiByLocationName(currLoc);
+        aqiPromise.then((res: number) => {
+            setLocation({
+                name: currLoc,
+                aqi: res
+            })
+        })
     }
-    const updateJobLocation = (currJobLoc: string[]): void => {
-        setJobLocation(currJobLoc)
+    const updateJobLocation =  (currJobLoc: string[]) => {
+        const jobLocationsPromise =  getAqiByJobLocations(currJobLoc);
+        jobLocationsPromise.then((res:LocationProps[]) => {
+            setJobLocation(res);
+        })
+       
+        
     }
-    const updateSkills = (allSkills: string[]): void => {
-        setMySkills(allSkills)
+    const updateSkills =  (allSkills: string[]) => {
+        const noOfJobsPromise =  getNoOfJobsHasSkills(allSkills);
+        noOfJobsPromise.then((res: number)=> {
+            setMySkills({skills: allSkills, numberOfJobs: res})
+        })
+        
     }
 
     const handleNextTitle = () => {
@@ -121,14 +151,14 @@ export const HomePageOrganism = ({
             options = STEPPER_TWO_OPTIONS
             updateData = updateJobLocation
             uniqueKey = 1
-            backTextValue = details.jobLocation
+            backTextValue = details.jobLocation.map(detail => detail.name);
         }
         if (ActiveStep == 2) {
             placeholder = PLACEHOLDER[2]
             options = STEPPER_THREE_OPTIONS
             updateData = updateSkills
             uniqueKey = 2
-            backTextValue = details.mySkills
+            backTextValue = details.mySkills.skills
         }
         return ActiveStep != 0 ? (
             <InputChip
@@ -152,7 +182,7 @@ export const HomePageOrganism = ({
                         xl: '400px',
                     },
                 }}
-                value={setLocationValue(location)}
+                value={setLocationValue(location.name)}
                 renderInput={(params) => (
                     <TextField
                         {...params}
@@ -171,12 +201,7 @@ export const HomePageOrganism = ({
                             textOverflow: 'ellipsis',
                         }}
                         placeholder={placeholder}
-                        inputProps={{
-                            style: {
-                                color: theme.palette.betaLow.main,
-                                height: '5px',
-                            },
-                        }}
+                        
                     />
                 )}
             />

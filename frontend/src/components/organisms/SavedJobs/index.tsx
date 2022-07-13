@@ -5,18 +5,17 @@ import DetailCard from '../DetailCard'
 import SavedJobCard from '../SavedJobCard'
 import { JOBCARDPROPS } from '../../../constants/constants'
 import theme from '../../../theme/customTheme'
-import { RootState, StoreDispatch } from '../../../store/store'
-import { useSelector, useDispatch } from 'react-redux'
-import { getAllSavedJobs } from '../../../features/JobsSlice'
+import { getAllSavedJobs } from '../../services/SavedJobService'
 
 export const SavedJobs = () => {
     const [id, setId] = useState<number>(0)
-
-    const dispatch = useDispatch<StoreDispatch>()
-    const { jobs } = useSelector((states: RootState) => states.jobsData)
+    const [jobs, setJobs] = useState<JOBCARDPROPS[]>([])
     const [state, setState] = useState<number>(0)
     useEffect(() => {
-        dispatch(getAllSavedJobs())
+        const savedJobs = getAllSavedJobs();
+        savedJobs.then((savedjobs: JOBCARDPROPS[]) => {
+            setJobs(savedjobs);
+        })
     }, [state])
 
     useEffect(() => {
@@ -32,12 +31,6 @@ export const SavedJobs = () => {
 
     const handleIdStatus = (uniqueId: number) => {
         setId(uniqueId)
-    }
-
-    const handleState = () => {
-        setTimeout(() => {
-            setState(state + 1)
-        }, 200)
     }
 
     return (
@@ -110,7 +103,7 @@ export const SavedJobs = () => {
                                         {jobs.length !== 0 && id !== 0 && (
                                             <DetailCard
                                                 id={id}
-                                                setState={handleState}
+                                                setState={setState}
                                             />
                                         )}
                                     </Box>

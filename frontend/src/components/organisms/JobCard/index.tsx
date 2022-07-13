@@ -5,7 +5,7 @@ import Icon from '../../atoms/Icon'
 import { COMMON_ROUTES_AVAILABLE } from '../../../constants/constants'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
-import { getRoutes } from '../../services/routesService'
+import { getRoutes } from '../../services/RoutesService'
 
 const styles = makeStyles({
     flexRow: {

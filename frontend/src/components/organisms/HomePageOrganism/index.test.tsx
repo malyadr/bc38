@@ -5,47 +5,74 @@ import { HomePageOrganism } from './'
 import { ThemeProvider } from '@mui/material/styles'
 import customTheme from '../../../theme/customTheme'
 import { fireEvent } from '@storybook/testing-library'
-import {BrowserRouter} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 const mockFunction = jest.fn()
 
 const dummy = {
-    currentLocation: "",
-    jobLocation: [],
-    mySkills: []
+    currentLocation: {
+        name: 'hyderabad',
+        aqi: 894,
+    },
+    jobLocation: [
+        {
+            name: 'hyderabad',
+            aqi: 894,
+        },
+    ],
+    mySkills: {
+        skills: ['ux'],
+        numberOfJobs: 5,
+    },
 }
 
 it('renders navbar', () => {
     render(
         <BrowserRouter>
-        <ThemeProvider theme={customTheme}>
-            <HomePageOrganism activeStep={0} setActiveStep={() => undefined} setDetails={() => undefined} details={dummy} />
-        </ThemeProvider>
-        </BrowserRouter >
+            <ThemeProvider theme={customTheme}>
+                <HomePageOrganism
+                    activeStep={0}
+                    setActiveStep={() => undefined}
+                    setDetails={() => undefined}
+                    details={dummy}
+                />
+            </ThemeProvider>
+        </BrowserRouter>
     )
     const nextButton = screen.getByText(/Next/i)
     fireEvent.click(nextButton)
-    // expect(mockFunction).toBeCalled()
 })
 
 it('renders navbar', () => {
     render(
         <BrowserRouter>
-        <ThemeProvider theme={customTheme}>
-            <HomePageOrganism activeStep={1} setActiveStep={() => undefined} setDetails={() => undefined} details={dummy} />
-        </ThemeProvider>
+            <ThemeProvider theme={customTheme}>
+                <HomePageOrganism
+                    activeStep={1}
+                    setActiveStep={() => undefined}
+                    setDetails={() => undefined}
+                    details={dummy}
+                />
+            </ThemeProvider>
         </BrowserRouter>
     )
     const backButton = screen.getByText(/Back/i)
     fireEvent.click(backButton)
+    const Next = screen.getByText(/Next/i)
+    fireEvent.click(Next)
 })
 
 it('renders navbar', () => {
     render(
         <BrowserRouter>
-        <ThemeProvider theme={customTheme}>
-            <HomePageOrganism activeStep={1} setActiveStep={() => undefined} setDetails={() => undefined} details={dummy} />
-        </ThemeProvider>
+            <ThemeProvider theme={customTheme}>
+                <HomePageOrganism
+                    activeStep={2}
+                    setActiveStep={() => undefined}
+                    setDetails={() => undefined}
+                    details={dummy}
+                />
+            </ThemeProvider>
         </BrowserRouter>
     )
 })

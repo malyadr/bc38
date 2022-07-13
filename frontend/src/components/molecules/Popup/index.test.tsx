@@ -16,7 +16,7 @@ describe('Pop Test', () => {
                     ): void {
                         throw new Error('Function not implemented.')
                     }}
-                    applied={false}
+                    applied={true}
                 />
             </MUIThemeProvider>
         )

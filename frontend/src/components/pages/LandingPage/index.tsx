@@ -4,17 +4,26 @@ import { HomePageOrganism } from '../../organisms/HomePageOrganism'
 import LandingPageTemplate from '../../templates/LandingPageTemplate'
 
 type Step = 0 | 1 | 2
+interface LocationProps {
+    name: string
+    aqi: number
+}
+
+interface SkillsProps {
+    skills: string[]
+    numberOfJobs: number
+}
 
 interface DetailsProps {
-    currentLocation: string
-    jobLocation: string[]
-    mySkills: string[]
+    currentLocation: LocationProps
+    jobLocation: LocationProps[]
+    mySkills: SkillsProps
 }
 
 const defaultValue = {
-    currentLocation: '',
+    currentLocation: { name: '', aqi: 0 },
     jobLocation: [],
-    mySkills: [],
+    mySkills: { skills: [], numberOfJobs: 0 },
 }
 
 interface LandingPageProps {
@@ -23,7 +32,6 @@ interface LandingPageProps {
 }
 const LandingPage = ({ details, setDetails }: LandingPageProps) => {
     const [step, setStep] = useState<Step>(0)
-    // const [details, setDetails] = useState<DetailsProps>(defaultValue)
 
     useEffect(() => {
         console.log('details = ', details)
