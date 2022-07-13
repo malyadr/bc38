@@ -56,9 +56,15 @@ docker build and push:
         - docker push "$REGISTRY_USER"/savedjobs_bc388:1
         - cd ..
         - cd service-registry
+<<<<<<< HEAD
         - docker build . -t service388:1
         - docker tag service388:1 "$REGISTRY_USER"/service_bc388:1
         - docker push "$REGISTRY_USER"/service_bc388:1
+=======
+        - docker build . -t service3:1
+        - docker tag service3:1 "$REGISTRY_USER"/service_bc3:1
+        - docker push "$REGISTRY_USER"/service_bc3:1
+>>>>>>> backend
         - cd ..
         - cd skills-service
         - docker build . -t skills388:1
