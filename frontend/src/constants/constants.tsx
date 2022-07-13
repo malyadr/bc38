@@ -222,7 +222,7 @@ export const STEPPER_TWO_OPTIONS = [
     'Chandigarh',
 ]
 
-export const STEPPER_THREE_OPTIONS = ['UI/UX Designer', 'Graphic Designer']
+export const STEPPER_THREE_OPTIONS = ['User Experience Designer', 'Backend Developer']
 export const PLACEHOLDER = [
     'Enter your Location',
     'Enter your job location',

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/appliedJobs")
-@CrossOrigin(origins = "http://localhost:4000")
 public class ApplyJobController {
 
     @Autowired

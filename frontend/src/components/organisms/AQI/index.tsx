@@ -85,7 +85,7 @@ export const AQI = ({ details, step }: AqiProps) => {
                 </Stack>
             )
         } else if (step === 2 && details.mySkills.skills.length != 0) {
-            return <AqiIndicator index={'6'} size={'large'}></AqiIndicator>
+            return <AqiIndicator index={details.mySkills.numberOfJobs.toString()} size={'large'}></AqiIndicator>
         } else {
             return <Img src={imgSrc()} />
         }
@@ -94,10 +94,10 @@ export const AQI = ({ details, step }: AqiProps) => {
         let location1 = 'Jobs found in '
         const length = details.jobLocation.length
         for (let i = 0; i < length - 1; i++) {
-            location1 += details.jobLocation[i]
+            location1 += details.jobLocation[i].name
             location1 += ' and '
         }
-        location1 += details.jobLocation[length - 1]
+        location1 += details.jobLocation[length - 1].name
         return location1
     }
     const condition = () => {

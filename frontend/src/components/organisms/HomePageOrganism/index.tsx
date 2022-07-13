@@ -99,13 +99,13 @@ export const HomePageOrganism = ({
         
     }
     const updateSkills =  (allSkills: string[]) => {
-        const noOfJobsPromise =  getNoOfJobsHasSkills(allSkills);
+        const noOfJobsPromise =  getNoOfJobsHasSkills(allSkills,  jobLocation.map((job) => job.name));
         noOfJobsPromise.then((res: number)=> {
             setMySkills({skills: allSkills, numberOfJobs: res})
         })
         
     }
-
+ 
     const handleNextTitle = () => {
         if (activeStep == 0) {
             setTitle(STEPPER[1])

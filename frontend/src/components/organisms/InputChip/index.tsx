@@ -12,6 +12,7 @@ const style = {
             borderColor: 'alpha200.main',
         },
     },
+    textOverflow: 'ellipsis',
 }
 
 const emptyString = "";
