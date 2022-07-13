@@ -4,7 +4,7 @@ import Icon from '../../atoms/Icon'
 import theme, { imageTypes } from '../../../theme/customTheme'
 import Img from '../../atoms/Image'
 import { makeStyles } from '@mui/styles'
-import { getRoutes } from '../../services/routesService'
+import { getRoutes } from '../../services/RoutesService'
 
 const styles = makeStyles({
     root: {

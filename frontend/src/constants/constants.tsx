@@ -59,6 +59,7 @@ export const FILE_UPLOAD_TEXT = 'Click Here to Upload Files'
 export const NEXT = 'Next'
 export const BACK = 'Back'
 export const SAVE = 'Save'
+export const UNSAVE = "Unsave"
 export const APPLY = 'Apply'
 export const DESCRIPTION = 'Description'
 export const SKIP = 'Skip'
@@ -209,7 +210,7 @@ export const STEPPER = [
 export const LANDING_TITLE = 'More than 2000 people are using Green Commute'
 
 export const STEPPER_ONE_OPTIONS = [
-    'E Marredpally, Secunderabad, Hyderabad',
+    'Hyderabad',
     'Faridabad',
     'Mumbai',
     'Chandigarh',

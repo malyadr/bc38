@@ -10,10 +10,20 @@ import {
 } from '../../../constants/constants'
 import Img from '../../atoms/Image'
 
+interface LocationProps {
+    name: string
+    aqi: number
+}
+
+interface SkillsProps {
+    skills: string[]
+    numberOfJobs: number
+}
+
 interface DetailsProps {
-    currentLocation: string
-    jobLocation: string[]
-    mySkills: string[]
+    currentLocation: LocationProps
+    jobLocation: LocationProps[]
+    mySkills: SkillsProps
 }
 
 interface AqiProps {
@@ -30,8 +40,8 @@ export const AQI = ({ details, step }: AqiProps) => {
     const renderComponent = () => {
         if (
             step === 0 &&
-            details.currentLocation !== '' &&
-            details.currentLocation !== null
+            details.currentLocation.name !== '' &&
+            details.currentLocation.name !== null
         ) {
             return (
                 <Box
@@ -43,15 +53,15 @@ export const AQI = ({ details, step }: AqiProps) => {
                         width: '320px',
                     }}
                 >
-                    <AqiIndicator index={'500'} size={'large'}></AqiIndicator>
+                    <AqiIndicator index={details.currentLocation.aqi.toString()} size={'large'}></AqiIndicator>
                 </Box>
             )
         } else if (step === 1 && details.jobLocation.length != 0) {
             return (
                 <Stack direction="column" gap="32px">
-                    {details.jobLocation.map((d: any) => (
+                    {details.jobLocation.map((d: LocationProps, index: number) => (
                         <Box
-                            key={d.id}
+                            key={index}
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -61,20 +71,20 @@ export const AQI = ({ details, step }: AqiProps) => {
                             }}
                         >
                             <AqiIndicator
-                                index={'500'}
+                                index={d.aqi.toString()}
                                 size={'small'}
                             ></AqiIndicator>
                             <Typography
                                 variant="h2"
                                 color={theme.palette.gammaAccent2.main}
                             >
-                                {d}
+                                {d.name}
                             </Typography>
                         </Box>
                     ))}
                 </Stack>
             )
-        } else if (step === 2 && details.mySkills.length != 0) {
+        } else if (step === 2 && details.mySkills.skills.length != 0) {
             return <AqiIndicator index={'6'} size={'large'}></AqiIndicator>
         } else {
             return <Img src={imgSrc()} />
@@ -102,7 +112,7 @@ export const AQI = ({ details, step }: AqiProps) => {
                         color: theme.palette.betaHigh.main,
                     }}
                 >
-                    {step == 0 && details.currentLocation !== ''
+                    {step == 0 && details.currentLocation.name !== ''
                         ? AQI_TITLE
                         : ENTER_LOCATION}
                 </Typography>
@@ -136,7 +146,7 @@ export const AQI = ({ details, step }: AqiProps) => {
                         color: theme.palette.betaHigh.main,
                     }}
                 >
-                    {details.mySkills.length !== 0 ? jobFound() : ENTER_SKILLS}
+                    {details.mySkills.skills.length !== 0 ? jobFound() : ENTER_SKILLS}
                 </Typography>
             )
         }

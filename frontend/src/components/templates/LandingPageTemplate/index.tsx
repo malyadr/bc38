@@ -1,6 +1,5 @@
-import { Stack, Paper, Box } from '@mui/material'
+import { Stack, Paper} from '@mui/material'
 import React from 'react'
-import Img from '../../atoms/Image'
 
 interface TemplateProps {
     left?: React.ReactNode

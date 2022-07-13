@@ -9,7 +9,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { Button1 } from '../../molecules/Button'
 import { Routes } from '../JobRoutes'
-import { getRoutes } from '../../services/routesService'
+import { getRoutes } from '../../services/RoutesService'
 import {
     SAVE,
     DESCRIPTION,
@@ -21,17 +21,21 @@ import {
     GREEN_COMMUTE_ROUTE,
     JOBCARDPROPS,
     dummy,
+    UNSAVE,
 } from '../../../constants/constants'
 import Img from '../../atoms/Image'
 import { GetJobById } from '../../services/FindJobsService'
+import { getJobSavedStatusById, updateJobSavedStatus } from '../../services/SavedJobService'
 
 interface DetailCardProps {
     id: number
-    setState?: () => void
+    setState?: React.Dispatch<React.SetStateAction<number>>
 }
 
-const DetailCard = ({ id }: DetailCardProps) => {
+const DetailCard = ({ id, setState }: DetailCardProps) => {
     const [values, setValues] = useState<boolean[]>([])
+    const [status, setStatus] = useState<number>(-1);
+    const [savedClickStatus, setSavedClickStatus] = useState<boolean>(false);
 
     useEffect(() => {
         const val: boolean[] = []
@@ -48,11 +52,29 @@ const DetailCard = ({ id }: DetailCardProps) => {
         setCommuteClickStatus(false)
     }
     useEffect(() => {
+        if (status !== -1) {
+            const savedStatus = updateJobSavedStatus(id)
+            savedStatus.then((res: number) => {
+                if (setState) {
+                    setState((prev) => prev + 1)
+                }
+                setStatus(res)
+            })
+        }
+        
+    }, [savedClickStatus])
+    useEffect(() => {
         const jobPromise = GetJobById(id)
         jobPromise.then((result) => {
             setJob(result)
         })
+        const savedStatus = getJobSavedStatusById(id);
+        savedStatus.then((result: number) => {
+            setStatus(result);
+        })
     }, [id])
+
+    
 
     return (
         <>
@@ -130,8 +152,13 @@ const DetailCard = ({ id }: DetailCardProps) => {
                                                         width: '99px',
                                                         height: '32px',
                                                     }}
+                                                    onClick={() => {
+                                                        setSavedClickStatus(!savedClickStatus)
+                                                        
+                                                        
+                                                    }}
                                                 >
-                                                    {SAVE}
+                                                    {status === 0 ? SAVE : UNSAVE }
                                                 </Button1>
                                             </Grid>
                                             <Grid item>
