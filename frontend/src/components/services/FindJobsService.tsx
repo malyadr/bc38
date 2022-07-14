@@ -24,20 +24,18 @@ export const getAllJobsBySkillsAndLocation = async ({
     location,
 }: SearchProps) => {
     try {
-        const data = jobList
-        const response: JOBCARDPROPS[] = []
-
-        data &&
-            data.forEach((job: JOBCARDPROPS) => {
-                if (
-                    (skills != '' || location !== '') &&
-                    job.role.toLowerCase().includes(skills.toLowerCase()) &&
-                    job.locationId.locationName
-                        .toLowerCase()
-                        .includes(location.toLowerCase())
-                )
-                    response.push(job)
-            })
+        const { data } = await api.get('jobs/')
+        let response = data
+        if (location !== '' && location !== null && location !== undefined)
+            response = data.filter((job: JOBCARDPROPS) =>
+                job.locationId.locationName
+                    .toLowerCase()
+                    .includes(location.toLowerCase())
+            )
+        if (skills !== '' && skills !== null && skills !== undefined)
+            response = response.filter((job: JOBCARDPROPS) =>
+                job.role.toLowerCase().includes(skills.toLowerCase())
+            )
         return response
     } catch (err) {
         console.log(err)
