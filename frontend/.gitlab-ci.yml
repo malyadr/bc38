@@ -25,9 +25,9 @@ docker build and push:
         - echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USER" --password-stdin
     script:
         - cd frontend
-        - docker build --file front.dockerfile . -t bc38frontendre111:1
-        - docker tag bc38frontendre111:1 "$REGISTRY_USER"/frontend_bc38re111:1
-        - docker push "$REGISTRY_USER"/frontend_bc38re111:1
+        - docker build --file front.dockerfile . -t bc38frontend333:1
+        - docker tag bc38frontend333:1 "$REGISTRY_USER"/frontend_bc38re333:1
+        - docker push "$REGISTRY_USER"/frontend_bc38re333:1
 
     environment:
        name: staging
@@ -46,9 +46,9 @@ deploy:
     # - ssh ubuntu@18.223.206.231 "docker rm bootcamp"
     - ssh ubuntu@18.191.37.77 "sudo docker stop frontend"
     - ssh ubuntu@18.191.37.77 "sudo docker rm frontend"
-    - ssh ubuntu@18.191.37.77 "sudo docker rmi "$REGISTRY_USER"/frontend_bc38re11:1"
-    - ssh ubuntu@18.191.37.77 "sudo docker pull "$REGISTRY_USER"/frontend_bc38re111:1"  
-    - ssh ubuntu@18.191.37.77 "sudo docker run -d --name frontend -p  4000:4000 "$REGISTRY_USER"/frontend_bc38re111:1"
+    - ssh ubuntu@18.191.37.77 "sudo docker rmi "$REGISTRY_USER"/frontend_bc38re111:1"
+    - ssh ubuntu@18.191.37.77 "sudo docker pull "$REGISTRY_USER"/frontend_bc38re333:1"  
+    - ssh ubuntu@18.191.37.77 "sudo docker run -d --name frontend -p  4000:4000 "$REGISTRY_USER"/frontend_bc38re333:1"
     - exit
  
    
