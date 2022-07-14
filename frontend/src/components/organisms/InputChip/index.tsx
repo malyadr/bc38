@@ -5,7 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete'
 import { Chips } from '../../molecules/Chips'
 
 const style = {
-    width: '420px',
+    width: '485px',
     height: '48px',
     '& .MuiOutlinedInput-root': {
         '&.Mui-focused fieldset': {
@@ -15,7 +15,7 @@ const style = {
     textOverflow: 'ellipsis',
 }
 
-const emptyString = "";
+const emptyString = ''
 
 interface InputChipProps {
     placeholder: string

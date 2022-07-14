@@ -22,7 +22,10 @@ import {
 } from '../../../constants/constants'
 import { useNavigate } from 'react-router-dom'
 import Img from '../../atoms/Image'
-import { getAqiByJobLocations, getAqiByLocationName } from '../../services/LocationService'
+import {
+    getAqiByJobLocations,
+    getAqiByLocationName,
+} from '../../services/LocationService'
 import { getNoOfJobsHasSkills } from '../../services/SkillsService'
 
 type Step = 0 | 1 | 2
@@ -61,12 +64,17 @@ export const HomePageOrganism = ({
         return ''
     }
 
-
     const [title, setTitle] = useState(STEPPER[0])
 
-    const [location, setLocation] = useState<LocationProps>({name: '', aqi: 0})
+    const [location, setLocation] = useState<LocationProps>({
+        name: '',
+        aqi: 0,
+    })
     const [jobLocation, setJobLocation] = useState<LocationProps[]>([])
-    const [mySkills, setMySkills] = useState<SkillsProps>({skills: [], numberOfJobs: 0})
+    const [mySkills, setMySkills] = useState<SkillsProps>({
+        skills: [],
+        numberOfJobs: 0,
+    })
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -81,31 +89,31 @@ export const HomePageOrganism = ({
         setDetails({ ...details, mySkills: mySkills })
     }, [mySkills])
 
-    const updateLocation =  (currLoc: string) => {
-        const aqiPromise =  getAqiByLocationName(currLoc);
+    const updateLocation = (currLoc: string) => {
+        const aqiPromise = getAqiByLocationName(currLoc)
         aqiPromise.then((res: number) => {
             setLocation({
                 name: currLoc,
-                aqi: res
+                aqi: res,
             })
         })
     }
-    const updateJobLocation =  (currJobLoc: string[]) => {
-        const jobLocationsPromise =  getAqiByJobLocations(currJobLoc);
-        jobLocationsPromise.then((res:LocationProps[]) => {
-            setJobLocation(res);
+    const updateJobLocation = (currJobLoc: string[]) => {
+        const jobLocationsPromise = getAqiByJobLocations(currJobLoc)
+        jobLocationsPromise.then((res: LocationProps[]) => {
+            setJobLocation(res)
         })
-       
-        
     }
-    const updateSkills =  (allSkills: string[]) => {
-        const noOfJobsPromise =  getNoOfJobsHasSkills(allSkills,  jobLocation.map((job) => job.name));
-        noOfJobsPromise.then((res: number)=> {
-            setMySkills({skills: allSkills, numberOfJobs: res})
+    const updateSkills = (allSkills: string[]) => {
+        const noOfJobsPromise = getNoOfJobsHasSkills(
+            allSkills,
+            jobLocation.map((job) => job.name)
+        )
+        noOfJobsPromise.then((res: number) => {
+            setMySkills({ skills: allSkills, numberOfJobs: res })
         })
-        
     }
- 
+
     const handleNextTitle = () => {
         if (activeStep == 0) {
             setTitle(STEPPER[1])
@@ -151,7 +159,7 @@ export const HomePageOrganism = ({
             options = STEPPER_TWO_OPTIONS
             updateData = updateJobLocation
             uniqueKey = 1
-            backTextValue = details.jobLocation.map(detail => detail.name);
+            backTextValue = details.jobLocation.map((detail) => detail.name)
         }
         if (ActiveStep == 2) {
             placeholder = PLACEHOLDER[2]
@@ -188,6 +196,7 @@ export const HomePageOrganism = ({
                         {...params}
                         sx={{
                             borderColor: theme.palette.beta400.main,
+                            width: '485px',
                             height: '40px',
                             '& .MuiOutlinedInput-root': {
                                 '&.Mui-focused fieldset': {
@@ -201,7 +210,6 @@ export const HomePageOrganism = ({
                             textOverflow: 'ellipsis',
                         }}
                         placeholder={placeholder}
-                        
                     />
                 )}
             />
