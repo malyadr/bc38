@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc38-mock-svc
+  labels:
+    app: bc38-mock
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: bc38-mock
+    
+  template:
+    metadata:
+      name: bc38-mock
+      labels:
+        app: bc38-mock
+    spec:
+      containers:
+        - name: mock
+          image: ghcr.io/malyadr/mock:latest
+          ports:
+            - containerPort: 8080
+      imagePullSecrets: 
+        - name: mysecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bc38-servicemock
+  labels:
+    app: bc38-mock
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: bc38-mock      

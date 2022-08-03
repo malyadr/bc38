@@ -22,6 +22,9 @@ spec:
           image: ghcr.io/malyadr/frontend38:latest
           ports:
             - containerPort: 4000
+      env: 
+        - name: REACT_APP_BASE_URL
+          value: http://3.144.240.106:9191/      
       imagePullSecrets: 
         - name: mysecret
 ---
@@ -38,3 +41,4 @@ spec:
     targetPort: 4000
   selector:
     app: bc15-backend  
+
