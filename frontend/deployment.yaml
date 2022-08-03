@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc38-frontend-svc
+  labels:
+    app: bc38-frontend
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: bc38-frontend
+    
+  template:
+    metadata:
+      name: bc38-frontend
+      labels:
+        app: bc38-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/malyadr/frontend38:latest
+          ports:
+            - containerPort: 4000
+      imagePullSecrets: 
+        - name: mysecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bc38-service
+  labels:
+    app: bc38-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 4000
+    targetPort: 4000
+  selector:
+    app: bc15-backend  

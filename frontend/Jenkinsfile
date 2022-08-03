@@ -17,17 +17,25 @@ pipeline {
             
       }
     }
-        stage('Deploy ec2') {
+//         stage('Deploy ec2') {
+//           steps {
+//             sshagent(['ec2instance']) {
+//             sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-144-250-150.us-east-2.compute.amazonaws.com ; docker pull ghcr.io/malyadr/mock:latest"
+//             sh "docker run -d --name mock -p 8085:8080 ghcr.io/malyadr/mock:latest "
+//             sh "docker pull ghcr.io/malyadr/frontend38:latest"
+//             sh "docker run -d --name frontend -p 4000:4000 --link mock:mock ghcr.io/malyadr/frontend38:latest"
+            
+//       }
+//     }
+
+//   } 
+        stage('Deploy to eks') {
           steps {
-            sshagent(['ec2instance']) {
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-144-250-150.us-east-2.compute.amazonaws.com ; docker pull ghcr.io/malyadr/mock:latest"
-            sh "docker run -d --name mock -p 8085:8080 ghcr.io/malyadr/mock:latest "
-            sh "docker pull ghcr.io/malyadr/frontend38:latest"
-            sh "docker run -d --name frontend -p 4000:4000 --link mock:mock ghcr.io/malyadr/frontend38:latest"
+            script{
+              sh 'kubectl apply -f frontend/deployment.yaml'
+            }
             
       }
     }
-
-  } 
  }  
 } 
