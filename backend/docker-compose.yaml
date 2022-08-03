@@ -3,71 +3,52 @@ version: '3.1'
 services:
 
   service-registry :
-    image: malyadr/service_bc3:1
+    image: ghcr.io/malyadr/service-registry4:latest
     container_name: service
     restart: always
     ports:
      - 8761:8761
 
-  cloud-gateway : 
-    image: malyadr/cloud_bc3:1
+  cloud-gateway: 
+    image: ghcr.io/malyadr/cloudgateway444:latest
     container_name: cloudgateway 
     restart: always
     ports:
      - 9191:9191
 
-  appliedjobs-service :
-    image: malyadr/applied_bc3:1
-    container_name: appliedjobs
+  job-service :
+    image: ghcr.io/malyadr/job-service444:latest
+    container_name: job-service
     restart: always
     ports:
      - 9003:9003  
     depends_on:
        - cloud-gateway 
   
-  job-service:
-    image: malyadr/job_bc3:1
-    container_name: job-service
-    restart: always
-    ports:
-     - 9001:9001
-    depends_on:
-       - cloud-gateway 
-
-  location-service :
-    image: malyadr/location_bc3:1
+  location-service:
+    image: ghcr.io/malyadr/location-service444:latest
     container_name: location-service
-    restart: always
-    ports:
-     - 9006:9006
-    depends_on:
-       - cloud-gateway 
-
-  routes-service :
-    image: malyadr/routes_bc3:1
-    container_name: routes-service
-    restart: always
-    ports:
-     - 9004:9004
-    depends_on:
-       - cloud-gateway 
-  
-  savedjobs-service :
-    image: malyadr/savedjobs_bc3:1
-    container_name: savedjobs
     restart: always
     ports:
      - 9002:9002
     depends_on:
        - cloud-gateway 
 
-
-  skills-service :
-    image: malyadr/skills_bc3:1
-    container_name: skills
+  user-service:
+    image: ghcr.io/malyadr/user-service444:latest
+    container_name: user-service
     restart: always
     ports:
-     - 9005:9005   
+     - 9001:9001
     depends_on:
        - cloud-gateway 
-     
+
+  users-jobs :
+    image: ghcr.io/malyadr/users-jobs444:latest
+    container_name: users-jobs
+    restart: always
+    ports:
+     - 9005:9005
+    depends_on:
+       - cloud-gateway 
+
