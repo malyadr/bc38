@@ -7,7 +7,7 @@ pipeline {
         stage('Docker Build') {
           steps {
             sh "cd backend/appliedjobs-service ; ls ; docker build --file Dockerfile -t ghcr.io/malyadr/apply:latest ."
-            sh "cd backend/cloud-gateway ; ls ; docker build --file Dockerfile -t ghcr.io/malyadr/cloud:latest"
+            sh "cd backend/cloud-gateway ; ls ; docker build --file Dockerfile -t ghcr.io/malyadr/cloud:latest ."
       }
     }
     //     stage('Docker push') {
