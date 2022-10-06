@@ -20,14 +20,14 @@ pipeline {
     }
         stage('Docker push') {
           steps {
-            sh  "echo $DOCKERHUB_CREDENTIALS_PSW | docker login ghcr.io -u $DOCKERHUB_CREDENTIALS_USR --password-stdin; 
-            docker push  ghcr.io/malyadr/applyjenkins:latest;
-            docker push ghcr.io/malyadr/cloudjenkins:latest;
-            docker push ghcr.io/malyadr/jobjenkins:latest;
-            docker push ghcr.io/malyadr/locationjenkins:latest;
-            docker push ghcr.io/malyadr/routesjenkins:latest;
-            docker push ghcr.io/malyadr/savedjobsjenkins:latest;
-            docker push ghcr.io/malyadr/servicejenkins:latest;
+            sh  "echo $DOCKERHUB_CREDENTIALS_PSW | docker login ghcr.io -u $DOCKERHUB_CREDENTIALS_USR --password-stdin;\ 
+            docker push  ghcr.io/malyadr/applyjenkins:latest;\
+            docker push ghcr.io/malyadr/cloudjenkins:latest;\
+            docker push ghcr.io/malyadr/jobjenkins:latest;\
+            docker push ghcr.io/malyadr/locationjenkins:latest;\
+            docker push ghcr.io/malyadr/routesjenkins:latest;\
+            docker push ghcr.io/malyadr/savedjobsjenkins:latest;\
+            docker push ghcr.io/malyadr/servicejenkins:latest;\
             docker push ghcr.io/malyadr/skillsjenkins:latest"
            
             
