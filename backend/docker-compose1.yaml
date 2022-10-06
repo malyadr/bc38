@@ -1,0 +1,38 @@
+version: '3.1'
+
+services:
+
+  service-registry :
+    image: ghcr.io/malyadr/service47777:1
+    container_name: service
+    restart: always
+    ports:
+     - 8761:8761
+
+  job-microservice: 
+    image: ghcr.io/malyadr/job47777:1
+    container_name: job 
+    restart: always
+    ports:
+     - 9006:9006
+    depends_on: 
+       - service-registry 
+
+  location-microservice:
+    image: ghcr.io/malyadr/location47777:1
+    container_name: location
+    restart: always
+    ports:
+     - 9001:9001
+    depends_on:
+       - service-registry
+  
+  skills-microservice:
+    image: ghcr.io/malyadr/skills47777:1
+    container_name: skills
+    restart: always
+    ports:
+     - 9003:9003
+    depends_on:
+       - service-registry
+

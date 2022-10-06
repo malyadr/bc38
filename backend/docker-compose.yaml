@@ -3,52 +3,70 @@ version: '3.1'
 services:
 
   service-registry :
-    image: ghcr.io/malyadr/service-registry4:latest
+    image: ghcr.io/malyadr/servicejenkins:latest
     container_name: service
     restart: always
     ports:
      - 8761:8761
 
   cloud-gateway: 
-    image: ghcr.io/malyadr/cloudgateway444:latest
+    image: ghcr.io/malyadr/cloudjenkins:latest
     container_name: cloudgateway 
     restart: always
     ports:
      - 9191:9191
 
   job-service :
-    image: ghcr.io/malyadr/job-service444:latest
+    image: ghcr.io/malyadr/jobjenkins:latest
     container_name: job-service
     restart: always
     ports:
-     - 9003:9003  
+     - 9001:9001 
     depends_on:
        - cloud-gateway 
   
   location-service:
-    image: ghcr.io/malyadr/location-service444:latest
+    image: ghcr.io/malyadr/locationjenkins:latest
     container_name: location-service
+    restart: always
+    ports:
+     - 9006:9006
+    depends_on:
+       - cloud-gateway 
+
+  routes-service:
+    image: ghcr.io/malyadr/routesjenkins:latest
+    container_name: routes-service
+    restart: always
+    ports:
+     - 9004:9004
+    depends_on:
+       - cloud-gateway 
+
+  savedjobs-service:
+    image: ghcr.io/malyadr/savedjobsjenkins:latest
+    container_name: saved-jobs
     restart: always
     ports:
      - 9002:9002
     depends_on:
        - cloud-gateway 
-
-  user-service:
-    image: ghcr.io/malyadr/user-service444:latest
-    container_name: user-service
+  appliedjobs-services:
+    image: ghcr.io/malyadr/applyjenkins:latest
+    container_name: applied-jobs
     restart: always
     ports:
-     - 9001:9001
+     - 9003:9003
     depends_on:
        - cloud-gateway 
-
-  users-jobs :
-    image: ghcr.io/malyadr/users-jobs444:latest
-    container_name: users-jobs
+  skills-services:
+    image: ghcr.io/malyadr/skillsjenkins:latest
+    container_name: skills-jobs
     restart: always
     ports:
      - 9005:9005
     depends_on:
-       - cloud-gateway 
+       - cloud-gateway      
+     
+       
 
