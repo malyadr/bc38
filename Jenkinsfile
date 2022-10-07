@@ -37,7 +37,7 @@ pipeline {
         stage('Deploy ec2') {
           steps {
             sshagent(['ec2instance']) {
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-145-33-6.us-east-2.compute.amazonaws.com; docker pull ghcr.io/malyadr/applyjenkins:latest"
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-145-33-6.us-east-2.compute.amazonaws.com; docker-compose up -d"
             
       }
     }
