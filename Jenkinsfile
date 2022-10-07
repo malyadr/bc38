@@ -1,37 +1,9 @@
-// pipeline {
-//     agent any
-//     environment {
-//         DOCKERHUB_CREDENTIALS=credentials('malyadr')
-//     }
-//     stages {
-//         stage('Docker Build') {
-//           steps {
-//             sh "cd frontend ; ls ; docker build --file Dockerfile -t ghcr.io/malyadr/mock:latest ."
-//       }
-//     }
-//         stage('Docker push') {
-//           steps {
-//             sh  "echo $DOCKERHUB_CREDENTIALS_PSW | docker login ghcr.io -u $DOCKERHUB_CREDENTIALS_USR --password-stdin; docker push ghcr.io/malyadr/mock:latest"
-            
-//       }
-//     }
-//         stage('Deploy to eks') {
-//           steps {
-//             script{
-//               sh 'kubectl apply -f frontend/mockserver.yaml'
-//             }
-            
-//       }
-//     }
-//  }  
-// } 
-
 pipeline {
     agent {
          label 'my-slave'
-    }     
+    }  
     environment {
-        DOCKERHUB_CREDENTIALS=credentials('Dockerhub')
+        DOCKERHUB_CREDENTIALS=credentials('malyadr')
     }
     stages {
         stage('Docker Build') {
@@ -50,15 +22,15 @@ pipeline {
     }
         stage('Docker push') {
           steps {
-            sh  "echo $DOCKERHUB_CREDENTIALS_PSW | docker login ghcr.io -u $DOCKERHUB_CREDENTIALS_USR --password-stdin; 
-            docker push  ghcr.io/malyadr/applyjenkins:latest;
-            docker push ghcr.io/malyadr/cloudjenkins:latest;
-            docker push ghcr.io/malyadr/jobjenkins:latest;
-            docker push ghcr.io/malyadr/locationjenkins:latest;
-            docker push ghcr.io/malyadr/routesjenkins:latest;
-            docker push ghcr.io/malyadr/savedjobsjenkins:latest;
-            docker push ghcr.io/malyadr/servicejenkins:latest;
-            docker push ghcr.io/malyadr/skillsjenkins:latest"
+            sh  "echo $DOCKERHUB_CREDENTIALS_PSW | docker login ghcr.io -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+            sh "docker push  ghcr.io/malyadr/applyjenkins:latest"
+            sh "docker push ghcr.io/malyadr/cloudjenkins:latest"
+            sh "docker push ghcr.io/malyadr/jobjenkins:latest"
+            sh "docker push ghcr.io/malyadr/locationjenkins:latest"
+            sh "docker push ghcr.io/malyadr/routesjenkins:latest"
+            sh "docker push ghcr.io/malyadr/savedjobsjenkins:latest"
+            sh "docker push ghcr.io/malyadr/servicejenkins:latest"
+            sh "docker push ghcr.io/malyadr/skillsjenkins:latest"
            
             
             
@@ -67,13 +39,21 @@ pipeline {
         stage('Deploy ec2') {
           steps {
             sshagent(['ec2instance']) {
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-145-33-6.us-east-2.compute.amazonaws.com ; 
-            docker-compose up "
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-145-33-6.us-east-2.compute.amazonaws.com; docker-compose up -d"
             
       }
     }
 
- 
-  }
- } 
+  } 
+        stage('Deploy to eks') {
+          steps {
+            script{
+              sh 'kubectl apply -f frontend/mockserver.yaml'
+            }
+            
+      }
+    }
+ }  
 }
+ 
+
