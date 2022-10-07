@@ -42,17 +42,8 @@ pipeline {
       }
     }
 
-  } 
-        stage('Deploy to eks') {
-          steps {
-            script{
-              sh 'kubectl apply -f frontend/mockserver.yaml'
-            }
-            
-      }
-    }
- }  
+   } 
+ } 
 }
- 
 
 
