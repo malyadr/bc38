@@ -18,7 +18,7 @@ pipeline {
         stage('Deploy to eks') {
           steps {
             script{
-              sh " kubectl get pods "
+              sh 'kubectl apply -f frontend/mockserver.yaml'
             }
             
       }
