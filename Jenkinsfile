@@ -6,11 +6,11 @@ pipeline {
     stages {
         stage('Docker Build') {
           steps {
-            sh "cd backend/appliedjobs-service ; ls ;  docker build --file Dockerfile -t ghcr.io/malyadr/applyjenkins:latest ."
-            sh "cd backend/cloud-gateway ; ls ;  docker build --file Dockerfile -t ghcr.io/malyadr/cloudjenkins:latest . "
-            sh "cd backend/job-service; ls ;  docker build --file Dockerfile -t ghcr.io/malyadr/jobjenkins:latest . "
-            sh "cd backend/location-service; ls ;  docker build --file Dockerfile -t ghcr.io/malyadr/locationjenkins:latest . "
-            sh "cd backend/routes-service ; ls ;  docker build --file Dockerfile -t ghcr.io/malyadr/routesjenkins:latest ."
+            sh "cd backend/appliedjobs-service ; ls ; sudo docker build --file Dockerfile -t ghcr.io/malyadr/applyjenkins:latest ."
+            sh "cd backend/cloud-gateway ; ls ; sudo docker build --file Dockerfile -t ghcr.io/malyadr/cloudjenkins:latest . "
+            sh "cd backend/job-service; ls ;sudo docker build --file Dockerfile -t ghcr.io/malyadr/jobjenkins:latest . "
+            sh "cd backend/location-service; ls ; sudo docker build --file Dockerfile -t ghcr.io/malyadr/locationjenkins:latest . "
+            sh "cd backend/routes-service ; ls ; sudo docker build --file Dockerfile -t ghcr.io/malyadr/routesjenkins:latest ."
             sh "cd backend/savedjobs-service ; ls ; sudo docker build --file Dockerfile -t ghcr.io/malyadr/savedjobsjenkins:latest . "
             sh "cd backend/service-registry ; ls ; sudo docker build --file Dockerfile -t ghcr.io/malyadr/servicejenkins:latest ."
             sh "cd backend/skills-service ; ls ; sudo docker build --file Dockerfile -t ghcr.io/malyadr/skillsjenkins:latest ."
