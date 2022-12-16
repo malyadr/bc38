@@ -20,7 +20,7 @@ pipeline {
     }
         stage('Docker push') {
           steps {
-            sh  "echo $DOCKERHUB_CREDENTIALS_PSW | docker login ghcr.io -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+            sh  "echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login ghcr.io -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
             sh "sudo docker push  ghcr.io/malyadr/applyjenkins:latest"
             sh "sudo docker push ghcr.io/malyadr/cloudjenkins:latest"
             sh "sudo docker push ghcr.io/malyadr/jobjenkins:latest"
