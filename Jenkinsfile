@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     tools{
-        docker "docker"
+        dockerTool "docker"
     }  
     environment {
         DOCKERHUB_CREDENTIALS=credentials('malyadr')
